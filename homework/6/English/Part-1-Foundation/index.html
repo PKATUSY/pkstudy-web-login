@@ -1,0 +1,673 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PK STUDY | Class 6 English - Part 1: Foundation</title>
+<style>
+  :root {
+    --bg: #f4f6fb;
+    --bg-soft: #ffffff;
+    --card: #ffffff;
+    --text: #16172b;
+    --text-muted: #5b5d7a;
+    --border: #e3e5f0;
+    --accent: #6366f1;
+    --accent-2: #14b8a6;
+    --accent-3: #8b5cf6;
+    --accent-4: #f59e0b;
+    --shadow: 0 10px 30px -12px rgba(30, 30, 60, 0.15);
+    --radius: 18px;
+  }
+
+  [data-theme="dark"] {
+    --bg: #0d0e17;
+    --bg-soft: #14162399;
+    --card: #171928;
+    --text: #eef0fb;
+    --text-muted: #9294b8;
+    --border: #2a2d42;
+    --accent: #818cf8;
+    --accent-2: #2dd4bf;
+    --accent-3: #a78bfa;
+    --accent-4: #fbbf24;
+    --shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.5);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0d0e17;
+      --bg-soft: #14162399;
+      --card: #171928;
+      --text: #eef0fb;
+      --text-muted: #9294b8;
+      --border: #2a2d42;
+      --accent: #818cf8;
+      --accent-2: #2dd4bf;
+      --accent-3: #a78bfa;
+      --accent-4: #fbbf24;
+      --shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', system-ui, -apple-system, Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    transition: background .3s ease, color .3s ease;
+    padding-bottom: 60px;
+  }
+
+  a { color: var(--accent); }
+
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+  /* ---------- Header ---------- */
+  header {
+    position: sticky; top: 0; z-index: 50;
+    backdrop-filter: blur(10px);
+    background: color-mix(in srgb, var(--bg) 85%, transparent);
+    border-bottom: 1px solid var(--border);
+  }
+  .header-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 20px; max-width: 1100px; margin: 0 auto;
+  }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .brand img { height: 42px; width: 42px; object-fit: contain; border-radius: 10px; display: block; }
+  .logo-fallback {
+    height: 42px; width: 42px; border-radius: 10px; display: none;
+    align-items: center; justify-content: center; font-weight: 800; font-size: 13px;
+    color: #fff; background: linear-gradient(135deg, var(--accent), var(--accent-3));
+    letter-spacing: .5px;
+  }
+  .brand-text .name { font-weight: 800; font-size: 18px; letter-spacing: .3px; }
+  .brand-text .tag { font-size: 12px; color: var(--text-muted); }
+
+  .theme-toggle {
+    border: 1px solid var(--border); background: var(--card); color: var(--text);
+    width: 40px; height: 40px; border-radius: 50%; cursor: pointer;
+    display: flex; align-items: center; justify-content: center; font-size: 18px;
+    transition: transform .2s ease;
+  }
+  .theme-toggle:hover { transform: scale(1.08); }
+
+  /* ---------- Hero ---------- */
+  .hero { padding: 34px 0 10px; }
+  .stepper { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 22px; }
+  .step-pill {
+    font-size: 11.5px; padding: 6px 10px; border-radius: 999px; border: 1px solid var(--border);
+    color: var(--text-muted); background: var(--card); white-space: nowrap;
+  }
+  .step-pill.active {
+    background: linear-gradient(135deg, var(--accent), var(--accent-3));
+    color: #fff; border-color: transparent; font-weight: 700;
+  }
+
+  .hero h1 { font-size: clamp(24px, 4vw, 34px); margin: 0 0 8px; }
+  .hero p.lead { color: var(--text-muted); font-size: 15.5px; max-width: 720px; line-height: 1.6; }
+
+  .badge-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
+  .badge {
+    font-size: 12.5px; font-weight: 600; padding: 7px 12px; border-radius: 10px;
+    background: var(--card); border: 1px solid var(--border); color: var(--text-muted);
+  }
+
+  /* ---------- Section shell ---------- */
+  section.block { margin-top: 46px; }
+  .block-head { margin-bottom: 18px; }
+  .block-head .kicker { font-size: 12px; text-transform: uppercase; letter-spacing: 1.2px; color: var(--accent); font-weight: 700; }
+  .block-head h2 { margin: 4px 0 6px; font-size: clamp(20px, 3vw, 26px); }
+  .block-head p { color: var(--text-muted); margin: 0; font-size: 14.5px; }
+
+  .card {
+    background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+    box-shadow: var(--shadow); padding: 22px;
+  }
+
+  /* ---------- Flowchart (Roadmap) ---------- */
+  .flow {
+    display: flex; align-items: stretch; gap: 6px; overflow-x: auto; padding: 6px 2px 14px;
+  }
+  .flow-step {
+    min-width: 168px; flex: 1 0 168px; background: var(--card); border: 1px solid var(--border);
+    border-radius: 14px; padding: 16px 14px; position: relative; text-align: center;
+  }
+  .flow-step .num {
+    width: 26px; height: 26px; border-radius: 50%; margin: 0 auto 8px; display: flex;
+    align-items: center; justify-content: center; font-size: 12px; font-weight: 800; color: #fff;
+    background: linear-gradient(135deg, var(--accent), var(--accent-3));
+  }
+  .flow-step h4 { margin: 0 0 4px; font-size: 13.5px; }
+  .flow-step span { font-size: 11.5px; color: var(--text-muted); }
+  .flow-arrow { display: flex; align-items: center; justify-content: center; color: var(--accent); font-size: 20px; flex: 0 0 20px; }
+  @media (max-width: 720px) {
+    .flow { flex-direction: column; }
+    .flow-step { min-width: unset; }
+    .flow-arrow { transform: rotate(90deg); }
+  }
+
+  /* ---------- Mind map ---------- */
+  .mindmap { display: flex; flex-direction: column; align-items: center; padding: 20px 0 6px; }
+  .mm-root {
+    background: linear-gradient(135deg, var(--accent), var(--accent-3)); color: #fff;
+    font-weight: 800; padding: 14px 26px; border-radius: 999px; font-size: 16px;
+    box-shadow: var(--shadow); position: relative;
+  }
+  .mm-root::after { content: ''; position: absolute; bottom: -34px; left: 50%; width: 2px; height: 34px; background: var(--border); transform: translateX(-50%); }
+  .mm-branches { display: flex; gap: 22px; justify-content: center; flex-wrap: wrap; position: relative; padding-top: 34px; width: 100%; }
+  .mm-branch {
+    background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 16px;
+    width: 260px; position: relative;
+  }
+  .mm-branch::before { content: ''; position: absolute; top: -34px; left: 50%; width: 2px; height: 34px; background: var(--border); transform: translateX(-50%); }
+  .mm-branch h4 { margin: 0 0 10px; font-size: 14.5px; display: flex; align-items: center; gap: 8px; }
+  .mm-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .mm-branch ul { margin: 0; padding-left: 18px; font-size: 13px; line-height: 1.9; color: var(--text-muted); }
+  .mm-branch ul b { color: var(--text); }
+  @media (max-width: 700px) {
+    .mm-branch::before, .mm-root::after { display: none; }
+    .mm-branches { padding-top: 14px; }
+  }
+
+  /* ---------- Alphabet grid ---------- */
+  .alpha-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(94px, 1fr)); gap: 10px; }
+  .alpha-card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 10px 8px;
+    text-align: center; transition: transform .15s ease, border-color .15s ease;
+  }
+  .alpha-card:hover { transform: translateY(-3px); border-color: var(--accent); }
+  .alpha-card .letter { font-size: 20px; font-weight: 800; color: var(--accent); }
+  .alpha-card .say { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+  .alpha-card .word { font-size: 11px; margin-top: 4px; font-weight: 600; }
+
+  /* ---------- Flip cards (animation) ---------- */
+  .flip-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 16px; }
+  .flip-card { perspective: 1000px; height: 130px; cursor: pointer; }
+  .flip-inner {
+    position: relative; width: 100%; height: 100%; text-align: center;
+    transition: transform .6s cubic-bezier(.4,.2,.2,1); transform-style: preserve-3d;
+  }
+  .flip-card.flipped .flip-inner { transform: rotateY(180deg); }
+  .flip-front, .flip-back {
+    position: absolute; inset: 0; backface-visibility: hidden; border-radius: 14px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    border: 1px solid var(--border); padding: 8px;
+  }
+  .flip-front { background: var(--card); }
+  .flip-front .big { font-size: 24px; font-weight: 800; color: var(--accent); }
+  .flip-front small { color: var(--text-muted); font-size: 11px; margin-top: 6px; }
+  .flip-back {
+    background: linear-gradient(135deg, var(--accent), var(--accent-3)); color: #fff;
+    transform: rotateY(180deg);
+  }
+  .flip-back .say { font-weight: 700; font-size: 14px; }
+  .flip-back .ex { font-size: 12px; opacity: .9; margin-top: 6px; }
+
+  /* ---------- Typewriter ---------- */
+  .typewriter-box {
+    background: var(--card); border: 1px solid var(--border); border-radius: 14px;
+    padding: 20px; text-align: center; margin-top: 18px;
+  }
+  .typewriter-box .label { font-size: 11.5px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 10px; }
+  #typewriter { font-size: clamp(16px, 2.6vw, 22px); font-weight: 700; min-height: 32px; }
+  #typewriter .cursor { display: inline-block; width: 2px; background: var(--accent); margin-left: 2px; animation: blink 1s step-end infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+
+  /* ---------- Graph ---------- */
+  .graph-wrap { overflow-x: auto; }
+  .graph-legend { display: flex; gap: 18px; margin-top: 10px; flex-wrap: wrap; font-size: 12.5px; color: var(--text-muted); }
+  .graph-legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .legend-dot { width: 10px; height: 10px; border-radius: 3px; }
+  .bar { transition: opacity .2s ease; }
+  .bar:hover { opacity: .8; }
+
+  /* ---------- Table ---------- */
+  table.phrase-table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  table.phrase-table th, table.phrase-table td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); }
+  table.phrase-table th { color: var(--text-muted); font-size: 12px; text-transform: uppercase; letter-spacing: .5px; }
+  .tab-group { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+  .tab-btn {
+    border: 1px solid var(--border); background: var(--card); color: var(--text); padding: 8px 14px;
+    border-radius: 999px; font-size: 13px; cursor: pointer; font-weight: 600;
+  }
+  .tab-btn.active { background: linear-gradient(135deg, var(--accent), var(--accent-3)); color: #fff; border-color: transparent; }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* ---------- Checklist ---------- */
+  .checklist { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
+  .check-item {
+    display: flex; gap: 12px; background: var(--card); border: 1px solid var(--border);
+    border-radius: 12px; padding: 12px 14px; align-items: flex-start; cursor: pointer;
+  }
+  .check-item input { margin-top: 3px; width: 17px; height: 17px; accent-color: var(--accent); flex-shrink: 0; }
+  .check-item .day { font-weight: 700; font-size: 13px; }
+  .check-item .task { font-size: 12.5px; color: var(--text-muted); margin-top: 2px; }
+  .check-item.done .task, .check-item.done .day { text-decoration: line-through; opacity: .55; }
+  #progressText { font-size: 13px; color: var(--text-muted); margin-top: 14px; }
+  .progress-bar { height: 8px; background: var(--border); border-radius: 999px; overflow: hidden; margin-top: 6px; }
+  .progress-fill { height: 100%; width: 0%; background: linear-gradient(90deg, var(--accent), var(--accent-2)); transition: width .4s ease; }
+
+  /* ---------- Self intro ---------- */
+  .intro-template {
+    background: var(--card); border: 1px dashed var(--border); border-radius: 14px; padding: 20px;
+    font-size: 15px; line-height: 2.1;
+  }
+  .blank { display: inline-block; min-width: 90px; border-bottom: 2px solid var(--accent); }
+
+  footer { text-align: center; margin-top: 60px; padding: 24px 20px; color: var(--text-muted); font-size: 12.5px; border-top: 1px solid var(--border); }
+  footer .fbrand { font-weight: 800; color: var(--text); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="brand">
+      <img id="logoImg" src="logo.png" alt="PK STUDY logo" onerror="this.style.display='none'; document.getElementById('logoFallback').style.display='flex';">
+      <div id="logoFallback" class="logo-fallback">PK</div>
+      <div class="brand-text">
+        <div class="name">PK STUDY</div>
+        <div class="tag">Class 6 &middot; Spoken English Homework</div>
+      </div>
+    </div>
+    <button class="theme-toggle" id="themeToggle" title="Theme badlein">🌙</button>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <section class="hero">
+    <div class="stepper">
+      <span class="step-pill active" title="Alphabets + Greetings">1. Foundation</span>
+      <span class="step-pill" title="Roz istemal hone wali cheezein">2. Vocabulary</span>
+      <span class="step-pill" title="Subject + Verb + Object">3. Sentences</span>
+      <span class="step-pill" title="Wh-questions & Yes/No">4. Q &amp; A</span>
+      <span class="step-pill" title="Apni roz ki zindagi bataana">5. Daily Routine</span>
+      <span class="step-pill" title="Family, friends, school baatcheet">6. Conversation</span>
+      <span class="step-pill" title="Tasveer dekh kar bolna">7. Storytelling</span>
+      <span class="step-pill" title="Bina ruke bolna">8. Fluency</span>
+    </div>
+    <h1>Part 1: Foundation <span style="color:var(--text-muted); font-weight:500; font-size:0.55em;">(Week 1-2 &middot; Day 1-14)</span></h1>
+    <p class="lead">Lakshya: 26 letters ka sahi pronunciation aur roz istemal hone waale <b>Greetings</b> yaad karna, taaki English bolne ki confident shuruaat ho sake. Roz sirf 30-40 minute practice karni hai — thoda thoda, lekin rozana.</p>
+    <div class="badge-row">
+      <span class="badge">⏱️ 14 Din</span>
+      <span class="badge">🔤 26 Letters ki Sound</span>
+      <span class="badge">👋 18+ Greeting Phrases</span>
+      <span class="badge">🗣️ Self-Introduction Practice</span>
+    </div>
+  </section>
+
+  <!-- FLOWCHART -->
+  <section class="block">
+    <div class="block-head">
+      <div class="kicker">Flow Chart</div>
+      <h2>Part 1 ka Roadmap</h2>
+      <p>In 6 steps mein aage badhna hai — har step apne din ke saath.</p>
+    </div>
+    <div class="card">
+      <div class="flow">
+        <div class="flow-step"><div class="num">1</div><h4>Alphabet Sounds</h4><span>Day 1-4</span></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step"><div class="num">2</div><h4>Phonics Practice</h4><span>Day 5-7</span></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step"><div class="num">3</div><h4>Meeting Greetings</h4><span>Day 8-9</span></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step"><div class="num">4</div><h4>Parting Greetings</h4><span>Day 10-11</span></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step"><div class="num">5</div><h4>Politeness Words</h4><span>Day 12-13</span></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step"><div class="num">6</div><h4>Revision + Self-Intro</h4><span>Day 14</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MIND MAP -->
+  <section class="block">
+    <div class="block-head">
+      <div class="kicker">Mind Map</div>
+      <h2>Greetings — Ek Nazar Mein</h2>
+      <p>Greetings teen categories mein baante gaye hain, yaad karna aasan ho jayega.</p>
+    </div>
+    <div class="card">
+      <div class="mindmap">
+        <div class="mm-root">👋 Daily Greetings</div>
+        <div class="mm-branches">
+          <div class="mm-branch">
+            <h4><span class="mm-dot" style="background:#3b82f6;"></span> Milte waqt (Meeting)</h4>
+            <ul>
+              <li><b>Hello / Hi</b></li>
+              <li><b>Good Morning</b> — subah</li>
+              <li><b>Good Afternoon</b> — dopahar</li>
+              <li><b>Good Evening</b> — shaam</li>
+              <li><b>How are you?</b></li>
+            </ul>
+          </div>
+          <div class="mm-branch">
+            <h4><span class="mm-dot" style="background:#8b5cf6;"></span> Jaate waqt (Parting)</h4>
+            <ul>
+              <li><b>Goodbye / Bye</b></li>
+              <li><b>See you later</b></li>
+              <li><b>See you tomorrow</b></li>
+              <li><b>Good night</b></li>
+              <li><b>Take care</b></li>
+            </ul>
+          </div>
+          <div class="mm-branch">
+            <h4><span class="mm-dot" style="background:#14b8a6;"></span> Shishtachar (Politeness)</h4>
+            <ul>
+              <li><b>Please</b></li>
+              <li><b>Thank you</b></li>
+              <li><b>You're welcome</b></li>
+              <li><b>Sorry / Excuse me</b></li>
+              <li><b>No problem</b></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ALPHABET SOUNDS -->
+  <section class="block">
+    <div class="block-head">
+      <div class="kicker">Week 1 &middot; Day 1-7</div>
+      <h2>26 Letters — Sahi Sound Bolna Seekho</h2>
+      <p>Roz 4-5 letters yaad karo, zor se bolo. Har letter ke saath diya gaya example word bhi bolna hai.</p>
+    </div>
+    <div class="card">
+      <div class="alpha-grid" id="alphaGrid"></div>
+    </div>
+  </section>
+
+  <!-- FLASHCARDS / ANIMATION -->
+  <section class="block">
+    <div class="block-head">
+      <div class="kicker">Animation &middot; Tricky Sounds</div>
+      <h2>Card par click karke pronunciation dekho</h2>
+      <p>Yeh 8 sounds Hindi bolne walon ko sabse zyada mushkil lagti hain — inhe extra practice do (Day 5-6).</p>
+    </div>
+    <div class="card">
+      <div class="flip-grid" id="flipGrid"></div>
+    </div>
+  </section>
+
+  <!-- TYPEWRITER PRACTICE -->
+  <section class="block">
+    <div class="card typewriter-box">
+      <div class="label">Roz bolne ke liye sentence</div>
+      <div id="typewriter"><span id="twText"></span><span class="cursor">&nbsp;</span></div>
+    </div>
+  </section>
+
+  <!-- GRAPH -->
+  <section class="block">
+    <div class="block-head">
+      <div class="kicker">Graph</div>
+      <h2>14 Din ka Practice Plan</h2>
+      <p>Har din kitne naye words/phrases yaad karne hain — Day 7 aur Day 14 revision din hain.</p>
+    </div>
+    <div class="card graph-wrap">
+      <svg id="barChart" viewBox="0 0 640 220" style="width:100%; min-width:560px; height:auto;"></svg>
+      <div class="graph-legend">
+        <span><span class="legend-dot" style="background:#6366f1;"></span> Week 1 (Alphabet Sounds)</span>
+        <span><span class="legend-dot" style="background:#14b8a6;"></span> Week 2 (Greetings)</span>
+        <span><span class="legend-dot" style="background:#f59e0b;"></span> Revision Din</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHRASE TABLE -->
+  <section class="block">
+    <div class="block-head">
+      <div class="kicker">Week 2 &middot; Day 8-13</div>
+      <h2>Greetings Reference Table</h2>
+      <p>Yaad karne ke baad roz istemal karo — parivaar walon se practice karo.</p>
+    </div>
+    <div class="card">
+      <div class="tab-group" id="tabGroup">
+        <button class="tab-btn active" data-tab="meeting">Meeting</button>
+        <button class="tab-btn" data-tab="parting">Parting</button>
+        <button class="tab-btn" data-tab="polite">Politeness</button>
+      </div>
+      <div class="tab-panel active" id="tab-meeting">
+        <table class="phrase-table">
+          <thead><tr><th>English</th><th>Hindi Meaning</th><th>Kab bolein</th></tr></thead>
+          <tbody>
+            <tr><td>Hello / Hi</td><td>Namaste / Hey</td><td>Kisi se bhi milte waqt</td></tr>
+            <tr><td>Good Morning</td><td>Suprabhat</td><td>Subah (12 baje raat - 12 baje dopahar tak)</td></tr>
+            <tr><td>Good Afternoon</td><td>Shubh Dopahar</td><td>Dopahar mein (12 - 4 baje)</td></tr>
+            <tr><td>Good Evening</td><td>Shubh Sandhya</td><td>Shaam ko (4 baje ke baad)</td></tr>
+            <tr><td>How are you?</td><td>Aap kaise hain?</td><td>Haal-chaal poochhne ke liye</td></tr>
+            <tr><td>I am fine, thank you</td><td>Main theek hoon, dhanyavaad</td><td>Jawab dene ke liye</td></tr>
+            <tr><td>Nice to meet you</td><td>Aapse milkar khushi hui</td><td>Naye vyakti se milte waqt</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="tab-panel" id="tab-parting">
+        <table class="phrase-table">
+          <thead><tr><th>English</th><th>Hindi Meaning</th><th>Kab bolein</th></tr></thead>
+          <tbody>
+            <tr><td>Goodbye / Bye</td><td>Alvida</td><td>Jaate waqt</td></tr>
+            <tr><td>See you later</td><td>Baad mein milte hain</td><td>Kuch der baad milna ho</td></tr>
+            <tr><td>See you tomorrow</td><td>Kal milte hain</td><td>School se jaate waqt</td></tr>
+            <tr><td>Good night</td><td>Shubh Ratri</td><td>Sone se pehle</td></tr>
+            <tr><td>Take care</td><td>Apna dhyaan rakhna</td><td>Kisi ki care dikhaate waqt</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="tab-panel" id="tab-polite">
+        <table class="phrase-table">
+          <thead><tr><th>English</th><th>Hindi Meaning</th><th>Kab bolein</th></tr></thead>
+          <tbody>
+            <tr><td>Please</td><td>Kripya</td><td>Kuch maangte waqt</td></tr>
+            <tr><td>Thank you</td><td>Dhanyavaad</td><td>Madad milne par</td></tr>
+            <tr><td>You're welcome</td><td>Koi baat nahi</td><td>Thank you ka jawab</td></tr>
+            <tr><td>Sorry / Excuse me</td><td>Maaf kijiye</td><td>Galti hone par ya raasta maangte waqt</td></tr>
+            <tr><td>No problem</td><td>Koi baat nahi</td><td>Sorry ka jawab</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- SELF INTRO -->
+  <section class="block">
+    <div class="block-head">
+      <div class="kicker">Speaking Practice &middot; Day 14</div>
+      <h2>Apna Self-Introduction Taiyar Karo</h2>
+      <p>In blanks ko apni jaankari se bharo, phir mirror ke saamne 5 baar zor se bolo.</p>
+    </div>
+    <div class="card intro-template">
+      Hello! Good morning. My name is <span class="blank">&nbsp;</span>.<br>
+      I am <span class="blank">&nbsp;</span> years old.<br>
+      I study in Class 6, at <span class="blank">&nbsp;</span> school.<br>
+      I live in <span class="blank">&nbsp;</span>.<br>
+      My favourite subject is <span class="blank">&nbsp;</span>.<br>
+      Nice to meet you. Thank you!
+    </div>
+  </section>
+
+  <!-- CHECKLIST -->
+  <section class="block">
+    <div class="block-head">
+      <div class="kicker">Daily Checklist</div>
+      <h2>14 Din ka Progress Tracker</h2>
+      <p>Har din ka kaam pura karne ke baad checkbox par click karo.</p>
+    </div>
+    <div class="card">
+      <div class="checklist" id="checklist"></div>
+      <div id="progressText">0 / 14 din pure hue</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="fbrand">PK STUDY</div>
+  Class 6 &middot; Spoken English Homework &middot; Part 1 of 8 — Foundation
+</footer>
+
+<script>
+  /* ---------- THEME ---------- */
+  const root = document.documentElement;
+  const themeToggle = document.getElementById('themeToggle');
+  function applyTheme(t) {
+    root.setAttribute('data-theme', t);
+    themeToggle.textContent = t === 'dark' ? '☀️' : '🌙';
+  }
+  const saved = localStorage.getItem('pk-theme');
+  applyTheme(saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+  themeToggle.addEventListener('click', () => {
+    const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    applyTheme(next);
+    localStorage.setItem('pk-theme', next);
+  });
+
+  /* ---------- ALPHABET GRID ---------- */
+  const alphabets = [
+    ['A','e (apple)','Apple'], ['B','bee','Ball'], ['C','see','Cat'], ['D','dee','Dog'],
+    ['E','ee','Egg'], ['F','ef','Fish'], ['G','jee','Goat'], ['H','aitch','Hat'],
+    ['I','ai (short i)','Ink'], ['J','jay','Jug'], ['K','kay','Kite'], ['L','el','Lion'],
+    ['M','em','Mango'], ['N','en','Nose'], ['O','o (orange)','Orange'], ['P','pee','Pen'],
+    ['Q','kyoo','Queen'], ['R','aar (rolled)','Rat'], ['S','es','Sun'], ['T','tee','Tiger'],
+    ['U','yoo/uh','Umbrella'], ['V','vee','Van'], ['W','dabl-yoo','Water'], ['X','eks','Box'],
+    ['Y','way','Yak'], ['Z','zed/zee','Zebra']
+  ];
+  const alphaGrid = document.getElementById('alphaGrid');
+  alphabets.forEach(([letter, say, word]) => {
+    const div = document.createElement('div');
+    div.className = 'alpha-card';
+    div.innerHTML = `<div class="letter">${letter}</div><div class="say">${say}</div><div class="word">${word}</div>`;
+    alphaGrid.appendChild(div);
+  });
+
+  /* ---------- FLIP CARDS ---------- */
+  const trickySounds = [
+    ['TH', 'th (jeebh daanto ke beech)', 'Think, This'],
+    ['SH', 'sh', 'Ship, Fish'],
+    ['CH', 'ch', 'Chair, Church'],
+    ['R', 'r (halka rolled)', 'Red, Run'],
+    ['EE', 'ee (lambi)', 'Bee, See'],
+    ['OO', 'oo (lambi)', 'Moon, Food'],
+    ['V', 'v (upper teeth+lip)', 'Van, Voice'],
+    ['W', 'w (gol hont)', 'Water, We']
+  ];
+  const flipGrid = document.getElementById('flipGrid');
+  trickySounds.forEach(([sound, say, ex]) => {
+    const card = document.createElement('div');
+    card.className = 'flip-card';
+    card.innerHTML = `
+      <div class="flip-inner">
+        <div class="flip-front"><div class="big">${sound}</div><small>Click karo</small></div>
+        <div class="flip-back"><div class="say">${say}</div><div class="ex">${ex}</div></div>
+      </div>`;
+    card.addEventListener('click', () => card.classList.toggle('flipped'));
+    flipGrid.appendChild(card);
+  });
+
+  /* ---------- TYPEWRITER ---------- */
+  const sentences = [
+    "Good morning! My name is Riya.",
+    "Thank you very much!",
+    "How are you today?",
+    "Nice to meet you!"
+  ];
+  let sIndex = 0, cIndex = 0, deleting = false;
+  const twText = document.getElementById('twText');
+  function typeLoop() {
+    const current = sentences[sIndex];
+    if (!deleting) {
+      cIndex++;
+      twText.textContent = current.slice(0, cIndex);
+      if (cIndex === current.length) { deleting = true; setTimeout(typeLoop, 1400); return; }
+    } else {
+      cIndex--;
+      twText.textContent = current.slice(0, cIndex);
+      if (cIndex === 0) { deleting = false; sIndex = (sIndex + 1) % sentences.length; }
+    }
+    setTimeout(typeLoop, deleting ? 35 : 65);
+  }
+  typeLoop();
+
+  /* ---------- BAR CHART (GRAPH) ---------- */
+  const dayData = [5,5,5,5,4,4,0, 4,4,4,4,4,4,0]; // words/phrases target per day, 0 = revision day
+  const svg = document.getElementById('barChart');
+  const w = 640, h = 220, padL = 30, padB = 26, padT = 10;
+  const chartW = w - padL - 10, chartH = h - padB - padT;
+  const barW = chartW / dayData.length * 0.62;
+  const gap = chartW / dayData.length;
+  const maxVal = 6;
+  let svgHTML = `<line x1="${padL}" y1="${padT}" x2="${padL}" y2="${h-padB}" stroke="var(--border)" stroke-width="1"/>`;
+  svgHTML += `<line x1="${padL}" y1="${h-padB}" x2="${w-10}" y2="${h-padB}" stroke="var(--border)" stroke-width="1"/>`;
+  dayData.forEach((val, i) => {
+    const isRevision = val === 0;
+    const barH = isRevision ? 14 : (val / maxVal) * chartH;
+    const x = padL + i * gap + (gap - barW) / 2;
+    const y = h - padB - barH;
+    const color = isRevision ? '#f59e0b' : (i < 7 ? '#6366f1' : '#14b8a6');
+    svgHTML += `<rect class="bar" x="${x}" y="${y}" width="${barW}" height="${barH}" rx="4" fill="${color}"><title>Day ${i+1}: ${isRevision ? 'Revision Day' : val + ' items yaad karna hai'}</title></rect>`;
+    svgHTML += `<text x="${x + barW/2}" y="${h-padB+16}" font-size="9.5" text-anchor="middle" fill="var(--text-muted)">D${i+1}</text>`;
+  });
+  svg.innerHTML = svgHTML;
+
+  /* ---------- TABS ---------- */
+  document.getElementById('tabGroup').addEventListener('click', (e) => {
+    const btn = e.target.closest('.tab-btn');
+    if (!btn) return;
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+  });
+
+  /* ---------- CHECKLIST ---------- */
+  const tasks = [
+    "Letters A-F ki sound practice karo (10 baar zor se bolo)",
+    "Letters G-M ki sound practice karo",
+    "Letters N-S ki sound practice karo",
+    "Letters T-Z ki sound practice karo",
+    "Tricky sounds: TH, SH, CH — mirror ke saamne practice karo",
+    "Tricky sounds: R, V, W aur short vowels practice karo",
+    "Revision Day — sabhi 26 letters dohrao, kisi bade se sunwao",
+    "Meeting greetings yaad karo: Hello, Good Morning/Afternoon/Evening",
+    "\"How are you?\" ka roleplay kisi family member ke saath karo",
+    "Parting greetings yaad karo: Goodbye, See you, Good night, Take care",
+    "Parting greetings ka roleplay practice karo",
+    "Politeness words yaad karo: Please, Thank you, Sorry, Excuse me",
+    "Poore din in politeness words ka istemal ghar mein karo",
+    "Final Revision — Self-introduction 5 baar bolo aur record karo"
+  ];
+  const checklistEl = document.getElementById('checklist');
+  const saveKey = 'pk-hw-class6-english-part1';
+  let state = JSON.parse(localStorage.getItem(saveKey) || '{}');
+
+  function updateProgress() {
+    const done = tasks.filter((_, i) => state[i]).length;
+    document.getElementById('progressText').textContent = `${done} / ${tasks.length} din pure hue`;
+    document.getElementById('progressFill').style.width = (done / tasks.length * 100) + '%';
+  }
+
+  tasks.forEach((task, i) => {
+    const item = document.createElement('label');
+    item.className = 'check-item' + (state[i] ? ' done' : '');
+    item.innerHTML = `<input type="checkbox" ${state[i] ? 'checked' : ''}>
+      <div><div class="day">Day ${i+1}</div><div class="task">${task}</div></div>`;
+    const cb = item.querySelector('input');
+    cb.addEventListener('change', () => {
+      state[i] = cb.checked;
+      item.classList.toggle('done', cb.checked);
+      localStorage.setItem(saveKey, JSON.stringify(state));
+      updateProgress();
+    });
+    checklistEl.appendChild(item);
+  });
+  updateProgress();
+</script>
+
+</body>
+</html>
