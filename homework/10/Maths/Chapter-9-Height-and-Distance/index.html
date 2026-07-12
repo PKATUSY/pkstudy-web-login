@@ -99,6 +99,12 @@ b.hi{color:var(--pink); font-weight:900;} b.hi2{color:var(--green); font-weight:
 .example-card .qtext{font-size:13.5px; font-weight:700; color:var(--heading); margin-bottom:14px; line-height:1.7;}
 .example-card .slabel{font-size:11px; font-weight:900; color:var(--green); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;}
 .example-card .stext{font-size:13px; color:var(--dim); line-height:1.9; font-weight:500; background:var(--glass-strong); padding:12px 14px; border-radius:10px; white-space:pre-line;}
+.show-ans-btn{padding:9px 20px; border-radius:10px; border:1.5px solid var(--green); background:transparent; color:var(--green);
+  font-weight:800; font-size:12px; cursor:pointer; transition:.2s;}
+.show-ans-btn:hover{background:var(--green); color:#04050f;}
+.show-ans-btn.open{background:var(--green); color:#04050f;}
+.ans-wrap{margin-top:14px; display:none;}
+.ans-wrap.open{display:block;}
 
 .hw-card{padding:18px 20px;}
 .hw-card ol{margin:0; padding-left:20px; font-size:13px; color:var(--dim); line-height:2; font-weight:500;}
@@ -309,9 +315,17 @@ function buildFormulaSheet(){
 function buildQA(containerId, data, labelPrefix){
   const wrap = document.getElementById(containerId);
   data.forEach((item)=>{
-    const d = el('div','glass example-card', `<div class="qlabel">${labelPrefix}</div><div class="qtext">${item.q}</div><div class="slabel">हल (Solution)</div><div class="stext">${item.s}</div>`);
+    const d = el('div','glass example-card', `<div class="qlabel">${labelPrefix}</div><div class="qtext">${item.q}</div>
+      <button class="show-ans-btn" onclick="toggleAnswer(this)">उत्तर दिखाएँ (Show Answer)</button>
+      <div class="ans-wrap"><div class="slabel">हल (Solution)</div><div class="stext">${item.s}</div></div>`);
     wrap.appendChild(d);
   });
+}
+function toggleAnswer(btn){
+  const wrap = btn.nextElementSibling;
+  const isOpen = wrap.classList.toggle('open');
+  btn.classList.toggle('open', isOpen);
+  btn.textContent = isOpen ? 'उत्तर छुपाएँ (Hide Answer)' : 'उत्तर दिखाएँ (Show Answer)';
 }
 function buildHomework(){
   const g = document.getElementById('homeworkList');
