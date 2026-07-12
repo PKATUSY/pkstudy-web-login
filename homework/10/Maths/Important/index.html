@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PK STUDY | Class 10 Maths — 100 Important Objective Questions</title>
+<style>
+:root{
+  --bg:#04050f; --glass:rgba(255,255,255,.045); --glass-strong:rgba(255,255,255,.08);
+  --border:rgba(255,255,255,.12); --text:#f2f6ff; --dim:#9fb0da; --heading:#ffffff;
+  --neon-blue:#3ea6ff; --cyan:#33e0ff; --purple:#b07dff; --gold:#ffc233;
+  --green:#2ee6a6; --orange:#ff9f43; --pink:#ff4d8d; --red:#ff4f4f;
+  --shadow:0 22px 46px -22px #000d; --hshadow:0 30px 56px -20px #000f;
+}
+[data-theme="light"]{
+  --bg:#f6f8fd; --glass:rgba(20,30,65,.045); --glass-strong:rgba(20,30,65,.08);
+  --border:rgba(20,30,65,.12); --text:#161c33; --dim:#535f82; --heading:#12172b;
+  --neon-blue:#2563eb; --cyan:#0891b2; --purple:#7c3aed; --gold:#b45309;
+  --green:#059669; --orange:#c2410c; --pink:#db2777; --red:#dc2626;
+  --shadow:0 18px 36px -20px rgba(30,40,80,.18); --hshadow:0 24px 44px -18px rgba(30,40,80,.24);
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Segoe UI','Noto Sans Devanagari',Arial,sans-serif; color:var(--text); min-height:100vh; overflow-x:hidden;
+  transition:background .4s, color .4s;
+  background:
+    radial-gradient(ellipse at 10% -10%, #1c3a9955, transparent 55%),
+    radial-gradient(ellipse at 95% 10%, #7a2ab866, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, #0a5a6e44, transparent 55%),
+    linear-gradient(180deg,#04050f,#020208 90%);
+}
+[data-theme="light"] body{
+  background:
+    radial-gradient(ellipse at 10% -10%, #dbe4ff99, transparent 55%),
+    radial-gradient(ellipse at 95% 10%, #ede0ff99, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, #d7f5f099, transparent 55%),
+    linear-gradient(180deg,#f8faff,#eef1f9 90%);
+}
+::-webkit-scrollbar{width:8px;} ::-webkit-scrollbar-thumb{background:var(--neon-blue); border-radius:6px;} ::-webkit-scrollbar-track{background:transparent;}
+
+.glass{background:var(--glass); border:1px solid var(--border); border-radius:18px; backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+  box-shadow:var(--shadow), inset 0 1px 0 #ffffff12;}
+
+header{position:sticky; top:0; z-index:200; display:flex; align-items:center; justify-content:space-between; padding:14px 26px;
+  background:rgba(4,5,15,.75); backdrop-filter:blur(18px); border-bottom:1px solid var(--border); flex-wrap:wrap; gap:10px; transition:background .4s;}
+[data-theme="light"] header{background:rgba(255,255,255,.8);}
+.brand{display:flex; align-items:center; gap:12px;}
+.brand img{width:44px; height:44px; border-radius:10px; object-fit:cover; border:2px solid var(--neon-blue); box-shadow:0 0 18px #3ea6ff88;}
+.logo-fallback{width:44px; height:44px; border-radius:10px; display:flex; align-items:center; justify-content:center;
+  background:linear-gradient(135deg,var(--neon-blue),#1f3d8c); font-weight:900; font-size:12px; border:2px solid var(--cyan); color:#fff;}
+.brand-text .name{font-weight:900; font-size:18px; color:var(--cyan); letter-spacing:.5px;}
+.brand-text .tag{font-size:11px; color:var(--dim); font-weight:600;}
+.theme-btn{flex-shrink:0; width:40px; height:40px; border-radius:12px; border:1px solid var(--border); background:var(--glass-strong);
+  color:var(--text); font-size:17px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:.25s;}
+.theme-btn:hover{border-color:var(--neon-blue); transform:translateY(-2px);}
+
+.hero{position:relative; padding:60px 6vw 30px; text-align:center;}
+.eyebrow{display:inline-block; padding:7px 22px; border-radius:30px; color:#04050f; font-size:12px; font-weight:900;
+  letter-spacing:2px; text-transform:uppercase; margin-bottom:20px;
+  background:linear-gradient(120deg,var(--gold),var(--orange),var(--pink),var(--purple),var(--cyan));
+  box-shadow:0 10px 26px -6px #000b;}
+.hero h1{font-size:clamp(24px,5vw,44px); font-weight:900; line-height:1.3;
+  background:linear-gradient(90deg,var(--neon-blue),var(--cyan) 35%,var(--purple) 65%,var(--pink)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+.hero .en{font-size:15px; color:var(--dim); font-weight:700; margin-top:10px;}
+.hero p{color:var(--dim); max-width:760px; margin:20px auto 0; font-size:14px; line-height:1.9; font-weight:500;}
+
+.chip-nav{display:flex; flex-wrap:wrap; gap:8px; justify-content:center; max-width:1000px; margin:26px auto 0; padding:0 6vw;}
+.chip-nav a{font-size:11.5px; font-weight:700; padding:7px 14px; border-radius:16px; border:1px solid var(--border);
+  background:var(--glass-strong); color:var(--dim); text-decoration:none; transition:.2s;}
+.chip-nav a:hover{color:var(--heading); border-color:var(--neon-blue);}
+
+section{position:relative; padding:40px 6vw; max-width:1200px; margin:0 auto;}
+.sec-head{display:flex; align-items:center; gap:14px; margin-bottom:22px;}
+.sec-num{width:40px; height:40px; border-radius:12px; flex-shrink:0; display:flex; align-items:center; justify-content:center;
+  font-weight:900; font-size:14px; color:#04050f; box-shadow:0 8px 22px -6px var(--glow,#3ea6ff99); border:2px solid #ffffffaa;}
+.sec-head h2{font-size:clamp(17px,2.6vw,22px); font-weight:900; color:var(--heading);}
+.sec-head .sub{color:var(--dim); font-size:12px; font-weight:600; margin-top:2px;}
+
+.mcq-card{padding:16px 18px; margin-bottom:12px;}
+.mcq-card .qlabel{font-size:11px; font-weight:900; color:var(--gold); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;}
+.mcq-card .qtext{font-size:13.5px; font-weight:700; color:var(--heading); margin-bottom:12px; line-height:1.6;}
+.mcq-opts{list-style:none; margin:0 0 12px; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:8px;}
+@media(max-width:600px){.mcq-opts{grid-template-columns:1fr;}}
+.mcq-opts li{padding:8px 12px; border-radius:8px; border:1px solid var(--border); font-size:12.5px; color:var(--dim); font-weight:600; background:var(--glass-strong);}
+.mcq-opts.revealed li.correct{background:linear-gradient(120deg,var(--green),#1a9c70); color:#04050f; border-color:transparent; font-weight:900;}
+.show-ans-btn{padding:7px 16px; border-radius:10px; border:1.5px solid var(--green); background:transparent; color:var(--green);
+  font-weight:800; font-size:11.5px; cursor:pointer; transition:.2s;}
+.show-ans-btn:hover{background:var(--green); color:#04050f;}
+.show-ans-btn.open{background:var(--green); color:#04050f;}
+
+footer{text-align:center; padding:50px 6vw 70px; color:var(--dim); font-size:12.5px; border-top:1px solid var(--border); margin-top:30px; font-weight:600;}
+footer .name{color:var(--cyan); font-weight:900; font-size:16px;}
+footer .copy{margin-top:18px; font-size:11px; color:var(--dim); opacity:.8;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <img src="images/1000043468.png" alt="PK STUDY" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="logo-fallback" style="display:none;">PK</div>
+    <div class="brand-text"><div class="name">PK STUDY</div><div class="tag">Class 10 • Maths • Important Objective</div></div>
+  </div>
+  <button class="theme-btn" id="themeToggle" onclick="toggleTheme()" title="Dark/Light Mode">🌙</button>
+</header>
+
+<!-- ============ HERO ============ -->
+<div class="hero">
+  <span class="eyebrow">कक्षा 10 · गणित · बिहार बोर्ड</span>
+  <h1>100 महत्वपूर्ण Objective Questions</h1>
+  <div class="en">All 15 Chapters — Most Repeated Exam Questions</div>
+  <p>यह वे Objective (MCQ) प्रश्न हैं जो Bihar Board Matric गणित परीक्षा में हर साल किसी न किसी रूप में पूछे जाते हैं — सभी 15 अध्यायों से चुने गए हैं। हर प्रश्न में 4 विकल्प दिए गए हैं, उत्तर देखने के लिए "उत्तर दिखाएँ" बटन दबाएँ।</p>
+</div>
+
+<div class="chip-nav" id="chipNav"></div>
+
+<section id="mcqSection">
+  <div id="chaptersWrap"></div>
+</section>
+
+<footer>
+  <span class="name">PK STUDY</span> — 100/100 Questions Covered
+  <div class="copy">Class 10 · Maths · Important Objective Questions — PK STUDY, All Copyright Reserved</div>
+</footer>
+
+<script>
+function toggleTheme(){
+  const html = document.documentElement;
+  const isLight = html.getAttribute('data-theme') === 'light';
+  html.setAttribute('data-theme', isLight ? '' : 'light');
+  document.getElementById('themeToggle').textContent = isLight ? '🌙' : '☀️';
+}
+function el(tag, cls, html){ const d=document.createElement(tag); if(cls)d.className=cls; if(html!==undefined)d.innerHTML=html; return d; }
+
+const chapters = [
+{
+  name: "अध्याय 1: वास्तविक संख्याएँ",
+  qs: [
+    {q:"दो धनात्मक पूर्णांकों a और b के लिए HCF(a,b) × LCM(a,b) = ?", opts:["a + b","a − b","a × b","a ÷ b"], c:2},
+    {q:"√2 है:", opts:["परिमेय संख्या","अपरिमेय संख्या","पूर्णांक","प्राकृत संख्या"], c:1},
+    {q:"यूक्लिड विभाजन एल्गोरिथ्म a = bq + r में r की शर्त है:", opts:["0 ≤ r < b","0 < r ≤ b","0 ≤ r ≤ b","r > b"], c:0},
+    {q:"दो अभाज्य संख्याओं का HCF होता है:", opts:["0","1","दोनों का गुणनफल","दोनों में बड़ी संख्या"], c:1},
+    {q:"6 और 20 का HCF है:", opts:["1","2","4","10"], c:1},
+    {q:"किसी परिमेय संख्या p/q (जहाँ p, q सहअभाज्य हैं) का दशमलव प्रसार सांत होगा यदि q का अभाज्य गुणनखंडन हो:", opts:["2ᵐ × 5ⁿ रूप में","केवल 3 के गुणज","केवल 7 के गुणज","कोई भी संख्या"], c:0},
+    {q:"12, 15 और 21 का LCM है:", opts:["3","105","420","210"], c:2},
+    {q:"3 और 5 सहअभाज्य संख्याएँ हैं क्योंकि इनका HCF है:", opts:["0","1","15","3"], c:1}
+  ]
+},
+{
+  name: "अध्याय 2: बहुपद",
+  qs: [
+    {q:"एक द्विघात बहुपद के अधिकतम कितने शून्यक हो सकते हैं?", opts:["1","2","3","0"], c:1},
+    {q:"बहुपद p(x) = ax² + bx + c (a≠0) के शून्यकों का योग है:", opts:["b/a","−b/a","c/a","−c/a"], c:1},
+    {q:"बहुपद के शून्यकों का गुणनफल है:", opts:["b/a","−b/a","c/a","−c/a"], c:2},
+    {q:"एक रैखिक बहुपद के कितने शून्यक होते हैं?", opts:["0","1","2","अनंत"], c:1},
+    {q:"त्रिघात बहुपद के अधिकतम शून्यकों की संख्या है:", opts:["1","2","3","4"], c:2},
+    {q:"बहुपद x² − 5x + 6 के शून्यक हैं:", opts:["2, 3","1, 6","−2, −3","2, −3"], c:0}
+  ]
+},
+{
+  name: "अध्याय 3: दो चरों वाले रैखिक समीकरण युग्म",
+  qs: [
+    {q:"रैखिक समीकरण युग्म a₁x+b₁y+c₁=0 और a₂x+b₂y+c₂=0 संगत (अद्वितीय हल) होगा यदि:", opts:["a₁/a₂ = b₁/b₂","a₁/a₂ ≠ b₁/b₂","a₁/a₂ = b₁/b₂ = c₁/c₂","a₁/a₂ = b₁/b₂ ≠ c₁/c₂"], c:1},
+    {q:"समीकरण युग्म असंगत (कोई हल नहीं) होगा यदि:", opts:["a₁/a₂ ≠ b₁/b₂","a₁/a₂ = b₁/b₂ = c₁/c₂","a₁/a₂ = b₁/b₂ ≠ c₁/c₂","इनमें कोई नहीं"], c:2},
+    {q:"समीकरण युग्म के अपरिमित रूप से अनेक हल होंगे यदि:", opts:["a₁/a₂ ≠ b₁/b₂","a₁/a₂ = b₁/b₂ = c₁/c₂","a₁/a₂ = b₁/b₂ ≠ c₁/c₂","कोई नहीं"], c:1},
+    {q:"ग्राफ पर दो समांतर रेखाएँ दर्शाती हैं:", opts:["अद्वितीय हल","कोई हल नहीं","अपरिमित हल","शून्य हल"], c:1},
+    {q:"दो प्रतिच्छेदी रेखाएँ दर्शाती हैं:", opts:["कोई हल नहीं","अद्वितीय हल","अपरिमित हल","दो हल"], c:1},
+    {q:"समीकरण युग्म हल करने की बीजगणितीय विधियाँ हैं:", opts:["केवल ग्राफ विधि","प्रतिस्थापन व विलोपन विधि","केवल गुणा विधि","कोई नहीं"], c:1},
+    {q:"x + y = 5 और 2x + 2y = 10 समीकरण युग्म है:", opts:["संगत व अद्वितीय हल","असंगत","संगत व अपरिमित हल","कोई हल नहीं"], c:2},
+    {q:"x + 2y = 4 और 2x + 4y = 12 समीकरण युग्म है:", opts:["संगत व अद्वितीय हल","असंगत","संगत व अपरिमित हल","शून्य हल"], c:1}
+  ]
+},
+{
+  name: "अध्याय 4: द्विघात समीकरण",
+  qs: [
+    {q:"द्विघात समीकरण ax² + bx + c = 0 का विविक्तकर (Discriminant) है:", opts:["b² − 4ac","b² + 4ac","4ac − b²","b² − 2ac"], c:0},
+    {q:"यदि D = 0 हो तो द्विघात समीकरण के मूल होते हैं:", opts:["वास्तविक व असमान","वास्तविक व बराबर","अवास्तविक","कोई मूल नहीं"], c:1},
+    {q:"यदि D > 0 हो तो मूल होते हैं:", opts:["वास्तविक व बराबर","वास्तविक व असमान","अवास्तविक","शून्य"], c:1},
+    {q:"यदि D < 0 हो तो मूल होते हैं:", opts:["वास्तविक","अवास्तविक (काल्पनिक)","बराबर","शून्य"], c:1},
+    {q:"द्विघात सूत्र से x का मान है:", opts:["(−b ± √D) / 2a","(b ± √D) / 2a","(−b ± √D) / a","(−b ± D) / 2a"], c:0},
+    {q:"द्विघात समीकरण के मूलों का योग होता है:", opts:["b/a","−b/a","c/a","−c/a"], c:1},
+    {q:"द्विघात समीकरण के मूलों का गुणनफल होता है:", opts:["b/a","−b/a","c/a","−c/a"], c:2}
+  ]
+},
+{
+  name: "अध्याय 5: समांतर श्रेढ़ी",
+  qs: [
+    {q:"समांतर श्रेढ़ी का nवाँ पद (aₙ) है:", opts:["a + (n−1)d","a + nd","a − (n−1)d","na + d"], c:0},
+    {q:"समांतर श्रेढ़ी के प्रथम n पदों का योग (Sₙ) है:", opts:["n/2[2a+(n−1)d]","n[2a+(n−1)d]","n/2[a+(n−1)d]","n/2[2a+nd]"], c:0},
+    {q:"AP 2, 4, 6, 8... का सार्व अंतर (d) है:", opts:["1","2","3","4"], c:1},
+    {q:"यदि AP का प्रथम पद a और सार्व अंतर d हो, तो अगले तीन पद हैं:", opts:["a, a+d, a+2d","a, 2a, 3a","a, ad, ad²","a, a+1, a+2"], c:0},
+    {q:"AP 5, 10, 15, ..., 100 में पदों की संख्या है:", opts:["18","19","20","21"], c:2},
+    {q:"तीन संख्याएँ जो AP में हैं, उन्हें सामान्यतः इस रूप में लिखा जाता है:", opts:["a, ar, ar²","a−d, a, a+d","a, a+d, a+2d","a², a, a/2"], c:1}
+  ]
+},
+{
+  name: "अध्याय 6: त्रिभुज",
+  qs: [
+    {q:"दो त्रिभुज समरूप कहलाते हैं यदि उनके:", opts:["केवल कोण बराबर हों","संगत कोण बराबर व संगत भुजाएँ समानुपाती हों","केवल भुजाएँ बराबर हों","केवल क्षेत्रफल बराबर हों"], c:1},
+    {q:"पाइथागोरस प्रमेय के अनुसार समकोण त्रिभुज में कर्ण² = ?", opts:["आधार + लंब","आधार² + लंब²","आधार × लंब","आधार² − लंब²"], c:1},
+    {q:"दो समरूप त्रिभुजों के क्षेत्रफलों का अनुपात बराबर होता है:", opts:["संगत भुजाओं के अनुपात","संगत भुजाओं के वर्गों के अनुपात","परिमापों के अनुपात","कोणों के अनुपात"], c:1},
+    {q:"BPT (मूल आनुपातिकता प्रमेय) संबंधित है:", opts:["वृत्त से","त्रिभुज की भुजाओं को समानुपात में विभाजित करने वाली रेखा से","चतुर्भुज से","बहुपद से"], c:1},
+    {q:"यदि त्रिभुज की भुजाएँ 3, 4, 5 हों तो यह त्रिभुज है:", opts:["समकोण त्रिभुज","समद्विबाहु त्रिभुज","समबाहु त्रिभुज","अधिककोण त्रिभुज"], c:0},
+    {q:"दो त्रिभुज AAA समरूपता से समरूप कहलाते हैं यदि:", opts:["तीनों भुजाएँ बराबर हों","तीनों कोण बराबर हों","दो भुजाएँ बराबर हों","एक कोण बराबर हो"], c:1},
+    {q:"दो समरूप त्रिभुजों में परिमापों का अनुपात बराबर होता है:", opts:["संगत भुजाओं के वर्गों के अनुपात","संगत भुजाओं के अनुपात","क्षेत्रफलों के अनुपात","कोणों के योग"], c:1}
+  ]
+},
+{
+  name: "अध्याय 7: निर्देशांक ज्यामिति",
+  qs: [
+    {q:"दो बिंदुओं (x₁,y₁) और (x₂,y₂) के बीच की दूरी का सूत्र है:", opts:["√[(x₂−x₁)²+(y₂−y₁)²]","(x₂−x₁)+(y₂−y₁)","√[(x₂−x₁)+(y₂−y₁)]","(x₂−x₁)²+(y₂−y₁)²"], c:0},
+    {q:"दो बिंदुओं (x₁,y₁) और (x₂,y₂) को मिलाने वाले रेखाखंड का मध्यबिंदु है:", opts:["(x₁+x₂, y₁+y₂)","((x₁+x₂)/2, (y₁+y₂)/2)","(x₁−x₂, y₁−y₂)","(x₁×x₂, y₁×y₂)"], c:1},
+    {q:"मूल बिंदु (0,0) से बिंदु (x,y) की दूरी है:", opts:["x + y","√(x²+y²)","x × y","x² + y²"], c:1},
+    {q:"x-अक्ष पर स्थित किसी बिंदु का y-निर्देशांक होता है:", opts:["0","1","−1","कोई भी"], c:0},
+    {q:"y-अक्ष पर स्थित किसी बिंदु का x-निर्देशांक होता है:", opts:["0","1","−1","कोई भी"], c:0},
+    {q:"तीन बिंदु संरेख (एक सरल रेखा में) कहलाते हैं यदि उनसे बने त्रिभुज का क्षेत्रफल होता है:", opts:["अधिकतम","शून्य","ऋणात्मक","अपरिभाषित"], c:1}
+  ]
+},
+{
+  name: "अध्याय 8: त्रिकोणमिति का परिचय",
+  qs: [
+    {q:"sin²θ + cos²θ = ?", opts:["0","1","2","tan²θ"], c:1},
+    {q:"tan θ किसके बराबर है?", opts:["cosθ/sinθ","sinθ/cosθ","1/sinθ","1/cosθ"], c:1},
+    {q:"sin 30° का मान है:", opts:["1","1/2","√3/2","0"], c:1},
+    {q:"cos 60° का मान है:", opts:["1/2","√3/2","1","0"], c:0},
+    {q:"tan 45° का मान है:", opts:["0","1","√3","अपरिभाषित"], c:1},
+    {q:"sec θ बराबर है:", opts:["1/sinθ","1/cosθ","1/tanθ","sinθ × cosθ"], c:1},
+    {q:"1 + tan²θ = ?", opts:["sin²θ","cos²θ","sec²θ","cosec²θ"], c:2},
+    {q:"cot θ बराबर है:", opts:["sinθ/cosθ","cosθ/sinθ","1/sinθ","sinθ × cosθ"], c:1}
+  ]
+},
+{
+  name: "अध्याय 9: त्रिकोणमिति के अनुप्रयोग (ऊँचाई और दूरी)",
+  qs: [
+    {q:"जब वस्तु ऊपर हो और प्रेक्षक नीचे हो, तो बना कोण कहलाता है:", opts:["अवनमन कोण","उन्नयन कोण","समकोण","ऋजु कोण"], c:1},
+    {q:"जब वस्तु नीचे हो और प्रेक्षक ऊपर हो, तो बना कोण कहलाता है:", opts:["उन्नयन कोण","अवनमन कोण","न्यून कोण","प्रतिवर्ती कोण"], c:1},
+    {q:"tan θ = ऊँचाई / ? में प्रश्नचिह्न की जगह आएगा:", opts:["कर्ण","दूरी","क्षेत्रफल","परिधि"], c:1},
+    {q:"यदि Angle of Elevation 45° है और दूरी 10 m है, तो ऊँचाई है:", opts:["5 m","10 m","10√3 m","20 m"], c:1},
+    {q:"Angle of Elevation और Angle of Depression के बारे में सही कथन है:", opts:["हमेशा असमान होते हैं","समान परिस्थितियों में बराबर होते हैं","कभी माप नहीं सकते","हमेशा 90° होते हैं"], c:1}
+  ]
+},
+{
+  name: "अध्याय 10: वृत्त",
+  qs: [
+    {q:"किसी वृत्त की स्पर्श रेखा उस बिंदु पर त्रिज्या से कितने कोण पर होती है?", opts:["45°","60°","90°","180°"], c:2},
+    {q:"किसी बाह्य बिंदु से वृत्त पर खींची गई दो स्पर्श रेखाओं की लंबाई होती है:", opts:["असमान","बराबर","शून्य","अपरिभाषित"], c:1},
+    {q:"एक वृत्त की अधिकतम कितनी समांतर स्पर्श रेखाएँ हो सकती हैं?", opts:["1","2","3","अनंत"], c:1},
+    {q:"वृत्त की स्पर्श रेखा वृत्त को कितने बिंदुओं पर स्पर्श करती है?", opts:["0","1","2","अनंत"], c:1},
+    {q:"वृत्त को छेदने वाली रेखा कहलाती है:", opts:["स्पर्श रेखा","छेदक रेखा (Secant)","व्यास","त्रिज्या"], c:1},
+    {q:"वृत्त की सबसे लंबी जीवा कहलाती है:", opts:["त्रिज्या","व्यास","स्पर्श रेखा","चाप"], c:1},
+    {q:"संकेंद्रीय वृत्त (Concentric Circles) कहलाते हैं:", opts:["जिनका केंद्र अलग हो","जिनका केंद्र समान हो पर त्रिज्या अलग","जिनकी त्रिज्या समान हो","जो एक-दूसरे को काटें"], c:1}
+  ]
+},
+{
+  name: "अध्याय 11: रचनाएँ",
+  qs: [
+    {q:"किसी त्रिभुज के समरूप एक अन्य त्रिभुज बनाने की प्रक्रिया कहलाती है:", opts:["प्रक्षेपण","समरूप त्रिभुज की रचना","समांतर रचना","कोई नहीं"], c:1},
+    {q:"किसी बाह्य बिंदु से वृत्त पर स्पर्श रेखा खींचने का आधार सिद्धांत है:", opts:["पाइथागोरस प्रमेय","कोण-अर्धक प्रमेय","स्पर्श रेखा त्रिज्या पर लंब होती है","समरूपता प्रमेय"], c:2},
+    {q:"किसी रेखाखंड को दिए गए अनुपात में विभाजित करने के लिए प्रयोग होता है:", opts:["दूरी सूत्र","खंड सूत्र / रचना विधि","मध्यबिंदु सूत्र","ढाल सूत्र"], c:1},
+    {q:"रचना में कोणों को द्विभाजित करने के लिए प्रयुक्त उपकरण है:", opts:["स्केल","परकार (Compass)","चांदा","त्रिकोणमापी"], c:1}
+  ]
+},
+{
+  name: "अध्याय 12: वृत्तों से संबंधित क्षेत्रफल",
+  qs: [
+    {q:"त्रिज्या r वाले वृत्त का क्षेत्रफल है:", opts:["2πr","πr²","πr","2πr²"], c:1},
+    {q:"त्रिज्या r वाले वृत्त की परिधि है:", opts:["πr²","2πr","πr","πr²/2"], c:1},
+    {q:"त्रिज्यखंड (Sector) का क्षेत्रफल ज्ञात करने का सूत्र है:", opts:["(θ/360°) × πr²","(θ/180°) × πr²","πr²/θ","2πr × θ"], c:0},
+    {q:"अर्धवृत्त (Semicircle) का क्षेत्रफल है:", opts:["πr²","πr²/2","2πr²","πr²/4"], c:1},
+    {q:"वृत्तखंड (Segment) का क्षेत्रफल है:", opts:["त्रिज्यखंड + त्रिभुज का क्षेत्रफल","त्रिज्यखंड − त्रिभुज का क्षेत्रफल","त्रिज्यखंड × त्रिभुज","कोई नहीं"], c:1},
+    {q:"90° के त्रिज्यखंड का क्षेत्रफल वृत्त के क्षेत्रफल का कौन-सा भाग है?", opts:["1/2","1/3","1/4","1/6"], c:2},
+    {q:"जब त्रिज्यखंड का कोण 180° होता है, तो वह होता है:", opts:["चतुर्थांश वृत्त","अर्धवृत्त","पूर्ण वृत्त","वृत्तखंड"], c:1}
+  ]
+},
+{
+  name: "अध्याय 13: पृष्ठीय क्षेत्रफल एवं आयतन",
+  qs: [
+    {q:"त्रिज्या r वाले गोले का आयतन है:", opts:["(4/3)πr³","(4/3)πr²","4πr²","πr³"], c:0},
+    {q:"त्रिज्या r वाले गोले का पृष्ठीय क्षेत्रफल है:", opts:["πr²","2πr²","4πr²","4πr³"], c:2},
+    {q:"त्रिज्या r और ऊँचाई h वाले बेलन का आयतन है:", opts:["πr²h","2πrh","πrh²","(1/3)πr²h"], c:0},
+    {q:"त्रिज्या r और ऊँचाई h वाले शंकु का आयतन है:", opts:["πr²h","(1/3)πr²h","2πr²h","(2/3)πr²h"], c:1},
+    {q:"बेलन का वक्र पृष्ठीय क्षेत्रफल है:", opts:["πr²","2πrh","πr²h","2πr²"], c:1},
+    {q:"घन के प्रत्येक फलक का क्षेत्रफल यदि भुजा a हो तो:", opts:["a","a²","a³","6a²"], c:1},
+    {q:"घनाभ (Cuboid) का आयतन है:", opts:["l × b","l × b × h","2(l+b+h)","2(lb+bh+hl)"], c:1}
+  ]
+},
+{
+  name: "अध्याय 14: सांख्यिकी",
+  qs: [
+    {q:"बहुलक, माध्य और माध्यिका के बीच सही संबंध है:", opts:["बहुलक = 3माध्यिका − 2माध्य","बहुलक = 2माध्यिका − 3माध्य","बहुलक = माध्यिका + माध्य","बहुलक = माध्यिका − माध्य"], c:0},
+    {q:"आँकड़ों के मध्य मान को कहते हैं:", opts:["बहुलक","माध्य","परिसर","विचलन"], c:1},
+    {q:"आँकड़ों को बढ़ते या घटते क्रम में रखने पर बीच का मान कहलाता है:", opts:["माध्य","माध्यिका","बहुलक","परिसर"], c:1},
+    {q:"सबसे अधिक बार आने वाला मान कहलाता है:", opts:["माध्य","माध्यिका","बहुलक","परिसर"], c:2},
+    {q:"संचयी बारंबारता (Cumulative Frequency) का उपयोग होता है:", opts:["माध्य ज्ञात करने में","तोरण (Ogive) बनाने में","बहुलक ज्ञात करने में","केवल परिसर में"], c:1},
+    {q:"वर्गीकृत आँकड़ों के लिए माध्य ज्ञात करने की विधियाँ हैं:", opts:["प्रत्यक्ष विधि","कल्पित माध्य विधि","पद विचलन विधि","ये सभी"], c:3},
+    {q:"बहुलक ज्ञात करने के लिए किस वर्ग को बहुलक वर्ग कहते हैं?", opts:["सबसे कम बारंबारता वाला वर्ग","सबसे अधिक बारंबारता वाला वर्ग","प्रथम वर्ग","अंतिम वर्ग"], c:1}
+  ]
+},
+{
+  name: "अध्याय 15: प्रायिकता",
+  qs: [
+    {q:"किसी घटना E की प्रायिकता का सूत्र है:", opts:["अनुकूल परिणाम / कुल परिणाम","कुल परिणाम / अनुकूल परिणाम","अनुकूल × कुल","अनुकूल − कुल"], c:0},
+    {q:"किसी घटना की प्रायिकता का मान होता है:", opts:["0 से 1 के बीच","1 से 100 के बीच","−1 से 1 के बीच","केवल पूर्णांक"], c:0},
+    {q:"असंभव घटना की प्रायिकता होती है:", opts:["1","0","0.5","अपरिभाषित"], c:1},
+    {q:"निश्चित घटना की प्रायिकता होती है:", opts:["0","0.5","1","2"], c:2},
+    {q:"एक सिक्के को उछालने पर चित आने की प्रायिकता है:", opts:["1","1/2","1/3","0"], c:1},
+    {q:"एक पासे को फेंकने पर 6 आने की प्रायिकता है:", opts:["1/2","1/3","1/6","1"], c:2},
+    {q:"52 पत्तों की गड्डी में से एक पत्ता निकालने पर इक्का (Ace) आने की प्रायिकता है:", opts:["1/52","1/13","1/4","1/2"], c:1}
+  ]
+}
+];
+
+function toggleAnswer(btn){
+  const opts = btn.previousElementSibling;
+  const isOpen = opts.classList.toggle('revealed');
+  btn.classList.toggle('open', isOpen);
+  btn.textContent = isOpen ? 'उत्तर छुपाएँ (Hide Answer)' : 'उत्तर दिखाएँ (Show Answer)';
+}
+
+function buildAll(){
+  const chipNav = document.getElementById('chipNav');
+  const wrap = document.getElementById('chaptersWrap');
+  let qNum = 0;
+  const colors = ['var(--cyan)','var(--pink)','var(--green)','var(--orange)','var(--purple)','var(--gold)'];
+  chapters.forEach((chapter, ci) => {
+    const chapId = 'ch' + ci;
+    chipNav.appendChild(el('a', null, chapter.name.replace(/अध्याय \d+: /,'')));
+    chipNav.lastChild.setAttribute('href', '#' + chapId);
+
+    const chColor = colors[ci % colors.length];
+    const secDiv = el('section');
+    secDiv.id = chapId;
+    secDiv.style.padding = '0 0 10px';
+    secDiv.innerHTML = `<div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,${chColor},#1f6fc9); --glow:${chColor}99;">${ci+1}</div>
+      <div><h2>${chapter.name}</h2><div class="sub">${chapter.qs.length} प्रश्न</div></div></div>`;
+    const cardsHolder = el('div');
+    chapter.qs.forEach((item) => {
+      qNum++;
+      const optsHtml = item.opts.map((o, oi) => `<li class="${oi===item.c ? 'correct' : ''}">${String.fromCharCode(65+oi)}) ${o}</li>`).join('');
+      const card = el('div', 'glass mcq-card', `<div class="qlabel">प्रश्न ${qNum}</div><div class="qtext">${item.q}</div>
+        <ul class="mcq-opts">${optsHtml}</ul>
+        <button class="show-ans-btn" onclick="toggleAnswer(this)">उत्तर दिखाएँ (Show Answer)</button>`);
+      cardsHolder.appendChild(card);
+    });
+    secDiv.appendChild(cardsHolder);
+    wrap.appendChild(secDiv);
+  });
+}
+buildAll();
+</script>
+</body>
+</html>
