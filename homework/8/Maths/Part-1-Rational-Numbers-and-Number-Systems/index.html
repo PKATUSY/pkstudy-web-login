@@ -144,6 +144,18 @@ b.hi{color:var(--pink); font-weight:900;} b.hi2{color:var(--green); font-weight:
 .rule-card h4{font-size:15px; color:var(--cyan); font-weight:900; margin-bottom:8px;}
 .rule-card p{font-size:13px; color:var(--dim); line-height:1.8; font-weight:500;}
 
+.example-card{padding:18px 20px;}
+.example-card .qlabel{font-size:11px; font-weight:900; color:var(--gold); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;}
+.example-card .qtext{font-size:13.5px; font-weight:700; color:var(--heading); margin-bottom:14px; line-height:1.7;}
+.example-card .slabel{font-size:11px; font-weight:900; color:var(--green); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;}
+.example-card .stext{font-size:13px; color:var(--dim); line-height:1.8; font-weight:500; background:var(--glass-strong); padding:12px 14px; border-radius:10px;}
+.example-card{margin-bottom:14px;}
+
+.hw-card{padding:18px 20px;}
+.hw-card ol{margin:0; padding-left:20px; font-size:13px; color:var(--dim); line-height:2; font-weight:500;}
+.hw-card ol li{margin-bottom:6px;}
+.hw-card ol li::marker{color:var(--heading); font-weight:800;}
+
 .table-wrap{overflow-x:auto;}
 table{width:100%; border-collapse:collapse; min-width:700px;}
 thead th{text-align:center; padding:12px 14px; background:linear-gradient(120deg,var(--neon-blue),var(--purple)); color:#fff;
@@ -215,8 +227,8 @@ footer .copy{margin-top:18px; font-size:11px; color:var(--dim); opacity:.8;}
   </div>
   <nav>
     <a href="#syllabus">सिलेबस मैप</a><a href="#s2">उद्देश्य</a><a href="#s4">माइंड मैप</a><a href="#s6">परिभाषाएँ</a>
-    <a href="#s7">संख्या प्रकार</a><a href="#s11">तालिका</a>
-    <a href="#s14">तथ्य दीवार</a><a href="#s17">प्रश्न</a><a href="#s18">क्विज़</a>
+    <a href="#notes">नोट्स</a><a href="#formulas">सूत्र</a><a href="#s7">संख्या प्रकार</a><a href="#s11">तालिका</a>
+    <a href="#s14">तथ्य दीवार</a><a href="#s17">प्रश्न</a><a href="#s18">क्विज़</a><a href="#homework">होमवर्क</a>
   </nav>
   <button class="theme-btn" id="themeToggle" onclick="toggleTheme()" title="Dark/Light Mode">🌙</button>
 </header>
@@ -370,6 +382,52 @@ footer .copy{margin-top:18px; font-size:11px; color:var(--dim); opacity:.8;}
   <div class="grid grid-3" id="defGrid"></div>
 </section>
 
+<!-- ============ NOTES ============ -->
+<section id="notes">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--neon-blue),#1f6fc9); --glow:#3ea6ff99;">📝</div>
+    <div><h2>Notes — विस्तार से समझें</h2><div class="sub en-tag">Detailed Concept Notes</div></div></div>
+  <div class="glass card" style="display:flex; flex-direction:column; gap:16px;">
+    <div class="rule-card" style="border-left-color:var(--cyan);">
+      <h4 style="color:var(--cyan);">1. Rational Number की पहचान (Identifying Rational Numbers)</h4>
+      <p>कोई भी संख्या जिसे <b class="hi">p/q</b> रूप में लिखा जा सके (जहाँ p, q पूर्णांक हों और q≠0), वह Rational Number है। हर Integer भी Rational है क्योंकि उसे q=1 के साथ p/1 रूप में लिखा जा सकता है। उदाहरण: 5 = 5/1, -3 = -3/1, 0.75 = 3/4।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--pink);">
+      <h4 style="color:var(--pink);">2. Number Line पर Representation</h4>
+      <p>Rational Number को number line पर दिखाने के लिए पहले उसे simplest form में लाओ, फिर 0 से दायें (positive) या बाएँ (negative) उतने बराबर हिस्सों में बाँटो जितना denominator हो। उदाहरण: 3/4 को दिखाने के लिए 0 से 1 के बीच को 4 बराबर हिस्सों में बाँटकर तीसरे हिस्से पर point लगाओ।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--green);">
+      <h4 style="color:var(--green);">3. Closure, Commutative, Associative Properties</h4>
+      <p>Rational Numbers, Addition और Multiplication में <b class="hi2">Closure</b> (जवाब भी rational), <b class="hi2">Commutative</b> (क्रम बदलने पर जवाब वही) और <b class="hi2">Associative</b> (समूहन बदलने पर जवाब वही) property को संतुष्ट करते हैं। Subtraction में सिर्फ़ Closure होती है, Division में 0 से भाग छोड़कर Closure होती है।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--orange);">
+      <h4 style="color:var(--orange);">4. Additive और Multiplicative Identity, Inverse</h4>
+      <p>Additive Identity <b class="hi3">0</b> है (a+0=a), Multiplicative Identity <b class="hi3">1</b> है (a×1=a)। किसी संख्या a का Additive Inverse -a होता है (a+(-a)=0), और Multiplicative Inverse 1/a होता है (a×1/a=1, जहाँ a≠0)।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--purple);">
+      <h4 style="color:var(--purple);">5. Irrational Numbers की पहचान</h4>
+      <p>जिस संख्या को p/q रूप में नहीं लिखा जा सकता, वह Irrational है। इसका decimal expansion न terminate होता है, न repeat करता है। उदाहरण: √2 = 1.41421356... (कभी खत्म नहीं होता, कोई pattern repeat नहीं करता)।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--gold);">
+      <h4 style="color:var(--gold);">6. Real Number System</h4>
+      <p>Rational और Irrational Numbers मिलकर <b class="hi">Real Numbers</b> बनाते हैं। हर Real Number को Number Line पर एक बिंदु से दिखाया जा सकता है, और Number Line पर हर बिंदु एक Real Number को दर्शाता है।</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FORMULA SHEET ============ -->
+<section id="formulas">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--purple),#7e4fd1); --glow:#b07dff99;">🧮</div>
+    <div><h2>ज़रूरी सूत्र (Formula Sheet)</h2><div class="sub en-tag">Key Formulas to Remember</div></div></div>
+  <div class="grid grid-3" id="formulaSheetGrid"></div>
+</section>
+
+<!-- ============ SOLVED EXAMPLES ============ -->
+<section id="examples">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--green),#1a9c70); --glow:#2ee6a699;">✍️</div>
+    <div><h2>हल किए गए उदाहरण (Solved Examples)</h2><div class="sub en-tag">Step-by-Step Worked Examples</div></div></div>
+  <div id="examplesWrap"></div>
+</section>
+
 <!-- ============ 7. NUMBER TYPES GALLERY ============ -->
 <section id="s7">
   <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--orange),#c9650c); --glow:#ff9f4399;">7</div>
@@ -514,6 +572,14 @@ footer .copy{margin-top:18px; font-size:11px; color:var(--dim); opacity:.8;}
   </div>
 </section>
 
+<!-- ============ HOMEWORK ============ -->
+<section id="homework">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--red),#a82424); --glow:#ff4f4f99;">🏠</div>
+    <div><h2>घर से करने के लिए Homework</h2><div class="sub en-tag">Notebook Exercise — Part 1A, 1B, 1C</div></div></div>
+  <div class="grid grid-3" id="homeworkGrid"></div>
+  <p style="color:var(--dim); font-size:12px; margin-top:14px; font-weight:600;">यह सभी प्रश्न अपनी Maths की notebook में हल करके अगली कक्षा में साथ लाने हैं।</p>
+</section>
+
 <!-- ============ 19. CHEAT SHEET ============ -->
 <section id="s19">
   <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--orange),#c9650c); --glow:#ff9f4399;">19</div>
@@ -647,6 +713,37 @@ const qBankData = [
   {tag:"Case Study", color:"var(--cyan)", q:"मीना ने एक वृत्त (circle) की परिधि नापने के लिए π का इस्तेमाल किया। उसकी सहेली ने कहा π एक साधारण भिन्न (fraction) है। क्या यह सही है?", a:"नहीं, यह सही नहीं है — π एक Irrational Number है, इसे p/q रूप में पूरी तरह नहीं लिखा जा सकता, इसका decimal expansion न terminate होता है, न repeat करता है।"},
   {tag:"HOTS", color:"var(--pink)", q:"अगर सभी संख्याएँ सिर्फ़ Rational Numbers होतीं, तो गणित में क्या समस्या आ सकती थी?", a:"तब √2 जैसी संख्याएँ, जो कई ज्यामितीय (geometric) गणनाओं में ज़रूरी हैं (जैसे एक इकाई वर्ग का विकर्ण), को सही तरीके से व्यक्त नहीं किया जा सकता — इसीलिए Real Number System में Irrational Numbers को शामिल करना ज़रूरी है।"}
 ];
+const formulaSheetData = [
+  {t:"Rational Number का रूप", d:"p/q, जहाँ p, q पूर्णांक हैं और q ≠ 0", c:"var(--cyan)"},
+  {t:"Additive Identity", d:"a + 0 = a — यानी 0 जोड़ने से संख्या नहीं बदलती", c:"var(--pink)"},
+  {t:"Multiplicative Identity", d:"a × 1 = a — यानी 1 से गुणा करने पर संख्या नहीं बदलती", c:"var(--green)"},
+  {t:"Additive Inverse", d:"a + (-a) = 0 — यानी संख्या और उसका उल्टा जोड़ने पर 0 मिलता है", c:"var(--orange)"},
+  {t:"Multiplicative Inverse", d:"a × (1/a) = 1, जहाँ a ≠ 0 — इसे Reciprocal कहते हैं", c:"var(--purple)"},
+  {t:"दो Rational Numbers के बीच की संख्या", d:"(a/b + c/d) ÷ 2 — दोनों का औसत निकालकर बीच की संख्या मिलती है", c:"var(--gold)"}
+];
+const examplesData = [
+  {q:"-3/5 और 2/5 का Additive Inverse ज्ञात कीजिए।", s:"-3/5 का Additive Inverse = 3/5 (क्योंकि -3/5 + 3/5 = 0)। 2/5 का Additive Inverse = -2/5 (क्योंकि 2/5 + (-2/5) = 0)।"},
+  {q:"बताइए कि √2 एक Irrational Number क्यों है?", s:"अगर √2 को p/q (simplest form, q≠0) मान लें, तो square करने पर 2q² = p² मिलता है। इससे p एक even number सिद्ध होता है, फिर q भी even निकलता है — जो शुरुआती मान्यता (p/q simplest form) से विरोधाभास (contradiction) है। इसलिए √2 को p/q रूप में नहीं लिखा जा सकता, अतः यह irrational है।"},
+  {q:"1/3 और 1/4 के बीच एक Rational Number ज्ञात कीजिए।", s:"(1/3 + 1/4) ÷ 2 = (4/12 + 3/12) ÷ 2 = (7/12) ÷ 2 = 7/24। इसलिए 7/24, 1/3 और 1/4 के बीच का एक rational number है।"}
+];
+const homeworkData = [
+  {part:"Part 1A", color:"var(--cyan)", qs:[
+    "निम्नलिखित को p/q रूप में लिखिए और simplest form में बदलिए: (a) 0.6 (b) -1.25",
+    "2/3 और -1/2 को number line पर दिखाइए।",
+    "निम्नलिखित में से कौनसी rational numbers हैं — पहचान कर कारण बताइए: 5, -7/9, √4, 0.333..."
+  ]},
+  {part:"Part 1B", color:"var(--pink)", qs:[
+    "सिद्ध कीजिए कि (2/3 + 1/4) + 1/6 = 2/3 + (1/4 + 1/6) — यह किस property को दर्शाता है?",
+    "निम्नलिखित संख्याओं का Additive Inverse और Multiplicative Inverse ज्ञात कीजिए: (a) 5/7 (b) -3/8",
+    "क्या Rational Numbers Subtraction में Commutative हैं? एक उदाहरण देकर समझाइए।"
+  ]},
+  {part:"Part 1C", color:"var(--green)", qs:[
+    "निम्नलिखित में से Rational और Irrational Numbers अलग-अलग कीजिए: √16, √7, 22/7, π, 0.101001000...",
+    "1/2 और 1/3 के बीच दो rational numbers ज्ञात कीजिए।",
+    "सत्य/असत्य बताइए: \"हर वास्तविक संख्या (Real Number) या तो Rational होती है या Irrational होती है।\"",
+    "अपनी notebook में एक Number Line बनाइए और उस पर -2, -1/2, 0, 3/4, 2 को दिखाइए।"
+  ]}
+];
 const quizData = [
   {q:"निम्नलिखित में से कौनसी Rational Number है?", opts:["√2","3/4","π"], correct:1},
   {q:"Rational Number p/q में q की क्या शर्त होती है?", opts:["q = 0 हो सकता है","q कभी 0 नहीं हो सकता","q हमेशा 1 होता है"], correct:1},
@@ -705,6 +802,25 @@ function buildFormulaWall(){
   const g = document.getElementById('formulaWall');
   formulaWallData.forEach(f=>{ const d=el('div','glass formula-card',`<div class="name" style="color:${f[2]}">${f[0]}</div><div class="big">${f[1]}</div>`); g.appendChild(d); });
 }
+function buildFormulaSheet(){
+  const g = document.getElementById('formulaSheetGrid');
+  formulaSheetData.forEach(f=>{ const d=el('div','glass def-card', `<h4 style="color:${f.c}">🧮 ${f.t}</h4><p>${f.d}</p>`); g.appendChild(d); });
+}
+function buildExamples(){
+  const wrap = document.getElementById('examplesWrap');
+  examplesData.forEach((ex,i)=>{
+    const d = el('div','glass card example-card', `<div class="qlabel">प्रश्न ${i+1}</div><div class="qtext">${ex.q}</div><div class="slabel">हल (Solution)</div><div class="stext">${ex.s}</div>`);
+    wrap.appendChild(d);
+  });
+}
+function buildHomework(){
+  const g = document.getElementById('homeworkGrid');
+  homeworkData.forEach(hw=>{
+    const items = hw.qs.map(q=>`<li>${q}</li>`).join('');
+    const d = el('div','glass hw-card', `<span class="t-year" style="background:${hw.color};">${hw.part}</span><ol>${items}</ol>`);
+    g.appendChild(d);
+  });
+}
 function buildTricks(){
   const g = document.getElementById('tricksGrid');
   tricksData.forEach(t=>{ const d=el('div','glass trick-card',`<b class="hi3">${t[0]}</b><p style="font-size:12.5px; color:var(--dim); margin-top:6px; line-height:1.7; font-weight:500;">${t[1]}</p>`); g.appendChild(d); });
@@ -760,6 +876,7 @@ function checkQuiz(){
 /* INIT */
 buildSyllabus(); buildObjectives(); buildTimeline(); buildDefs(); buildRayGallery(); buildApps();
 buildFormulaWall(); buildTricks(); buildMistakes(); buildQBank(); buildQuiz();
+buildFormulaSheet(); buildExamples(); buildHomework();
 </script>
 </body>
 </html>
