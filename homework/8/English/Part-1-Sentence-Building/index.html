@@ -144,6 +144,18 @@ b.hi{color:var(--pink); font-weight:900;} b.hi2{color:var(--green); font-weight:
 .rule-card h4{font-size:15px; color:var(--cyan); font-weight:900; margin-bottom:8px;}
 .rule-card p{font-size:13px; color:var(--dim); line-height:1.8; font-weight:500;}
 
+.example-card{padding:18px 20px;}
+.example-card .qlabel{font-size:11px; font-weight:900; color:var(--gold); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;}
+.example-card .qtext{font-size:13.5px; font-weight:700; color:var(--heading); margin-bottom:14px; line-height:1.7;}
+.example-card .slabel{font-size:11px; font-weight:900; color:var(--green); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;}
+.example-card .stext{font-size:13px; color:var(--dim); line-height:1.8; font-weight:500; background:var(--glass-strong); padding:12px 14px; border-radius:10px;}
+.example-card{margin-bottom:14px;}
+
+.hw-card{padding:18px 20px;}
+.hw-card ol{margin:0; padding-left:20px; font-size:13px; color:var(--dim); line-height:2; font-weight:500;}
+.hw-card ol li{margin-bottom:6px;}
+.hw-card ol li::marker{color:var(--heading); font-weight:800;}
+
 .table-wrap{overflow-x:auto;}
 table{width:100%; border-collapse:collapse; min-width:700px;}
 thead th{text-align:center; padding:12px 14px; background:linear-gradient(120deg,var(--neon-blue),var(--purple)); color:#fff;
@@ -212,8 +224,8 @@ footer .copy{margin-top:18px; font-size:11px; color:var(--dim); opacity:.8;}
   </div>
   <nav>
     <a href="#s2">उद्देश्य</a><a href="#s3">यात्रा</a><a href="#s4">माइंड मैप</a><a href="#s6">परिभाषाएँ</a>
-    <a href="#s7">वाक्य पैटर्न</a><a href="#s10">अभ्यास स्थान</a><a href="#s11">तालिका</a>
-    <a href="#s14">तथ्य दीवार</a><a href="#s17">प्रश्न</a><a href="#s18">क्विज़</a>
+    <a href="#notes">नोट्स</a><a href="#rules">नियम</a><a href="#s7">वाक्य पैटर्न</a><a href="#s10">अभ्यास स्थान</a><a href="#s11">तालिका</a>
+    <a href="#s14">तथ्य दीवार</a><a href="#s17">प्रश्न</a><a href="#s18">क्विज़</a><a href="#homework">होमवर्क</a>
   </nav>
   <button class="theme-btn" id="themeToggle" onclick="toggleTheme()" title="Dark/Light Mode">🌙</button>
 </header>
@@ -352,6 +364,52 @@ footer .copy{margin-top:18px; font-size:11px; color:var(--dim); opacity:.8;}
   <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--green),#1a9c70); --glow:#2ee6a699;">6</div>
     <div><h2>परिभाषाएँ</h2><div class="sub en-tag">Key Definitions</div></div></div>
   <div class="grid grid-3" id="defGrid"></div>
+</section>
+
+<!-- ============ NOTES ============ -->
+<section id="notes">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--neon-blue),#1f6fc9); --glow:#3ea6ff99;">📝</div>
+    <div><h2>Notes — विस्तार से समझें</h2><div class="sub en-tag">Detailed Concept Notes</div></div></div>
+  <div class="glass card" style="display:flex; flex-direction:column; gap:16px;">
+    <div class="rule-card" style="border-left-color:var(--cyan);">
+      <h4 style="color:var(--cyan);">1. Sentence की बुनियादी संरचना (Basic Sentence Structure)</h4>
+      <p>अंग्रेज़ी में हर sentence <b class="hi">Subject + Verb + Object</b> के क्रम में बनता है। उदाहरण: "I (Subject) play (Verb) cricket (Object)।" यह क्रम हिंदी से अलग है, इसलिए इसे बार-बार practice करना ज़रूरी है।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--pink);">
+      <h4 style="color:var(--pink);">2. Simple Present Tense</h4>
+      <p>रोज़ की आदत या सच्चाई बताने के लिए इस्तेमाल होता है। Third person singular (he, she, it) के साथ verb में <b class="hi2">s/es</b> जोड़ा जाता है। उदाहरण: "I play cricket." लेकिन "He plays cricket."</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--green);">
+      <h4 style="color:var(--green);">3. Present Continuous Tense</h4>
+      <p>अभी हो रहे काम को बताने के लिए इस्तेमाल होता है — <b class="hi3">am/is/are + Verb+ing</b>। उदाहरण: "I am reading a book right now."</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--orange);">
+      <h4 style="color:var(--orange);">4. Wh-Questions बनाना</h4>
+      <p>क्रम है — Wh-word + Helping Verb + Subject + Main Verb। उदाहरण: "What are you doing?" यहाँ What (wh-word), are (helping verb), you (subject), doing (main verb) है।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--purple);">
+      <h4 style="color:var(--purple);">5. Yes/No Questions बनाना</h4>
+      <p>Helping Verb सबसे पहले आता है — Helping Verb + Subject + Main Verb। उदाहरण: "Do you like tea?" या "Are you coming?"</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--gold);">
+      <h4 style="color:var(--gold);">6. Connecting Words का इस्तेमाल</h4>
+      <p><b class="hi">and</b> (जोड़ने के लिए), <b class="hi">but</b> (विरोधाभास दिखाने के लिए), <b class="hi">because</b> (कारण बताने के लिए), <b class="hi">so</b> (परिणाम बताने के लिए) — इनसे दो sentences को जोड़कर एक बड़ा, बेहतर sentence बनाया जा सकता है।</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RULES SHEET ============ -->
+<section id="rules">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--purple),#7e4fd1); --glow:#b07dff99;">📋</div>
+    <div><h2>मुख्य नियम (Rules Sheet)</h2><div class="sub en-tag">Key Rules to Remember</div></div></div>
+  <div class="grid grid-3" id="rulesSheetGrid"></div>
+</section>
+
+<!-- ============ SOLVED EXAMPLES ============ -->
+<section id="examples">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--green),#1a9c70); --glow:#2ee6a699;">✍️</div>
+    <div><h2>हल किए गए उदाहरण (Solved Examples)</h2><div class="sub en-tag">Step-by-Step Worked Examples</div></div></div>
+  <div id="examplesWrap"></div>
 </section>
 
 <!-- ============ 7. SENTENCE PATTERNS GALLERY ============ -->
@@ -499,6 +557,14 @@ footer .copy{margin-top:18px; font-size:11px; color:var(--dim); opacity:.8;}
   </div>
 </section>
 
+<!-- ============ HOMEWORK ============ -->
+<section id="homework">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--red),#a82424); --glow:#ff4f4f99;">🏠</div>
+    <div><h2>घर से करने के लिए Homework</h2><div class="sub en-tag">Notebook Exercise — Part 1A, 1B, 1C</div></div></div>
+  <div class="grid grid-3" id="homeworkGrid"></div>
+  <p style="color:var(--dim); font-size:12px; margin-top:14px; font-weight:600;">यह सभी काम अपनी English की notebook में लिखकर और ज़ोर से बोलकर practice करने हैं।</p>
+</section>
+
 <!-- ============ 19. CHEAT SHEET ============ -->
 <section id="s19">
   <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--orange),#c9650c); --glow:#ff9f4399;">19</div>
@@ -610,6 +676,33 @@ const qBankData = [
   {tag:"Case Study", color:"var(--cyan)", q:"अमन अपने friend से पूछना चाहता है कि वह अभी क्या कर रहा है। उसे कौनसा tense और कैसा sentence बोलना चाहिए?", a:"अमन को Present Continuous Tense का इस्तेमाल करना चाहिए और पूछना चाहिए — 'What are you doing?'"},
   {tag:"HOTS", color:"var(--pink)", q:"अगर कोई student sentence में Subject या Verb छोड़ देता है, तो सुनने वाले को समझने में क्या दिक्कत हो सकती है?", a:"Subject या Verb छूट जाने से sentence अधूरा लगेगा और सुनने वाला यह नहीं समझ पाएगा कि बात किसके बारे में हो रही है या क्या किया जा रहा है, इसलिए दोनों भाग सही रखना ज़रूरी है।"}
 ];
+const rulesSheetData = [
+  {t:"Sentence Order", d:"Subject + Verb + Object क्रम में sentence बनाओ", c:"var(--cyan)"},
+  {t:"Simple Present", d:"Third person singular (he/she/it) में Verb + s/es लगाओ", c:"var(--pink)"},
+  {t:"Present Continuous", d:"am/is/are + Verb+ing — अभी हो रहे काम के लिए", c:"var(--green)"},
+  {t:"Wh-Questions", d:"Wh-word + Helping Verb + Subject + Main Verb", c:"var(--orange)"},
+  {t:"Yes/No Questions", d:"Helping Verb + Subject + Main Verb से शुरू करो", c:"var(--purple)"},
+  {t:"Connecting Words", d:"and (जोड़ना), but (विरोधाभास), because (कारण), so (परिणाम)", c:"var(--gold)"}
+];
+const examplesData = [
+  {q:"\"राहुल रोज़ स्कूल जाता है\" को Simple Present में अंग्रेज़ी में लिखिए।", s:"\"Rahul goes to school every day.\" — यहाँ third person singular (Rahul) होने से verb में 'es' जोड़ा गया (go → goes)।"},
+  {q:"पूछिए कि \"आप अभी क्या कर रहे हैं?\"", s:"\"What are you doing right now?\" — Wh-word (What) + Helping Verb (are) + Subject (you) + Main Verb-ing (doing)।"},
+  {q:"\"I am happy\" और \"I got good marks\" — इन दो sentences को 'because' से जोड़िए।", s:"\"I am happy because I got good marks.\" — 'because' से कारण बताया गया है कि खुशी क्यों है।"}
+];
+const homeworkData = [
+  {part:"Part 1A", color:"var(--cyan)", qs:[
+    "अपनी daily routine के बारे में Simple Present Tense में 5 sentences लिखो।",
+    "इनमें से third person singular वाले sentences में verb सही लगाओ: \"He (go) to school\", \"She (play) badminton\"।"
+  ]},
+  {part:"Part 1B", color:"var(--pink)", qs:[
+    "किसी एक topic पर 5 Wh-questions बनाओ (जैसे अपने friend के बारे में)।",
+    "5 Yes/No questions बनाओ और उनके जवाब भी लिखो।"
+  ]},
+  {part:"Part 1C", color:"var(--green)", qs:[
+    "and, but, because, so — इन चारों का इस्तेमाल करके एक-एक sentence बनाओ।",
+    "\"I think that...\" से शुरू करके अपनी पसंदीदा किताब या खेल के बारे में एक opinion sentence लिखो।"
+  ]}
+];
 const quizData = [
   {q:"'I ___ to school every day.' में सही verb कौनसा है?", opts:["go","going","gone"], correct:0},
   {q:"Present Continuous Tense पहचानने का सही तरीका क्या है?", opts:["Verb के साथ 'ed'","Verb के साथ 'ing' + am/is/are","Verb अकेला"], correct:1},
@@ -657,6 +750,25 @@ function buildApps(){
 function buildFormulaWall(){
   const g = document.getElementById('formulaWall');
   formulaWallData.forEach(f=>{ const d=el('div','glass formula-card',`<div class="name" style="color:${f[2]}">${f[0]}</div><div class="big">${f[1]}</div>`); g.appendChild(d); });
+}
+function buildRulesSheet(){
+  const g = document.getElementById('rulesSheetGrid');
+  rulesSheetData.forEach(r=>{ const d=el('div','glass def-card', `<h4 style="color:${r.c}">📋 ${r.t}</h4><p>${r.d}</p>`); g.appendChild(d); });
+}
+function buildExamples(){
+  const wrap = document.getElementById('examplesWrap');
+  examplesData.forEach((ex,i)=>{
+    const d = el('div','glass card example-card', `<div class="qlabel">प्रश्न ${i+1}</div><div class="qtext">${ex.q}</div><div class="slabel">हल (Solution)</div><div class="stext">${ex.s}</div>`);
+    wrap.appendChild(d);
+  });
+}
+function buildHomework(){
+  const g = document.getElementById('homeworkGrid');
+  homeworkData.forEach(hw=>{
+    const items = hw.qs.map(q=>`<li>${q}</li>`).join('');
+    const d = el('div','glass hw-card', `<span class="t-year" style="background:${hw.color};">${hw.part}</span><ol>${items}</ol>`);
+    g.appendChild(d);
+  });
 }
 function buildTricks(){
   const g = document.getElementById('tricksGrid');
@@ -713,6 +825,7 @@ function checkQuiz(){
 /* INIT */
 buildObjectives(); buildTimeline(); buildDefs(); buildRayGallery(); buildApps();
 buildFormulaWall(); buildTricks(); buildMistakes(); buildQBank(); buildQuiz();
+buildRulesSheet(); buildExamples(); buildHomework();
 </script>
 </body>
 </html>
