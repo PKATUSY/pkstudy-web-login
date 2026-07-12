@@ -144,6 +144,18 @@ b.hi{color:var(--pink); font-weight:900;} b.hi2{color:var(--green); font-weight:
 .rule-card h4{font-size:15px; color:var(--cyan); font-weight:900; margin-bottom:8px;}
 .rule-card p{font-size:13px; color:var(--dim); line-height:1.8; font-weight:500;}
 
+.example-card{padding:18px 20px;}
+.example-card .qlabel{font-size:11px; font-weight:900; color:var(--gold); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;}
+.example-card .qtext{font-size:13.5px; font-weight:700; color:var(--heading); margin-bottom:14px; line-height:1.7;}
+.example-card .slabel{font-size:11px; font-weight:900; color:var(--green); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;}
+.example-card .stext{font-size:13px; color:var(--dim); line-height:1.8; font-weight:500; background:var(--glass-strong); padding:12px 14px; border-radius:10px;}
+.example-card{margin-bottom:14px;}
+
+.hw-card{padding:18px 20px;}
+.hw-card ol{margin:0; padding-left:20px; font-size:13px; color:var(--dim); line-height:2; font-weight:500;}
+.hw-card ol li{margin-bottom:6px;}
+.hw-card ol li::marker{color:var(--heading); font-weight:800;}
+
 .table-wrap{overflow-x:auto;}
 table{width:100%; border-collapse:collapse; min-width:700px;}
 thead th{text-align:center; padding:12px 14px; background:linear-gradient(120deg,var(--neon-blue),var(--purple)); color:#fff;
@@ -212,8 +224,8 @@ footer .copy{margin-top:18px; font-size:11px; color:var(--dim); opacity:.8;}
   </div>
   <nav>
     <a href="#s2">उद्देश्य</a><a href="#s3">यात्रा</a><a href="#s4">माइंड मैप</a><a href="#s6">परिभाषाएँ</a>
-    <a href="#s7">ध्वनियाँ</a><a href="#s10">अभ्यास स्थान</a><a href="#s11">तालिका</a>
-    <a href="#s14">तथ्य दीवार</a><a href="#s17">प्रश्न</a><a href="#s18">क्विज़</a>
+    <a href="#notes">नोट्स</a><a href="#rules">नियम</a><a href="#s7">ध्वनियाँ</a><a href="#s10">अभ्यास स्थान</a><a href="#s11">तालिका</a>
+    <a href="#s14">तथ्य दीवार</a><a href="#s17">प्रश्न</a><a href="#s18">क्विज़</a><a href="#homework">होमवर्क</a>
   </nav>
   <button class="theme-btn" id="themeToggle" onclick="toggleTheme()" title="Dark/Light Mode">🌙</button>
 </header>
@@ -352,6 +364,52 @@ footer .copy{margin-top:18px; font-size:11px; color:var(--dim); opacity:.8;}
   <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--green),#1a9c70); --glow:#2ee6a699;">6</div>
     <div><h2>परिभाषाएँ</h2><div class="sub en-tag">Key Definitions</div></div></div>
   <div class="grid grid-3" id="defGrid"></div>
+</section>
+
+<!-- ============ NOTES ============ -->
+<section id="notes">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--neon-blue),#1f6fc9); --glow:#3ea6ff99;">📝</div>
+    <div><h2>Notes — विस्तार से समझें</h2><div class="sub en-tag">Detailed Concept Notes</div></div></div>
+  <div class="glass card" style="display:flex; flex-direction:column; gap:16px;">
+    <div class="rule-card" style="border-left-color:var(--cyan);">
+      <h4 style="color:var(--cyan);">1. वर्णमाला की ध्वनि (Alphabet Sounds)</h4>
+      <p>हर letter के दो पहलू होते हैं — उसका <b class="hi2">नाम</b> (जैसे 'B' को 'bee' कहते हैं) और उसकी असली <b class="hi">sound</b> जो शब्दों में सुनाई देती है (जैसे 'Ball' में 'b' की आवाज़)। सही बोलने के लिए letter का नाम नहीं, उसकी सही sound याद रखनी चाहिए।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--pink);">
+      <h4 style="color:var(--pink);">2. Vowels और Consonants</h4>
+      <p>अंग्रेज़ी के 26 letters में से 5 (A, E, I, O, U) <b class="hi3">Vowels</b> हैं, जो खुले मुँह से बोले जाते हैं। बाकी 21 <b class="hi3">Consonants</b> हैं, जो जीभ, दांत या होंठ की मदद से बोले जाते हैं और अक्सर किसी vowel के साथ मिलकर word बनाते हैं।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--green);">
+      <h4 style="color:var(--green);">3. Greetings का सही समय</h4>
+      <p>दिन के अलग-अलग समय पर अलग greeting बोली जाती है — Good Morning (रात 12 से दोपहर 12 तक), Good Afternoon (दोपहर 12 से शाम 4 तक), Good Evening (शाम 4 बजे के बाद), और Good Night सिर्फ़ सोने से पहले बोला जाता है।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--orange);">
+      <h4 style="color:var(--orange);">4. Formal और Informal Greetings</h4>
+      <p>Teacher या बड़ों से मिलते वक़्त <b class="hi2">Formal</b> greetings (जैसे "Good Morning, Sir") इस्तेमाल होती हैं, जबकि दोस्तों के साथ <b class="hi2">Informal</b> greetings (जैसे "Hi" या "Hey") चलती हैं। सही मौके पर सही greeting चुनना ज़रूरी है।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--purple);">
+      <h4 style="color:var(--purple);">5. Politeness Words का महत्व</h4>
+      <p>Please, Thank you, Sorry, Excuse me जैसे शब्द बातचीत को विनम्र और सम्मानजनक बनाते हैं। इनका रोज़ इस्तेमाल करने से अच्छी आदतें बनती हैं और लोग आपसे अच्छे से बात करते हैं।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--gold);">
+      <h4 style="color:var(--gold);">6. Self-Introduction की संरचना</h4>
+      <p>अपना परिचय देते वक़्त क्रम में जाना चाहिए — पहले <b class="hi">Greeting</b>, फिर नाम, उम्र, class, और अंत में Thank you। इस क्रम से सुनने वाले को पूरी जानकारी आसानी से समझ आती है।</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RULES SHEET ============ -->
+<section id="rules">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--purple),#7e4fd1); --glow:#b07dff99;">📋</div>
+    <div><h2>मुख्य नियम (Rules Sheet)</h2><div class="sub en-tag">Key Rules to Remember</div></div></div>
+  <div class="grid grid-3" id="rulesSheetGrid"></div>
+</section>
+
+<!-- ============ SOLVED EXAMPLES ============ -->
+<section id="examples">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--green),#1a9c70); --glow:#2ee6a699;">✍️</div>
+    <div><h2>हल किए गए उदाहरण (Solved Examples)</h2><div class="sub en-tag">Situation-Based Worked Examples</div></div></div>
+  <div id="examplesWrap"></div>
 </section>
 
 <!-- ============ 7. SOUND GROUPS GALLERY ============ -->
@@ -502,6 +560,14 @@ footer .copy{margin-top:18px; font-size:11px; color:var(--dim); opacity:.8;}
   </div>
 </section>
 
+<!-- ============ HOMEWORK ============ -->
+<section id="homework">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--red),#a82424); --glow:#ff4f4f99;">🏠</div>
+    <div><h2>घर से करने के लिए Homework</h2><div class="sub en-tag">Notebook Exercise — Part 1A, 1B, 1C</div></div></div>
+  <div class="grid grid-3" id="homeworkGrid"></div>
+  <p style="color:var(--dim); font-size:12px; margin-top:14px; font-weight:600;">यह सभी काम अपनी English की notebook में लिखकर और ज़ोर से बोलकर practice करने हैं।</p>
+</section>
+
 <!-- ============ 19. CHEAT SHEET ============ -->
 <section id="s19">
   <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--orange),#c9650c); --glow:#ff9f4399;">19</div>
@@ -613,6 +679,33 @@ const qBankData = [
   {tag:"Case Study", color:"var(--cyan)", q:"रिया अपनी teacher से सुबह school में मिलती है और शाम को घर जाते वक़्त neighbour से मिलती है। उसे क्या बोलना चाहिए?", a:"सुबह teacher से मिलते वक़्त रिया को 'Good Morning' बोलना चाहिए, और शाम को जाते वक़्त neighbour से 'Good Evening' या 'Goodbye' बोलना चाहिए।"},
   {tag:"HOTS", color:"var(--pink)", q:"अगर आप सिर्फ एक ही दिन में सभी 26 letters और सभी greetings याद करने की कोशिश करें, तो क्या हो सकता है?", a:"इतनी सारी चीज़ें एक साथ याद करने से दिमाग़ confuse हो सकता है और भूल जाने का chance बढ़ जाता है, इसलिए थोड़ा-थोड़ा करके रोज़ाना याद करना ही सबसे बेहतर तरीका है।"}
 ];
+const rulesSheetData = [
+  {t:"Good Morning", d:"रात 12 बजे से दोपहर 12 बजे तक बोला जाता है", c:"var(--cyan)"},
+  {t:"Good Afternoon", d:"दोपहर 12 बजे से शाम 4 बजे तक बोला जाता है", c:"var(--pink)"},
+  {t:"Good Evening", d:"शाम 4 बजे के बाद बोला जाता है", c:"var(--green)"},
+  {t:"Good Night", d:"सिर्फ़ सोने से पहले बोला जाता है, मिलते वक़्त नहीं", c:"var(--orange)"},
+  {t:"Vowels", d:"A, E, I, O, U — कुल 5, बाकी 21 letters Consonants हैं", c:"var(--purple)"},
+  {t:"TH Sound", d:"जीभ को ऊपर के दांतों के बीच हल्का सा रखकर बोलें", c:"var(--gold)"}
+];
+const examplesData = [
+  {q:"सुबह school पहुँचकर teacher से मिलने पर क्या कहना चाहिए?", s:"\"Good Morning, Ma'am/Sir. How are you?\" — यह एक Formal greeting है, इसमें समय के हिसाब से सही greeting (Good Morning) और respect दिखाने वाला सवाल शामिल है।"},
+  {q:"शाम को खेलते वक़्त दोस्त से मिलने पर और घर जाते वक़्त क्या बोलेंगे?", s:"मिलते वक़्त: \"Hi! What's up?\" — जाते वक़्त: \"Bye! See you tomorrow!\" — यह Informal greetings हैं, दोस्तों के साथ इस्तेमाल होती हैं।"},
+  {q:"अगर आप स्कूल के लिए लेट हो जाएँ, तो teacher से क्या कहेंगे?", s:"\"I am sorry, I am late.\" — Sorry एक politeness word है जो गलती होने पर इस्तेमाल होता है, और सुनने वाले को respect महसूस होता है।"}
+];
+const homeworkData = [
+  {part:"Part 1A", color:"var(--cyan)", qs:[
+    "A से Z तक सभी letters की sound ज़ोर से बोलकर practice करो और किसी बड़े से सुनवाओ।",
+    "TH, SH, CH sounds वाले 5-5 words ढूँढ कर notebook में लिखो।"
+  ]},
+  {part:"Part 1B", color:"var(--pink)", qs:[
+    "Meeting और Parting greetings की एक-एक list बनाओ (कम से कम 5-5 phrases)।",
+    "अपने परिवार के 3 लोगों को सुबह, दोपहर और शाम अलग-अलग greeting बोलकर दिखाओ।"
+  ]},
+  {part:"Part 1C", color:"var(--green)", qs:[
+    "अपना self-introduction 5 lines में लिखो (नाम, उम्र, class, घर, favourite subject)।",
+    "उस self-introduction को रोज़ mirror के सामने 5 बार बोलकर practice करो और record करो।"
+  ]}
+];
 const quizData = [
   {q:"अंग्रेज़ी वर्णमाला में कुल कितने letters हैं?", opts:["24","26","28"], correct:1},
   {q:"इनमें से कौनसा एक Vowel है?", opts:["B","E","T"], correct:1},
@@ -660,6 +753,25 @@ function buildApps(){
 function buildFormulaWall(){
   const g = document.getElementById('formulaWall');
   formulaWallData.forEach(f=>{ const d=el('div','glass formula-card',`<div class="name" style="color:${f[2]}">${f[0]}</div><div class="big">${f[1]}</div>`); g.appendChild(d); });
+}
+function buildRulesSheet(){
+  const g = document.getElementById('rulesSheetGrid');
+  rulesSheetData.forEach(r=>{ const d=el('div','glass def-card', `<h4 style="color:${r.c}">📋 ${r.t}</h4><p>${r.d}</p>`); g.appendChild(d); });
+}
+function buildExamples(){
+  const wrap = document.getElementById('examplesWrap');
+  examplesData.forEach((ex,i)=>{
+    const d = el('div','glass card example-card', `<div class="qlabel">स्थिति ${i+1}</div><div class="qtext">${ex.q}</div><div class="slabel">जवाब (Answer)</div><div class="stext">${ex.s}</div>`);
+    wrap.appendChild(d);
+  });
+}
+function buildHomework(){
+  const g = document.getElementById('homeworkGrid');
+  homeworkData.forEach(hw=>{
+    const items = hw.qs.map(q=>`<li>${q}</li>`).join('');
+    const d = el('div','glass hw-card', `<span class="t-year" style="background:${hw.color};">${hw.part}</span><ol>${items}</ol>`);
+    g.appendChild(d);
+  });
 }
 function buildTricks(){
   const g = document.getElementById('tricksGrid');
@@ -716,6 +828,7 @@ function checkQuiz(){
 /* INIT */
 buildObjectives(); buildTimeline(); buildDefs(); buildRayGallery(); buildApps();
 buildFormulaWall(); buildTricks(); buildMistakes(); buildQBank(); buildQuiz();
+buildRulesSheet(); buildExamples(); buildHomework();
 </script>
 </body>
 </html>
