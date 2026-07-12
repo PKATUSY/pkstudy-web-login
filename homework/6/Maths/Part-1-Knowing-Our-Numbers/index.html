@@ -144,6 +144,18 @@ b.hi{color:var(--pink); font-weight:900;} b.hi2{color:var(--green); font-weight:
 .rule-card h4{font-size:15px; color:var(--cyan); font-weight:900; margin-bottom:8px;}
 .rule-card p{font-size:13px; color:var(--dim); line-height:1.8; font-weight:500;}
 
+.example-card{padding:18px 20px;}
+.example-card .qlabel{font-size:11px; font-weight:900; color:var(--gold); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;}
+.example-card .qtext{font-size:13.5px; font-weight:700; color:var(--heading); margin-bottom:14px; line-height:1.7;}
+.example-card .slabel{font-size:11px; font-weight:900; color:var(--green); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;}
+.example-card .stext{font-size:13px; color:var(--dim); line-height:1.8; font-weight:500; background:var(--glass-strong); padding:12px 14px; border-radius:10px;}
+.example-card{margin-bottom:14px;}
+
+.hw-card{padding:18px 20px;}
+.hw-card ol{margin:0; padding-left:20px; font-size:13px; color:var(--dim); line-height:2; font-weight:500;}
+.hw-card ol li{margin-bottom:6px;}
+.hw-card ol li::marker{color:var(--heading); font-weight:800;}
+
 .table-wrap{overflow-x:auto;}
 table{width:100%; border-collapse:collapse; min-width:700px;}
 thead th{text-align:center; padding:12px 14px; background:linear-gradient(120deg,var(--neon-blue),var(--purple)); color:#fff;
@@ -215,8 +227,8 @@ footer .copy{margin-top:18px; font-size:11px; color:var(--dim); opacity:.8;}
   </div>
   <nav>
     <a href="#syllabus">सिलेबस मैप</a><a href="#s2">उद्देश्य</a><a href="#s4">माइंड मैप</a><a href="#s6">परिभाषाएँ</a>
-    <a href="#s7">संख्या समूह</a><a href="#s11">तालिका</a>
-    <a href="#s14">तथ्य दीवार</a><a href="#s17">प्रश्न</a><a href="#s18">क्विज़</a>
+    <a href="#notes">नोट्स</a><a href="#formulas">सूत्र</a><a href="#s7">संख्या समूह</a><a href="#s11">तालिका</a>
+    <a href="#s14">तथ्य दीवार</a><a href="#s17">प्रश्न</a><a href="#s18">क्विज़</a><a href="#homework">होमवर्क</a>
   </nav>
   <button class="theme-btn" id="themeToggle" onclick="toggleTheme()" title="Dark/Light Mode">🌙</button>
 </header>
@@ -370,6 +382,52 @@ footer .copy{margin-top:18px; font-size:11px; color:var(--dim); opacity:.8;}
   <div class="grid grid-3" id="defGrid"></div>
 </section>
 
+<!-- ============ NOTES ============ -->
+<section id="notes">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--neon-blue),#1f6fc9); --glow:#3ea6ff99;">📝</div>
+    <div><h2>Notes — विस्तार से समझें</h2><div class="sub en-tag">Detailed Concept Notes</div></div></div>
+  <div class="glass card" style="display:flex; flex-direction:column; gap:16px;">
+    <div class="rule-card" style="border-left-color:var(--cyan);">
+      <h4 style="color:var(--cyan);">1. Place Value (स्थानीय मान)</h4>
+      <p>हर digit की दो value होती हैं — <b class="hi2">Face Value</b> (खुद की value) और <b class="hi">Place Value</b> (जगह के हिसाब से value)। उदाहरण: 4527 में 5 का Face Value = 5, लेकिन Place Value = 5 × 100 = 500 (क्योंकि 5, Hundreds की जगह पर है)।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--pink);">
+      <h4 style="color:var(--pink);">2. Indian Number System (भारतीय संख्या पद्धति)</h4>
+      <p>भारत में संख्याओं को Ones, Tens, Hundreds, Thousand, Ten Thousand, Lakh, Ten Lakh, Crore के समूहों में पढ़ा जाता है। कॉमा दायें से पहले 3 अंकों के बाद, फिर हर 2 अंकों के बाद लगता है। उदाहरण: 34567891 को <b class="hi3">3,45,67,891</b> लिखा और "तीन करोड़ पैंतालीस लाख सड़सठ हज़ार आठ सौ इक्यानवे" पढ़ा जाता है।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--green);">
+      <h4 style="color:var(--green);">3. International Number System</h4>
+      <p>दुनिया भर में Ones, Tens, Hundreds, Thousand, Ten Thousand, Hundred Thousand, Million के समूहों में पढ़ा जाता है — कॉमा हर 3 अंकों के बाद लगता है। उदाहरण: 34567891 को <b class="hi3">34,567,891</b> लिखा जाता है (Thirty-four million five hundred sixty-seven thousand eight hundred ninety-one)।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--orange);">
+      <h4 style="color:var(--orange);">4. संख्याओं की तुलना (Comparing Numbers)</h4>
+      <p>पहले दोनों संख्याओं के digits गिनो — ज़्यादा digits वाली संख्या बड़ी होती है। digits बराबर हों तो सबसे बाएँ वाले digit से तुलना शुरू करो। उदाहरण: 45,678 में 5 digits हैं और 9,999 में 4, इसलिए <b class="hi2">45,678 बड़ी है</b>।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--purple);">
+      <h4 style="color:var(--purple);">5. Estimation (अनुमान)</h4>
+      <p>संख्या को नज़दीकी 10, 100 या 1000 तक round करना Estimation कहलाता है। जिस जगह तक round करना है, उसके ठीक अगले digit को देखो — 5 या उससे ज़्यादा हो तो ऊपर, वरना नीचे। उदाहरण: 4567 को nearest 100 तक round करें — Tens digit (6) ≥ 5 है, इसलिए उत्तर <b class="hi3">4600</b> होगा।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--gold);">
+      <h4 style="color:var(--gold);">6. Roman Numerals (रोमन अंक)</h4>
+      <p>मुख्य 7 symbols — I=1, V=5, X=10, L=50, C=100, D=500, M=1000। छोटा symbol बड़े के बाद आए तो जोड़ते हैं (VI=6), और बड़े से पहले आए तो घटाते हैं (IV=4)। उदाहरण: 1994 को Roman में <b class="hi">MCMXCIV</b> लिखा जाता है।</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FORMULA SHEET ============ -->
+<section id="formulas">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--purple),#7e4fd1); --glow:#b07dff99;">🧮</div>
+    <div><h2>ज़रूरी सूत्र (Formula Sheet)</h2><div class="sub en-tag">Key Formulas to Remember</div></div></div>
+  <div class="grid grid-3" id="formulaSheetGrid"></div>
+</section>
+
+<!-- ============ SOLVED EXAMPLES ============ -->
+<section id="examples">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--green),#1a9c70); --glow:#2ee6a699;">✍️</div>
+    <div><h2>हल किए गए उदाहरण (Solved Examples)</h2><div class="sub en-tag">Step-by-Step Worked Examples</div></div></div>
+  <div id="examplesWrap"></div>
+</section>
+
 <!-- ============ 7. NUMBER GROUPS GALLERY ============ -->
 <section id="s7">
   <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--orange),#c9650c); --glow:#ff9f4399;">7</div>
@@ -510,6 +568,14 @@ footer .copy{margin-top:18px; font-size:11px; color:var(--dim); opacity:.8;}
   </div>
 </section>
 
+<!-- ============ HOMEWORK ============ -->
+<section id="homework">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--red),#a82424); --glow:#ff4f4f99;">🏠</div>
+    <div><h2>घर से करने के लिए Homework</h2><div class="sub en-tag">Notebook Exercise — Part 1A, 1B, 1C</div></div></div>
+  <div class="grid grid-3" id="homeworkGrid"></div>
+  <p style="color:var(--dim); font-size:12px; margin-top:14px; font-weight:600;">यह सभी प्रश्न अपनी Maths की notebook में हल करके अगली कक्षा में साथ लाने हैं।</p>
+</section>
+
 <!-- ============ 19. CHEAT SHEET ============ -->
 <section id="s19">
   <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--orange),#c9650c); --glow:#ff9f4399;">19</div>
@@ -640,6 +706,37 @@ const qBankData = [
   {tag:"Case Study", color:"var(--cyan)", q:"रोहन के पापा का बैंक बैलेंस ₹3,45,000 है और उनके दोस्त का बैलेंस ₹34,50,000 है। किसका बैलेंस ज़्यादा है और क्यों?", a:"दोस्त का बैलेंस ज़्यादा है क्योंकि ₹34,50,000 में 7 digits हैं जबकि ₹3,45,000 में सिर्फ़ 6 digits हैं, और ज़्यादा digits वाली संख्या बड़ी होती है।"},
   {tag:"HOTS", color:"var(--pink)", q:"अगर कोई संख्या लिखते वक़्त बीच में एक digit छूट जाए, तो संख्या पढ़ने और समझने में क्या समस्या हो सकती है?", a:"एक digit छूट जाने से संख्या की Place Value पूरी तरह बदल जाएगी और संख्या असल संख्या से बहुत छोटी या ग़लत दिख सकती है, इसलिए हर digit को सही जगह पर लिखना बहुत ज़रूरी है।"}
 ];
+const formulaSheetData = [
+  {t:"Place Value", d:"Place Value = Face Value × Position की Value (1, 10, 100, 1000...)", c:"var(--cyan)"},
+  {t:"1 Lakh", d:"1 Lakh = 1,00,000 = 100 Thousand", c:"var(--pink)"},
+  {t:"1 Crore", d:"1 Crore = 1,00,00,000 = 100 Lakh = 10 Million", c:"var(--green)"},
+  {t:"सबसे छोटी n-अंक संख्या", d:"1 के बाद (n-1) शून्य — जैसे 5-अंक की सबसे छोटी = 10,000", c:"var(--orange)"},
+  {t:"सबसे बड़ी n-अंक संख्या", d:"n बार 9 — जैसे 5-अंक की सबसे बड़ी = 99,999", c:"var(--purple)"},
+  {t:"Rounding Rule", d:"अगला digit ≥ 5 → ऊपर round, अगला digit < 5 → नीचे round", c:"var(--gold)"}
+];
+const examplesData = [
+  {q:"5,63,482 को Indian System में शब्दों में लिखिए और International System में कॉमा लगाइए।", s:"Indian System में यह \"पाँच लाख तिरेसठ हज़ार चार सौ बयासी\" है। International System में इसे 563,482 लिखा जाएगा (Five hundred sixty-three thousand four hundred eighty-two)।"},
+  {q:"8546 को nearest 1000 तक estimate कीजिए।", s:"Hundreds digit (5) देखें — 5 ≥ 5 है, इसलिए ऊपर round होगा। उत्तर = 9000।"},
+  {q:"वर्ष 2024 को Roman Numerals में लिखिए।", s:"2024 = 2000 + 24 = MM + XXIV, इसलिए उत्तर = MMXXIV।"}
+];
+const homeworkData = [
+  {part:"Part 1A", color:"var(--cyan)", qs:[
+    "निम्नलिखित संख्याओं को Indian System में कॉमा लगाकर लिखिए: (a) 7345621 (b) 90456123",
+    "8,34,567 में अंक 4 का Place Value और Face Value ज्ञात कीजिए।",
+    "निम्नलिखित संख्याओं को शब्दों में लिखिए: (a) 6,05,439 (b) 45,67,890"
+  ]},
+  {part:"Part 1B", color:"var(--pink)", qs:[
+    "3456789 को International System में कॉमा लगाकर लिखिए और अंग्रेज़ी में पढ़िए।",
+    "निम्नलिखित संख्याओं को Ascending Order में लगाइए: 45678, 7654, 456789, 98765",
+    "कौनसी संख्या बड़ी है — 5,67,890 या 89,999? कारण सहित बताइए।"
+  ]},
+  {part:"Part 1C", color:"var(--green)", qs:[
+    "निम्नलिखित संख्याओं को nearest 100 तक round कीजिए: (a) 3456 (b) 7890 (c) 12,345",
+    "निम्नलिखित को Roman Numerals में लिखिए: (a) 49 (b) 98 (c) 1000",
+    "निम्नलिखित Roman Numerals को साधारण संख्या में बदलिए: (a) XLIV (b) CMXCIX",
+    "अपने घर के किसी बिल/रसीद से एक 5-अंकों वाली संख्या लिखिए और उसका Place Value Chart बनाइए।"
+  ]}
+];
 const quizData = [
   {q:"1 Lakh में कितने Thousand होते हैं?", opts:["10","100","1000"], correct:1},
   {q:"Indian System में दायें से पहला कॉमा कितने digits के बाद लगता है?", opts:["2","3","4"], correct:1},
@@ -698,6 +795,25 @@ function buildFormulaWall(){
   const g = document.getElementById('formulaWall');
   formulaWallData.forEach(f=>{ const d=el('div','glass formula-card',`<div class="name" style="color:${f[2]}">${f[0]}</div><div class="big">${f[1]}</div>`); g.appendChild(d); });
 }
+function buildFormulaSheet(){
+  const g = document.getElementById('formulaSheetGrid');
+  formulaSheetData.forEach(f=>{ const d=el('div','glass def-card', `<h4 style="color:${f.c}">🧮 ${f.t}</h4><p>${f.d}</p>`); g.appendChild(d); });
+}
+function buildExamples(){
+  const wrap = document.getElementById('examplesWrap');
+  examplesData.forEach((ex,i)=>{
+    const d = el('div','glass card example-card', `<div class="qlabel">प्रश्न ${i+1}</div><div class="qtext">${ex.q}</div><div class="slabel">हल (Solution)</div><div class="stext">${ex.s}</div>`);
+    wrap.appendChild(d);
+  });
+}
+function buildHomework(){
+  const g = document.getElementById('homeworkGrid');
+  homeworkData.forEach(hw=>{
+    const items = hw.qs.map(q=>`<li>${q}</li>`).join('');
+    const d = el('div','glass hw-card', `<span class="t-year" style="background:${hw.color};">${hw.part}</span><ol>${items}</ol>`);
+    g.appendChild(d);
+  });
+}
 function buildTricks(){
   const g = document.getElementById('tricksGrid');
   tricksData.forEach(t=>{ const d=el('div','glass trick-card',`<b class="hi3">${t[0]}</b><p style="font-size:12.5px; color:var(--dim); margin-top:6px; line-height:1.7; font-weight:500;">${t[1]}</p>`); g.appendChild(d); });
@@ -753,6 +869,7 @@ function checkQuiz(){
 /* INIT */
 buildSyllabus(); buildObjectives(); buildTimeline(); buildDefs(); buildRayGallery(); buildApps();
 buildFormulaWall(); buildTricks(); buildMistakes(); buildQBank(); buildQuiz();
+buildFormulaSheet(); buildExamples(); buildHomework();
 </script>
 </body>
 </html>
