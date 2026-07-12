@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PK STUDY | ऊँचाई और दूरी — Height and Distance</title>
+<style>
+:root{
+  --bg:#04050f; --glass:rgba(255,255,255,.045); --glass-strong:rgba(255,255,255,.08);
+  --border:rgba(255,255,255,.12); --text:#f2f6ff; --dim:#9fb0da; --heading:#ffffff;
+  --neon-blue:#3ea6ff; --cyan:#33e0ff; --purple:#b07dff; --gold:#ffc233;
+  --green:#2ee6a6; --orange:#ff9f43; --pink:#ff4d8d; --red:#ff4f4f;
+  --shadow:0 22px 46px -22px #000d; --hshadow:0 30px 56px -20px #000f;
+}
+[data-theme="light"]{
+  --bg:#f6f8fd; --glass:rgba(20,30,65,.045); --glass-strong:rgba(20,30,65,.08);
+  --border:rgba(20,30,65,.12); --text:#161c33; --dim:#535f82; --heading:#12172b;
+  --neon-blue:#2563eb; --cyan:#0891b2; --purple:#7c3aed; --gold:#b45309;
+  --green:#059669; --orange:#c2410c; --pink:#db2777; --red:#dc2626;
+  --shadow:0 18px 36px -20px rgba(30,40,80,.18); --hshadow:0 24px 44px -18px rgba(30,40,80,.24);
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Segoe UI','Noto Sans Devanagari',Arial,sans-serif; color:var(--text); min-height:100vh; overflow-x:hidden;
+  transition:background .4s, color .4s;
+  background:
+    radial-gradient(ellipse at 10% -10%, #1c3a9955, transparent 55%),
+    radial-gradient(ellipse at 95% 10%, #7a2ab866, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, #0a5a6e44, transparent 55%),
+    linear-gradient(180deg,#04050f,#020208 90%);
+}
+[data-theme="light"] body{
+  background:
+    radial-gradient(ellipse at 10% -10%, #dbe4ff99, transparent 55%),
+    radial-gradient(ellipse at 95% 10%, #ede0ff99, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, #d7f5f099, transparent 55%),
+    linear-gradient(180deg,#f8faff,#eef1f9 90%);
+}
+::-webkit-scrollbar{width:8px;} ::-webkit-scrollbar-thumb{background:var(--neon-blue); border-radius:6px;} ::-webkit-scrollbar-track{background:transparent;}
+
+.glass{background:var(--glass); border:1px solid var(--border); border-radius:18px; backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+  box-shadow:var(--shadow), inset 0 1px 0 #ffffff12; transition:transform .35s, box-shadow .35s, background .4s, border .4s;}
+.glass:hover{transform:translateY(-4px); box-shadow:var(--hshadow), inset 0 1px 0 #ffffff1e;}
+
+header{position:sticky; top:0; z-index:200; display:flex; align-items:center; justify-content:space-between; padding:14px 26px;
+  background:rgba(4,5,15,.75); backdrop-filter:blur(18px); border-bottom:1px solid var(--border); flex-wrap:wrap; gap:10px; transition:background .4s;}
+[data-theme="light"] header{background:rgba(255,255,255,.8);}
+.brand{display:flex; align-items:center; gap:12px;}
+.brand img{width:44px; height:44px; border-radius:10px; object-fit:cover; border:2px solid var(--neon-blue); box-shadow:0 0 18px #3ea6ff88;}
+.logo-fallback{width:44px; height:44px; border-radius:10px; display:flex; align-items:center; justify-content:center;
+  background:linear-gradient(135deg,var(--neon-blue),#1f3d8c); font-weight:900; font-size:12px; border:2px solid var(--cyan); color:#fff;}
+.brand-text .name{font-weight:900; font-size:18px; color:var(--cyan); letter-spacing:.5px;}
+.brand-text .tag{font-size:11px; color:var(--dim); font-weight:600;}
+nav{display:flex; gap:5px; overflow-x:auto; max-width:52vw;}
+nav::-webkit-scrollbar{height:4px;}
+nav a{color:var(--dim); text-decoration:none; font-size:11.5px; padding:6px 11px; border-radius:16px; border:1px solid transparent; transition:.2s; font-weight:700; white-space:nowrap;}
+nav a:hover{color:var(--heading); border-color:var(--neon-blue); background:#3ea6ff1a;}
+.theme-btn{flex-shrink:0; width:40px; height:40px; border-radius:12px; border:1px solid var(--border); background:var(--glass-strong);
+  color:var(--text); font-size:17px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:.25s;}
+.theme-btn:hover{border-color:var(--neon-blue); transform:translateY(-2px);}
+
+/* ===== HERO ===== */
+.hero{position:relative; padding:80px 6vw 60px; text-align:center; overflow:hidden;}
+.hero-bg{position:absolute; inset:0; z-index:0; opacity:.5;}
+.eyebrow{display:inline-block; padding:7px 22px; border-radius:30px; color:#04050f; font-size:12px; font-weight:900;
+  letter-spacing:2.5px; text-transform:uppercase; margin-bottom:20px; position:relative; z-index:2;
+  background:linear-gradient(120deg,var(--gold),var(--orange),var(--pink),var(--purple),var(--cyan)); background-size:400% 100%; animation:shim 8s linear infinite;
+  box-shadow:0 10px 26px -6px #000b;}
+@keyframes shim{0%{background-position:0% 0;}100%{background-position:400% 0;}}
+.hero h1{position:relative; z-index:2; font-size:clamp(28px,6vw,54px); font-weight:900; line-height:1.25;
+  background:linear-gradient(90deg,var(--neon-blue),var(--cyan) 35%,var(--purple) 65%,var(--pink)); -webkit-background-clip:text; background-clip:text; color:transparent;
+  text-shadow:0 0 60px #3ea6ff33; animation:hueGlow 6s ease-in-out infinite;}
+@keyframes hueGlow{0%,100%{filter:brightness(1);} 50%{filter:brightness(1.2);}}
+.hero .en{position:relative; z-index:2; font-size:16px; color:var(--dim); font-weight:700; margin-top:10px; letter-spacing:1px;}
+.hero p{position:relative; z-index:2; color:var(--dim); max-width:760px; margin:20px auto 0; font-size:14.5px; line-height:1.9; font-weight:500;}
+.pulse-line{position:relative; z-index:2; width:150px; height:4px; margin:28px auto 0; border-radius:4px;
+  background:linear-gradient(90deg,var(--neon-blue),var(--cyan),var(--purple),var(--gold)); background-size:300% 100%; animation:shim 4s linear infinite;
+  box-shadow:0 4px 20px -2px #3ea6ff88;}
+
+.optics-scene{position:relative; z-index:2; max-width:680px; margin:36px auto 0; height:210px;}
+.optics-scene svg{width:100%; height:100%;}
+.laser{stroke-dasharray:8 6; animation:dash 1.4s linear infinite;}
+@keyframes dash{to{stroke-dashoffset:-28;}}
+.glow-dot{filter:drop-shadow(0 0 8px currentColor);}
+@keyframes floaty{0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);}}
+.float-ic{animation:floaty 4s ease-in-out infinite;}
+
+section{position:relative; z-index:1; padding:52px 6vw; max-width:1300px; margin:0 auto;}
+.sec-head{display:flex; align-items:center; gap:14px; margin-bottom:28px;}
+.sec-num{width:44px; height:44px; border-radius:14px; flex-shrink:0; display:flex; align-items:center; justify-content:center;
+  font-weight:900; font-size:16px; color:#04050f; box-shadow:0 8px 22px -6px var(--glow,#3ea6ff99); border:2px solid #ffffffaa;}
+.sec-head h2{font-size:clamp(19px,3vw,26px); font-weight:900; color:var(--heading);}
+.sec-head .sub{color:var(--dim); font-size:12.5px; font-weight:600; margin-top:2px;}
+.sec-head .en-tag{font-size:11px; color:var(--gold); font-weight:700; letter-spacing:.5px;}
+
+.card{padding:20px 22px;}
+.grid{display:grid; gap:16px;}
+.grid-2{grid-template-columns:1fr 1fr;} .grid-3{grid-template-columns:repeat(3,1fr);}
+.grid-4{grid-template-columns:repeat(4,1fr);} .grid-5{grid-template-columns:repeat(5,1fr);}
+@media(max-width:900px){.grid-3,.grid-4,.grid-5{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.grid-2,.grid-3,.grid-4,.grid-5{grid-template-columns:1fr;} nav{max-width:100%;}}
+
+b.hi{color:var(--pink); font-weight:900;} b.hi2{color:var(--green); font-weight:900;} b.hi3{color:var(--gold); font-weight:900;}
+.eng-term{color:var(--cyan); font-style:italic; font-weight:700;}
+
+.obj-card{padding:16px 18px; display:flex; align-items:center; gap:12px;}
+.obj-card .ic{font-size:24px; flex-shrink:0;}
+.obj-card .t{font-size:13.5px; font-weight:800; color:var(--text);}
+
+.timeline{position:relative; padding-left:36px;}
+.timeline::before{content:''; position:absolute; left:11px; top:6px; bottom:6px; width:3px;
+  background:linear-gradient(180deg,var(--neon-blue),var(--cyan),var(--purple),var(--gold)); border-radius:3px; box-shadow:0 0 14px #3ea6ff66;}
+.t-item{position:relative; margin-bottom:26px;}
+.t-item::before{content:''; position:absolute; left:-31px; top:6px; width:18px; height:18px; border-radius:50%;
+  background:var(--bg); border:3px solid var(--dotcolor,var(--neon-blue)); box-shadow:0 0 16px var(--dotcolor,var(--neon-blue));}
+.t-item:nth-child(1){--dotcolor:var(--gold);} .t-item:nth-child(2){--dotcolor:var(--cyan);}
+.t-item:nth-child(3){--dotcolor:var(--purple);} .t-item:nth-child(4){--dotcolor:var(--green);} .t-item:nth-child(5){--dotcolor:var(--pink);}
+.t-year{display:inline-block; font-weight:900; font-size:13.5px; color:#04050f; background:var(--dotcolor,var(--neon-blue));
+  padding:5px 16px; border-radius:20px; margin-bottom:8px; box-shadow:0 4px 14px -2px var(--dotcolor,#3ea6ff88);}
+.t-item h3{font-size:16px; color:var(--heading); font-weight:800; margin-bottom:4px;}
+.t-item p{font-size:13px; color:var(--dim); line-height:1.8; font-weight:500;}
+
+.mindmap-wrap{display:flex; justify-content:center;}
+.mindmap-wrap svg{width:100%; max-width:1100px; height:auto;}
+.mm-node{stroke-width:2; rx:14;}
+.mm-text{fill:var(--heading); font-size:12.5px; font-weight:800;}
+.mm-line{stroke-width:2; opacity:.55; stroke-dasharray:5 4;}
+
+.flow-col{display:flex; flex-direction:column; align-items:center; gap:6px;}
+.flow-box{padding:12px 22px; border-radius:12px; font-weight:900; font-size:13px; color:#04050f; text-align:center; min-width:180px; box-shadow:0 8px 20px -6px #0009;}
+.flow-arrow{font-size:20px; color:var(--cyan); font-weight:900;}
+
+.def-card{padding:18px 20px; border-radius:16px;}
+.def-card h4{font-size:14.5px; margin-bottom:8px; display:flex; align-items:center; gap:8px; font-weight:900;}
+.def-card p{font-size:12.5px; color:var(--dim); line-height:1.75; font-weight:500;}
+
+.diagram-card{padding:18px; text-align:center;}
+.diagram-card svg{width:100%; max-width:280px; height:150px;}
+.diagram-card .cap{font-weight:800; font-size:13px; color:var(--heading); margin-top:8px;}
+.diagram-card .cap2{font-size:11px; color:var(--dim); margin-top:2px;}
+
+.rule-card{padding:20px; border-left:5px solid var(--neon-blue);}
+.rule-card h4{font-size:15px; color:var(--cyan); font-weight:900; margin-bottom:8px;}
+.rule-card p{font-size:13px; color:var(--dim); line-height:1.8; font-weight:500;}
+
+.example-card{padding:18px 20px;}
+.example-card .qlabel{font-size:11px; font-weight:900; color:var(--gold); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;}
+.example-card .qtext{font-size:13.5px; font-weight:700; color:var(--heading); margin-bottom:14px; line-height:1.7;}
+.example-card .slabel{font-size:11px; font-weight:900; color:var(--green); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;}
+.example-card .stext{font-size:13px; color:var(--dim); line-height:1.8; font-weight:500; background:var(--glass-strong); padding:12px 14px; border-radius:10px; white-space:pre-line;}
+.example-card{margin-bottom:14px;}
+
+.hw-card{padding:18px 20px;}
+.hw-card ol{margin:0; padding-left:20px; font-size:13px; color:var(--dim); line-height:2; font-weight:500;}
+.hw-card ol li{margin-bottom:6px;}
+.hw-card ol li::marker{color:var(--heading); font-weight:800;}
+
+.table-wrap{overflow-x:auto;}
+table{width:100%; border-collapse:collapse; min-width:700px;}
+thead th{text-align:center; padding:12px 14px; background:linear-gradient(120deg,var(--neon-blue),var(--purple)); color:#fff;
+  font-size:12px; text-transform:uppercase; letter-spacing:.5px; font-weight:900;}
+thead th:first-child{border-radius:10px 0 0 0;} thead th:last-child{border-radius:0 10px 0 0;}
+tbody td{padding:12px 14px; border-bottom:1px solid var(--border); color:var(--dim); font-size:12.5px; text-align:center; font-weight:600;}
+tbody tr:hover{background:#3ea6ff14;}
+.pill{display:inline-block; padding:4px 12px; border-radius:12px; font-size:10.5px; font-weight:900;}
+.pill-real{background:linear-gradient(120deg,var(--red),#a82424); color:#fff;}
+.pill-virtual{background:linear-gradient(120deg,var(--cyan),#0a85b8); color:#04050f;}
+.pill-erect{background:linear-gradient(120deg,var(--green),#1a9c70); color:#04050f;}
+.pill-inverted{background:linear-gradient(120deg,var(--orange),#c9650c); color:#04050f;}
+
+.formula-card{padding:24px; text-align:center; border-radius:18px; position:relative; overflow:hidden;}
+.formula-card .big{font-size:22px; font-weight:900; color:var(--heading); margin:10px 0; font-family:'Segoe UI',sans-serif;}
+.formula-card .name{font-size:12.5px; color:var(--gold); font-weight:800; text-transform:uppercase; letter-spacing:1px;}
+.formula-card .d{font-size:11.5px; color:var(--dim); margin-top:8px; line-height:1.6; font-weight:500;}
+
+.app-card{padding:18px; text-align:center;}
+.app-card .ic{font-size:34px; margin-bottom:8px;}
+.app-card .t{font-weight:800; font-size:13px; color:var(--heading);}
+.app-card .d{font-size:11px; color:var(--dim); margin-top:4px;}
+
+.trick-card{padding:16px 18px; border-left:4px solid var(--gold);}
+.mistake-card{padding:16px 18px; border-left:4px solid var(--red); background:linear-gradient(120deg,#ff4f4f14,transparent);}
+.mistake-card .wrong{color:var(--red); font-weight:800; font-size:12.5px; text-decoration:line-through;}
+.mistake-card .right{color:var(--green); font-weight:800; font-size:12.5px;}
+
+.q-card{margin-bottom:10px; overflow:hidden;}
+.q-head{padding:14px 18px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:10px;}
+.q-head .txt{font-weight:800; font-size:13px; color:var(--heading);}
+.q-head .tag{font-size:10px; padding:3px 10px; border-radius:10px; font-weight:900; color:#04050f; flex-shrink:0;}
+.q-head .arrow{color:var(--cyan); transition:transform .3s;}
+.q-head.open .arrow{transform:rotate(180deg);}
+.q-body{max-height:0; overflow:hidden; transition:max-height .4s; padding:0 18px;}
+.q-body.open{max-height:300px; padding:0 18px 16px;}
+.q-body p{font-size:12.5px; color:var(--dim); line-height:1.8; font-weight:500;}
+
+.quiz-item{padding:16px 18px; margin-bottom:12px;}
+.quiz-item .q{font-weight:800; font-size:13.5px; margin-bottom:10px; color:var(--heading);}
+.quiz-opt{display:block; padding:9px 14px; margin:6px 0; border-radius:10px; border:1.5px solid var(--border); font-size:12.5px;
+  color:var(--dim); font-weight:600; cursor:pointer; transition:.2s;}
+.quiz-opt:hover{border-color:var(--cyan);}
+.quiz-opt.selected{border-color:var(--neon-blue); background:#3ea6ff1a;}
+.quiz-opt.correct-answer{background:linear-gradient(120deg,var(--green),#1a9c70); color:#04050f; border-color:transparent; font-weight:900;}
+.quiz-opt.wrong-answer{background:linear-gradient(120deg,var(--red),#b82828); color:#fff; border-color:transparent; font-weight:900;}
+.score-box{text-align:center; padding:24px;}
+.score-box .num{font-size:44px; font-weight:900; color:var(--gold);}
+.btn-primary{padding:12px 26px; border-radius:14px; border:none; font-weight:900; font-size:13px; cursor:pointer;
+  background:linear-gradient(120deg,var(--neon-blue),var(--purple)); color:#fff; box-shadow:0 10px 24px -6px #0009;}
+
+footer{text-align:center; padding:50px 6vw 70px; color:var(--dim); font-size:12.5px; border-top:1px solid var(--border); margin-top:30px; font-weight:600;}
+footer .name{color:var(--cyan); font-weight:900; font-size:16px;}
+footer .badges{display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin:16px 0;}
+footer .badge{padding:6px 16px; border-radius:20px; font-size:11px; font-weight:800; background:var(--glass-strong); border:1px solid var(--border);}
+footer .copy{margin-top:18px; font-size:11px; color:var(--dim); opacity:.8;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <img src="images/1000043468.png" alt="PK STUDY" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="logo-fallback" style="display:none;">PK</div>
+    <div class="brand-text"><div class="name">PK STUDY</div><div class="tag">Class 10 • Maths • Chapter 9</div></div>
+  </div>
+  <nav>
+    <a href="#s2">उद्देश्य</a><a href="#s4">माइंड मैप</a><a href="#s6">परिभाषाएँ</a>
+    <a href="#notes">नोट्स</a><a href="#formulas">सूत्र</a><a href="#examples">उदाहरण</a>
+    <a href="#s11">कोण तालिका</a><a href="#s17">प्रश्न</a><a href="#s18">क्विज़</a><a href="#homework">होमवर्क</a>
+  </nav>
+  <button class="theme-btn" id="themeToggle" onclick="toggleTheme()" title="Dark/Light Mode">🌙</button>
+</header>
+
+<!-- ============ HERO ============ -->
+<div class="hero">
+  <span class="eyebrow">कक्षा 10 · अध्याय 9 · त्रिकोणमिति के अनुप्रयोग</span>
+  <h1>ऊँचाई और दूरी</h1>
+  <div class="en">Height and Distance — Some Applications of Trigonometry</div>
+  <p>इस अध्याय में हम त्रिकोणमितीय अनुपातों (sin, cos, tan) का इस्तेमाल करके किसी मीनार, इमारत, पेड़ या पहाड़ की <b>ऊँचाई</b> और उससे <b>दूरी</b> निकालना सीखेंगे — <b>Angle of Elevation</b> और <b>Angle of Depression</b> की मदद से। इसमें Notes, ज़रूरी Formula, हल किए गए Examples, Practice Questions और Homework — सब कुछ शामिल है।</p>
+  <div class="pulse-line"></div>
+
+  <div class="optics-scene">
+    <svg viewBox="0 0 640 210">
+      <defs>
+        <radialGradient id="coreGrad" cx="50%" cy="50%" r="60%">
+          <stop offset="0%" stop-color="#7ad6ff"/><stop offset="100%" stop-color="#3ea6ff"/>
+        </radialGradient>
+      </defs>
+      <line x1="60" y1="180" x2="580" y2="180" stroke="#3ea6ff55" stroke-width="2"/>
+      <line x1="320" y1="180" x2="320" y2="60" stroke="#ffc233" stroke-width="4"/>
+      <circle cx="320" cy="55" r="14" fill="#ffc233" class="glow-dot"/>
+      <text x="320" y="42" text-anchor="middle" font-size="11" font-weight="900" fill="#ffc233">शिखर</text>
+      <circle cx="120" cy="180" r="10" fill="#3ea6ff" class="glow-dot"/>
+      <line class="laser" x1="120" y1="180" x2="320" y2="60" stroke="#33e0ff" stroke-width="2.5"/>
+      <path d="M 160 180 A 40 40 0 0 1 152 155" stroke="#2ee6a6" stroke-width="2.5" fill="none"/>
+      <text x="175" y="170" font-size="11" font-weight="900" fill="#2ee6a6">θ</text>
+      <text x="120" y="204" text-anchor="middle" font-size="11" font-weight="800" fill="#3ea6ff">प्रेक्षक (Observer)</text>
+      <text x="320" y="198" text-anchor="middle" font-size="11" font-weight="800" fill="#ff9f43">ऊँचाई (Height)</text>
+      <text x="220" y="140" text-anchor="middle" font-size="10" font-weight="800" fill="#b07dff">दूरी (Distance)</text>
+    </svg>
+  </div>
+</div>
+
+<!-- ============ 2. LEARNING OBJECTIVES ============ -->
+<section id="s2">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--cyan),#0a85b8); --glow:#33e0ff99;">2</div>
+    <div><h2>सीखने के उद्देश्य</h2><div class="sub en-tag">Learning Objectives</div></div></div>
+  <div class="grid grid-3" id="objGrid"></div>
+</section>
+
+<!-- ============ 4. MIND MAP ============ -->
+<section id="s4">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--purple),#7e4fd1); --glow:#b07dff99;">4</div>
+    <div><h2>Color Mind Map — Height and Distance</h2><div class="sub en-tag">Complete overview of Chapter 9</div></div></div>
+  <div class="glass card mindmap-wrap">
+    <svg viewBox="0 0 1100 640">
+      <defs><radialGradient id="mmCoreGrad" cx="50%" cy="50%" r="60%"><stop offset="0%" stop-color="#3ea6ff"/><stop offset="100%" stop-color="#1f6fc9"/></radialGradient></defs>
+      <line class="mm-line" x1="550" y1="320" x2="180" y2="100" stroke="#33e0ff"/>
+      <line class="mm-line" x1="550" y1="320" x2="920" y2="100" stroke="#ff4d8d"/>
+      <line class="mm-line" x1="550" y1="320" x2="140" y2="330" stroke="#ff9f43"/>
+      <line class="mm-line" x1="550" y1="320" x2="960" y2="330" stroke="#b07dff"/>
+      <line class="mm-line" x1="550" y1="320" x2="220" y2="560" stroke="#2ee6a6"/>
+      <line class="mm-line" x1="550" y1="320" x2="880" y2="560" stroke="#ffe14d"/>
+      <circle cx="550" cy="320" r="70" fill="url(#mmCoreGrad)" stroke="#7ad6ff" stroke-width="2.5"/>
+      <text x="550" y="326" text-anchor="middle" fill="#fff" font-size="15" font-weight="900">Height &amp; Distance</text>
+
+      <rect class="mm-node" x="30" y="50" width="240" height="90" rx="14" fill="#33e0ff22" stroke="#33e0ff"/>
+      <text class="mm-text" x="50" y="78" fill="#33e0ff" font-size="14">Line of Sight</text>
+      <text class="mm-text" x="50" y="98" font-size="11" fill="#9fb0da">प्रेक्षक की आँख से वस्तु तक रेखा</text>
+
+      <rect class="mm-node" x="820" y="50" width="250" height="90" rx="14" fill="#ff4d8d22" stroke="#ff4d8d"/>
+      <text class="mm-text" x="840" y="78" fill="#ff4d8d" font-size="14">Angle of Elevation</text>
+      <text class="mm-text" x="840" y="98" font-size="11" fill="#9fb0da">नीचे से ऊपर देखने पर बना कोण</text>
+
+      <rect class="mm-node" x="10" y="290" width="230" height="90" rx="14" fill="#ff9f4322" stroke="#ff9f43"/>
+      <text class="mm-text" x="30" y="318" fill="#ff9f43" font-size="14">Angle of Depression</text>
+      <text class="mm-text" x="30" y="338" font-size="11" fill="#9fb0da">ऊपर से नीचे देखने पर बना कोण</text>
+
+      <rect class="mm-node" x="860" y="290" width="240" height="90" rx="14" fill="#b07dff22" stroke="#b07dff"/>
+      <text class="mm-text" x="880" y="318" fill="#b07dff" font-size="14">Right Triangle Setup</text>
+      <text class="mm-text" x="880" y="338" font-size="11" fill="#9fb0da">Height, Distance, Hypotenuse</text>
+
+      <rect class="mm-node" x="60" y="510" width="270" height="100" rx="14" fill="#2ee6a622" stroke="#2ee6a6"/>
+      <text class="mm-text" x="80" y="538" fill="#2ee6a6" font-size="14">Trigonometric Ratios</text>
+      <text class="mm-text" x="80" y="558" font-size="11" fill="#9fb0da">sin θ, cos θ, tan θ का प्रयोग</text>
+
+      <rect class="mm-node" x="750" y="510" width="290" height="100" rx="14" fill="#ffe14d22" stroke="#ffe14d"/>
+      <text class="mm-text" x="770" y="538" fill="#ffe14d" font-size="14">Two-Point Problems</text>
+      <text class="mm-text" x="770" y="558" font-size="11" fill="#9fb0da">दो बिंदुओं से मिलने वाले equations</text>
+    </svg>
+  </div>
+</section>
+
+<!-- ============ 5. FLOWCHART ============ -->
+<section id="s5">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--neon-blue),#1f6fc9); --glow:#3ea6ff99;">5</div>
+    <div><h2>Flowchart — Elevation और Depression की कहानी</h2><div class="sub en-tag">Elevation & Depression Flowcharts</div></div></div>
+  <div class="grid grid-2">
+    <div class="glass card">
+      <h4 style="color:var(--cyan); text-align:center; margin-bottom:14px; font-weight:900;">Elevation शाखा (Elevation Branch)</h4>
+      <div class="flow-col">
+        <div class="flow-box" style="background:var(--cyan);">प्रेक्षक ज़मीन पर खड़ा है</div><div class="flow-arrow">↓</div>
+        <div class="flow-box" style="background:var(--neon-blue);">ऊपर की वस्तु देखें</div><div class="flow-arrow">↓</div>
+        <div class="flow-box" style="background:var(--purple);">Angle of Elevation नापें</div><div class="flow-arrow">↓</div>
+        <div class="flow-box" style="background:var(--orange);">Right Triangle बनाएँ</div><div class="flow-arrow">↓</div>
+        <div class="flow-box" style="background:var(--green);">tan/sin/cos लगाएँ</div>
+      </div>
+    </div>
+    <div class="glass card">
+      <h4 style="color:var(--pink); text-align:center; margin-bottom:14px; font-weight:900;">Depression शाखा (Depression Branch)</h4>
+      <div class="flow-col">
+        <div class="flow-box" style="background:var(--cyan);">प्रेक्षक ऊँचाई पर खड़ा है</div><div class="flow-arrow">↓</div>
+        <div class="flow-box" style="background:var(--pink);">नीचे की वस्तु देखें</div><div class="flow-arrow">↓</div>
+        <div class="flow-box" style="background:var(--purple);">Angle of Depression नापें</div><div class="flow-arrow">↓</div>
+        <div class="flow-box" style="background:var(--gold);">Alternate Angle से Elevation बराबर</div><div class="flow-arrow">↓</div>
+        <div class="flow-box" style="background:var(--orange);">Height/Distance निकालें</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. DEFINITION CARDS ============ -->
+<section id="s6">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--green),#1a9c70); --glow:#2ee6a699;">6</div>
+    <div><h2>परिभाषाएँ</h2><div class="sub en-tag">Key Definitions</div></div></div>
+  <div class="grid grid-3" id="defGrid"></div>
+</section>
+
+<!-- ============ NOTES ============ -->
+<section id="notes">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--neon-blue),#1f6fc9); --glow:#3ea6ff99;">📝</div>
+    <div><h2>Notes — विस्तार से समझें</h2><div class="sub en-tag">Detailed Concept Notes</div></div></div>
+  <div class="glass card" style="display:flex; flex-direction:column; gap:16px;">
+    <div class="rule-card" style="border-left-color:var(--cyan);">
+      <h4 style="color:var(--cyan);">1. Line of Sight (दृष्टि रेखा)</h4>
+      <p>प्रेक्षक (observer) की आँख से किसी वस्तु तक खींची गई काल्पनिक सीधी रेखा को Line of Sight कहते हैं। इसी रेखा और horizontal line के बीच का कोण Elevation या Depression कहलाता है।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--pink);">
+      <h4 style="color:var(--pink);">2. Angle of Elevation (उन्नयन कोण)</h4>
+      <p>जब प्रेक्षक नीचे खड़ा हो और वस्तु ऊपर हो (जैसे मीनार का शिखर), तो horizontal line से ऊपर की ओर बना कोण <b class="hi">Angle of Elevation</b> कहलाता है। जितनी वस्तु ऊँची होगी, कोण उतना ही बड़ा होगा।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--green);">
+      <h4 style="color:var(--green);">3. Angle of Depression (अवनमन कोण)</h4>
+      <p>जब प्रेक्षक ऊपर हो (जैसे छत पर) और वस्तु नीचे हो, तो horizontal line से नीचे की ओर बना कोण <b class="hi2">Angle of Depression</b> कहलाता है। दो parallel horizontal lines होने के कारण, Angle of Depression हमेशा उतने ही Angle of Elevation के बराबर होता है (alternate angles)।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--orange);">
+      <h4 style="color:var(--orange);">4. Right Triangle बनाना</h4>
+      <p>Height (लंबवत), Distance (आधार) और Line of Sight (कर्ण) मिलकर एक <b class="hi3">Right-Angled Triangle</b> बनाते हैं, जिसमें ज़मीन और मीनार के बीच का कोण हमेशा 90° होता है। इसी triangle में trigonometric ratios लगाए जाते हैं।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--purple);">
+      <h4 style="color:var(--purple);">5. कौनसा Ratio कब इस्तेमाल करें</h4>
+      <p>अगर Height और Distance दोनों से मतलब है (Hypotenuse नहीं चाहिए), तो <b class="hi">tan θ</b> इस्तेमाल करो। अगर Hypotenuse (line of sight की लंबाई) शामिल है, तो Height के लिए <b class="hi">sin θ</b> और Distance के लिए <b class="hi">cos θ</b> इस्तेमाल करो।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--gold);">
+      <h4 style="color:var(--gold);">6. Two-Point Problems (दो बिंदुओं वाले प्रश्न)</h4>
+      <p>जब दो अलग-अलग जगह से angle दिया गया हो (जैसे मीनार की ओर बढ़ने पर कोण बदलना), तो हर जगह के लिए अलग-अलग right triangle बनाकर दोनों equations में Height को बराबर रखकर हल किया जाता है।</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FORMULA SHEET ============ -->
+<section id="formulas">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--purple),#7e4fd1); --glow:#b07dff99;">🧮</div>
+    <div><h2>ज़रूरी सूत्र (Important Formulas)</h2><div class="sub en-tag">Key Formulas to Remember</div></div></div>
+  <div class="grid grid-3" id="formulaSheetGrid"></div>
+</section>
+
+<!-- ============ SOLVED EXAMPLES ============ -->
+<section id="examples">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--green),#1a9c70); --glow:#2ee6a699;">✍️</div>
+    <div><h2>हल किए गए उदाहरण (Solved Examples)</h2><div class="sub en-tag">Step-by-Step Worked Examples</div></div></div>
+  <div id="examplesWrap"></div>
+</section>
+
+<!-- ============ 7. RIGHT TRIANGLE GALLERY ============ -->
+<section id="s7">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--orange),#c9650c); --glow:#ff9f4399;">7</div>
+    <div><h2>समकोण त्रिभुज की बनावट</h2><div class="sub en-tag">Right Triangle Setup</div></div></div>
+  <div class="glass card" style="text-align:center;">
+    <svg viewBox="0 0 420 220" style="width:100%; max-width:440px; display:block; margin:0 auto;">
+      <line x1="40" y1="180" x2="380" y2="180" stroke="#9fb0da" stroke-width="2"/>
+      <line x1="40" y1="180" x2="40" y2="40" stroke="#3ea6ff" stroke-width="4"/>
+      <line x1="380" y1="180" x2="40" y2="40" stroke="#2ee6a6" stroke-width="3"/>
+      <rect x="40" y="165" width="15" height="15" fill="none" stroke="#9fb0da" stroke-width="2"/>
+      <text x="20" y="115" text-anchor="middle" font-size="12" font-weight="800" fill="#3ea6ff">Height</text>
+      <text x="210" y="200" text-anchor="middle" font-size="12" font-weight="800" fill="#9fb0da">Distance</text>
+      <text x="220" y="100" text-anchor="middle" font-size="12" font-weight="800" fill="#2ee6a6">Hypotenuse (Line of Sight)</text>
+      <path d="M 380 180 A 30 30 0 0 1 353 163" stroke="#ffc233" stroke-width="2.5" fill="none"/>
+      <text x="345" y="172" font-size="13" font-weight="900" fill="#ffc233">θ</text>
+    </svg>
+    <p style="color:var(--dim); font-size:12.5px; margin-top:10px; font-weight:600;">Height = लंबवत भुजा, Distance = आधार भुजा, Hypotenuse = कर्ण (Line of Sight), θ = Angle of Elevation</p>
+  </div>
+</section>
+
+<!-- ============ 9. RULES ============ -->
+<section id="s9">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--pink),#b8285f); --glow:#ff4d8d99;">9</div>
+    <div><h2>याद रखने के नियम</h2><div class="sub en-tag">Rules to Remember</div></div></div>
+  <div class="grid grid-2">
+    <div class="glass rule-card"><h4>नियम 1</h4><p>हमेशा पहले एक साफ़ <span class="eng-term">Diagram</span> बनाओ — Height, Distance और Angle को सही जगह लिखो, इससे सही ratio चुनना आसान हो जाता है।</p></div>
+    <div class="glass rule-card"><h4>नियम 2</h4><p><b class="hi">Angle of Elevation = Angle of Depression</b> — जब दो जगहों से एक-दूसरे को देखा जाए और horizontal lines parallel हों, तो दोनों angles बराबर होते हैं।</p></div>
+  </div>
+</section>
+
+<!-- ============ 10. PRACTICE PLACES GALLERY ============ -->
+<section id="s10">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--cyan),#0a85b8); --glow:#33e0ff99;">10</div>
+    <div><h2>Height and Distance कहाँ इस्तेमाल होता है?</h2><div class="sub en-tag">Where This Concept Is Used</div></div></div>
+  <div class="grid grid-4" id="rayGallery"></div>
+</section>
+
+<!-- ============ 11. STANDARD ANGLES TABLE ============ -->
+<section id="s11">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--purple),#7e4fd1); --glow:#b07dff99;">11</div>
+    <div><h2>Standard Angles तालिका</h2><div class="sub en-tag">sin, cos, tan Values for 0°-90°</div></div></div>
+  <div class="glass card table-wrap">
+    <table>
+      <thead><tr><th>θ</th><th>0°</th><th>30°</th><th>45°</th><th>60°</th><th>90°</th></tr></thead>
+      <tbody>
+        <tr><td>sin θ</td><td>0</td><td>1/2</td><td>1/√2</td><td>√3/2</td><td>1</td></tr>
+        <tr><td>cos θ</td><td>1</td><td>√3/2</td><td>1/√2</td><td>1/2</td><td>0</td></tr>
+        <tr><td>tan θ</td><td>0</td><td>1/√3</td><td>1</td><td>√3</td><td>अपरिभाषित</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ 12. COMPARISON ============ -->
+<section id="s12">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--green),#1a9c70); --glow:#2ee6a699;">12</div>
+    <div><h2>Elevation बनाम Depression</h2><div class="sub en-tag">Elevation vs Depression Comparison</div></div></div>
+  <div class="glass card table-wrap">
+    <table>
+      <thead><tr><th>विशेषता</th><th>Angle of Elevation</th><th>Angle of Depression</th></tr></thead>
+      <tbody>
+        <tr><td>प्रेक्षक की स्थिति</td><td>नीचे (ज़मीन पर)</td><td>ऊपर (ऊँचाई पर)</td></tr>
+        <tr><td>वस्तु की स्थिति</td><td>ऊपर</td><td>नीचे</td></tr>
+        <tr><td>कोण किससे नापा जाता है</td><td>Horizontal line से ऊपर</td><td>Horizontal line से नीचे</td></tr>
+        <tr><td>उदाहरण</td><td>मीनार के शिखर को देखना</td><td>छत से गाड़ी को देखना</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ 13. APPLICATIONS ============ -->
+<section id="s13">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--orange),#c9650c); --glow:#ff9f4399;">13</div>
+    <div><h2>दैनिक जीवन में उपयोग</h2><div class="sub en-tag">Real-Life Uses</div></div></div>
+  <div class="grid grid-4" id="appGrid"></div>
+</section>
+
+<!-- ============ 14. FACTS WALL ============ -->
+<section id="s14">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--gold),#c9650c); --glow:#ffc23399;">14</div>
+    <div><h2>Important Facts Wall</h2><div class="sub en-tag">Quick Facts Together</div></div></div>
+  <div class="grid grid-3" id="formulaWall"></div>
+</section>
+
+<!-- ============ 15. TRICKS ============ -->
+<section id="s15">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--green),#1a9c70); --glow:#2ee6a699;">15</div>
+    <div><h2>याद रखने की तरकीबें</h2><div class="sub en-tag">Memory Tricks</div></div></div>
+  <div class="grid grid-2" id="tricksGrid"></div>
+</section>
+
+<!-- ============ 16. COMMON MISTAKES ============ -->
+<section id="s16">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--red),#a82424); --glow:#ff4f4f99;">16</div>
+    <div><h2>आम गलतियाँ</h2><div class="sub en-tag">Common Mistakes Students Make</div></div></div>
+  <div class="grid grid-2" id="mistakesGrid"></div>
+</section>
+
+<!-- ============ 17. QUESTION BANK ============ -->
+<section id="s17">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--purple),#7e4fd1); --glow:#b07dff99;">17</div>
+    <div><h2>महत्वपूर्ण प्रश्न</h2><div class="sub en-tag">Important Questions — All Types</div></div></div>
+  <div id="qBank"></div>
+</section>
+
+<!-- ============ 18. QUIZ ============ -->
+<section id="s18">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--cyan),#0a85b8); --glow:#33e0ff99;">18</div>
+    <div><h2>Practice Quiz</h2><div class="sub en-tag">तुरंत उत्तर व स्कोर</div></div></div>
+  <div class="glass card">
+    <div id="quizWrap"></div>
+    <div style="text-align:center; margin-top:16px;"><button class="btn-primary" onclick="checkQuiz()">Submit Quiz</button></div>
+    <div class="score-box" id="scoreBox" style="display:none;"><div class="num" id="scoreNum">0/0</div><div style="color:var(--dim); font-weight:700;">आपका स्कोर</div></div>
+  </div>
+</section>
+
+<!-- ============ HOMEWORK ============ -->
+<section id="homework">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--red),#a82424); --glow:#ff4f4f99;">🏠</div>
+    <div><h2>घर से करने के लिए Homework</h2><div class="sub en-tag">Notebook Exercise</div></div></div>
+  <div class="grid grid-2" id="homeworkGrid"></div>
+  <p style="color:var(--dim); font-size:12px; margin-top:14px; font-weight:600;">यह सभी प्रश्न diagram बनाकर अपनी Maths की notebook में हल करके अगली कक्षा में साथ लाने हैं।</p>
+</section>
+
+<!-- ============ 19. CHEAT SHEET ============ -->
+<section id="s19">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--orange),#c9650c); --glow:#ff9f4399;">19</div>
+    <div><h2>Cheat Sheet — एक पेज में सब कुछ</h2><div class="sub en-tag">Summary Revision</div></div></div>
+  <div class="glass card">
+    <div class="grid grid-2">
+      <div>
+        <h4 style="color:var(--cyan); margin-bottom:8px; font-weight:900;">📐 Angles &amp; Triangle</h4>
+        <p style="font-size:12.5px; color:var(--dim); line-height:2; font-weight:600;">
+          ✅ Elevation — नीचे से ऊपर देखने का कोण<br>✅ Depression — ऊपर से नीचे देखने का कोण<br>✅ Elevation = Depression (alternate angles)<br>✅ हमेशा पहले diagram बनाओ<br>✅ Triangle में एक कोण हमेशा 90° होता है
+        </p>
+      </div>
+      <div>
+        <h4 style="color:var(--pink); margin-bottom:8px; font-weight:900;">🧮 Formulas</h4>
+        <p style="font-size:12.5px; color:var(--dim); line-height:2; font-weight:600;">
+          ✅ tan θ = Height/Distance<br>✅ sin θ = Height/Hypotenuse<br>✅ cos θ = Distance/Hypotenuse<br>✅ tan 45° = 1, sin 90° = 1<br>✅ Two-point questions में Height बराबर रखो
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div style="font-size:20px;">✨</div>
+  <span class="name">PK STUDY</span> — Chapter 9 Complete · Revision Ready
+  <div class="badges">
+    <span class="badge">✅ सरल भाषा</span>
+    <span class="badge">✅ Notes + Formula + Examples + Homework</span>
+    <span class="badge">✅ मज़ेदार गतिविधियाँ</span>
+    <span class="badge">✅ कक्षा 10 के लिए उपयुक्त</span>
+  </div>
+  Made for Class 10 Students · Maths · Chapter 9: Height and Distance
+  <div class="copy">PK STUDY — All Copyright Reserved</div>
+</footer>
+
+<script>
+/* ================= THEME ================= */
+function toggleTheme(){
+  const html = document.documentElement;
+  const isLight = html.getAttribute('data-theme') === 'light';
+  html.setAttribute('data-theme', isLight ? '' : 'light');
+  document.getElementById('themeToggle').textContent = isLight ? '🌙' : '☀️';
+}
+
+/* ================= DATA ================= */
+const objectives = [
+  ["✅","Line of Sight, Angle of Elevation और Angle of Depression समझना"],["✅","Height और Distance से जुड़े Right Triangle बनाना सीखना"],
+  ["✅","सही trigonometric ratio (sin, cos, tan) चुनना सीखना"],["✅","Standard Angles (0°,30°,45°,60°,90°) की values याद करना"],
+  ["✅","Two-Point Problems हल करना सीखना"],["✅","असली जीवन की समस्याओं में trigonometry लगाना"],
+  ["✅","हर प्रश्न से पहले सही diagram बनाने की आदत डालना"],["✅","Solved Examples से practice करके confidence बढ़ाना"],
+  ["✅","Homework पूरा करके अध्याय का revision करना"]
+];
+const definitions = [
+  {t:"Line of Sight (दृष्टि रेखा)", d:"प्रेक्षक की आँख से वस्तु तक खींची गई काल्पनिक सीधी रेखा।", c:"var(--cyan)"},
+  {t:"Angle of Elevation (उन्नयन कोण)", d:"नीचे से ऊपर की वस्तु देखने पर horizontal line से बना कोण।", c:"var(--pink)"},
+  {t:"Angle of Depression (अवनमन कोण)", d:"ऊपर से नीचे की वस्तु देखने पर horizontal line से बना कोण।", c:"var(--green)"},
+  {t:"Horizontal Line (क्षैतिज रेखा)", d:"ज़मीन के समांतर सीधी रेखा, जिससे elevation/depression नापा जाता है।", c:"var(--orange)"},
+  {t:"Right Triangle (समकोण त्रिभुज)", d:"वह त्रिभुज जिसका एक कोण ठीक 90° होता है।", c:"var(--purple)"},
+  {t:"Trigonometric Ratio (त्रिकोणमितीय अनुपात)", d:"Right triangle की भुजाओं का अनुपात — sin, cos, tan आदि।", c:"var(--gold)"},
+  {t:"Height (ऊँचाई)", d:"वस्तु की ज़मीन से लंबवत ऊँचाई — right triangle की लंबवत भुजा।", c:"var(--cyan)"},
+  {t:"Distance (दूरी)", d:"प्रेक्षक और वस्तु के आधार के बीच की क्षैतिज दूरी।", c:"var(--pink)"},
+  {t:"Hypotenuse (कर्ण)", d:"Right triangle की सबसे लंबी भुजा — यहाँ Line of Sight की लंबाई।", c:"var(--green)"},
+  {t:"Opposite Side (सम्मुख भुजा)", d:"दिए गए कोण के सामने वाली भुजा — यहाँ Height।", c:"var(--orange)"},
+  {t:"Adjacent Side (आसन्न भुजा)", d:"दिए गए कोण से सटी हुई भुजा (कर्ण को छोड़कर) — यहाँ Distance।", c:"var(--purple)"},
+  {t:"Two-Point Problem (द्वि-बिंदु प्रश्न)", d:"जिसमें दो अलग-अलग जगहों से angle दिया गया हो।", c:"var(--gold)"}
+];
+const formulaSheetData = [
+  {t:"tan θ", d:"= Height / Distance (लंबवत/आधार)", c:"var(--cyan)"},
+  {t:"sin θ", d:"= Height / Hypotenuse (लंबवत/कर्ण)", c:"var(--pink)"},
+  {t:"cos θ", d:"= Distance / Hypotenuse (आधार/कर्ण)", c:"var(--green)"},
+  {t:"Elevation = Depression", d:"जब दोनों lines parallel हों, alternate angles के कारण", c:"var(--orange)"},
+  {t:"Pythagoras Theorem", d:"Hypotenuse² = Height² + Distance²", c:"var(--purple)"},
+  {t:"tan 45°", d:"= 1 (जब Height = Distance हो)", c:"var(--gold)"}
+];
+const examplesData = [
+  {q:"एक मीनार के आधार से 30 मीटर की दूरी पर खड़े व्यक्ति को मीनार के शिखर का उन्नयन कोण 30° है। मीनार की ऊँचाई ज्ञात कीजिए।", s:"tan 30° = ऊँचाई / 30\n1/√3 = h / 30\nh = 30/√3 = 10√3 मीटर\n\nउत्तर: मीनार की ऊँचाई 10√3 मीटर (लगभग 17.3 मीटर) है।"},
+  {q:"एक 20 मीटर ऊँची इमारत की छत से एक कार का अवनमन कोण 60° है। कार इमारत के आधार से कितनी दूर है?", s:"tan 60° = 20 / दूरी\n√3 = 20 / d\nd = 20/√3 = 20√3/3 मीटर\n\nउत्तर: कार इमारत के आधार से लगभग 11.5 मीटर दूर है।"},
+  {q:"एक पतंग की डोर ज़मीन से 60° का कोण बनाती है और डोर की लंबाई 100 मीटर है। पतंग की ऊँचाई ज्ञात कीजिए।", s:"sin 60° = ऊँचाई / 100\n√3/2 = h / 100\nh = 50√3 मीटर\n\nउत्तर: पतंग की ऊँचाई 50√3 मीटर (लगभग 86.6 मीटर) है।"}
+];
+const rayGalleryData = [
+  ["मीनार/इमारत","ऊँचाई नापने में","🗼"],["पतंग उड़ाना","डोर के कोण से ऊँचाई निकालना","🪁"],
+  ["समुद्री जहाज़","दूरी और स्थिति नापना","🚢"],["पहाड़","ऊँचाई का अनुमान लगाना","⛰️"]
+];
+const appData = [
+  ["🗼","इमारत/मीनार में","ऊँचाई नापने के लिए"],["🪁","पतंग उड़ाते समय","डोर के कोण से ऊँचाई निकालना"],
+  ["🚢","समुद्र में","जहाज़ की दूरी और स्थिति नापना"],["⛰️","पहाड़ों में","चोटी की ऊँचाई का अनुमान लगाना"],
+  ["✈️","हवाई यातायात में","विमान की ऊँचाई नापना (radar)"],["🌉","इंजीनियरिंग में","पुल की ऊँचाई डिज़ाइन करना"],
+  ["📡","संचार में","मोबाइल टावर की ऊँचाई तय करना"],["🎯","सेना में","दूरी और लक्ष्य का अनुमान लगाना"]
+];
+const formulaWallData = [
+  ["tan 45°","1","var(--cyan)"],["sin 90°","1","var(--pink)"],
+  ["cos 0°","1","var(--green)"],["tan 90°","अपरिभाषित","var(--orange)"],
+  ["Elevation = ","Depression (alternate angles)","var(--purple)"],["Right Triangle में","एक कोण हमेशा 90°","var(--gold)"],
+  ["Pythagoras","c² = a² + b²","var(--cyan)"],["तुलना का आधार","हमेशा Horizontal Line","var(--pink)"]
+];
+const tricksData = [
+  ["🎯 SOH-CAH-TOA Trick","sin = Opposite/Hypotenuse, cos = Adjacent/Hypotenuse, tan = Opposite/Adjacent — तीनों ratios का क्रम याद रखने के लिए।"],
+  ["🎯 tan सीधा इस्तेमाल करने की trick","जब भी सिर्फ़ Height और Distance चाहिए हों, seedha tan θ = Height/Distance लगाओ, Hypotenuse निकालने की ज़रूरत नहीं।"],
+  ["🎯 Elevation-Depression trick","जब दो लोग अलग-अलग ऊँचाई पर एक-दूसरे को देख रहे हों, दोनों के angles हमेशा बराबर होते हैं (alternate angles)।"],
+  ["🎯 Standard Angles याद रखने की trick","sin की values 0,30,45,60,90° के लिए √0/2, √1/2, √2/2, √3/2, √4/2 के क्रम में होती हैं — cos के लिए यही क्रम उल्टा हो जाता है।"]
+];
+const mistakesData = [
+  ["गलती: बिना diagram बनाए सीधे formula लगाना","हमेशा पहले एक साफ़ diagram बनाओ जिसमें Height, Distance और Angle सही जगह लिखे हों, वरना ratio चुनने में गलती होगी।"],
+  ["गलती: ग़लत trigonometric ratio चुनना","अगर सिर्फ़ Height और Distance चाहिए तो tan इस्तेमाल करो, sin/cos सिर्फ़ तभी जब Hypotenuse शामिल हो।"],
+  ["गलती: Two-Point Problems में गलत equation बनाना","दोनों observation points के लिए अलग-अलग triangle बनाओ, और दोनों में Height को बराबर मानकर हल करो।"],
+  ["गलती: Unit लिखना भूल जाना","हर उत्तर में सही unit (मीटर, आदि) ज़रूर लिखो, वरना उत्तर अधूरा माना जाता है।"]
+];
+const qBankData = [
+  {tag:"Objective", color:"var(--cyan)", q:"Angle of Elevation किसे कहते हैं?", a:"जब प्रेक्षक नीचे खड़ा हो और किसी ऊँची वस्तु को देखे, तो horizontal line से ऊपर की ओर बना कोण Angle of Elevation कहलाता है।"},
+  {tag:"Very Short", color:"var(--pink)", q:"tan 60° का मान क्या है?", a:"tan 60° = √3"},
+  {tag:"Short", color:"var(--green)", q:"Line of Sight और Horizontal Line में क्या संबंध है जब हम Angle of Elevation निकालते हैं?", a:"Angle of Elevation, Line of Sight और Horizontal Line के बीच बना वह कोण है जो horizontal line से ऊपर की ओर मापा जाता है — यह कोण जितना बड़ा होगा, वस्तु उतनी ऊँची या पास होगी।"},
+  {tag:"Long", color:"var(--orange)", q:"एक 20 मीटर ऊँचे खंभे के शिखर से एक कार का अवनमन कोण 30° है। कार खंभे से कितनी दूर है? पूरा हल लिखिए।", a:"माना कार खंभे के आधार से d मीटर दूर है। tan 30° = 20/d, इसलिए 1/√3 = 20/d, अतः d = 20√3 मीटर (लगभग 34.6 मीटर)। इस तरह कार खंभे के आधार से लगभग 34.6 मीटर दूर है।"},
+  {tag:"Counting", color:"var(--purple)", q:"अगर एक Two-Point Problem में 2 अलग-अलग स्थानों से angle दिए गए हैं, तो कुल कितने right triangles और कितनी equations बनेंगी?", a:"2 स्थानों के लिए 2 अलग-अलग right triangles बनेंगे, और हर triangle से 1 equation मिलेगी — इसलिए कुल 2 equations बनेंगी, जिन्हें साथ हल करके Height निकाली जाती है।"},
+  {tag:"Assertion-Reason", color:"var(--gold)", q:"अभिकथन: किसी मीनार का Angle of Elevation, प्रेक्षक के मीनार के पास आने पर बढ़ता है। कारण: प्रेक्षक और मीनार के बीच की दूरी घटने पर tan θ का मान बढ़ता है (ऊँचाई स्थिर रहने पर)।", a:"दोनों सही हैं और कारण अभिकथन की सही व्याख्या करता है — क्योंकि tan θ = Height/Distance में Height स्थिर रहने पर Distance घटने से tan θ, और इसलिए θ, बढ़ता है।"},
+  {tag:"Case Study", color:"var(--cyan)", q:"सोहन एक 15 मीटर ऊँची छत पर खड़ा है और नीचे खड़ी अपनी बहन को 45° के अवनमन कोण पर देखता है। बहन छत के आधार से कितनी दूर खड़ी है?", a:"tan 45° = 15/दूरी, और tan 45° = 1, इसलिए दूरी = 15 मीटर — बहन छत के आधार से 15 मीटर दूर खड़ी है।"},
+  {tag:"HOTS", color:"var(--pink)", q:"अगर प्रेक्षक बिना दूरी बदले सिर्फ़ अपनी आँख की ऊँचाई बदल दे (जैसे कुर्सी पर खड़ा हो जाए), तो क्या Angle of Elevation बदलेगा? समझाइए।", a:"हाँ, बदलेगा — क्योंकि प्रेक्षक की आँख की नई ऊँचाई से वस्तु तक की effective height कम हो जाएगी, जिससे tan θ का मान और इसलिए कोण θ भी बदल जाएगा, भले ही ज़मीन पर दूरी वही रहे।"}
+];
+const quizData = [
+  {q:"जब प्रेक्षक ऊँचाई पर हो और वस्तु नीचे हो, तो कोण को क्या कहते हैं?", opts:["Angle of Elevation","Angle of Depression","Right Angle"], correct:1},
+  {q:"tan 45° का मान क्या है?", opts:["0","1","√3"], correct:1},
+  {q:"किसी Right Triangle में सबसे लंबी भुजा को क्या कहते हैं?", opts:["Height","Hypotenuse","Distance"], correct:1},
+  {q:"अगर सिर्फ़ Height और Distance मालूम हों (Hypotenuse नहीं चाहिए), तो कौनसा ratio इस्तेमाल करेंगे?", opts:["sin θ","cos θ","tan θ"], correct:2},
+  {q:"sin 90° का मान क्या है?", opts:["0","1","अपरिभाषित"], correct:1},
+  {q:"Angle of Elevation और Angle of Depression के बारे में कौनसा कथन सही है?", opts:["हमेशा अलग होते हैं","परस्पर उपयुक्त परिस्थितियों में बराबर होते हैं","कभी माप नहीं सकते"], correct:1}
+];
+const homeworkData = [
+  {part:"बुनियादी प्रश्न (Basic)", color:"var(--cyan)", qs:[
+    "एक मीनार से 40 m दूर खड़े व्यक्ति को मीनार के शिखर का उन्नयन कोण 45° है। मीनार की ऊँचाई ज्ञात कीजिए।",
+    "एक 25 m ऊँची छत से एक गाड़ी का अवनमन कोण 30° है। गाड़ी छत के आधार से कितनी दूर है?",
+    "एक सीढ़ी दीवार के साथ 60° का कोण बनाती है और उसकी लंबाई 10 m है। सीढ़ी दीवार पर कितनी ऊँचाई तक पहुँचती है?",
+    "अपने घर के आस-पास किसी खंभे या पेड़ की ऊँचाई का अनुमान protractor की मदद से लगाइए और notebook में हल के साथ लिखिए।"
+  ]},
+  {part:"उन्नत प्रश्न (Advanced)", color:"var(--purple)", qs:[
+    "एक मीनार के आधार से एक बिंदु पर उन्नयन कोण 30° है। मीनार की ओर 20 m आगे बढ़ने पर उन्नयन कोण 60° हो जाता है। मीनार की ऊँचाई ज्ञात कीजिए।",
+    "दो इमारतों के बीच की दूरी 30 m है। एक इमारत की छत से दूसरी इमारत के शिखर का उन्नयन कोण 30° और आधार का अवनमन कोण 45° है। दोनों इमारतों की ऊँचाई ज्ञात कीजिए।",
+    "एक पेड़ तूफ़ान में इस तरह टूटा कि उसका ऊपरी हिस्सा ज़मीन से 30° का कोण बनाता है और चोटी ज़मीन को 6 m दूर छूती है। पेड़ की मूल ऊँचाई ज्ञात कीजिए।"
+  ]}
+];
+
+/* ================= RENDER FUNCTIONS ================= */
+function el(tag, cls, html){ const d=document.createElement(tag); if(cls)d.className=cls; if(html!==undefined)d.innerHTML=html; return d; }
+
+function buildObjectives(){
+  const g = document.getElementById('objGrid');
+  objectives.forEach(o=>{ const d=el('div','glass obj-card',`<span class="ic">${o[0]}</span><span class="t">${o[1]}</span>`); g.appendChild(d); });
+}
+function buildDefs(){
+  const g = document.getElementById('defGrid');
+  definitions.forEach(def=>{
+    const d = el('div','glass def-card', `<h4 style="color:${def.c}">📌 ${def.t}</h4><p>${def.d}</p>`);
+    g.appendChild(d);
+  });
+}
+function buildFormulaSheet(){
+  const g = document.getElementById('formulaSheetGrid');
+  formulaSheetData.forEach(f=>{ const d=el('div','glass def-card', `<h4 style="color:${f.c}">🧮 ${f.t}</h4><p>${f.d}</p>`); g.appendChild(d); });
+}
+function buildExamples(){
+  const wrap = document.getElementById('examplesWrap');
+  examplesData.forEach((ex,i)=>{
+    const d = el('div','glass card example-card', `<div class="qlabel">प्रश्न ${i+1}</div><div class="qtext">${ex.q}</div><div class="slabel">हल (Solution)</div><div class="stext">${ex.s}</div>`);
+    wrap.appendChild(d);
+  });
+}
+function buildRayGallery(){
+  const g = document.getElementById('rayGallery');
+  const colors=['#33e0ff','#ff4d8d','#2ee6a6','#ffc233'];
+  rayGalleryData.forEach((r,i)=>{
+    const svg = `<svg viewBox="0 0 200 130"><circle cx="100" cy="55" r="36" fill="${colors[i]}22" stroke="${colors[i]}" stroke-width="2.5" class="glow-dot"/>
+      <text x="100" y="65" text-anchor="middle" font-size="26">${r[2]}</text></svg>`;
+    const d = el('div','glass diagram-card', `${svg}<div class="cap">${r[0]}</div><div class="cap2">${r[1]}</div>`);
+    g.appendChild(d);
+  });
+}
+function buildApps(){
+  const g = document.getElementById('appGrid');
+  appData.forEach(a=>{ const d=el('div','glass app-card',`<div class="ic float-ic">${a[0]}</div><div class="t">${a[1]}</div><div class="d">${a[2]}</div>`); g.appendChild(d); });
+}
+function buildFormulaWall(){
+  const g = document.getElementById('formulaWall');
+  formulaWallData.forEach(f=>{ const d=el('div','glass formula-card',`<div class="name" style="color:${f[2]}">${f[0]}</div><div class="big">${f[1]}</div>`); g.appendChild(d); });
+}
+function buildTricks(){
+  const g = document.getElementById('tricksGrid');
+  tricksData.forEach(t=>{ const d=el('div','glass trick-card',`<b class="hi3">${t[0]}</b><p style="font-size:12.5px; color:var(--dim); margin-top:6px; line-height:1.7; font-weight:500;">${t[1]}</p>`); g.appendChild(d); });
+}
+function buildMistakes(){
+  const g = document.getElementById('mistakesGrid');
+  mistakesData.forEach(m=>{ const d=el('div','glass mistake-card',`<div class="wrong">⚠️ ${m[0]}</div><p style="font-size:12.5px; color:var(--dim); margin-top:8px; line-height:1.7; font-weight:500;">${m[1]}</p>`); g.appendChild(d); });
+}
+function buildQBank(){
+  const wrap = document.getElementById('qBank');
+  qBankData.forEach((q,i)=>{
+    const card = el('div','glass q-card');
+    card.innerHTML = `<div class="q-head" onclick="toggleQ(${i})"><span class="txt">${i+1}. ${q.q}</span>
+      <span style="display:flex; align-items:center; gap:8px;"><span class="tag" style="background:${q.color}">${q.tag}</span><span class="arrow" id="qarrow${i}">▾</span></span></div>
+      <div class="q-body" id="qbody${i}"><p>${q.a}</p></div>`;
+    wrap.appendChild(card);
+  });
+}
+function toggleQ(i){
+  document.getElementById('qbody'+i).classList.toggle('open');
+  document.getElementById('qarrow'+i).parentElement.parentElement.classList.toggle('open');
+}
+function buildQuiz(){
+  const wrap = document.getElementById('quizWrap');
+  quizData.forEach((q,i)=>{
+    const card = el('div','glass quiz-item');
+    let opts = q.opts.map((o,j)=>`<div class="quiz-opt" data-q="${i}" data-o="${j}" onclick="selectOpt(${i},${j},this)">${o}</div>`).join('');
+    card.innerHTML = `<div class="q">${i+1}. ${q.q}</div>${opts}`;
+    wrap.appendChild(card);
+  });
+}
+const userAnswers = {};
+function selectOpt(qi, oi, el){
+  document.querySelectorAll(`.quiz-opt[data-q="${qi}"]`).forEach(o=>o.classList.remove('selected'));
+  el.classList.add('selected');
+  userAnswers[qi] = oi;
+}
+function checkQuiz(){
+  let correct = 0;
+  quizData.forEach((q,i)=>{
+    document.querySelectorAll(`.quiz-opt[data-q="${i}"]`).forEach(o=>{
+      const oi = parseInt(o.dataset.o);
+      if(oi === q.correct) o.classList.add('correct-answer');
+      else if(userAnswers[i]===oi) o.classList.add('wrong-answer');
+    });
+    if(userAnswers[i] === q.correct) correct++;
+  });
+  document.getElementById('scoreBox').style.display='block';
+  document.getElementById('scoreNum').textContent = correct + '/' + quizData.length;
+  document.getElementById('scoreBox').scrollIntoView({behavior:'smooth'});
+}
+function buildHomework(){
+  const g = document.getElementById('homeworkGrid');
+  homeworkData.forEach(hw=>{
+    const items = hw.qs.map(q=>`<li>${q}</li>`).join('');
+    const d = el('div','glass hw-card', `<span class="t-year" style="background:${hw.color};">${hw.part}</span><ol>${items}</ol>`);
+    g.appendChild(d);
+  });
+}
+
+/* INIT */
+buildObjectives(); buildDefs(); buildFormulaSheet(); buildExamples(); buildRayGallery(); buildApps();
+buildFormulaWall(); buildTricks(); buildMistakes(); buildQBank(); buildQuiz(); buildHomework();
+</script>
+</body>
+</html>
