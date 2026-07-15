@@ -131,6 +131,26 @@ b.hi{color:var(--pink); font-weight:900;} b.hi2{color:var(--green); font-weight:
 .flow-box{padding:12px 22px; border-radius:12px; font-weight:900; font-size:13px; color:#04050f; text-align:center; min-width:180px; box-shadow:0 8px 20px -6px #0009;}
 .flow-arrow{font-size:20px; color:var(--cyan); font-weight:900;}
 
+/* ===== TENSE STRUCTURE TREE (box diagram) ===== */
+.tree-wrap{overflow-x:auto; padding:18px 4px 4px;}
+.ctree, .ctree ul, .ctree li{list-style-type:none; margin:0; padding:0; position:relative;}
+.ctree{display:table; margin:0 auto; text-align:center;}
+.ctree ul{display:table; width:100%;}
+.ctree li{display:table-cell; padding:1.9em .7em 0; vertical-align:top;}
+.ctree li::before{outline:solid 2px var(--cyan); content:""; left:0; position:absolute; right:0; top:0;}
+.ctree li:first-child::before{left:50%; border-radius:8px 0 0 0;}
+.ctree li:last-child::before{right:50%; border-radius:0 8px 0 0;}
+.ctree ul::before{outline:solid 2px var(--cyan); content:""; height:1.9em; left:50%; position:absolute; top:-1.9em;}
+.ctree > li{padding-top:0;}
+.ctree > li::before{display:none;}
+.ctree li:only-child{padding-top:0;}
+.ctree li:only-child::before{display:none;}
+.tree-box{display:inline-block; padding:12px 18px; border-radius:12px; font-weight:900; font-size:12.5px; color:#04050f; text-align:center;
+  min-width:130px; box-shadow:0 8px 20px -6px #0009; background:linear-gradient(120deg,var(--gold),var(--orange)); position:relative;}
+.tree-box small{display:block; font-weight:700; font-size:10px; margin-top:3px; opacity:.85;}
+.tree-box.root-box{background:linear-gradient(120deg,var(--neon-blue),var(--purple)); color:#fff; font-size:14px; min-width:170px; padding:14px 22px;}
+.tree-box.small{font-size:11px; min-width:118px; padding:10px 12px;}
+
 .def-card{padding:18px 20px; border-radius:16px;}
 .def-card h4{font-size:14.5px; margin-bottom:8px; display:flex; align-items:center; gap:8px; font-weight:900;}
 .def-card p{font-size:12.5px; color:var(--dim); line-height:1.75; font-weight:500;}
@@ -278,6 +298,96 @@ footer .copy{margin-top:18px; font-size:11px; color:var(--dim); opacity:.8;}
 <section id="notes">
   <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--neon-blue),#1f6fc9); --glow:#3ea6ff99;">📝</div>
     <div><h2>Notes — विस्तार से समझें</h2><div class="sub en-tag">Detailed Concept Notes</div></div></div>
+  <div class="glass card" style="margin-bottom:18px;">
+    <h3 style="color:var(--gold); font-size:16.5px; margin-bottom:10px;">Tense क्या है? — पूरी संरचना (Structure)</h3>
+    <p style="color:var(--dim); font-size:13px; line-height:1.9; font-weight:500; margin-bottom:6px;">
+      <b class="hi">Tense (काल)</b> अंग्रेज़ी वाक्य में यह बताता है कि कोई काम <b class="hi2">कब हुआ, हो रहा है, या होगा</b> — यानी क्रिया (verb) के होने का समय। Tense को मुख्य रूप से <b class="hi3">3 भागों</b> में बाँटा गया है, और हर भाग को आगे <b class="hi3">4-4 उप-भागों</b> में बाँटा जाता है — इस तरह कुल <b class="hi">3 × 4 = 12 Tense</b> बनते हैं। नीचे box diagram में यह संरचना दिखाई गई है:
+    </p>
+
+    <div class="tree-wrap">
+      <ul class="ctree">
+        <li>
+          <span class="tree-box root-box">Tense (काल)<small>समय दर्शाने वाला रूप</small></span>
+          <ul>
+            <li><span class="tree-box" style="background:linear-gradient(120deg,var(--cyan),#0a85b8);">वर्तमान काल<small>Present Tense</small></span></li>
+            <li><span class="tree-box" style="background:linear-gradient(120deg,var(--pink),#b8215f); color:#fff;">भूतकाल<small>Past Tense</small></span></li>
+            <li><span class="tree-box" style="background:linear-gradient(120deg,var(--green),#1a9c70);">भविष्य काल<small>Future Tense</small></span></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <p style="color:var(--dim); font-size:13px; line-height:1.9; font-weight:500; margin:18px 0 6px;">
+      <b class="hi">वर्तमान काल (Present Tense)</b> उन कामों के लिए जो अभी हो रहे हैं या आदतन होते हैं; <b class="hi2">भूतकाल (Past Tense)</b> उन कामों के लिए जो पहले हो चुके हैं; और <b class="hi3">भविष्य काल (Future Tense)</b> उन कामों के लिए जो आने वाले समय में होंगे। इन तीनों में से हर एक भाग को आगे 4 उप-भागों — Simple, Continuous, Perfect और Perfect Continuous — में बाँटा जाता है। उदाहरण के तौर पर नीचे <b class="hi">वर्तमान काल (Present Tense)</b> के इन चारों उप-भागों को box diagram में दिखाया गया है:
+    </p>
+
+    <div class="tree-wrap">
+      <ul class="ctree">
+        <li>
+          <span class="tree-box root-box" style="background:linear-gradient(120deg,var(--cyan),#0a85b8);">वर्तमान काल<small>Present Tense</small></span>
+          <ul>
+            <li><span class="tree-box small">Simple<small>Present</small></span></li>
+            <li><span class="tree-box small">Continuous<small>Present</small></span></li>
+            <li><span class="tree-box small">Perfect<small>Present</small></span></li>
+            <li><span class="tree-box small">Perfect Continuous<small>Present</small></span></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="grid grid-2" style="margin-top:22px;">
+      <div class="def-card glass">
+        <h4 style="color:var(--cyan);">① Simple Present</h4>
+        <p><b class="hi3">सूत्र:</b> Subject + Verb (V1 / V1+s/es) + Object<br>
+        <b class="hi3">कब इस्तेमाल होता है:</b> रोज़ की आदत, नियमित काम या सामान्य सच्चाई बताने के लिए।<br>
+        <b class="hi3">उदाहरण:</b> "She reads a book every day." / "The sun rises in the east."</p>
+      </div>
+      <div class="def-card glass">
+        <h4 style="color:var(--pink);">② Present Continuous</h4>
+        <p><b class="hi3">सूत्र:</b> Subject + is/am/are + Verb (V1+ing) + Object<br>
+        <b class="hi3">कब इस्तेमाल होता है:</b> अभी इसी समय हो रहे काम के लिए।<br>
+        <b class="hi3">उदाहरण:</b> "She is reading a book now." / "They are playing football."</p>
+      </div>
+      <div class="def-card glass">
+        <h4 style="color:var(--green);">③ Present Perfect</h4>
+        <p><b class="hi3">सूत्र:</b> Subject + has/have + Verb (V3) + Object<br>
+        <b class="hi3">कब इस्तेमाल होता है:</b> ऐसा काम जो अभी-अभी पूरा हुआ है और उसका असर वर्तमान में भी है।<br>
+        <b class="hi3">उदाहरण:</b> "She has read the book." / "They have finished their homework."</p>
+      </div>
+      <div class="def-card glass">
+        <h4 style="color:var(--gold);">④ Present Perfect Continuous</h4>
+        <p><b class="hi3">सूत्र:</b> Subject + has/have been + Verb (V1+ing) + since/for...<br>
+        <b class="hi3">कब इस्तेमाल होता है:</b> ऐसा काम जो पहले शुरू हुआ था और अभी तक चल रहा है।<br>
+        <b class="hi3">उदाहरण:</b> "She has been reading the book for an hour." / "They have been playing since morning."</p>
+      </div>
+    </div>
+
+    <p style="color:var(--dim); font-size:13px; line-height:1.9; font-weight:500; margin:20px 0 10px;">
+      ठीक इसी तरह <b class="hi2">भूतकाल (Past Tense)</b> के भी 4 भेद होते हैं — Simple Past, Past Continuous, Past Perfect, Past Perfect Continuous; और <b class="hi3">भविष्य काल (Future Tense)</b> के भी 4 भेद होते हैं — Simple Future, Future Continuous, Future Perfect, Future Perfect Continuous। नीचे तालिका में सभी 12 Tense के नाम, सूत्र (formula) और उदाहरण एक साथ दिए गए हैं:
+    </p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>काल (भाग)</th><th>उप-भाग (Type)</th><th>सूत्र (Formula)</th><th>उदाहरण (Example)</th></tr></thead>
+        <tbody>
+          <tr><td rowspan="4" style="font-weight:800; color:var(--cyan);">वर्तमान काल<br>Present</td><td>Simple Present</td><td>Sub + V1(s/es) + Obj</td><td>She reads a book.</td></tr>
+          <tr><td>Present Continuous</td><td>Sub + is/am/are + V-ing + Obj</td><td>She is reading a book.</td></tr>
+          <tr><td>Present Perfect</td><td>Sub + has/have + V3 + Obj</td><td>She has read a book.</td></tr>
+          <tr><td>Present Perfect Continuous</td><td>Sub + has/have been + V-ing + since/for</td><td>She has been reading for an hour.</td></tr>
+          <tr><td rowspan="4" style="font-weight:800; color:var(--pink);">भूतकाल<br>Past</td><td>Simple Past</td><td>Sub + V2(ed) + Obj</td><td>She read a book.</td></tr>
+          <tr><td>Past Continuous</td><td>Sub + was/were + V-ing + Obj</td><td>She was reading a book.</td></tr>
+          <tr><td>Past Perfect</td><td>Sub + had + V3 + Obj</td><td>She had read a book.</td></tr>
+          <tr><td>Past Perfect Continuous</td><td>Sub + had been + V-ing + since/for</td><td>She had been reading for an hour.</td></tr>
+          <tr><td rowspan="4" style="font-weight:800; color:var(--green);">भविष्य काल<br>Future</td><td>Simple Future</td><td>Sub + will/shall + V1 + Obj</td><td>She will read a book.</td></tr>
+          <tr><td>Future Continuous</td><td>Sub + will be + V-ing + Obj</td><td>She will be reading a book.</td></tr>
+          <tr><td>Future Perfect</td><td>Sub + will have + V3 + Obj</td><td>She will have read a book by evening.</td></tr>
+          <tr><td>Future Perfect Continuous</td><td>Sub + will have been + V-ing + since/for</td><td>She will have been reading for an hour.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="color:var(--dim); font-size:12px; margin-top:10px; font-weight:600;">इस Part 2 में हम मुख्य रूप से <b class="hi">Simple Past Tense</b> और <b class="hi2">Simple Future Tense</b> पर ध्यान देंगे — नीचे विस्तार से देखें।</p>
+  </div>
+
   <div class="glass card" style="display:flex; flex-direction:column; gap:16px;">
     <div class="rule-card" style="border-left-color:var(--cyan);">
       <h4 style="color:var(--cyan);">1. Simple Past Tense</h4>
