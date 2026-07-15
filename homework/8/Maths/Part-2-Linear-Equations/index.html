@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PK STUDY | रैखिक समीकरण — Linear Equations</title>
+<style>
+:root{
+  --bg:#04050f; --glass:rgba(255,255,255,.045); --glass-strong:rgba(255,255,255,.08);
+  --border:rgba(255,255,255,.12); --text:#f2f6ff; --dim:#9fb0da; --heading:#ffffff;
+  --neon-blue:#3ea6ff; --cyan:#33e0ff; --purple:#b07dff; --gold:#ffc233;
+  --green:#2ee6a6; --orange:#ff9f43; --pink:#ff4d8d; --red:#ff4f4f;
+  --shadow:0 22px 46px -22px #000d; --hshadow:0 30px 56px -20px #000f;
+}
+[data-theme="light"]{
+  --bg:#f6f8fd; --glass:rgba(20,30,65,.045); --glass-strong:rgba(20,30,65,.08);
+  --border:rgba(20,30,65,.12); --text:#161c33; --dim:#535f82; --heading:#12172b;
+  --neon-blue:#2563eb; --cyan:#0891b2; --purple:#7c3aed; --gold:#b45309;
+  --green:#059669; --orange:#c2410c; --pink:#db2777; --red:#dc2626;
+  --shadow:0 18px 36px -20px rgba(30,40,80,.18); --hshadow:0 24px 44px -18px rgba(30,40,80,.24);
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Segoe UI','Noto Sans Devanagari',Arial,sans-serif; color:var(--text); min-height:100vh; overflow-x:hidden;
+  transition:background .4s, color .4s;
+  background:
+    radial-gradient(ellipse at 10% -10%, #1c3a9955, transparent 55%),
+    radial-gradient(ellipse at 95% 10%, #7a2ab866, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, #0a5a6e44, transparent 55%),
+    linear-gradient(180deg,#04050f,#020208 90%);
+}
+[data-theme="light"] body{
+  background:
+    radial-gradient(ellipse at 10% -10%, #dbe4ff99, transparent 55%),
+    radial-gradient(ellipse at 95% 10%, #ede0ff99, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, #d7f5f099, transparent 55%),
+    linear-gradient(180deg,#f8faff,#eef1f9 90%);
+}
+::-webkit-scrollbar{width:8px;} ::-webkit-scrollbar-thumb{background:var(--neon-blue); border-radius:6px;} ::-webkit-scrollbar-track{background:transparent;}
+
+.glass{background:var(--glass); border:1px solid var(--border); border-radius:18px; backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+  box-shadow:var(--shadow), inset 0 1px 0 #ffffff12; transition:transform .35s, box-shadow .35s, background .4s, border .4s;}
+.glass:hover{transform:translateY(-4px); box-shadow:var(--hshadow), inset 0 1px 0 #ffffff1e;}
+
+header{position:sticky; top:0; z-index:200; display:flex; align-items:center; justify-content:space-between; padding:14px 26px;
+  background:rgba(4,5,15,.75); backdrop-filter:blur(18px); border-bottom:1px solid var(--border); flex-wrap:wrap; gap:10px; transition:background .4s;}
+[data-theme="light"] header{background:rgba(255,255,255,.8);}
+.brand{display:flex; align-items:center; gap:12px;}
+.brand img{width:44px; height:44px; border-radius:10px; object-fit:cover; border:2px solid var(--neon-blue); box-shadow:0 0 18px #3ea6ff88;}
+.logo-fallback{width:44px; height:44px; border-radius:10px; display:flex; align-items:center; justify-content:center;
+  background:linear-gradient(135deg,var(--neon-blue),#1f3d8c); font-weight:900; font-size:12px; border:2px solid var(--cyan); color:#fff;}
+.brand-text .name{font-weight:900; font-size:18px; color:var(--cyan); letter-spacing:.5px;}
+.brand-text .tag{font-size:11px; color:var(--dim); font-weight:600;}
+nav{display:flex; gap:5px; overflow-x:auto; max-width:52vw;}
+nav::-webkit-scrollbar{height:4px;}
+nav a{color:var(--dim); text-decoration:none; font-size:11.5px; padding:6px 11px; border-radius:16px; border:1px solid transparent; transition:.2s; font-weight:700; white-space:nowrap;}
+nav a:hover{color:var(--heading); border-color:var(--neon-blue); background:#3ea6ff1a;}
+.theme-btn{flex-shrink:0; width:40px; height:40px; border-radius:12px; border:1px solid var(--border); background:var(--glass-strong);
+  color:var(--text); font-size:17px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:.25s;}
+.theme-btn:hover{border-color:var(--neon-blue); transform:translateY(-2px);}
+
+/* ===== HERO ===== */
+.hero{position:relative; padding:80px 6vw 60px; text-align:center; overflow:hidden;}
+.hero-bg{position:absolute; inset:0; z-index:0; opacity:.5;}
+.eyebrow{display:inline-block; padding:7px 22px; border-radius:30px; color:#04050f; font-size:12px; font-weight:900;
+  letter-spacing:2.5px; text-transform:uppercase; margin-bottom:20px; position:relative; z-index:2;
+  background:linear-gradient(120deg,var(--gold),var(--orange),var(--pink),var(--purple),var(--cyan)); background-size:400% 100%; animation:shim 8s linear infinite;
+  box-shadow:0 10px 26px -6px #000b;}
+@keyframes shim{0%{background-position:0% 0;}100%{background-position:400% 0;}}
+.hero h1{position:relative; z-index:2; font-size:clamp(26px,5.4vw,50px); font-weight:900; line-height:1.25;
+  background:linear-gradient(90deg,var(--neon-blue),var(--cyan) 35%,var(--purple) 65%,var(--pink)); -webkit-background-clip:text; background-clip:text; color:transparent;
+  text-shadow:0 0 60px #3ea6ff33; animation:hueGlow 6s ease-in-out infinite;}
+@keyframes hueGlow{0%,100%{filter:brightness(1);} 50%{filter:brightness(1.2);}}
+.hero .en{position:relative; z-index:2; font-size:16px; color:var(--dim); font-weight:700; margin-top:10px; letter-spacing:1px;}
+.hero p{position:relative; z-index:2; color:var(--dim); max-width:760px; margin:20px auto 0; font-size:14.5px; line-height:1.9; font-weight:500;}
+.pulse-line{position:relative; z-index:2; width:150px; height:4px; margin:28px auto 0; border-radius:4px;
+  background:linear-gradient(90deg,var(--neon-blue),var(--cyan),var(--purple),var(--gold)); background-size:300% 100%; animation:shim 4s linear infinite;
+  box-shadow:0 4px 20px -2px #3ea6ff88;}
+
+.optics-scene{position:relative; z-index:2; max-width:680px; margin:36px auto 0; height:210px;}
+.optics-scene svg{width:100%; height:100%;}
+.laser{stroke-dasharray:8 6; animation:dash 1.4s linear infinite;}
+@keyframes dash{to{stroke-dashoffset:-28;}}
+.glow-dot{filter:drop-shadow(0 0 8px currentColor);}
+@keyframes floaty{0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);}}
+.float-ic{animation:floaty 4s ease-in-out infinite;}
+
+section{position:relative; z-index:1; padding:52px 6vw; max-width:1300px; margin:0 auto;}
+.sec-head{display:flex; align-items:center; gap:14px; margin-bottom:28px;}
+.sec-num{width:44px; height:44px; border-radius:14px; flex-shrink:0; display:flex; align-items:center; justify-content:center;
+  font-weight:900; font-size:16px; color:#04050f; box-shadow:0 8px 22px -6px var(--glow,#3ea6ff99); border:2px solid #ffffffaa;}
+.sec-head h2{font-size:clamp(19px,3vw,26px); font-weight:900; color:var(--heading);}
+.sec-head .sub{color:var(--dim); font-size:12.5px; font-weight:600; margin-top:2px;}
+.sec-head .en-tag{font-size:11px; color:var(--gold); font-weight:700; letter-spacing:.5px;}
+
+.card{padding:20px 22px;}
+.grid{display:grid; gap:16px;}
+.grid-2{grid-template-columns:1fr 1fr;} .grid-3{grid-template-columns:repeat(3,1fr);}
+.grid-4{grid-template-columns:repeat(4,1fr);} .grid-5{grid-template-columns:repeat(5,1fr);}
+@media(max-width:900px){.grid-3,.grid-4,.grid-5{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.grid-2,.grid-3,.grid-4,.grid-5{grid-template-columns:1fr;} nav{max-width:100%;}}
+
+b.hi{color:var(--pink); font-weight:900;} b.hi2{color:var(--green); font-weight:900;} b.hi3{color:var(--gold); font-weight:900;}
+.eng-term{color:var(--cyan); font-style:italic; font-weight:700;}
+
+.obj-card{padding:16px 18px; display:flex; align-items:center; gap:12px;}
+.obj-card .ic{font-size:24px; flex-shrink:0;}
+.obj-card .t{font-size:13.5px; font-weight:800; color:var(--text);}
+
+.timeline{position:relative; padding-left:36px;}
+.timeline::before{content:''; position:absolute; left:11px; top:6px; bottom:6px; width:3px;
+  background:linear-gradient(180deg,var(--neon-blue),var(--cyan),var(--purple),var(--gold)); border-radius:3px; box-shadow:0 0 14px #3ea6ff66;}
+.t-item{position:relative; margin-bottom:26px;}
+.t-item::before{content:''; position:absolute; left:-31px; top:6px; width:18px; height:18px; border-radius:50%;
+  background:var(--bg); border:3px solid var(--dotcolor,var(--neon-blue)); box-shadow:0 0 16px var(--dotcolor,var(--neon-blue));}
+.t-item:nth-child(1){--dotcolor:var(--gold);} .t-item:nth-child(2){--dotcolor:var(--cyan);}
+.t-item:nth-child(3){--dotcolor:var(--purple);} .t-item:nth-child(4){--dotcolor:var(--green);} .t-item:nth-child(5){--dotcolor:var(--pink);}
+.t-year{display:inline-block; font-weight:900; font-size:13.5px; color:#04050f; background:var(--dotcolor,var(--neon-blue));
+  padding:5px 16px; border-radius:20px; margin-bottom:8px; box-shadow:0 4px 14px -2px var(--dotcolor,#3ea6ff88);}
+.t-item h3{font-size:16px; color:var(--heading); font-weight:800; margin-bottom:4px;}
+.t-item p{font-size:13px; color:var(--dim); line-height:1.8; font-weight:500;}
+
+.mindmap-wrap{display:flex; justify-content:center;}
+.mindmap-wrap svg{width:100%; max-width:1100px; height:auto;}
+.mm-node{stroke-width:2; rx:14;}
+.mm-text{fill:var(--heading); font-size:12.5px; font-weight:800;}
+.mm-line{stroke-width:2; opacity:.55; stroke-dasharray:5 4;}
+
+.flow-col{display:flex; flex-direction:column; align-items:center; gap:6px;}
+.flow-box{padding:12px 22px; border-radius:12px; font-weight:900; font-size:13px; color:#04050f; text-align:center; min-width:180px; box-shadow:0 8px 20px -6px #0009;}
+.flow-arrow{font-size:20px; color:var(--cyan); font-weight:900;}
+
+.def-card{padding:18px 20px; border-radius:16px;}
+.def-card h4{font-size:14.5px; margin-bottom:8px; display:flex; align-items:center; gap:8px; font-weight:900;}
+.def-card p{font-size:12.5px; color:var(--dim); line-height:1.75; font-weight:500;}
+
+.diagram-card{padding:18px; text-align:center;}
+.diagram-card svg{width:100%; max-width:280px; height:150px;}
+.diagram-card .cap{font-weight:800; font-size:13px; color:var(--heading); margin-top:8px;}
+.diagram-card .cap2{font-size:11px; color:var(--dim); margin-top:2px;}
+
+.rule-card{padding:20px; border-left:5px solid var(--neon-blue);}
+.rule-card h4{font-size:15px; color:var(--cyan); font-weight:900; margin-bottom:8px;}
+.rule-card p{font-size:13px; color:var(--dim); line-height:1.8; font-weight:500;}
+
+.example-card{padding:18px 20px;}
+.example-card .qlabel{font-size:11px; font-weight:900; color:var(--gold); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;}
+.example-card .qtext{font-size:13.5px; font-weight:700; color:var(--heading); margin-bottom:14px; line-height:1.7;}
+.example-card .slabel{font-size:11px; font-weight:900; color:var(--green); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;}
+.example-card .stext{font-size:13px; color:var(--dim); line-height:1.8; font-weight:500; background:var(--glass-strong); padding:12px 14px; border-radius:10px;}
+.example-card{margin-bottom:14px;}
+.show-ans-btn{padding:9px 20px; border-radius:10px; border:1.5px solid var(--green); background:transparent; color:var(--green);
+  font-weight:800; font-size:12px; cursor:pointer; transition:.2s;}
+.show-ans-btn:hover{background:var(--green); color:#04050f;}
+.show-ans-btn.open{background:var(--green); color:#04050f;}
+.ans-wrap{margin-top:14px; display:none;}
+.ans-wrap.open{display:block;}
+
+.hw-card{padding:18px 20px;}
+.hw-card ol{margin:0; padding-left:20px; font-size:13px; color:var(--dim); line-height:2; font-weight:500;}
+.hw-card ol li{margin-bottom:6px;}
+.hw-card ol li::marker{color:var(--heading); font-weight:800;}
+
+.table-wrap{overflow-x:auto;}
+table{width:100%; border-collapse:collapse; min-width:700px;}
+thead th{text-align:center; padding:12px 14px; background:linear-gradient(120deg,var(--neon-blue),var(--purple)); color:#fff;
+  font-size:12px; text-transform:uppercase; letter-spacing:.5px; font-weight:900;}
+thead th:first-child{border-radius:10px 0 0 0;} thead th:last-child{border-radius:0 10px 0 0;}
+tbody td{padding:12px 14px; border-bottom:1px solid var(--border); color:var(--dim); font-size:12.5px; text-align:center; font-weight:600;}
+tbody tr:hover{background:#3ea6ff14;}
+tbody tr.current-row{background:#ffc23322;}
+tbody tr.current-row td{color:var(--heading); font-weight:800;}
+.pill{display:inline-block; padding:4px 12px; border-radius:12px; font-size:10.5px; font-weight:900;}
+.pill-real{background:linear-gradient(120deg,var(--red),#a82424); color:#fff;}
+.pill-virtual{background:linear-gradient(120deg,var(--cyan),#0a85b8); color:#04050f;}
+.pill-erect{background:linear-gradient(120deg,var(--green),#1a9c70); color:#04050f;}
+.pill-inverted{background:linear-gradient(120deg,var(--orange),#c9650c); color:#04050f;}
+.pill-current{background:linear-gradient(120deg,var(--gold),#c9650c); color:#04050f;}
+
+.formula-card{padding:24px; text-align:center; border-radius:18px; position:relative; overflow:hidden;}
+.formula-card .big{font-size:22px; font-weight:900; color:var(--heading); margin:10px 0; font-family:'Segoe UI',sans-serif;}
+.formula-card .name{font-size:12.5px; color:var(--gold); font-weight:800; text-transform:uppercase; letter-spacing:1px;}
+.formula-card .d{font-size:11.5px; color:var(--dim); margin-top:8px; line-height:1.6; font-weight:500;}
+
+.app-card{padding:18px; text-align:center;}
+.app-card .ic{font-size:34px; margin-bottom:8px;}
+.app-card .t{font-weight:800; font-size:13px; color:var(--heading);}
+.app-card .d{font-size:11px; color:var(--dim); margin-top:4px;}
+
+.trick-card{padding:16px 18px; border-left:4px solid var(--gold);}
+.mistake-card{padding:16px 18px; border-left:4px solid var(--red); background:linear-gradient(120deg,#ff4f4f14,transparent);}
+.mistake-card .wrong{color:var(--red); font-weight:800; font-size:12.5px; text-decoration:line-through;}
+.mistake-card .right{color:var(--green); font-weight:800; font-size:12.5px;}
+
+.q-card{margin-bottom:10px; overflow:hidden;}
+.q-head{padding:14px 18px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:10px;}
+.q-head .txt{font-weight:800; font-size:13px; color:var(--heading);}
+.q-head .tag{font-size:10px; padding:3px 10px; border-radius:10px; font-weight:900; color:#04050f; flex-shrink:0;}
+.q-head .arrow{color:var(--cyan); transition:transform .3s;}
+.q-head.open .arrow{transform:rotate(180deg);}
+.q-body{max-height:0; overflow:hidden; transition:max-height .4s; padding:0 18px;}
+.q-body.open{max-height:300px; padding:0 18px 16px;}
+.q-body p{font-size:12.5px; color:var(--dim); line-height:1.8; font-weight:500;}
+
+.quiz-item{padding:16px 18px; margin-bottom:12px;}
+.quiz-item .q{font-weight:800; font-size:13.5px; margin-bottom:10px; color:var(--heading);}
+.quiz-opt{display:block; padding:9px 14px; margin:6px 0; border-radius:10px; border:1.5px solid var(--border); font-size:12.5px;
+  color:var(--dim); font-weight:600; cursor:pointer; transition:.2s;}
+.quiz-opt:hover{border-color:var(--cyan);}
+.quiz-opt.selected{border-color:var(--neon-blue); background:#3ea6ff1a;}
+.quiz-opt.correct-answer{background:linear-gradient(120deg,var(--green),#1a9c70); color:#04050f; border-color:transparent; font-weight:900;}
+.quiz-opt.wrong-answer{background:linear-gradient(120deg,var(--red),#b82828); color:#fff; border-color:transparent; font-weight:900;}
+.score-box{text-align:center; padding:24px;}
+.score-box .num{font-size:44px; font-weight:900; color:var(--gold);}
+.btn-primary{padding:12px 26px; border-radius:14px; border:none; font-weight:900; font-size:13px; cursor:pointer;
+  background:linear-gradient(120deg,var(--neon-blue),var(--purple)); color:#fff; box-shadow:0 10px 24px -6px #0009;}
+
+footer{text-align:center; padding:50px 6vw 70px; color:var(--dim); font-size:12.5px; border-top:1px solid var(--border); margin-top:30px; font-weight:600;}
+footer .name{color:var(--cyan); font-weight:900; font-size:16px;}
+footer .badges{display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin:16px 0;}
+footer .badge{padding:6px 16px; border-radius:20px; font-size:11px; font-weight:800; background:var(--glass-strong); border:1px solid var(--border);}
+footer .copy{margin-top:18px; font-size:11px; color:var(--dim); opacity:.8;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <img src="images/1000043468.png" alt="PK STUDY" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="logo-fallback" style="display:none;">PK</div>
+    <div class="brand-text"><div class="name">PK STUDY</div><div class="tag">Class 8-9 (Combined) • Maths • Part 2</div></div>
+  </div>
+  <nav>
+    <a href="#syllabus">सिलेबस मैप</a><a href="#notes">नोट्स</a><a href="#formulas">सूत्र</a>
+    <a href="#examples">उदाहरण</a><a href="#questions">प्रश्न</a><a href="#homework">होमवर्क</a>
+  </nav>
+  <button class="theme-btn" id="themeToggle" onclick="toggleTheme()" title="Dark/Light Mode">🌙</button>
+</header>
+
+<!-- ============ HERO ============ -->
+<div class="hero">
+  <span class="eyebrow">कक्षा 8-9 (संयुक्त) · Maths · Part 2</span>
+  <h1>रैखिक समीकरण — Linear Equations</h1>
+  <div class="en">Linear Equations in One & Two Variables</div>
+  <p>यह Class 8 और Class 9 के <b>संयुक्त (combined)</b> Maths syllabus का <b>Part 2</b> है। इसमें Class 8 का <b class="hi">एक चर वाला रैखिक समीकरण (Linear Equations in One Variable)</b> — transposition विधि, दोनों तरफ चर वाले समीकरण, आयु व संख्या से जुड़ी word problems — और Class 9 का <b class="hi2">दो चरों वाला रैखिक समीकरण (Linear Equations in Two Variables)</b> — सामान्य रूप, अनंत हल और सीधी रेखा वाला ग्राफ सीखेंगे। इसे 6 दिनों (Part 2A, 2B, 2C) में पूरा करेंगे।</p>
+  <div class="pulse-line"></div>
+
+  <div class="optics-scene">
+    <svg viewBox="0 0 640 210">
+      <defs>
+        <radialGradient id="coreGrad" cx="50%" cy="50%" r="60%">
+          <stop offset="0%" stop-color="#7ad6ff"/><stop offset="100%" stop-color="#3ea6ff"/>
+        </radialGradient>
+      </defs>
+      <circle cx="320" cy="105" r="46" fill="url(#coreGrad)" stroke="#fff8" stroke-width="2" class="glow-dot"/>
+      <text x="320" y="113" text-anchor="middle" font-size="18" font-weight="900" fill="#04050f">ax+b=c</text>
+      <text x="320" y="168" text-anchor="middle" font-size="12" font-weight="900" fill="#ffc233">Part 2</text>
+
+      <line class="laser" x1="284" y1="85" x2="120" y2="40" stroke="#33e0ff" stroke-width="2.5"/>
+      <circle cx="110" cy="35" r="18" fill="#33e0ff33" stroke="#33e0ff" stroke-width="2" class="glow-dot float-ic"/>
+      <text x="110" y="41" text-anchor="middle" font-size="16">🧮</text>
+      <text x="110" y="68" text-anchor="middle" font-size="11" font-weight="800" fill="#33e0ff">एक चर (क.8)</text>
+
+      <line class="laser" x1="284" y1="125" x2="120" y2="170" stroke="#2ee6a6" stroke-width="2.5"/>
+      <circle cx="110" cy="175" r="18" fill="#2ee6a633" stroke="#2ee6a6" stroke-width="2" class="glow-dot float-ic"/>
+      <text x="110" y="181" text-anchor="middle" font-size="16">🎂</text>
+      <text x="110" y="204" text-anchor="middle" font-size="11" font-weight="800" fill="#2ee6a6">Word Problems</text>
+
+      <line class="laser" x1="356" y1="85" x2="520" y2="40" stroke="#ff4d8d" stroke-width="2.5"/>
+      <circle cx="530" cy="35" r="18" fill="#ff4d8d33" stroke="#ff4d8d" stroke-width="2" class="glow-dot float-ic"/>
+      <text x="530" y="41" text-anchor="middle" font-size="16">x,y</text>
+      <text x="530" y="68" text-anchor="middle" font-size="11" font-weight="800" fill="#ff4d8d">दो चर (क.9)</text>
+
+      <line class="laser" x1="356" y1="125" x2="520" y2="170" stroke="#ffc233" stroke-width="2.5"/>
+      <circle cx="530" cy="175" r="18" fill="#ffc23333" stroke="#ffc233" stroke-width="2" class="glow-dot float-ic"/>
+      <text x="530" y="181" text-anchor="middle" font-size="16">📈</text>
+      <text x="530" y="204" text-anchor="middle" font-size="11" font-weight="800" fill="#ffc233">सरल रेखा</text>
+    </svg>
+  </div>
+</div>
+
+<!-- ============ SYLLABUS ROADMAP ============ -->
+<section id="syllabus">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--gold),#c9650c); --glow:#ffc23399;">🗺️</div>
+    <div><h2>पूरा सिलेबस रोडमैप — Class 8-9 संयुक्त Maths</h2><div class="sub en-tag">Kaun sa Part mein kaun sa Chapter — pura naksha</div></div></div>
+  <div class="glass card table-wrap">
+    <table>
+      <thead><tr><th>Part</th><th>Chapter (Class)</th><th>Din (Days)</th><th>Sub-Parts</th></tr></thead>
+      <tbody id="syllabusBody"></tbody>
+    </table>
+  </div>
+  <p style="color:var(--dim); font-size:12px; margin-top:14px; font-weight:600;">नोट: यह फ़ाइल सिर्फ़ Class 8 के फ़ोल्डर में रखी गई है, क्योंकि Class 8 और 9 का Maths एक साथ, एक ही क्रम में पढ़ाया जा रहा है — चैप्टर के नाम अलग-अलग क्लास के हिसाब से नहीं, बल्कि मिलाकर (mixed) दिए गए हैं। जो चैप्टर 2-3 दिन से ज़्यादा चलता है, उसे A/B/C/D sub-parts में बाँटा गया है।</p>
+</section>
+
+<!-- ============ NOTES ============ -->
+<section id="notes">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--neon-blue),#1f6fc9); --glow:#3ea6ff99;">📝</div>
+    <div><h2>Notes — विस्तार से समझें</h2><div class="sub en-tag">Detailed Concept Notes</div></div></div>
+  <div class="glass card" style="display:flex; flex-direction:column; gap:16px;">
+    <div class="rule-card" style="border-left-color:var(--cyan);">
+      <h4 style="color:var(--cyan);">1. एक चर वाला रैखिक समीकरण किसे कहते हैं</h4>
+      <p>वह समीकरण जिसमें केवल एक चर (variable) हो और उस चर की उच्चतम घात (highest power) 1 हो, उसे <b class="hi">एक चर वाला रैखिक समीकरण (Linear Equation in One Variable)</b> कहते हैं। इसका सामान्य रूप <b class="hi3">ax + b = c</b> होता है, जहाँ a, b, c वास्तविक संख्याएँ हैं और a ≠ 0। उदाहरण: 2x + 3 = 11, 5y − 7 = 8 — यहाँ x और y की घात 1 है।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--pink);">
+      <h4 style="color:var(--pink);">2. Transposition विधि से हल करना (उदाहरण सहित)</h4>
+      <p><b class="hi">Transposition विधि</b> में समीकरण के किसी भी पद को बराबर के चिन्ह (=) के एक तरफ से दूसरी तरफ ले जाया जाता है, और ऐसा करते समय उसका चिन्ह बदल जाता है — जोड़ (+) घटाव (−) बनता है, गुणा (×) भाग (÷) बनता है। उदाहरण: 3x + 5 = 20 को हल करने के लिए 5 को दाईं ओर transpose करेंगे: 3x = 20 − 5 = 15, फिर दोनों तरफ 3 से भाग देंगे: x = 15/3 = 5।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--green);">
+      <h4 style="color:var(--green);">3. दोनों तरफ चर वाले समीकरण हल करना</h4>
+      <p>जब समीकरण के बराबर चिन्ह के दोनों तरफ चर (x) मौजूद हो, तो सबसे पहले सभी चर वाले पदों को एक तरफ और संख्या वाले पदों (constants) को दूसरी तरफ transpose करके इकट्ठा करते हैं, फिर सरल करके x का मान निकालते हैं। उदाहरण: 4x − 3 = 2x + 9 में, 2x को बाईं ओर और −3 को दाईं ओर transpose करेंगे: 4x − 2x = 9 + 3 → 2x = 12 → x = 6।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--orange);">
+      <h4 style="color:var(--orange);">4. आयु/संख्या से जुड़ी Word Problems बनाना</h4>
+      <p>Word Problem को समीकरण में बदलने के लिए पहले अज्ञात राशि को x मान लेते हैं, फिर प्रश्न में दी गई शर्तों को गणितीय भाषा में समीकरण के रूप में लिखते हैं, और अंत में transposition विधि से हल करते हैं। आयु के प्रश्नों में "x वर्ष बाद" का मतलब (x + वर्ष) जोड़ना होता है, और संख्या के प्रश्नों में क्रमागत संख्याओं को x, x+1, x+2 आदि मानते हैं।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--purple);">
+      <h4 style="color:var(--purple);">5. दो चरों वाला रैखिक समीकरण — सामान्य रूप ax+by+c=0</h4>
+      <p>जब समीकरण में दो चर (जैसे x और y) हों और दोनों की उच्चतम घात 1 हो, तो उसे <b class="hi2">दो चरों वाला रैखिक समीकरण (Linear Equation in Two Variables)</b> कहते हैं। इसका सामान्य रूप <b class="hi3">ax + by + c = 0</b> होता है, जहाँ a, b, c वास्तविक संख्याएँ हैं और a व b दोनों एक साथ शून्य नहीं हो सकते। उदाहरण: 2x + 3y − 6 = 0, x − y + 4 = 0।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--gold);">
+      <h4 style="color:var(--gold);">6. दो चरों वाले समीकरण के अनंत हल एवं ग्राफ हमेशा सरल रेखा</h4>
+      <p>एक चर वाले समीकरण का केवल एक हल होता है, परंतु दो चरों वाले रैखिक समीकरण के <b class="hi">अनंत हल</b> होते हैं क्योंकि हर हल एक क्रमित युग्म (x, y) होता है और x का कोई भी मान लेकर संगत y निकाला जा सकता है। जब इन सभी हलों को graph paper पर plot करते हैं, तो वे हमेशा एक <b class="hi2">सरल रेखा (straight line)</b> बनाते हैं — इसीलिए इसे "रैखिक" (linear) समीकरण कहा जाता है।</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FORMULA SHEET ============ -->
+<section id="formulas">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--purple),#7e4fd1); --glow:#b07dff99;">🧮</div>
+    <div><h2>ज़रूरी सूत्र एवं नियम (Formula / Rules Sheet)</h2><div class="sub en-tag">Key Rules to Remember</div></div></div>
+  <div class="grid grid-3" id="formulaSheetGrid"></div>
+</section>
+
+<!-- ============ SOLVED EXAMPLES ============ -->
+<section id="examples">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--green),#1a9c70); --glow:#2ee6a699;">✍️</div>
+    <div><h2>हल किए गए उदाहरण (Solved Examples)</h2><div class="sub en-tag">Step-by-Step Worked Examples</div></div></div>
+  <div id="examplesWrap"></div>
+</section>
+
+<!-- ============ IMPORTANT QUESTIONS ============ -->
+<section id="questions">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--orange),#c9650c); --glow:#ff9f4399;">❓</div>
+    <div><h2>महत्वपूर्ण प्रश्न (Important Questions)</h2><div class="sub en-tag">Objective + Subjective — Show/Hide Answer</div></div></div>
+  <div id="questionsWrap"></div>
+</section>
+
+<!-- ============ HOMEWORK ============ -->
+<section id="homework">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--red),#a82424); --glow:#ff4f4f99;">🏠</div>
+    <div><h2>घर से करने के लिए Homework</h2><div class="sub en-tag">Notebook Exercise — Part 2A, 2B, 2C</div></div></div>
+  <div class="grid grid-3" id="homeworkGrid"></div>
+  <p style="color:var(--dim); font-size:12px; margin-top:14px; font-weight:600;">यह सभी प्रश्न अपनी Maths की notebook में हल करके अगली कक्षा में साथ लाने हैं।</p>
+</section>
+
+<footer>
+  <div style="font-size:20px;">✨</div>
+  <span class="name">PK STUDY</span> — Part 2 Complete · Revision Ready
+  <div class="badges">
+    <span class="badge">✅ सरल भाषा</span>
+    <span class="badge">✅ Class 8-9 संयुक्त Syllabus</span>
+    <span class="badge">✅ Step-by-Step हल</span>
+    <span class="badge">✅ Maths Foundation</span>
+  </div>
+  Made for Class 8-9 Students · Maths · Part 2: Linear Equations
+  <div class="copy">PK STUDY — All Copyright Reserved</div>
+</footer>
+
+<script>
+/* ================= THEME ================= */
+function toggleTheme(){
+  const html = document.documentElement;
+  const isLight = html.getAttribute('data-theme') === 'light';
+  html.setAttribute('data-theme', isLight ? '' : 'light');
+  document.getElementById('themeToggle').textContent = isLight ? '🌙' : '☀️';
+}
+
+/* ================= DATA ================= */
+const syllabusData = [
+  [1,"Rational Numbers (कक्षा 8) + Number Systems (कक्षा 9)","6","1A, 1B, 1C",false],
+  [2,"Linear Equations in One Variable (क.8) + Linear Equations in Two Variables (क.9)","6","2A, 2B, 2C",true],
+  [3,"Polynomials (कक्षा 9)","5","3A, 3B",false],
+  [4,"Algebraic Expressions and Identities (कक्षा 8)","4","4A, 4B",false],
+  [5,"Factorisation (कक्षा 8)","3","—",false],
+  [6,"Coordinate Geometry (कक्षा 9)","2","—",false],
+  [7,"Understanding Quadrilaterals (क.8) + Quadrilaterals (क.9)","5","7A, 7B, 7C",false],
+  [8,"Introduction to Euclid's Geometry + Lines and Angles (कक्षा 9)","4","8A, 8B",false],
+  [9,"Triangles (कक्षा 9)","5","9A, 9B, 9C",false],
+  [10,"Practical Geometry (क.8) + Constructions (क.9)","4","10A, 10B",false],
+  [11,"Areas of Parallelograms and Triangles (कक्षा 9)","3","—",false],
+  [12,"Circles (कक्षा 9)","4","12A, 12B",false],
+  [13,"Squares and Square Roots + Cubes and Cube Roots (कक्षा 8)","4","13A, 13B",false],
+  [14,"Exponents and Powers (कक्षा 8)","3","—",false],
+  [15,"Comparing Quantities (कक्षा 8)","4","15A, 15B",false],
+  [16,"Mensuration (क.8) + Heron's Formula + Surface Areas and Volumes (क.9)","7","16A, 16B, 16C, 16D",false],
+  [17,"Visualising Solid Shapes (कक्षा 8)","2","—",false],
+  [18,"Direct and Inverse Proportions (कक्षा 8)","3","—",false],
+  [19,"Data Handling (क.8) + Statistics (क.9)","5","19A, 19B, 19C",false],
+  [20,"Probability (कक्षा 9)","2","—",false],
+  [21,"Playing with Numbers (कक्षा 8)","3","—",false],
+  [22,"Introduction to Graphs (कक्षा 8)","2","—",false]
+];
+
+const formulaSheetData = [
+  {t:"सूत्र 1 — Transposition नियम", d:"समीकरण के किसी पद को बराबर चिन्ह के दूसरी तरफ ले जाने पर उसका चिन्ह बदल जाता है — जोड़ (+) ↔ घटाव (−), गुणा (×) ↔ भाग (÷)।", c:"var(--cyan)"},
+  {t:"सूत्र 2 — एक चर वाले समीकरण का सामान्य रूप", d:"ax + b = c, जहाँ a, b, c वास्तविक संख्याएँ हैं और a ≠ 0। हल: x = (c − b) / a।", c:"var(--pink)"},
+  {t:"सूत्र 3 — दो चरों वाले समीकरण का सामान्य रूप", d:"ax + by + c = 0, जहाँ a, b, c वास्तविक संख्याएँ हैं और a, b दोनों एक साथ शून्य नहीं हो सकते।", c:"var(--green)"},
+  {t:"सूत्र 4 — x-अक्ष के समांतर रेखा", d:"y = k (k एक अचर/constant) एक क्षैतिज (horizontal) रेखा है, जो x-अक्ष के समांतर होती है और x-अक्ष से k दूरी पर होती है।", c:"var(--orange)"},
+  {t:"सूत्र 5 — y-अक्ष के समांतर रेखा", d:"x = k (k एक अचर/constant) एक ऊर्ध्वाधर (vertical) रेखा है, जो y-अक्ष के समांतर होती है और y-अक्ष से k दूरी पर होती है।", c:"var(--purple)"},
+  {t:"सूत्र 6 — हलों की संख्या", d:"एक चर वाले रैखिक समीकरण का केवल एक (unique) हल होता है, जबकि दो चरों वाले रैखिक समीकरण के अनंत हल (infinite solutions) होते हैं, जो एक सरल रेखा पर स्थित होते हैं।", c:"var(--gold)"}
+];
+
+const examplesData = [
+  {q:"हल कीजिए: 3x − 5 = 2x + 7", s:"दिया गया समीकरण: 3x − 5 = 2x + 7. चर वाले पदों को बाईं ओर और संख्या वाले पदों को दाईं ओर transpose करने पर: 3x − 2x = 7 + 5 → x = 12. अतः x = 12।"},
+  {q:"किसी पिता की आयु उसके पुत्र की आयु से 4 गुना है। 5 वर्ष बाद पिता की आयु पुत्र की आयु से 3 गुना हो जाएगी। दोनों की वर्तमान आयु ज्ञात कीजिए।", s:"मान लीजिए पुत्र की वर्तमान आयु = x वर्ष, तो पिता की आयु = 4x वर्ष. 5 वर्ष बाद: पुत्र की आयु = (x+5), पिता की आयु = (4x+5). शर्त के अनुसार: 4x + 5 = 3(x + 5) → 4x + 5 = 3x + 15 → 4x − 3x = 15 − 5 → x = 10. अतः पुत्र की आयु = 10 वर्ष और पिता की आयु = 4×10 = 40 वर्ष।"},
+  {q:"समीकरण 2x + 3y = 12 के तीन हल (क्रमित युग्म) ज्ञात कीजिए।", s:"2x + 3y = 12 में x के अलग-अलग मान रखकर y निकालते हैं: जब x=0 → 3y=12 → y=4, हल (0,4). जब x=3 → 6+3y=12 → 3y=6 → y=2, हल (3,2). जब x=6 → 12+3y=12 → 3y=0 → y=0, हल (6,0). इस प्रकार (0,4), (3,2), (6,0) इस समीकरण के तीन हल हैं — और ऐसे अनंत हल संभव हैं।"}
+];
+
+const questionsData = [
+  {tag:"Objective", color:"var(--cyan)", q:"एक चर वाले रैखिक समीकरण की घात (degree) कितनी होती है?", a:"1 (एक) — क्योंकि रैखिक समीकरण में चर की उच्चतम घात हमेशा 1 होती है।"},
+  {tag:"Objective", color:"var(--pink)", q:"समीकरण ax + by + c = 0 में a और b के बारे में क्या शर्त है?", a:"a और b दोनों एक साथ शून्य नहीं हो सकते — यानी a ≠ 0 या b ≠ 0, या दोनों में से कम-से-कम एक शून्य नहीं होना चाहिए।"},
+  {tag:"Very Short", color:"var(--green)", q:"Transposition विधि में किसी पद को समीकरण के दूसरी तरफ ले जाने पर क्या होता है?", a:"उसका चिन्ह बदल जाता है — जोड़ घटाव में और गुणा भाग में बदल जाता है।"},
+  {tag:"Very Short", color:"var(--orange)", q:"x = 5 रेखा किस अक्ष के समांतर होती है?", a:"x = 5 रेखा y-अक्ष के समांतर होती है, क्योंकि इस रेखा पर हर बिंदु का x-निर्देशांक हमेशा 5 रहता है।"},
+  {tag:"Short", color:"var(--purple)", q:"हल कीजिए: 5x − 3 = 3x + 9", a:"5x − 3x = 9 + 3 → 2x = 12 → x = 6।"},
+  {tag:"Short", color:"var(--gold)", q:"हल कीजिए: (2x−1)/3 = (x+2)/2", a:"दोनों तरफ 6 (3 और 2 का LCM) से गुणा करने पर: 2(2x−1) = 3(x+2) → 4x − 2 = 3x + 6 → 4x − 3x = 6 + 2 → x = 8।"},
+  {tag:"Short", color:"var(--cyan)", q:"समीकरण 2x + y = 8 के तीन हल ज्ञात कीजिए।", a:"x = 0 → y = 8, हल (0,8). x = 1 → y = 6, हल (1,6). x = 4 → y = 0, हल (4,0)।"},
+  {tag:"Long", color:"var(--pink)", q:"दो क्रमागत संख्याओं (consecutive numbers) का योग 45 है। वे संख्याएँ ज्ञात कीजिए।", a:"मान लीजिए पहली संख्या = x, दूसरी संख्या = x+1. शर्त: x + (x+1) = 45 → 2x + 1 = 45 → 2x = 44 → x = 22. अतः दोनों संख्याएँ 22 और 23 हैं।"},
+  {tag:"Long", color:"var(--green)", q:"रीना की वर्तमान आयु उसकी बहन की आयु से 6 वर्ष अधिक है। दोनों की आयु का योग 28 वर्ष है। दोनों की आयु ज्ञात कीजिए।", a:"मान लीजिए बहन की आयु = x वर्ष, तो रीना की आयु = (x+6) वर्ष. शर्त: x + (x+6) = 28 → 2x + 6 = 28 → 2x = 22 → x = 11. अतः बहन की आयु = 11 वर्ष और रीना की आयु = 11+6 = 17 वर्ष।"},
+  {tag:"Assertion-Reason", color:"var(--orange)", q:"अभिकथन: दो चरों वाले रैखिक समीकरण के अनंत हल होते हैं। कारण: x का कोई भी मान लेकर संगत y का मान निकाला जा सकता है।", a:"दोनों सही हैं और कारण अभिकथन की सही व्याख्या करता है — क्योंकि दो चरों वाले समीकरण में x के हर मान के लिए एक y का मान मिलता है, इसलिए क्रमित युग्मों (x,y) की संख्या अनंत होती है।"},
+  {tag:"True/False", color:"var(--purple)", q:"सत्य/असत्य बताइए: \"y = 7 एक क्षैतिज रेखा है जो x-अक्ष के समांतर है।\"", a:"सत्य — क्योंकि y=7 पर स्थित हर बिंदु का y-निर्देशांक 7 रहता है, इसलिए यह x-अक्ष के समांतर एक क्षैतिज रेखा बनाती है।"},
+  {tag:"HOTS", color:"var(--gold)", q:"यदि x=2, y=1 समीकरण ax + 3y = 7 का एक हल है, तो a का मान ज्ञात कीजिए।", a:"x=2, y=1 रखने पर: a(2) + 3(1) = 7 → 2a + 3 = 7 → 2a = 4 → a = 2।"},
+  {tag:"Case Study", color:"var(--cyan)", q:"एक दुकानदार के पास x कलम और y पेंसिल हैं। कुल वस्तुएँ 20 हैं और कलम, पेंसिल से 4 अधिक हैं। इसे दो समीकरणों के रूप में लिखकर हल कीजिए।", a:"समीकरण 1: x + y = 20. समीकरण 2: x = y + 4. समीकरण 2 को समीकरण 1 में रखने पर: (y+4) + y = 20 → 2y + 4 = 20 → 2y = 16 → y = 8. फिर x = 8+4 = 12। अतः दुकानदार के पास 12 कलम और 8 पेंसिल हैं।"},
+  {tag:"Objective", color:"var(--pink)", q:"रैखिक समीकरण ax + by + c = 0 का ग्राफ हमेशा क्या होता है?", a:"एक सरल रेखा (straight line) — यही कारण है कि इसे \"रैखिक\" (linear) समीकरण कहा जाता है।"}
+];
+
+const homeworkData = [
+  {part:"Part 2A", color:"var(--cyan)", qs:[
+    "हल कीजिए: 7x − 4 = 3x + 16",
+    "हल कीजिए: 2(x+3) = 3(x−1) + 7"
+  ]},
+  {part:"Part 2B", color:"var(--pink)", qs:[
+    "दो क्रमागत सम संख्याओं (consecutive even numbers) का योग 74 है। वे संख्याएँ ज्ञात कीजिए।",
+    "अमन की आयु उसके भाई की आयु से 3 गुना है। यदि दोनों की आयु का योग 48 वर्ष है, तो दोनों की वर्तमान आयु ज्ञात कीजिए।"
+  ]},
+  {part:"Part 2C", color:"var(--green)", qs:[
+    "समीकरण 3x + 2y = 18 के चार अलग-अलग हल ज्ञात कीजिए।",
+    "बताइए x = −3 और y = 6 रेखाएँ क्रमशः किस अक्ष के समांतर हैं, और कारण सहित समझाइए।"
+  ]}
+];
+
+/* ================= RENDER FUNCTIONS ================= */
+function el(tag, cls, html){ const d=document.createElement(tag); if(cls)d.className=cls; if(html!==undefined)d.innerHTML=html; return d; }
+
+function buildSyllabus(){
+  const wrap = document.getElementById('syllabusBody');
+  syllabusData.forEach(row=>{
+    const tr = document.createElement('tr');
+    if(row[4]) tr.className='current-row';
+    const badge = row[4] ? `<span class="pill pill-current">अभी यही</span> Part ${row[0]}` : `Part ${row[0]}`;
+    tr.innerHTML = `<td>${badge}</td><td style="text-align:left;">${row[1]}</td><td>${row[2]}</td><td>${row[3]}</td>`;
+    wrap.appendChild(tr);
+  });
+}
+function buildFormulaSheet(){
+  const g = document.getElementById('formulaSheetGrid');
+  formulaSheetData.forEach(f=>{ const d=el('div','glass rule-card', `<h4 style="color:${f.c};">${f.t}</h4><p>${f.d}</p>`); d.style.borderLeftColor=f.c; g.appendChild(d); });
+}
+function buildExamples(){
+  const wrap = document.getElementById('examplesWrap');
+  examplesData.forEach((ex,i)=>{
+    const d = el('div','glass card example-card', `<div class="qlabel">प्रश्न ${i+1}</div><div class="qtext">${ex.q}</div><div class="slabel">हल (Solution)</div><div class="stext">${ex.s}</div>`);
+    wrap.appendChild(d);
+  });
+}
+function buildQuestions(){
+  const wrap = document.getElementById('questionsWrap');
+  questionsData.forEach((item,i)=>{
+    const d = el('div','glass card example-card', `<div class="qlabel" style="color:${item.color};">प्रश्न ${i+1} · ${item.tag}</div><div class="qtext">${item.q}</div>
+      <button class="show-ans-btn" onclick="toggleAnswer(this)">उत्तर दिखाएँ (Show Answer)</button>
+      <div class="ans-wrap"><div class="slabel">उत्तर (Answer)</div><div class="stext">${item.a}</div></div>`);
+    wrap.appendChild(d);
+  });
+}
+function toggleAnswer(btn){
+  const wrap = btn.nextElementSibling;
+  const isOpen = wrap.classList.toggle('open');
+  btn.classList.toggle('open', isOpen);
+  btn.textContent = isOpen ? 'उत्तर छुपाएँ (Hide Answer)' : 'उत्तर दिखाएँ (Show Answer)';
+}
+function buildHomework(){
+  const g = document.getElementById('homeworkGrid');
+  homeworkData.forEach(hw=>{
+    const items = hw.qs.map(q=>`<li>${q}</li>`).join('');
+    const d = el('div','glass hw-card', `<span class="t-year" style="background:${hw.color};">${hw.part}</span><ol>${items}</ol>`);
+    g.appendChild(d);
+  });
+}
+
+/* INIT */
+buildSyllabus(); buildFormulaSheet(); buildExamples(); buildQuestions(); buildHomework();
+</script>
+</body>
+</html>

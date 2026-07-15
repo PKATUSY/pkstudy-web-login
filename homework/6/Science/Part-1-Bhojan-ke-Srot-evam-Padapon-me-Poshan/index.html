@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PK STUDY | भोजन के स्रोत एवं पादपों में पोषण</title>
+<style>
+:root{
+  --bg:#04050f; --glass:rgba(255,255,255,.045); --glass-strong:rgba(255,255,255,.08);
+  --border:rgba(255,255,255,.12); --text:#f2f6ff; --dim:#9fb0da; --heading:#ffffff;
+  --neon-blue:#3ea6ff; --cyan:#33e0ff; --purple:#b07dff; --gold:#ffc233;
+  --green:#2ee6a6; --orange:#ff9f43; --pink:#ff4d8d; --red:#ff4f4f;
+  --shadow:0 22px 46px -22px #000d; --hshadow:0 30px 56px -20px #000f;
+}
+[data-theme="light"]{
+  --bg:#f6f8fd; --glass:rgba(20,30,65,.045); --glass-strong:rgba(20,30,65,.08);
+  --border:rgba(20,30,65,.12); --text:#161c33; --dim:#535f82; --heading:#12172b;
+  --neon-blue:#2563eb; --cyan:#0891b2; --purple:#7c3aed; --gold:#b45309;
+  --green:#059669; --orange:#c2410c; --pink:#db2777; --red:#dc2626;
+  --shadow:0 18px 36px -20px rgba(30,40,80,.18); --hshadow:0 24px 44px -18px rgba(30,40,80,.24);
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Segoe UI','Noto Sans Devanagari',Arial,sans-serif; color:var(--text); min-height:100vh; overflow-x:hidden;
+  transition:background .4s, color .4s;
+  background:
+    radial-gradient(ellipse at 10% -10%, #1c3a9955, transparent 55%),
+    radial-gradient(ellipse at 95% 10%, #7a2ab866, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, #0a5a6e44, transparent 55%),
+    linear-gradient(180deg,#04050f,#020208 90%);
+}
+[data-theme="light"] body{
+  background:
+    radial-gradient(ellipse at 10% -10%, #dbe4ff99, transparent 55%),
+    radial-gradient(ellipse at 95% 10%, #ede0ff99, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, #d7f5f099, transparent 55%),
+    linear-gradient(180deg,#f8faff,#eef1f9 90%);
+}
+::-webkit-scrollbar{width:8px;} ::-webkit-scrollbar-thumb{background:var(--neon-blue); border-radius:6px;} ::-webkit-scrollbar-track{background:transparent;}
+
+.glass{background:var(--glass); border:1px solid var(--border); border-radius:18px; backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+  box-shadow:var(--shadow), inset 0 1px 0 #ffffff12;}
+
+header{position:sticky; top:0; z-index:200; display:flex; align-items:center; justify-content:space-between; padding:14px 26px;
+  background:rgba(4,5,15,.75); backdrop-filter:blur(18px); border-bottom:1px solid var(--border); flex-wrap:wrap; gap:10px; transition:background .4s;}
+[data-theme="light"] header{background:rgba(255,255,255,.8);}
+.brand{display:flex; align-items:center; gap:12px;}
+.brand img{width:44px; height:44px; border-radius:10px; object-fit:cover; border:2px solid var(--neon-blue); box-shadow:0 0 18px #3ea6ff88;}
+.logo-fallback{width:44px; height:44px; border-radius:10px; display:flex; align-items:center; justify-content:center;
+  background:linear-gradient(135deg,var(--neon-blue),#1f3d8c); font-weight:900; font-size:12px; border:2px solid var(--cyan); color:#fff;}
+.brand-text .name{font-weight:900; font-size:18px; color:var(--cyan); letter-spacing:.5px;}
+.brand-text .tag{font-size:11px; color:var(--dim); font-weight:600;}
+nav{display:flex; gap:5px; overflow-x:auto; max-width:52vw;}
+nav::-webkit-scrollbar{height:4px;}
+nav a{color:var(--dim); text-decoration:none; font-size:11.5px; padding:6px 11px; border-radius:16px; border:1px solid transparent; transition:.2s; font-weight:700; white-space:nowrap;}
+nav a:hover{color:var(--heading); border-color:var(--neon-blue); background:#3ea6ff1a;}
+.theme-btn{flex-shrink:0; width:40px; height:40px; border-radius:12px; border:1px solid var(--border); background:var(--glass-strong);
+  color:var(--text); font-size:17px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:.25s;}
+.theme-btn:hover{border-color:var(--neon-blue); transform:translateY(-2px);}
+
+.hero{position:relative; padding:60px 6vw 40px; text-align:center;}
+.eyebrow{display:inline-block; padding:7px 22px; border-radius:30px; color:#04050f; font-size:12px; font-weight:900;
+  letter-spacing:2px; text-transform:uppercase; margin-bottom:20px;
+  background:linear-gradient(120deg,var(--gold),var(--orange),var(--pink),var(--purple),var(--cyan));
+  box-shadow:0 10px 26px -6px #000b;}
+.hero h1{font-size:clamp(26px,5.5vw,48px); font-weight:900; line-height:1.25;
+  background:linear-gradient(90deg,var(--neon-blue),var(--cyan) 35%,var(--purple) 65%,var(--pink)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+.hero .en{font-size:16px; color:var(--dim); font-weight:700; margin-top:10px;}
+.hero p{color:var(--dim); max-width:760px; margin:20px auto 0; font-size:14.5px; line-height:1.9; font-weight:500;}
+
+section{position:relative; padding:44px 6vw; max-width:1200px; margin:0 auto;}
+.sec-head{display:flex; align-items:center; gap:14px; margin-bottom:24px;}
+.sec-num{width:44px; height:44px; border-radius:14px; flex-shrink:0; display:flex; align-items:center; justify-content:center;
+  font-weight:900; font-size:16px; color:#04050f; box-shadow:0 8px 22px -6px var(--glow,#3ea6ff99); border:2px solid #ffffffaa;}
+.sec-head h2{font-size:clamp(19px,3vw,26px); font-weight:900; color:var(--heading);}
+.sec-head .sub{color:var(--dim); font-size:12.5px; font-weight:600; margin-top:2px;}
+.sec-head .en-tag{font-size:11px; color:var(--gold); font-weight:700; letter-spacing:.5px;}
+
+.card{padding:20px 22px;}
+.grid{display:grid; gap:16px;}
+.grid-2{grid-template-columns:1fr 1fr;} .grid-3{grid-template-columns:repeat(3,1fr);}
+@media(max-width:900px){.grid-3{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.grid-2,.grid-3{grid-template-columns:1fr;} nav{max-width:100%;}}
+
+b.hi{color:var(--pink); font-weight:900;} b.hi2{color:var(--green); font-weight:900;} b.hi3{color:var(--gold); font-weight:900;}
+
+.rule-card{padding:20px; border-left:5px solid var(--neon-blue);}
+.rule-card h4{font-size:15px; color:var(--cyan); font-weight:900; margin-bottom:10px;}
+.rule-card p{font-size:13px; color:var(--dim); line-height:1.85; font-weight:500; margin-bottom:8px;}
+.rule-card ul{margin:6px 0 6px 20px; font-size:13px; color:var(--dim); line-height:1.9; font-weight:500;}
+.rule-card ul li{margin-bottom:4px;}
+
+.example-card{padding:18px 20px; margin-bottom:14px;}
+.example-card .qlabel{font-size:11px; font-weight:900; color:var(--gold); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;}
+.example-card .qtext{font-size:13.5px; font-weight:700; color:var(--heading); margin-bottom:14px; line-height:1.7;}
+.example-card .slabel{font-size:11px; font-weight:900; color:var(--green); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;}
+.example-card .stext{font-size:13px; color:var(--dim); line-height:1.9; font-weight:500; background:var(--glass-strong); padding:12px 14px; border-radius:10px; white-space:pre-line;}
+.show-ans-btn{padding:9px 20px; border-radius:10px; border:1.5px solid var(--green); background:transparent; color:var(--green);
+  font-weight:800; font-size:12px; cursor:pointer; transition:.2s;}
+.show-ans-btn:hover{background:var(--green); color:#04050f;}
+.show-ans-btn.open{background:var(--green); color:#04050f;}
+.ans-wrap{margin-top:14px; display:none;}
+.ans-wrap.open{display:block;}
+.pill{display:inline-block; padding:3px 10px; border-radius:10px; font-size:10px; font-weight:900; margin-left:8px; vertical-align:middle;}
+.pill-obj{background:linear-gradient(120deg,var(--cyan),#0a85b8); color:#04050f;}
+.pill-subj{background:linear-gradient(120deg,var(--purple),#7e4fd1); color:#fff;}
+
+.hw-card{padding:18px 20px;}
+.hw-card ol{margin:0; padding-left:20px; font-size:13px; color:var(--dim); line-height:2; font-weight:500;}
+.hw-card ol li{margin-bottom:8px;}
+.hw-card ol li::marker{color:var(--heading); font-weight:800;}
+
+.table-wrap{overflow-x:auto; margin-bottom:16px;}
+table{width:100%; border-collapse:collapse; min-width:560px;}
+thead th{text-align:center; padding:12px 14px; background:linear-gradient(120deg,var(--neon-blue),var(--purple)); color:#fff;
+  font-size:12px; text-transform:uppercase; letter-spacing:.5px; font-weight:900;}
+thead th:first-child{border-radius:10px 0 0 0;} thead th:last-child{border-radius:0 10px 0 0;}
+tbody td{padding:12px 14px; border-bottom:1px solid var(--border); color:var(--dim); font-size:12.5px; text-align:center; font-weight:600;}
+tbody tr:hover{background:#3ea6ff14;}
+
+footer{text-align:center; padding:50px 6vw 70px; color:var(--dim); font-size:12.5px; border-top:1px solid var(--border); margin-top:30px; font-weight:600;}
+footer .name{color:var(--cyan); font-weight:900; font-size:16px;}
+footer .copy{margin-top:18px; font-size:11px; color:var(--dim); opacity:.8;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <img src="images/1000043468.png" alt="PK STUDY" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="logo-fallback" style="display:none;">PK</div>
+    <div class="brand-text"><div class="name">PK STUDY</div><div class="tag">Class 6-7 (Combined) • Science • Part 1</div></div>
+  </div>
+  <nav>
+    <a href="#notes">नोट्स</a><a href="#tables">महत्वपूर्ण तथ्य</a><a href="#questions">प्रश्न</a><a href="#homework">होमवर्क</a>
+  </nav>
+  <button class="theme-btn" id="themeToggle" onclick="toggleTheme()" title="Dark/Light Mode">🌙</button>
+</header>
+
+<!-- ============ HERO ============ -->
+<div class="hero">
+  <span class="eyebrow">कक्षा 6-7 (संयुक्त) · विज्ञान · Part 1</span>
+  <h1>भोजन के स्रोत एवं पादपों में पोषण</h1>
+  <div class="en">Sources of Food & Nutrition in Plants</div>
+  <p>यह पेज कक्षा 6 के अध्याय "भोजन कहाँ से आता है?" और कक्षा 7 के अध्याय "पादपों में पोषण" — दोनों को मिलाकर एक संयुक्त Part 1 के रूप में प्रस्तुत करता है। इसमें हम पढ़ेंगे कि हमारा भोजन पौधों और जंतुओं से किस प्रकार प्राप्त होता है, तथा पौधे अपना भोजन स्वयं किस प्रक्रिया से बनाते हैं। इस पेज में Notes, महत्वपूर्ण तथ्य-तालिकाएँ, Objective व Subjective महत्वपूर्ण प्रश्न (उत्तर सहित), और Homework दिया गया है।</p>
+</div>
+
+<!-- ============ NOTES ============ -->
+<section id="notes">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--neon-blue),#1f6fc9); --glow:#3ea6ff99;">📝</div>
+    <div><h2>Notes — मुख्य भाग</h2><div class="sub en-tag">Concept Notes, Section-wise</div></div></div>
+  <div class="glass card" style="display:flex; flex-direction:column; gap:16px;">
+    <div class="rule-card" style="border-left-color:var(--cyan);">
+      <h4 style="color:var(--cyan);">1(क). भोजन के स्रोत (Sources of Food)</h4>
+      <p>हमारा भोजन मुख्यतः दो स्रोतों से प्राप्त होता है — <b class="hi">पौधों से</b> और <b class="hi">जंतुओं से</b>। पौधों के अलग-अलग भागों से हमें अलग-अलग खाद्य पदार्थ मिलते हैं — जड़ से गाजर व मूली, तने से आलू व गन्ना, पत्ती से पालक व मेथी, फल से आम व सेब, फूल से फूलगोभी, तथा बीज से गेहूँ, चावल व दाल।</p>
+      <p>जंतुओं से हमें <b class="hi2">दूध</b> (गाय, भैंस से), <b class="hi2">अंडा</b> (मुर्गी से), <b class="hi2">मांस</b> (बकरी, मछली से) और <b class="hi2">शहद</b> (मधुमक्खी से) जैसे खाद्य पदार्थ प्राप्त होते हैं। उदाहरण के लिए, एक कटोरी सांभर में दाल (बीज), टमाटर (फल), प्याज (तना) और नमक — सभी अलग-अलग स्रोतों से आते हैं।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--pink);">
+      <h4 style="color:var(--pink);">1(ख). शाकाहारी, मांसाहारी एवं सर्वाहारी जंतु</h4>
+      <p><b class="hi">शाकाहारी (Herbivores)</b> — केवल पौधों को भोजन के रूप में खाने वाले जंतु, जैसे गाय, बकरी, हिरण — ये घास व पत्तियाँ खाते हैं।</p>
+      <p><b class="hi2">मांसाहारी (Carnivores)</b> — केवल दूसरे जंतुओं का मांस खाने वाले जंतु, जैसे शेर, बाघ, चील।</p>
+      <p><b class="hi3">सर्वाहारी (Omnivores)</b> — पौधे और जंतु दोनों प्रकार का भोजन खाने वाले जंतु, जैसे मनुष्य, कौआ, कुत्ता — ये चावल-दाल भी खाते हैं और अंडा-मांस भी।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--green);">
+      <h4 style="color:var(--green);">1(ग). स्वपोषी एवं परपोषी पोषण (Autotrophic & Heterotrophic Nutrition)</h4>
+      <p><b class="hi">स्वपोषी पोषण (Autotrophic Nutrition)</b> — जिसमें जीव सूर्य के प्रकाश, जल और कार्बन डाइऑक्साइड की सहायता से स्वयं अपना भोजन बनाते हैं। सभी हरे पौधे स्वपोषी होते हैं, जैसे आम का पेड़, गेहूँ का पौधा।</p>
+      <p><b class="hi2">परपोषी पोषण (Heterotrophic Nutrition)</b> — जिसमें जीव अपना भोजन स्वयं नहीं बना सकते और दूसरे जीवों पर भोजन के लिए निर्भर रहते हैं। सभी जंतु तथा कुछ पौधे (जैसे अमरबेल) परपोषी होते हैं — उदाहरण के लिए मनुष्य अपना भोजन पौधों व जंतुओं से प्राप्त करता है।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--orange);">
+      <h4 style="color:var(--orange);">1(घ). प्रकाश संश्लेषण (Photosynthesis)</h4>
+      <p><b class="hi">प्रकाश संश्लेषण</b> वह प्रक्रिया है जिसके द्वारा हरे पौधे अपनी पत्तियों में उपस्थित <b class="hi3">पर्णहरित (Chlorophyll)</b> की सहायता से सूर्य के प्रकाश में कार्बन डाइऑक्साइड और जल से अपना भोजन (ग्लूकोज़) बनाते हैं, और ऑक्सीजन गैस बाहर निकालते हैं।</p>
+      <p><b>आवश्यक कच्चा माल:</b> कार्बन डाइऑक्साइड (पत्तियों के रंध्रों/Stomata से), जल (जड़ों द्वारा मिट्टी से), सूर्य का प्रकाश और पर्णहरित।</p>
+      <p>उदाहरण के लिए, धूप में रखा गया गमले का पौधा हरा-भरा रहता है क्योंकि उसे भोजन बनाने के लिए पर्याप्त सूर्य का प्रकाश मिलता है, जबकि अंधेरे कमरे में रखा पौधा पीला पड़कर मुरझा जाता है।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--purple);">
+      <h4 style="color:var(--purple);">1(ङ). परजीवी एवं कीटभक्षी पौधे (Parasitic & Insectivorous Plants)</h4>
+      <p><b class="hi">परजीवी पौधे (Parasitic Plants)</b> — जो दूसरे जीवित पौधों से चिपककर उनका तैयार भोजन चूसकर प्राप्त करते हैं, जैसे <b class="hi3">अमरबेल (Cuscuta)</b> — यह एक पीले रंग की बेल है जो अन्य पौधों की टहनियों से लिपटकर उनसे पोषण चूसती है और उन्हें नुकसान पहुँचाती है।</p>
+      <p><b class="hi2">कीटभक्षी पौधे (Insectivorous Plants)</b> — जो नाइट्रोजन युक्त मिट्टी की कमी वाले स्थानों में उगते हैं और अपनी नाइट्रोजन की आवश्यकता पूरी करने के लिए कीड़ों को पकड़कर पचाते हैं, जैसे <b class="hi3">घटपर्णी (Pitcher Plant)</b> — इसकी पत्ती एक घड़े के आकार की होती है जिसमें कीड़े फँसकर पच जाते हैं।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--red);">
+      <h4 style="color:var(--red);">1(च). सहजीवी पोषण एवं नाइट्रोजन स्थिरीकरण (Symbiotic Nutrition & Nitrogen Fixation)</h4>
+      <p><b class="hi">सहजीवी पोषण (Symbiotic Nutrition)</b> — जिसमें दो भिन्न जीव आपस में मिलकर एक-दूसरे को लाभ पहुँचाते हुए साथ-साथ रहते हैं, जैसे <b class="hi3">लाइकेन (Lichen)</b> — यह शैवाल (Algae) और कवक (Fungus) के सहजीवी संबंध से बनता है, जिसमें शैवाल भोजन बनाता है और कवक उसे आश्रय व जल देता है।</p>
+      <p><b class="hi2">नाइट्रोजन स्थिरीकरण (Nitrogen Fixation)</b> — पौधों को प्रोटीन बनाने के लिए नाइट्रोजन की आवश्यकता होती है। <b class="hi3">राइजोबियम (Rhizobium)</b> नामक जीवाणु फलीदार पौधों (जैसे चना, मटर, मूँग) की जड़ों में बनी गाँठों (Root Nodules) में रहकर वायुमंडलीय नाइट्रोजन को पौधों के उपयोग योग्य रूप में बदल देते हैं, और बदले में पौधे से भोजन व आश्रय प्राप्त करते हैं — यह भी एक सहजीवी संबंध है।</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REFERENCE TABLES ============ -->
+<section id="tables">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--purple),#7e4fd1); --glow:#b07dff99;">📊</div>
+    <div><h2>महत्वपूर्ण तथ्य तालिकाएँ</h2><div class="sub en-tag">Key Reference Tables</div></div></div>
+
+  <div class="glass card table-wrap">
+    <table>
+      <thead><tr><th>पौधे का भाग</th><th>उदाहरण (मिलने वाला भोजन)</th></tr></thead>
+      <tbody>
+        <tr><td>जड़ (Root)</td><td>गाजर, मूली, शकरकंद, चुकंदर</td></tr>
+        <tr><td>तना (Stem)</td><td>आलू, अदरक, गन्ना, प्याज</td></tr>
+        <tr><td>पत्ती (Leaf)</td><td>पालक, मेथी, पत्तागोभी, धनिया</td></tr>
+        <tr><td>फल (Fruit)</td><td>सेब, आम, टमाटर, बैंगन</td></tr>
+        <tr><td>फूल (Flower)</td><td>फूलगोभी, केसर</td></tr>
+        <tr><td>बीज (Seed)</td><td>गेहूँ, चावल, दाल, मूँगफली</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="glass card table-wrap">
+    <table>
+      <thead><tr><th>पोषण का प्रकार</th><th>उदाहरण</th><th>मुख्य विशेषता</th></tr></thead>
+      <tbody>
+        <tr><td>स्वपोषी (Autotrophic)</td><td>हरे पौधे (आम, गेहूँ)</td><td>प्रकाश संश्लेषण द्वारा स्वयं भोजन बनाते हैं</td></tr>
+        <tr><td>परजीवी (Parasitic)</td><td>अमरबेल (Cuscuta)</td><td>दूसरे जीवित पौधे से तैयार भोजन चूसते हैं</td></tr>
+        <tr><td>कीटभक्षी (Insectivorous)</td><td>घटपर्णी (Pitcher Plant)</td><td>कीड़े पकड़कर नाइट्रोजन की पूर्ति करते हैं</td></tr>
+        <tr><td>मृतजीवी (Saprotrophic)</td><td>कवक — फफूंद, मशरूम</td><td>मृत व सड़े-गले पदार्थों से भोजन प्राप्त करते हैं</td></tr>
+        <tr><td>सहजीवी (Symbiotic)</td><td>लाइकेन (शैवाल + कवक)</td><td>दो जीव परस्पर लाभ के लिए साथ रहते हैं</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ IMPORTANT QUESTIONS ============ -->
+<section id="questions">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--green),#1a9c70); --glow:#2ee6a699;">📘</div>
+    <div><h2>महत्वपूर्ण प्रश्न (Objective + Subjective)</h2><div class="sub en-tag">उत्तर देखने के लिए बटन दबाएँ</div></div></div>
+  <div id="qWrap"></div>
+</section>
+
+<!-- ============ HOMEWORK ============ -->
+<section id="homework">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--red),#a82424); --glow:#ff4f4f99;">🏠</div>
+    <div><h2>घर से करने के लिए Homework</h2><div class="sub en-tag">Notebook Exercise — बिना उत्तर देखे खुद हल करें</div></div></div>
+  <div class="glass card hw-card">
+    <ol id="homeworkList"></ol>
+  </div>
+  <p style="color:var(--dim); font-size:12px; margin-top:14px; font-weight:600;">यह सभी प्रश्न अपनी Science की notebook में हल करके अगली कक्षा में साथ लाइए।</p>
+</section>
+
+<footer>
+  <span class="name">PK STUDY</span> — Part 1 पूर्ण
+  <div class="copy">Class 6-7 (Combined) · विज्ञान · भोजन के स्रोत एवं पादपों में पोषण — PK STUDY, All Copyright Reserved</div>
+</footer>
+
+<script>
+function toggleTheme(){
+  const html = document.documentElement;
+  const isLight = html.getAttribute('data-theme') === 'light';
+  html.setAttribute('data-theme', isLight ? '' : 'light');
+  document.getElementById('themeToggle').textContent = isLight ? '🌙' : '☀️';
+}
+function el(tag, cls, html){ const d=document.createElement(tag); if(cls)d.className=cls; if(html!==undefined)d.innerHTML=html; return d; }
+
+const qData = [
+  {type:"obj", q:"हमें दूध किस जंतु से प्राप्त होता है?", a:"गाय, भैंस और बकरी जैसे जंतुओं से हमें दूध प्राप्त होता है।"},
+  {type:"obj", q:"आलू पौधे के किस भाग से प्राप्त होता है?", a:"आलू पौधे के तने (Stem) से प्राप्त होता है — यह एक भूमिगत तना है।"},
+  {type:"obj", q:"केवल पौधों को खाने वाले जंतु क्या कहलाते हैं?", a:"शाकाहारी (Herbivores) — जैसे गाय, बकरी, हिरण।"},
+  {type:"obj", q:"मनुष्य किस प्रकार का जंतु है — शाकाहारी, मांसाहारी या सर्वाहारी?", a:"सर्वाहारी (Omnivore) — क्योंकि मनुष्य पौधे व जंतु दोनों से प्राप्त भोजन खाता है।"},
+  {type:"obj", q:"प्रकाश संश्लेषण की क्रिया पौधे के किस भाग में मुख्यतः होती है?", a:"पत्तियों में — क्योंकि पत्तियों में पर्णहरित (Chlorophyll) पाया जाता है।"},
+  {type:"obj", q:"अमरबेल किस प्रकार का पौधा है?", a:"अमरबेल एक परजीवी पौधा (Parasitic Plant) है, जो दूसरे पौधों से चिपककर उनका भोजन चूसता है।"},
+  {type:"obj", q:"घटपर्णी (Pitcher Plant) कीड़ों को क्यों पकड़ता है?", a:"नाइट्रोजन युक्त मिट्टी की कमी की पूर्ति करने के लिए घटपर्णी कीड़ों को पकड़कर पचाता है।"},
+  {type:"obj", q:"लाइकेन किन दो जीवों के सहजीवी संबंध से बनता है?", a:"शैवाल (Algae) और कवक (Fungus) के सहजीवी संबंध से लाइकेन बनता है।"},
+  {type:"obj", q:"फलीदार पौधों की जड़ों में गाँठें (Root Nodules) बनाने वाला जीवाणु कौन-सा है?", a:"राइजोबियम (Rhizobium) जीवाणु — यह वायुमंडलीय नाइट्रोजन को स्थिर करता है।"},
+  {type:"subj", q:"भोजन के दो मुख्य स्रोत कौन-से हैं? प्रत्येक के दो-दो उदाहरण दीजिए।", a:"भोजन के दो मुख्य स्रोत हैं — पौधे और जंतु। पौधों से हमें अनाज (गेहूँ, चावल), सब्जियाँ (आलू, पालक), फल (आम, सेब) आदि प्राप्त होते हैं। जंतुओं से हमें दूध (गाय, भैंस), अंडा (मुर्गी), मांस (बकरी, मछली) और शहद (मधुमक्खी) जैसे खाद्य पदार्थ प्राप्त होते हैं।"},
+  {type:"subj", q:"शाकाहारी, मांसाहारी और सर्वाहारी जंतुओं में अंतर स्पष्ट कीजिए, उदाहरण सहित।", a:"शाकाहारी जंतु केवल पौधों को भोजन के रूप में खाते हैं, जैसे गाय, बकरी, हिरण। मांसाहारी जंतु केवल दूसरे जंतुओं का मांस खाते हैं, जैसे शेर, बाघ, चील। सर्वाहारी जंतु पौधे और जंतु दोनों प्रकार का भोजन खाते हैं, जैसे मनुष्य, कौआ, कुत्ता।"},
+  {type:"subj", q:"स्वपोषी और परपोषी पोषण में क्या अंतर है?", a:"स्वपोषी पोषण में जीव सूर्य के प्रकाश, जल और कार्बन डाइऑक्साइड की सहायता से स्वयं अपना भोजन बनाते हैं — जैसे हरे पौधे। परपोषी पोषण में जीव अपना भोजन स्वयं नहीं बना सकते और दूसरे जीवों पर निर्भर रहते हैं — जैसे सभी जंतु तथा अमरबेल जैसे परजीवी पौधे।"},
+  {type:"subj", q:"प्रकाश संश्लेषण किसे कहते हैं? इसके लिए आवश्यक कच्चे माल की सूची बनाइए।", a:"प्रकाश संश्लेषण वह प्रक्रिया है जिसके द्वारा हरे पौधे अपनी पत्तियों में उपस्थित पर्णहरित (Chlorophyll) की सहायता से सूर्य के प्रकाश में कार्बन डाइऑक्साइड और जल से अपना भोजन (ग्लूकोज़) बनाते हैं तथा ऑक्सीजन गैस बाहर निकालते हैं। इसके लिए आवश्यक कच्चा माल है — कार्बन डाइऑक्साइड, जल, सूर्य का प्रकाश और पर्णहरित।"},
+  {type:"subj", q:"परजीवी और कीटभक्षी पौधों में अंतर बताते हुए एक-एक उदाहरण दीजिए।", a:"परजीवी पौधे दूसरे जीवित पौधों से चिपककर उनका तैयार भोजन चूसकर प्राप्त करते हैं, जैसे अमरबेल (Cuscuta)। कीटभक्षी पौधे नाइट्रोजन की कमी वाली मिट्टी में उगते हैं और अपनी नाइट्रोजन की आवश्यकता पूरी करने के लिए कीड़ों को पकड़कर पचाते हैं, जैसे घटपर्णी (Pitcher Plant)।"},
+  {type:"subj", q:"नाइट्रोजन स्थिरीकरण में राइजोबियम जीवाणु की भूमिका समझाइए।", a:"राइजोबियम जीवाणु फलीदार पौधों (जैसे चना, मटर, मूँग) की जड़ों में बनी गाँठों (Root Nodules) में रहता है और वायुमंडलीय नाइट्रोजन को पौधों के उपयोग योग्य रूप में बदल देता है, जिससे पौधों को प्रोटीन बनाने के लिए नाइट्रोजन मिलती है। बदले में पौधा जीवाणु को भोजन व आश्रय प्रदान करता है — यह एक सहजीवी संबंध है, जिससे मिट्टी की उर्वरता भी बढ़ती है।"}
+];
+
+const homeworkData = [
+  "अपने घर की रसोई में प्रयोग होने वाली किन्हीं 5 खाद्य सामग्रियों की सूची बनाइए और बताइए कि वे पौधे के किस भाग से या किस जंतु से प्राप्त होती हैं।",
+  "शाकाहारी, मांसाहारी और सर्वाहारी जंतुओं के दो-दो अतिरिक्त उदाहरण (पाठ्यपुस्तक से अलग) लिखिए।",
+  "प्रकाश संश्लेषण की प्रक्रिया को एक चित्र बनाकर समझाइए और उसमें कच्चे माल तथा उत्पाद को दर्शाइए।",
+  "अमरबेल और घटपर्णी की तस्वीरें अपनी कॉपी में चिपकाएँ या बनाएँ और उनके पोषण के तरीके के दो-दो वाक्य लिखिए।",
+  "लाइकेन को सहजीवी पोषण का उदाहरण क्यों माना जाता है? अपने शब्दों में लिखिए।",
+  "फलीदार पौधों (जैसे चना, मटर) की जड़ों में पाई जाने वाली गाँठों के बारे में अपने माता-पिता या किसान से जानकारी लेकर लिखिए।",
+  "स्वपोषी और परपोषी पोषण की तुलना करते हुए एक तालिका अपनी कॉपी में बनाइए।"
+];
+
+function buildQuestions(){
+  const wrap = document.getElementById('qWrap');
+  qData.forEach((item)=>{
+    const pillHtml = item.type === 'obj' ? '<span class="pill pill-obj">Objective</span>' : '<span class="pill pill-subj">Subjective</span>';
+    const d = el('div','glass example-card', `<div class="qlabel">प्रश्न ${pillHtml}</div><div class="qtext">${item.q}</div>
+      <button class="show-ans-btn" onclick="toggleAnswer(this)">उत्तर दिखाएँ (Show Answer)</button>
+      <div class="ans-wrap"><div class="slabel">उत्तर (Answer)</div><div class="stext">${item.a}</div></div>`);
+    wrap.appendChild(d);
+  });
+}
+function toggleAnswer(btn){
+  const wrap = btn.nextElementSibling;
+  const isOpen = wrap.classList.toggle('open');
+  btn.classList.toggle('open', isOpen);
+  btn.textContent = isOpen ? 'उत्तर छुपाएँ (Hide Answer)' : 'उत्तर दिखाएँ (Show Answer)';
+}
+function buildHomework(){
+  const g = document.getElementById('homeworkList');
+  homeworkData.forEach(q=>{ const li = document.createElement('li'); li.textContent = q; g.appendChild(li); });
+}
+
+buildQuestions();
+buildHomework();
+</script>
+</body>
+</html>

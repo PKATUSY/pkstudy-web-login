@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PK STUDY | फसल उत्पादन एवं द्रव्य की अवस्थाएँ</title>
+<style>
+:root{
+  --bg:#04050f; --glass:rgba(255,255,255,.045); --glass-strong:rgba(255,255,255,.08);
+  --border:rgba(255,255,255,.12); --text:#f2f6ff; --dim:#9fb0da; --heading:#ffffff;
+  --neon-blue:#3ea6ff; --cyan:#33e0ff; --purple:#b07dff; --gold:#ffc233;
+  --green:#2ee6a6; --orange:#ff9f43; --pink:#ff4d8d; --red:#ff4f4f;
+  --shadow:0 22px 46px -22px #000d; --hshadow:0 30px 56px -20px #000f;
+}
+[data-theme="light"]{
+  --bg:#f6f8fd; --glass:rgba(20,30,65,.045); --glass-strong:rgba(20,30,65,.08);
+  --border:rgba(20,30,65,.12); --text:#161c33; --dim:#535f82; --heading:#12172b;
+  --neon-blue:#2563eb; --cyan:#0891b2; --purple:#7c3aed; --gold:#b45309;
+  --green:#059669; --orange:#c2410c; --pink:#db2777; --red:#dc2626;
+  --shadow:0 18px 36px -20px rgba(30,40,80,.18); --hshadow:0 24px 44px -18px rgba(30,40,80,.24);
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Segoe UI','Noto Sans Devanagari',Arial,sans-serif; color:var(--text); min-height:100vh; overflow-x:hidden;
+  transition:background .4s, color .4s;
+  background:
+    radial-gradient(ellipse at 10% -10%, #1c3a9955, transparent 55%),
+    radial-gradient(ellipse at 95% 10%, #7a2ab866, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, #0a5a6e44, transparent 55%),
+    linear-gradient(180deg,#04050f,#020208 90%);
+}
+[data-theme="light"] body{
+  background:
+    radial-gradient(ellipse at 10% -10%, #dbe4ff99, transparent 55%),
+    radial-gradient(ellipse at 95% 10%, #ede0ff99, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, #d7f5f099, transparent 55%),
+    linear-gradient(180deg,#f8faff,#eef1f9 90%);
+}
+::-webkit-scrollbar{width:8px;} ::-webkit-scrollbar-thumb{background:var(--neon-blue); border-radius:6px;} ::-webkit-scrollbar-track{background:transparent;}
+
+.glass{background:var(--glass); border:1px solid var(--border); border-radius:18px; backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+  box-shadow:var(--shadow), inset 0 1px 0 #ffffff12;}
+
+header{position:sticky; top:0; z-index:200; display:flex; align-items:center; justify-content:space-between; padding:14px 26px;
+  background:rgba(4,5,15,.75); backdrop-filter:blur(18px); border-bottom:1px solid var(--border); flex-wrap:wrap; gap:10px; transition:background .4s;}
+[data-theme="light"] header{background:rgba(255,255,255,.8);}
+.brand{display:flex; align-items:center; gap:12px;}
+.brand img{width:44px; height:44px; border-radius:10px; object-fit:cover; border:2px solid var(--neon-blue); box-shadow:0 0 18px #3ea6ff88;}
+.logo-fallback{width:44px; height:44px; border-radius:10px; display:flex; align-items:center; justify-content:center;
+  background:linear-gradient(135deg,var(--neon-blue),#1f3d8c); font-weight:900; font-size:12px; border:2px solid var(--cyan); color:#fff;}
+.brand-text .name{font-weight:900; font-size:18px; color:var(--cyan); letter-spacing:.5px;}
+.brand-text .tag{font-size:11px; color:var(--dim); font-weight:600;}
+nav{display:flex; gap:5px; overflow-x:auto; max-width:52vw;}
+nav::-webkit-scrollbar{height:4px;}
+nav a{color:var(--dim); text-decoration:none; font-size:11.5px; padding:6px 11px; border-radius:16px; border:1px solid transparent; transition:.2s; font-weight:700; white-space:nowrap;}
+nav a:hover{color:var(--heading); border-color:var(--neon-blue); background:#3ea6ff1a;}
+.theme-btn{flex-shrink:0; width:40px; height:40px; border-radius:12px; border:1px solid var(--border); background:var(--glass-strong);
+  color:var(--text); font-size:17px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:.25s;}
+.theme-btn:hover{border-color:var(--neon-blue); transform:translateY(-2px);}
+
+.hero{position:relative; padding:60px 6vw 40px; text-align:center;}
+.eyebrow{display:inline-block; padding:7px 22px; border-radius:30px; color:#04050f; font-size:12px; font-weight:900;
+  letter-spacing:2px; text-transform:uppercase; margin-bottom:20px;
+  background:linear-gradient(120deg,var(--gold),var(--orange),var(--pink),var(--purple),var(--cyan));
+  box-shadow:0 10px 26px -6px #000b;}
+.hero h1{font-size:clamp(26px,5.5vw,48px); font-weight:900; line-height:1.25;
+  background:linear-gradient(90deg,var(--neon-blue),var(--cyan) 35%,var(--purple) 65%,var(--pink)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+.hero .en{font-size:16px; color:var(--dim); font-weight:700; margin-top:10px;}
+.hero p{color:var(--dim); max-width:760px; margin:20px auto 0; font-size:14.5px; line-height:1.9; font-weight:500;}
+
+section{position:relative; padding:44px 6vw; max-width:1200px; margin:0 auto;}
+.sec-head{display:flex; align-items:center; gap:14px; margin-bottom:24px;}
+.sec-num{width:44px; height:44px; border-radius:14px; flex-shrink:0; display:flex; align-items:center; justify-content:center;
+  font-weight:900; font-size:16px; color:#04050f; box-shadow:0 8px 22px -6px var(--glow,#3ea6ff99); border:2px solid #ffffffaa;}
+.sec-head h2{font-size:clamp(19px,3vw,26px); font-weight:900; color:var(--heading);}
+.sec-head .sub{color:var(--dim); font-size:12.5px; font-weight:600; margin-top:2px;}
+.sec-head .en-tag{font-size:11px; color:var(--gold); font-weight:700; letter-spacing:.5px;}
+
+.card{padding:20px 22px;}
+.grid{display:grid; gap:16px;}
+.grid-2{grid-template-columns:1fr 1fr;} .grid-3{grid-template-columns:repeat(3,1fr);}
+@media(max-width:900px){.grid-3{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.grid-2,.grid-3{grid-template-columns:1fr;} nav{max-width:100%;}}
+
+b.hi{color:var(--pink); font-weight:900;} b.hi2{color:var(--green); font-weight:900;} b.hi3{color:var(--gold); font-weight:900;}
+
+.rule-card{padding:20px; border-left:5px solid var(--neon-blue);}
+.rule-card h4{font-size:15px; color:var(--cyan); font-weight:900; margin-bottom:10px;}
+.rule-card p{font-size:13px; color:var(--dim); line-height:1.85; font-weight:500; margin-bottom:8px;}
+.rule-card ul{margin:6px 0 6px 20px; font-size:13px; color:var(--dim); line-height:1.9; font-weight:500;}
+.rule-card ul li{margin-bottom:4px;}
+
+.example-card{padding:18px 20px; margin-bottom:14px;}
+.example-card .qlabel{font-size:11px; font-weight:900; color:var(--gold); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;}
+.example-card .qtext{font-size:13.5px; font-weight:700; color:var(--heading); margin-bottom:14px; line-height:1.7;}
+.example-card .slabel{font-size:11px; font-weight:900; color:var(--green); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;}
+.example-card .stext{font-size:13px; color:var(--dim); line-height:1.9; font-weight:500; background:var(--glass-strong); padding:12px 14px; border-radius:10px; white-space:pre-line;}
+.show-ans-btn{padding:9px 20px; border-radius:10px; border:1.5px solid var(--green); background:transparent; color:var(--green);
+  font-weight:800; font-size:12px; cursor:pointer; transition:.2s;}
+.show-ans-btn:hover{background:var(--green); color:#04050f;}
+.show-ans-btn.open{background:var(--green); color:#04050f;}
+.ans-wrap{margin-top:14px; display:none;}
+.ans-wrap.open{display:block;}
+.pill{display:inline-block; padding:3px 10px; border-radius:10px; font-size:10px; font-weight:900; margin-left:8px; vertical-align:middle;}
+.pill-obj{background:linear-gradient(120deg,var(--cyan),#0a85b8); color:#04050f;}
+.pill-subj{background:linear-gradient(120deg,var(--purple),#7e4fd1); color:#fff;}
+
+.hw-card{padding:18px 20px;}
+.hw-card ol{margin:0; padding-left:20px; font-size:13px; color:var(--dim); line-height:2; font-weight:500;}
+.hw-card ol li{margin-bottom:8px;}
+.hw-card ol li::marker{color:var(--heading); font-weight:800;}
+
+.table-wrap{overflow-x:auto; margin-bottom:16px;}
+table{width:100%; border-collapse:collapse; min-width:560px;}
+thead th{text-align:center; padding:12px 14px; background:linear-gradient(120deg,var(--neon-blue),var(--purple)); color:#fff;
+  font-size:12px; text-transform:uppercase; letter-spacing:.5px; font-weight:900;}
+thead th:first-child{border-radius:10px 0 0 0;} thead th:last-child{border-radius:0 10px 0 0;}
+tbody td{padding:12px 14px; border-bottom:1px solid var(--border); color:var(--dim); font-size:12.5px; text-align:center; font-weight:600;}
+tbody tr:hover{background:#3ea6ff14;}
+
+footer{text-align:center; padding:50px 6vw 70px; color:var(--dim); font-size:12.5px; border-top:1px solid var(--border); margin-top:30px; font-weight:600;}
+footer .name{color:var(--cyan); font-weight:900; font-size:16px;}
+footer .copy{margin-top:18px; font-size:11px; color:var(--dim); opacity:.8;}
+
+.group-head{display:flex; align-items:center; gap:10px; margin:6px 0 6px; padding-bottom:8px; border-bottom:1px dashed var(--border);}
+.group-head .gnum{width:30px; height:30px; border-radius:9px; flex-shrink:0; display:flex; align-items:center; justify-content:center;
+  font-weight:900; font-size:13px; color:#04050f;}
+.group-head h3{font-size:15.5px; font-weight:900; color:var(--heading);}
+.group-head .gnote{font-size:11px; color:var(--dim); font-weight:600; margin-top:1px;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <img src="images/1000043468.png" alt="PK STUDY" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="logo-fallback" style="display:none;">PK</div>
+    <div class="brand-text"><div class="name">PK STUDY</div><div class="tag">Class 8-9 (Combined) • Science • Part 1</div></div>
+  </div>
+  <nav>
+    <a href="#notes">नोट्स</a><a href="#tables">महत्वपूर्ण तथ्य</a><a href="#questions">प्रश्न</a><a href="#homework">होमवर्क</a>
+  </nav>
+  <button class="theme-btn" id="themeToggle" onclick="toggleTheme()" title="Dark/Light Mode">🌙</button>
+</header>
+
+<!-- ============ HERO ============ -->
+<div class="hero">
+  <span class="eyebrow">कक्षा 8-9 (संयुक्त) · विज्ञान · Part 1</span>
+  <h1>फसल उत्पादन एवं द्रव्य की अवस्थाएँ</h1>
+  <div class="en">Crop Production & States of Matter</div>
+  <p>यह Part 1 दो अलग-अलग कक्षाओं के <b class="hi">पहले अध्याय</b> को एक साथ जोड़कर बनाया गया है — जैसे किसी संयुक्त (combined) कक्षा में दोनों कक्षाओं का पहला अध्याय एक ही समय-खंड में पढ़ाया जाता है। <b class="hi2">भाग 1A</b> में Class 8 विज्ञान का अध्याय "फसल उत्पादन एवं प्रबंध" है — जिसमें कृषि की प्रक्रियाएँ, खरीफ-रबी फसलें, खाद-उर्वरक और फसल चक्र पढ़ेंगे। <b class="hi3">भाग 1B</b> में Class 9 विज्ञान का अध्याय "हमारे आस-पास के पदार्थ" है — जिसमें द्रव्य की तीन अवस्थाएँ, अवस्था परिवर्तन और ऊर्ध्वपातन पढ़ेंगे। चूँकि Class 8-9 के विद्यार्थी विज्ञान की मूल बातें पहले से जानते हैं, इसलिए दोनों भागों को एक ही Part में, बिना किसी ज़बरदस्ती के विषयगत जोड़ के, अलग-अलग स्पष्ट रूप से समझाया गया है। इस पेज में Notes, महत्वपूर्ण तथ्य-तालिकाएँ, Objective व Subjective महत्वपूर्ण प्रश्न (उत्तर सहित), और Homework दिया गया है।</p>
+</div>
+
+<!-- ============ NOTES ============ -->
+<section id="notes">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--neon-blue),#1f6fc9); --glow:#3ea6ff99;">📝</div>
+    <div><h2>Notes — दोनों भागों के मुख्य बिंदु</h2><div class="sub en-tag">Concept Notes, Part-wise</div></div></div>
+  <div class="glass card" style="display:flex; flex-direction:column; gap:16px;">
+
+    <div class="group-head">
+      <div class="gnum" style="background:linear-gradient(160deg,var(--cyan),#0a85b8);">1A</div>
+      <div><h3>भाग 1A: फसल उत्पादन एवं प्रबंध (कक्षा 8)</h3><div class="gnote">Crop Production and Management — Class 8</div></div>
+    </div>
+
+    <div class="rule-card" style="border-left-color:var(--cyan);">
+      <h4 style="color:var(--cyan);">1A-1. कृषि की प्रक्रियाएँ (Agricultural Practices)</h4>
+      <p><b class="hi">कृषि (Agriculture)</b> — भोजन तथा अन्य उपयोगी पदार्थों की प्राप्ति के लिए फसलें उगाने और पशुपालन करने की प्रक्रिया को कृषि कहते हैं। फसल उत्पादन में निम्नलिखित प्रक्रियाएँ क्रम से अपनाई जाती हैं:</p>
+      <ul>
+        <li><b class="hi2">भूमि की तैयारी (जुताई)</b> — बुवाई से पहले मिट्टी को पलटकर, भुरभुरा बनाकर हवादार किया जाता है, ताकि जड़ें आसानी से फैल सकें। इसके लिए <b>हल (Plough)</b> तथा <b>कल्टीवेटर (Cultivator)</b> का उपयोग होता है।</li>
+        <li><b class="hi2">बुवाई (Sowing)</b> — अच्छी गुणवत्ता वाले, प्रमाणित बीजों को उचित गहराई और दूरी पर बोया जाता है, अक्सर <b>सीड ड्रिल (Seed Drill)</b> से।</li>
+        <li><b class="hi2">उर्वरक व खाद डालना (Manuring)</b> — मिट्टी में पोषक तत्वों की पूर्ति के लिए खाद या उर्वरक मिलाया जाता है।</li>
+        <li><b class="hi2">सिंचाई (Irrigation)</b> — फसल को उचित समय पर पर्याप्त जल देना, जैसे नहर, कुआँ, ट्यूबवेल, ड्रिप सिंचाई, फव्वारा सिंचाई द्वारा।</li>
+        <li><b class="hi2">निराई (Weeding)</b> — फसल के साथ उगने वाले अवांछित पौधों (खरपतवार) को <b>खुरपी</b> से या रसायन (weedicide) द्वारा हटाना, ताकि वे पोषक तत्व, जल व प्रकाश न छीनें।</li>
+        <li><b class="hi2">फसल की कटाई (Harvesting)</b> — पकी हुई फसल को हँसिया (Sickle) से हाथ द्वारा या <b>कंबाइन हार्वेस्टर</b> से मशीन द्वारा काटना, फिर <b>थ्रेशिंग</b> द्वारा दाने को भूसे से अलग करना।</li>
+        <li><b class="hi2">भंडारण (Storage)</b> — कटी फसल को कीट, नमी व फफूँद से बचाकर गोदाम (Godown) या साइलो (Silo) में सुरक्षित रखना, जिसके लिए फसल को अच्छी तरह सुखाना ज़रूरी है।</li>
+      </ul>
+    </div>
+
+    <div class="rule-card" style="border-left-color:var(--green);">
+      <h4 style="color:var(--green);">1A-2. खरीफ बनाम रबी फसल — तुलना सहित उदाहरण</h4>
+      <p><b class="hi">खरीफ फसल (Kharif Crops)</b> — जून से सितंबर (वर्षा ऋतु) में बोई जाती हैं, इन्हें वर्षा और गर्म तापमान की आवश्यकता होती है। उदाहरण: <b class="hi2">धान, मक्का, सोयाबीन, मूंगफली, कपास</b>।</p>
+      <p><b class="hi">रबी फसल (Rabi Crops)</b> — अक्टूबर से मार्च (शीत ऋतु) में बोई जाती हैं, इन्हें ठंडे मौसम की आवश्यकता होती है। उदाहरण: <b class="hi2">गेहूँ, चना, मटर, सरसों, अलसी</b>।</p>
+      <p><b class="hi3">जायद फसल (Zaid Crops)</b> — मार्च से जून के बीच, कम अवधि में उगाई जाने वाली फसलें, जैसे तरबूज, ककड़ी, मूंग, तोरई — यह पाठ्यक्रम में अतिरिक्त जानकारी के रूप में उपयोगी है।</p>
+      <p>खरीफ और रबी फसलों के बीच सबसे बड़ा अंतर <b>मौसम व जलवायु की आवश्यकता</b> का होता है — खरीफ फसलों को अधिक वर्षा व गर्मी चाहिए, जबकि रबी फसलों को ठंडक व सीमित सिंचाई से काम चल जाता है।</p>
+    </div>
+
+    <div class="rule-card" style="border-left-color:var(--orange);">
+      <h4 style="color:var(--orange);">1A-3. उर्वरक, खाद एवं फसल चक्र</h4>
+      <p><b class="hi">उर्वरक (Fertilizer)</b> — कारखानों में बना रासायनिक पदार्थ (जैसे यूरिया, NPK), जो पौधों को तुरंत पोषक तत्व देता है, लेकिन लगातार उपयोग से मिट्टी की उर्वरता व जीवांश (Humus) की मात्रा घट सकती है।</p>
+      <p><b class="hi2">खाद (Manure)</b> — पौधों व जानवरों के अपशिष्ट (गोबर, कम्पोस्ट) से प्राकृतिक रूप से बनती है, यह मिट्टी में ह्यूमस बढ़ाती है, मिट्टी को भुरभुरा बनाती है और दीर्घकाल तक उर्वरता बनाए रखती है।</p>
+      <p><b class="hi3">फसल चक्र (Crop Rotation)</b> — दो धान्य (अनाज) फसलों के बीच एक दलहनी फसल (जैसे चना, मटर, मूंग) उगाना; दलहनी पौधों की जड़ों में <b>राइज़ोबियम जीवाणु</b> नाइट्रोजन-स्थिरीकरण करते हैं, जिससे मिट्टी में नाइट्रोजन की मात्रा प्राकृतिक रूप से बढ़ जाती है।</p>
+      <p><b>प्रमुख कृषि उपकरण:</b> हल — मिट्टी पलटने के लिए; कल्टीवेटर — ट्रैक्टर से चलने वाला, समय-श्रम बचाने वाला; खुरपी — निराई के लिए हाथ का औज़ार; सीड ड्रिल — बीज को समान गहराई-दूरी पर बोने के लिए; थ्रेशर व कंबाइन हार्वेस्टर — कटाई व दँवरी दोनों एक साथ करने वाली मशीन।</p>
+    </div>
+
+    <div class="group-head" style="margin-top:6px;">
+      <div class="gnum" style="background:linear-gradient(160deg,var(--purple),#7e4fd1);">1B</div>
+      <div><h3>भाग 1B: हमारे आस-पास के पदार्थ (कक्षा 9)</h3><div class="gnote">Matter in Our Surroundings — Class 9</div></div>
+    </div>
+
+    <div class="rule-card" style="border-left-color:var(--purple);">
+      <h4 style="color:var(--purple);">1B-1. द्रव्य की तीन अवस्थाएँ एवं उनके गुण</h4>
+      <p><b class="hi">द्रव्य (Matter)</b> — वह हर वस्तु जिसमें द्रव्यमान हो और जो स्थान घेरे, द्रव्य कहलाती है। द्रव्य के तीन भौतिक अवस्थाएँ होती हैं — ठोस, द्रव और गैस।</p>
+      <ul>
+        <li><b class="hi">ठोस (Solid)</b> — निश्चित आकार व निश्चित आयतन, कण एक-दूसरे के अत्यंत पास व मजबूती से बंधे, आकर्षण बल सबसे अधिक, संपीड्य नहीं (Non-compressible)।</li>
+        <li><b class="hi2">द्रव (Liquid)</b> — निश्चित आयतन पर अनिश्चित आकार (पात्र के अनुसार आकार लेता है), कण द्रव में कुछ दूर व ढीले बंधे, बहने का गुण (Fluidity)।</li>
+        <li><b class="hi3">गैस (Gas)</b> — न आकार निश्चित, न आयतन निश्चित, कण एक-दूसरे से बहुत दूर व तेज़ यादृच्छिक (random) गति से चलते हैं, आकर्षण बल नगण्य, अत्यधिक संपीड्य (Highly compressible)।</li>
+      </ul>
+      <p>तापमान बढ़ने पर कणों की गतिज ऊर्जा बढ़ती है और कणों के बीच आकर्षण बल घटता है — इसी कारण ठोस से द्रव और द्रव से गैस में अवस्था परिवर्तन होता है।</p>
+    </div>
+
+    <div class="rule-card" style="border-left-color:var(--gold);">
+      <h4 style="color:var(--gold);">1B-2. अवस्था परिवर्तन, गलनांक एवं क्वथनांक</h4>
+      <p><b class="hi">गलन (Melting)</b> — ठोस के द्रव में बदलने की प्रक्रिया; जिस निश्चित तापमान पर ठोस द्रव में बदलता है, उसे <b class="hi2">गलनांक (Melting Point)</b> कहते हैं (बर्फ का गलनांक 0°C)।</p>
+      <p><b class="hi">हिमांक (Freezing Point)</b> — जिस तापमान पर द्रव जमकर ठोस बनता है।</p>
+      <p><b class="hi">क्वथन (Boiling)</b> — द्रव के पूरे द्रव्यमान में तेज़ी से गैस में बदलने की प्रक्रिया; जिस निश्चित तापमान पर यह होता है, उसे <b class="hi2">क्वथनांक (Boiling Point)</b> कहते हैं (जल का क्वथनांक 100°C, सामान्य वायुमंडलीय दाब पर)।</p>
+      <p><b class="hi3">वाष्पीकरण (Evaporation)</b> — द्रव की सतह से किसी भी तापमान पर धीरे-धीरे गैस में बदलने की प्रक्रिया। <b>वाष्पीकरण को प्रभावित करने वाले कारक:</b> तापमान बढ़ने से, सतह क्षेत्रफल बढ़ने से, वायु की गति (हवा) बढ़ने से, और आर्द्रता (नमी) घटने से — वाष्पीकरण की दर बढ़ जाती है।</p>
+      <p><b class="hi">संघनन (Condensation)</b> — गैस के ठंडा होकर द्रव में बदलने की विपरीत प्रक्रिया, जैसे जलवाष्प से ओस बनना।</p>
+    </div>
+
+    <div class="rule-card" style="border-left-color:var(--red);">
+      <h4 style="color:var(--red);">1B-3. ऊर्ध्वपातन (Sublimation) के उदाहरण</h4>
+      <p><b class="hi">ऊर्ध्वपातन</b> — वह प्रक्रिया जिसमें कोई ठोस पदार्थ द्रव अवस्था से गुज़रे बिना सीधे गैस (वाष्प) अवस्था में बदल जाता है, और ठंडा करने पर सीधे वापस ठोस बन जाता है (इस विपरीत प्रक्रिया को <b class="hi2">निक्षेपण/Deposition</b> कहते हैं)।</p>
+      <p><b>प्रमुख उदाहरण:</b></p>
+      <ul>
+        <li><b class="hi3">कपूर (Camphor)</b> — कमरे में रखने पर धीरे-धीरे बिना पिघले गायब हो जाता है।</li>
+        <li><b class="hi3">नैप्थलीन की गोलियाँ (Naphthalene Balls)</b> — कपड़ों की अलमारी में कीड़ों से बचाव हेतु रखी जाती हैं, ये भी ऊर्ध्वपातित होती रहती हैं।</li>
+        <li><b class="hi3">अमोनियम क्लोराइड (Ammonium Chloride)</b> तथा <b class="hi3">आयोडीन</b> — गर्म करने पर सीधे बैंगनी वाष्प में बदल जाता है।</li>
+        <li><b class="hi3">शुष्क बर्फ / ड्राई आइस (Dry Ice — ठोस CO₂)</b> — सामान्य ताप पर सीधे CO₂ गैस में बदल जाती है।</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ IMPORTANT FACTS / TABLES ============ -->
+<section id="tables">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--purple),#7e4fd1); --glow:#b07dff99;">📊</div>
+    <div><h2>महत्वपूर्ण तथ्य तालिकाएँ</h2><div class="sub en-tag">Key Reference Tables</div></div></div>
+
+  <div class="glass card table-wrap">
+    <table>
+      <thead><tr><th>फसल प्रकार</th><th>मौसम</th><th>उदाहरण फसलें</th></tr></thead>
+      <tbody>
+        <tr><td>खरीफ फसल</td><td>जून–सितंबर (वर्षा ऋतु)</td><td>धान, मक्का, सोयाबीन, मूंगफली, कपास</td></tr>
+        <tr><td>रबी फसल</td><td>अक्टूबर–मार्च (शीत ऋतु)</td><td>गेहूँ, चना, मटर, सरसों, अलसी</td></tr>
+        <tr><td>जायद फसल</td><td>मार्च–जून (ग्रीष्म, छोटी अवधि)</td><td>तरबूज, ककड़ी, मूंग, तोरई</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="glass card table-wrap">
+    <table>
+      <thead><tr><th>गुण</th><th>ठोस</th><th>द्रव</th><th>गैस</th></tr></thead>
+      <tbody>
+        <tr><td>आकार</td><td>निश्चित</td><td>अनिश्चित (पात्र के अनुसार)</td><td>अनिश्चित (पूरे पात्र में फैल जाती है)</td></tr>
+        <tr><td>आयतन</td><td>निश्चित</td><td>निश्चित</td><td>अनिश्चित</td></tr>
+        <tr><td>संपीड्यता</td><td>नगण्य (लगभग असंपीड्य)</td><td>बहुत कम</td><td>अत्यधिक संपीड्य</td></tr>
+        <tr><td>कणों के बीच स्थान</td><td>सबसे कम</td><td>ठोस से अधिक, गैस से कम</td><td>सबसे अधिक</td></tr>
+        <tr><td>कणों के बीच आकर्षण बल</td><td>सबसे अधिक</td><td>मध्यम</td><td>नगण्य (लगभग शून्य)</td></tr>
+        <tr><td>कणों की गति</td><td>केवल कंपन (कम गतिज ऊर्जा)</td><td>फिसलने जैसी गति (मध्यम गतिज ऊर्जा)</td><td>तीव्र व यादृच्छिक गति (सबसे अधिक गतिज ऊर्जा)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ IMPORTANT QUESTIONS ============ -->
+<section id="questions">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--green),#1a9c70); --glow:#2ee6a699;">📘</div>
+    <div><h2>महत्वपूर्ण प्रश्न (Objective + Subjective)</h2><div class="sub en-tag">उत्तर देखने के लिए बटन दबाएँ</div></div></div>
+  <div id="qWrap"></div>
+</section>
+
+<!-- ============ HOMEWORK ============ -->
+<section id="homework">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--red),#a82424); --glow:#ff4f4f99;">🏠</div>
+    <div><h2>घर से करने के लिए Homework</h2><div class="sub en-tag">Notebook Exercise — बिना उत्तर देखे खुद हल करें</div></div></div>
+  <div class="glass card hw-card">
+    <ol id="homeworkList"></ol>
+  </div>
+  <p style="color:var(--dim); font-size:12px; margin-top:14px; font-weight:600;">यह सभी प्रश्न अपनी Science की notebook में हल करके अगली कक्षा में साथ लाइए।</p>
+</section>
+
+<footer>
+  <span class="name">PK STUDY</span> — Part 1 पूर्ण
+  <div class="copy">Class 8-9 (Combined) · विज्ञान · फसल उत्पादन एवं द्रव्य की अवस्थाएँ — PK STUDY, All Copyright Reserved</div>
+</footer>
+
+<script>
+function toggleTheme(){
+  const html = document.documentElement;
+  const isLight = html.getAttribute('data-theme') === 'light';
+  html.setAttribute('data-theme', isLight ? '' : 'light');
+  document.getElementById('themeToggle').textContent = isLight ? '🌙' : '☀️';
+}
+function el(tag, cls, html){ const d=document.createElement(tag); if(cls)d.className=cls; if(html!==undefined)d.innerHTML=html; return d; }
+
+const qData = [
+  {type:"obj", q:"खरीफ फसल की बुवाई सामान्यतः किस महीने में की जाती है? (कक्षा 8)", a:"जून-जुलाई में, वर्षा ऋतु के आरंभ में — क्योंकि खरीफ फसलों (जैसे धान, मक्का) को अंकुरण व वृद्धि के लिए भरपूर वर्षा और गर्म तापमान चाहिए।"},
+  {type:"obj", q:"गेहूँ किस प्रकार की फसल है? (कक्षा 8)", a:"रबी फसल — जो अक्टूबर से मार्च के बीच, शीत ऋतु में उगाई जाती है और ठंडे मौसम में अच्छी उपज देती है।"},
+  {type:"obj", q:"मिट्टी में ह्यूमस (Humus) की मात्रा बढ़ाने वाला पदार्थ कौन-सा है? (कक्षा 8)", a:"खाद (Manure) — जो पौधों व जानवरों के अपशिष्ट से प्राकृतिक रूप से बनती है और मिट्टी को भुरभुरा व उपजाऊ बनाती है।"},
+  {type:"obj", q:"किन पौधों की जड़ों में नाइट्रोजन-स्थिरीकरण करने वाला राइज़ोबियम जीवाणु पाया जाता है? (कक्षा 8)", a:"दलहनी (लेग्यूम) पौधों की जड़ों में — जैसे चना, मटर, मूंग — इनका उपयोग फसल चक्र में मिट्टी की उर्वरता बढ़ाने के लिए किया जाता है।"},
+  {type:"subj", q:"कृषि की प्रमुख प्रक्रियाओं को क्रमबद्ध रूप में समझाइए। (कक्षा 8)", a:"कृषि की प्रक्रियाएँ क्रम से इस प्रकार हैं — (1) भूमि की तैयारी (जुताई) — हल व कल्टीवेटर से मिट्टी को भुरभुरा बनाना, (2) बुवाई — अच्छे बीज सीड ड्रिल से उचित गहराई पर बोना, (3) उर्वरक व खाद डालना — पोषक तत्वों की पूर्ति के लिए, (4) सिंचाई — उचित समय पर पर्याप्त जल देना, (5) निराई — खुरपी या रसायन से खरपतवार हटाना, (6) फसल की कटाई — हँसिया या कंबाइन हार्वेस्टर से काटकर थ्रेशिंग करना, (7) भंडारण — फसल को सुखाकर कीट-नमी से बचाकर गोदाम में रखना।"},
+  {type:"subj", q:"उर्वरक और खाद में अंतर स्पष्ट कीजिए। (कक्षा 8)", a:"उर्वरक कारखानों में बना रासायनिक पदार्थ (जैसे यूरिया, NPK) है, जो पौधों को तुरंत पोषक तत्व देता है, लेकिन इसमें ह्यूमस नहीं होता और लगातार उपयोग से मिट्टी की गुणवत्ता घट सकती है। खाद पौधों व जानवरों के अपशिष्ट (गोबर, कम्पोस्ट) से प्राकृतिक रूप से बनती है, इसमें ह्यूमस प्रचुर मात्रा में होता है, यह मिट्टी को भुरभुरा बनाती है और असर धीमा पर दीर्घकालिक होता है।"},
+  {type:"subj", q:"खरीफ फसल और रबी फसल में अंतर बताइए, उदाहरण सहित। (कक्षा 8)", a:"खरीफ फसलें जून से सितंबर (वर्षा ऋतु) में बोई जाती हैं और इन्हें भरपूर वर्षा व गर्म तापमान चाहिए — उदाहरण: धान, मक्का, सोयाबीन, मूंगफली, कपास। रबी फसलें अक्टूबर से मार्च (शीत ऋतु) में बोई जाती हैं और इन्हें ठंडे मौसम की आवश्यकता होती है — उदाहरण: गेहूँ, चना, मटर, सरसों, अलसी। इस प्रकार दोनों में मुख्य अंतर बुवाई के मौसम और जलवायु की आवश्यकता का है।"},
+  {type:"subj", q:"फसल चक्र क्या है और यह मिट्टी की उर्वरता बनाए रखने में कैसे सहायक है? (कक्षा 8)", a:"फसल चक्र में दो धान्य (अनाज) फसलों के बीच एक दलहनी फसल (जैसे चना, मटर, मूंग) उगाई जाती है। दलहनी पौधों की जड़ों में मौजूद राइज़ोबियम जीवाणु वायुमंडलीय नाइट्रोजन को स्थिर करके मिट्टी में मिलाते हैं, जिससे अगली फसल के लिए मिट्टी में नाइट्रोजन की मात्रा प्राकृतिक रूप से बढ़ जाती है और अतिरिक्त उर्वरक की आवश्यकता कम हो जाती है, जिससे मिट्टी की उर्वरता लंबे समय तक बनी रहती है।"},
+  {type:"obj", q:"किस अवस्था में कणों के बीच आकर्षण बल सबसे अधिक होता है? (कक्षा 9)", a:"ठोस अवस्था में — इसी कारण ठोस का निश्चित आकार व आयतन होता है और वह संपीड्य नहीं होता।"},
+  {type:"obj", q:"कपूर और नैप्थलीन की गोलियाँ हवा में रखने पर धीरे-धीरे गायब क्यों हो जाती हैं? (कक्षा 9)", a:"ऊर्ध्वपातन (Sublimation) के कारण — ये ठोस पदार्थ द्रव अवस्था से गुज़रे बिना सीधे गैस (वाष्प) अवस्था में बदल जाते हैं।"},
+  {type:"obj", q:"जल का क्वथनांक सामान्य वायुमंडलीय दाब पर कितना होता है? (कक्षा 9)", a:"100°C — इस तापमान पर जल का पूरा द्रव्यमान तेज़ी से भाप (गैस) में बदलने लगता है।"},
+  {type:"obj", q:"तीनों अवस्थाओं में सबसे अधिक संपीड्य (compressible) अवस्था कौन-सी है? (कक्षा 9)", a:"गैस अवस्था — क्योंकि गैस के कणों के बीच स्थान सबसे अधिक होता है, इसलिए उसे आसानी से दबाकर छोटे स्थान में भरा जा सकता है।"},
+  {type:"subj", q:"द्रव्य के कणों के तीन प्रमुख गुण लिखिए। (कक्षा 9)", a:"(1) द्रव्य के कण निरंतर गतिशील रहते हैं (गतिज ऊर्जा रखते हैं) और तापमान बढ़ने पर उनकी गति व गतिज ऊर्जा बढ़ जाती है। (2) द्रव्य के कणों के बीच एक-दूसरे को बाँधे रखने वाला आकर्षण बल होता है, जो ठोस में सबसे अधिक और गैस में सबसे कम (लगभग नगण्य) होता है। (3) द्रव्य के कणों के बीच खाली स्थान (रिक्तियाँ) होता है, जो ठोस में सबसे कम और गैस में सबसे अधिक होता है।"},
+  {type:"subj", q:"ठोस, द्रव और गैस के गुणों की तुलना कीजिए। (कक्षा 9)", a:"ठोस का निश्चित आकार व आयतन होता है, कण पास-पास व मज़बूती से बंधे रहते हैं, आकर्षण बल सबसे अधिक होता है और यह संपीड्य नहीं होता। द्रव का आयतन निश्चित पर आकार अनिश्चित (पात्र के अनुसार) होता है, कण ढीले बंधे व फिसलने जैसी गति करते हैं। गैस का न आकार निश्चित होता है, न आयतन — इसके कण एक-दूसरे से दूर, तेज़ व यादृच्छिक गति से चलते हैं, आकर्षण बल नगण्य होता है, और यह सबसे अधिक संपीड्य होती है।"},
+  {type:"subj", q:"वाष्पीकरण को प्रभावित करने वाले कारकों की व्याख्या कीजिए। (कक्षा 9)", a:"वाष्पीकरण की दर निम्नलिखित कारकों पर निर्भर करती है — (1) तापमान: तापमान बढ़ने पर कणों की गतिज ऊर्जा बढ़ती है, जिससे वाष्पीकरण तेज़ हो जाता है। (2) सतह क्षेत्रफल: सतह क्षेत्रफल जितना अधिक होगा, उतने ही अधिक कण सतह से बाहर निकल पाएँगे, इसलिए वाष्पीकरण तेज़ होता है। (3) आर्द्रता (नमी): वायु में पहले से नमी अधिक हो तो वाष्पीकरण धीमा होता है, नमी कम होने पर वाष्पीकरण तेज़ होता है। (4) वायु की गति: तेज़ हवा वाष्प के कणों को तुरंत हटा देती है, जिससे वाष्पीकरण की दर बढ़ जाती है।"},
+  {type:"subj", q:"गलनांक और क्वथनांक से आप क्या समझते हैं? उदाहरण सहित समझाइए। (कक्षा 9)", a:"गलनांक वह निश्चित तापमान है जिस पर कोई ठोस पदार्थ पिघलकर द्रव में बदल जाता है — उदाहरण के लिए बर्फ का गलनांक 0°C है। क्वथनांक वह निश्चित तापमान है जिस पर किसी द्रव का पूरा द्रव्यमान तेज़ी से गैस (वाष्प) में बदलने लगता है — उदाहरण के लिए जल का क्वथनांक सामान्य वायुमंडलीय दाब पर 100°C है। दोनों ही अवस्था परिवर्तन के दौरान पदार्थ का तापमान तब तक स्थिर रहता है जब तक पूरा पदार्थ अपनी अवस्था बदल नहीं लेता।"}
+];
+
+const homeworkData = [
+  "कृषि उपकरणों में हल और कल्टीवेटर के कार्य में क्या अंतर है? (कक्षा 8)",
+  "अपने घर के आस-पास उगने वाली किन्हीं 5 खरीफ और 5 रबी फसलों की सूची बनाइए। (कक्षा 8, Practical Activity)",
+  "सिंचाई की विभिन्न विधियों के नाम लिखिए और उनमें से किसी एक विधि को चित्र सहित समझाइए। (कक्षा 8)",
+  "फसल भंडारण के समय अनाज को कीट व नमी से बचाने के कोई तीन उपाय लिखिए। (कक्षा 8)",
+  "दैनिक जीवन से ठोस, द्रव और गैस के 3-3 उदाहरण चुनकर उनके गुणों की तुलना कीजिए। (कक्षा 9, Practical Activity)",
+  "बर्फ को पिघलाकर पानी बनाने और फिर पानी को उबालकर भाप बनाने की पूरी प्रक्रिया को अवस्था परिवर्तन के आधार पर चरणबद्ध समझाइए। (कक्षा 9)",
+  "गीले कपड़े को धूप में जल्दी सुखाने के लिए आप कौन-से 3 उपाय अपनाएँगे और क्यों? वाष्पीकरण के कारकों के आधार पर स्पष्ट कीजिए। (कक्षा 9)"
+];
+
+function buildQuestions(){
+  const wrap = document.getElementById('qWrap');
+  qData.forEach((item)=>{
+    const pillHtml = item.type === 'obj' ? '<span class="pill pill-obj">Objective</span>' : '<span class="pill pill-subj">Subjective</span>';
+    const d = el('div','glass example-card', `<div class="qlabel">प्रश्न ${pillHtml}</div><div class="qtext">${item.q}</div>
+      <button class="show-ans-btn" onclick="toggleAnswer(this)">उत्तर दिखाएँ (Show Answer)</button>
+      <div class="ans-wrap"><div class="slabel">उत्तर (Answer)</div><div class="stext">${item.a}</div></div>`);
+    wrap.appendChild(d);
+  });
+}
+function toggleAnswer(btn){
+  const wrap = btn.nextElementSibling;
+  const isOpen = wrap.classList.toggle('open');
+  btn.classList.toggle('open', isOpen);
+  btn.textContent = isOpen ? 'उत्तर छुपाएँ (Hide Answer)' : 'उत्तर दिखाएँ (Show Answer)';
+}
+function buildHomework(){
+  const g = document.getElementById('homeworkList');
+  homeworkData.forEach(q=>{ const li = document.createElement('li'); li.textContent = q; g.appendChild(li); });
+}
+
+buildQuestions();
+buildHomework();
+</script>
+</body>
+</html>
