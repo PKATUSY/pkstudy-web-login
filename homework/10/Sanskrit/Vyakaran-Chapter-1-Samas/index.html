@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PK STUDY | समास — Samas (Compound Words)</title>
+<style>
+:root{
+  --bg:#04050f; --glass:rgba(255,255,255,.045); --glass-strong:rgba(255,255,255,.08);
+  --border:rgba(255,255,255,.12); --text:#f2f6ff; --dim:#9fb0da; --heading:#ffffff;
+  --neon-blue:#3ea6ff; --cyan:#33e0ff; --purple:#b07dff; --gold:#ffc233;
+  --green:#2ee6a6; --orange:#ff9f43; --pink:#ff4d8d; --red:#ff4f4f;
+  --shadow:0 22px 46px -22px #000d; --hshadow:0 30px 56px -20px #000f;
+}
+[data-theme="light"]{
+  --bg:#f6f8fd; --glass:rgba(20,30,65,.045); --glass-strong:rgba(20,30,65,.08);
+  --border:rgba(20,30,65,.12); --text:#161c33; --dim:#535f82; --heading:#12172b;
+  --neon-blue:#2563eb; --cyan:#0891b2; --purple:#7c3aed; --gold:#b45309;
+  --green:#059669; --orange:#c2410c; --pink:#db2777; --red:#dc2626;
+  --shadow:0 18px 36px -20px rgba(30,40,80,.18); --hshadow:0 24px 44px -18px rgba(30,40,80,.24);
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Segoe UI','Noto Sans Devanagari',Arial,sans-serif; color:var(--text); min-height:100vh; overflow-x:hidden;
+  transition:background .4s, color .4s;
+  background:
+    radial-gradient(ellipse at 10% -10%, #1c3a9955, transparent 55%),
+    radial-gradient(ellipse at 95% 10%, #7a2ab866, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, #0a5a6e44, transparent 55%),
+    linear-gradient(180deg,#04050f,#020208 90%);
+}
+[data-theme="light"] body{
+  background:
+    radial-gradient(ellipse at 10% -10%, #dbe4ff99, transparent 55%),
+    radial-gradient(ellipse at 95% 10%, #ede0ff99, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, #d7f5f099, transparent 55%),
+    linear-gradient(180deg,#f8faff,#eef1f9 90%);
+}
+::-webkit-scrollbar{width:8px;} ::-webkit-scrollbar-thumb{background:var(--neon-blue); border-radius:6px;} ::-webkit-scrollbar-track{background:transparent;}
+
+.glass{background:var(--glass); border:1px solid var(--border); border-radius:18px; backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+  box-shadow:var(--shadow), inset 0 1px 0 #ffffff12; transition:transform .35s, box-shadow .35s, background .4s, border .4s;}
+
+header{position:sticky; top:0; z-index:200; display:flex; align-items:center; justify-content:space-between; padding:14px 26px;
+  background:rgba(4,5,15,.75); backdrop-filter:blur(18px); border-bottom:1px solid var(--border); flex-wrap:wrap; gap:10px; transition:background .4s;}
+[data-theme="light"] header{background:rgba(255,255,255,.8);}
+.brand{display:flex; align-items:center; gap:12px;}
+.brand img{width:44px; height:44px; border-radius:10px; object-fit:cover; border:2px solid var(--neon-blue); box-shadow:0 0 18px #3ea6ff88;}
+.logo-fallback{width:44px; height:44px; border-radius:10px; display:flex; align-items:center; justify-content:center;
+  background:linear-gradient(135deg,var(--neon-blue),#1f3d8c); font-weight:900; font-size:12px; border:2px solid var(--cyan); color:#fff;}
+.brand-text .name{font-weight:900; font-size:18px; color:var(--cyan); letter-spacing:.5px;}
+.brand-text .tag{font-size:11px; color:var(--dim); font-weight:600;}
+nav{display:flex; gap:5px; overflow-x:auto; max-width:52vw;}
+nav::-webkit-scrollbar{height:4px;}
+nav a{color:var(--dim); text-decoration:none; font-size:11.5px; padding:6px 11px; border-radius:16px; border:1px solid transparent; transition:.2s; font-weight:700; white-space:nowrap;}
+nav a:hover{color:var(--heading); border-color:var(--neon-blue); background:#3ea6ff1a;}
+.theme-btn{flex-shrink:0; width:40px; height:40px; border-radius:12px; border:1px solid var(--border); background:var(--glass-strong);
+  color:var(--text); font-size:17px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:.25s;}
+.theme-btn:hover{border-color:var(--neon-blue); transform:translateY(-2px);}
+
+.hero{position:relative; padding:60px 6vw 40px; text-align:center;}
+.eyebrow{display:inline-block; padding:7px 22px; border-radius:30px; color:#04050f; font-size:12px; font-weight:900;
+  letter-spacing:2px; text-transform:uppercase; margin-bottom:20px;
+  background:linear-gradient(120deg,var(--gold),var(--orange),var(--pink),var(--purple),var(--cyan));
+  box-shadow:0 10px 26px -6px #000b;}
+.hero h1{font-size:clamp(26px,5.5vw,48px); font-weight:900; line-height:1.25;
+  background:linear-gradient(90deg,var(--neon-blue),var(--cyan) 35%,var(--purple) 65%,var(--pink)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+.hero .en{font-size:16px; color:var(--dim); font-weight:700; margin-top:10px;}
+.hero p{color:var(--dim); max-width:760px; margin:20px auto 0; font-size:14.5px; line-height:1.9; font-weight:500;}
+
+section{position:relative; padding:44px 6vw; max-width:1200px; margin:0 auto;}
+.sec-head{display:flex; align-items:center; gap:14px; margin-bottom:24px;}
+.sec-num{width:44px; height:44px; border-radius:14px; flex-shrink:0; display:flex; align-items:center; justify-content:center;
+  font-weight:900; font-size:16px; color:#04050f; box-shadow:0 8px 22px -6px var(--glow,#3ea6ff99); border:2px solid #ffffffaa;}
+.sec-head h2{font-size:clamp(19px,3vw,26px); font-weight:900; color:var(--heading);}
+.sec-head .sub{color:var(--dim); font-size:12.5px; font-weight:600; margin-top:2px;}
+.sec-head .en-tag{font-size:11px; color:var(--gold); font-weight:700; letter-spacing:.5px;}
+
+.card{padding:20px 22px;}
+.grid{display:grid; gap:16px;}
+.grid-2{grid-template-columns:1fr 1fr;} .grid-3{grid-template-columns:repeat(3,1fr);}
+@media(max-width:900px){.grid-3{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.grid-2,.grid-3{grid-template-columns:1fr;} nav{max-width:100%;}}
+
+b.hi{color:var(--pink); font-weight:900;} b.hi2{color:var(--green); font-weight:900;} b.hi3{color:var(--gold); font-weight:900;}
+.eng-term{color:var(--cyan); font-style:italic; font-weight:700;}
+
+.rule-card{padding:20px; border-left:5px solid var(--neon-blue);}
+.rule-card h4{font-size:15px; color:var(--cyan); font-weight:900; margin-bottom:8px;}
+.rule-card p{font-size:13px; color:var(--dim); line-height:1.85; font-weight:500; margin-bottom:8px;}
+.rule-card ul{margin:6px 0 6px 20px; font-size:13px; color:var(--dim); line-height:1.9; font-weight:500;}
+.rule-card ul li{margin-bottom:4px;}
+
+.def-card{padding:18px 20px; border-radius:16px;}
+.def-card h4{font-size:14.5px; margin-bottom:8px; display:flex; align-items:center; gap:8px; font-weight:900;}
+.def-card p{font-size:12.5px; color:var(--dim); line-height:1.75; font-weight:500;}
+
+.example-card{padding:18px 20px; margin-bottom:14px;}
+.example-card .qlabel{font-size:11px; font-weight:900; color:var(--gold); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;}
+.example-card .qtext{font-size:13.5px; font-weight:700; color:var(--heading); margin-bottom:14px; line-height:1.7;}
+.example-card .slabel{font-size:11px; font-weight:900; color:var(--green); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;}
+.example-card .stext{font-size:13px; color:var(--dim); line-height:1.9; font-weight:500; background:var(--glass-strong); padding:12px 14px; border-radius:10px; white-space:pre-line;}
+.show-ans-btn{padding:9px 20px; border-radius:10px; border:1.5px solid var(--green); background:transparent; color:var(--green);
+  font-weight:800; font-size:12px; cursor:pointer; transition:.2s;}
+.show-ans-btn:hover{background:var(--green); color:#04050f;}
+.show-ans-btn.open{background:var(--green); color:#04050f;}
+.ans-wrap{margin-top:14px; display:none;}
+.ans-wrap.open{display:block;}
+.pill{display:inline-block; padding:3px 10px; border-radius:10px; font-size:10px; font-weight:900; margin-left:8px; vertical-align:middle;}
+.pill-obj{background:linear-gradient(120deg,var(--cyan),#0a85b8); color:#04050f;}
+.pill-subj{background:linear-gradient(120deg,var(--purple),#7e4fd1); color:#fff;}
+
+.hw-card{padding:18px 20px;}
+.hw-card ol{margin:0; padding-left:20px; font-size:13px; color:var(--dim); line-height:2; font-weight:500;}
+.hw-card ol li{margin-bottom:8px;}
+.hw-card ol li::marker{color:var(--heading); font-weight:800;}
+
+.table-wrap{overflow-x:auto; margin-bottom:16px;}
+table{width:100%; border-collapse:collapse; min-width:560px;}
+thead th{text-align:center; padding:12px 14px; background:linear-gradient(120deg,var(--neon-blue),var(--purple)); color:#fff;
+  font-size:12px; text-transform:uppercase; letter-spacing:.5px; font-weight:900;}
+thead th:first-child{border-radius:10px 0 0 0;} thead th:last-child{border-radius:0 10px 0 0;}
+tbody td{padding:12px 14px; border-bottom:1px solid var(--border); color:var(--dim); font-size:12.5px; text-align:center; font-weight:600;}
+tbody tr:hover{background:#3ea6ff14;}
+
+footer{text-align:center; padding:50px 6vw 70px; color:var(--dim); font-size:12.5px; border-top:1px solid var(--border); margin-top:30px; font-weight:600;}
+footer .name{color:var(--cyan); font-weight:900; font-size:16px;}
+footer .copy{margin-top:18px; font-size:11px; color:var(--dim); opacity:.8;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <img src="images/1000043468.png" alt="PK STUDY" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="logo-fallback" style="display:none;">PK</div>
+    <div class="brand-text"><div class="name">PK STUDY</div><div class="tag">Class 10 • संस्कृत व्याकरण • अध्याय 1</div></div>
+  </div>
+  <nav>
+    <a href="#notes">नोट्स</a><a href="#formulas">सूत्र</a><a href="#questions">महत्वपूर्ण प्रश्न</a>
+    <a href="#extra">अतिरिक्त प्रश्न</a><a href="#homework">होमवर्क</a>
+  </nav>
+  <button class="theme-btn" id="themeToggle" onclick="toggleTheme()" title="Dark/Light Mode">🌙</button>
+</header>
+
+<!-- ============ HERO ============ -->
+<div class="hero">
+  <span class="eyebrow">कक्षा 10 · संस्कृत व्याकरण · अध्याय 1 · बिहार बोर्ड</span>
+  <h1>समास</h1>
+  <div class="en">Samas — Compound Words in Sanskrit Grammar</div>
+  <p>जब दो या अधिक पद परस्पर मिलकर, बीच की विभक्तियों (कारक-चिह्नों) का लोप करके एक नया संक्षिप्त पद बनाते हैं, तो यह प्रक्रिया <b class="hi">समास</b> कहलाती है। इस पेज में समास की परिभाषा, छहों प्रमुख भेदों (अव्ययीभाव, तत्पुरुष, कर्मधारय, द्विगु, द्वंद्व, बहुव्रीहि) की विस्तृत Notes उदाहरण व विग्रह सहित, ज़रूरी नियम, संदर्भ तालिका, हल सहित महत्वपूर्ण प्रश्न, अतिरिक्त प्रश्न, और Homework दिया गया है।</p>
+</div>
+
+<!-- ============ NOTES ============ -->
+<section id="notes">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--neon-blue),#1f6fc9); --glow:#3ea6ff99;">📝</div>
+    <div><h2>Notes — समास के छह भेद</h2><div class="sub en-tag">Concept Notes with Verified Examples</div></div></div>
+  <div class="glass card" style="display:flex; flex-direction:column; gap:16px;">
+
+    <div class="rule-card" style="border-left-color:var(--gold);">
+      <h4 style="color:var(--gold);">0. समास की परिभाषा (Definition of Samas)</h4>
+      <p>जब दो या दो से अधिक पद (शब्द) परस्पर मिलकर, उनके बीच की <b class="hi">विभक्तियों (कारक-चिह्नों) का लोप</b> करके, एक नया संक्षिप्त एवं सार्थक पद बनाते हैं, तो इस प्रक्रिया को <b class="hi2">समास</b> कहते हैं। समास से बना नया पद <b class="hi3">समस्त पद</b> (सामासिक पद) कहलाता है, और उस समस्त पद को पुनः विभक्ति-सहित अलग-अलग पदों में विभाजित करना <b class="hi3">समास-विग्रह</b> कहलाता है।</p>
+      <p><b>उदाहरण:</b> <b class="hi">राजपुरुषः</b> एक समस्त पद है, जिसका विग्रह है — <b class="hi3">राज्ञः पुरुषः</b> (राजा का पुरुष)। यहाँ 'राजन्' और 'पुरुष' शब्दों के बीच की षष्ठी विभक्ति (राज्ञः) का लोप होकर दोनों पद मिलकर 'राजपुरुषः' बन गए।</p>
+      <p>संस्कृत व्याकरण में समास के <b class="hi2">छह प्रमुख भेद</b> माने जाते हैं — अव्ययीभाव, तत्पुरुष (कर्मधारय व द्विगु सहित, जो तत्पुरुष के ही उपभेद माने जाते हैं किन्तु पृथक् महत्व के कारण अलग पढ़ाए जाते हैं), द्वंद्व और बहुव्रीहि।</p>
+    </div>
+
+    <div class="rule-card" style="border-left-color:var(--cyan);">
+      <h4 style="color:var(--cyan);">1. अव्ययीभाव समास</h4>
+      <p>जिस समास में <b class="hi">पूर्वपद (पहला पद) अव्यय हो और प्रधान हो</b>, तथा समस्त पद भी अव्यय की तरह ही (सदा नपुंसकलिंग, एकवचन, अविकारी रूप में) प्रयुक्त होता हो, उसे <b class="hi2">अव्ययीभाव समास</b> कहते हैं। इसमें प्रायः 'यथा', 'अनु', 'आ', 'प्रति', 'निर्' जैसे अव्यय पूर्वपद के रूप में आते हैं।</p>
+      <p><b>उदाहरण:</b> <b class="hi3">यथाशक्ति</b> = शक्ति के अनुसार (यथा शक्ति)<br>
+      <b>अन्य उदाहरण:</b> यथाविधि = विधि के अनुसार; प्रतिदिनम् = दिने-दिने (प्रत्येक दिन); आजन्म = जन्म से लेकर।</p>
+    </div>
+
+    <div class="rule-card" style="border-left-color:var(--pink);">
+      <h4 style="color:var(--pink);">2. तत्पुरुष समास</h4>
+      <p>जिस समास में <b class="hi">उत्तरपद (दूसरा पद) प्रधान</b> होता है और पूर्वपद की विभक्ति का लोप हो जाता है, उसे <b class="hi2">तत्पुरुष समास</b> कहते हैं। पूर्वपद में कौन-सी विभक्ति छिपी है, उसके आधार पर तत्पुरुष के छह उपभेद होते हैं — द्वितीया, तृतीया, चतुर्थी, पंचमी, षष्ठी और सप्तमी तत्पुरुष। (एक विशेष प्रकार <b class="hi3">नञ् तत्पुरुष</b> भी है, जिसमें पूर्वपद 'न' का लोप होकर 'अ/अन्' शेष रहता है।)</p>
+      <p><b>मुख्य उदाहरण:</b> <b class="hi3">राजपुरुषः</b> = राज्ञः पुरुषः (राजा का पुरुष) — यह <b class="hi">षष्ठी तत्पुरुष</b> है।</p>
+      <ul>
+        <li><b class="hi2">तृतीया तत्पुरुष</b> — <b class="hi3">हस्तलिखितम्</b> = हस्तेन लिखितम् (हाथ से लिखा हुआ)</li>
+        <li><b class="hi2">पंचमी तत्पुरुष</b> — <b class="hi3">चोरभयम्</b> = चोरात् भयम् (चोर से भय)</li>
+        <li><b class="hi2">सप्तमी तत्पुरुष</b> — <b class="hi3">पंकजम्</b> = पंके जातम् (कीचड़ में उत्पन्न, अर्थात् कमल)</li>
+        <li><b class="hi2">नञ् तत्पुरुष</b> — <b class="hi3">अज्ञानम्</b> = न ज्ञानम् (ज्ञान का अभाव)</li>
+      </ul>
+    </div>
+
+    <div class="rule-card" style="border-left-color:var(--green);">
+      <h4 style="color:var(--green);">3. कर्मधारय समास</h4>
+      <p>तत्पुरुष का ही एक उपभेद <b class="hi2">कर्मधारय समास</b> है, जिसमें पूर्वपद और उत्तरपद दोनों की विभक्ति समान (प्रथमा) होती है, तथा दोनों पदों में <b class="hi">विशेषण-विशेष्य</b> अथवा <b class="hi">उपमान-उपमेय</b> का संबंध होता है। इसमें भी उत्तरपद प्रधान होता है।</p>
+      <p><b>उदाहरण:</b> <b class="hi3">नीलकमलम्</b> = नीलं कमलम् (नीला कमल)<br>
+      <b>अन्य उदाहरण:</b> महादेवः = महान् देवः (महान् है जो देव, अर्थात् शिव)।</p>
+    </div>
+
+    <div class="rule-card" style="border-left-color:var(--orange);">
+      <h4 style="color:var(--orange);">4. द्विगु समास</h4>
+      <p>तत्पुरुष का एक और उपभेद <b class="hi2">द्विगु समास</b> है, जिसमें <b class="hi">पूर्वपद संख्यावाचक</b> होता है और समस्त पद किसी <b class="hi">समूह या समाहार</b> (एकत्रित संख्या) का बोध कराता है। द्विगु समास से बना समस्त पद प्रायः नपुंसकलिंग और एकवचन में होता है।</p>
+      <p><b>उदाहरण:</b> <b class="hi3">त्रिभुवनम्</b> = त्रयाणां भुवनानां समाहारः (तीनों भुवनों का समूह)<br>
+      <b>अन्य उदाहरण:</b> चतुर्युगम् = चतुर्णां युगानां समाहारः (चार युगों का समूह); पञ्चवटी = पञ्चानां वटानां समाहारः (पाँच वट वृक्षों का समूह)।</p>
+    </div>
+
+    <div class="rule-card" style="border-left-color:var(--purple);">
+      <h4 style="color:var(--purple);">5. द्वंद्व समास</h4>
+      <p>जिस समास में <b class="hi">दोनों (या सभी) पद प्रधान</b> होते हैं, अर्थात् दोनों पदों का महत्व समान होता है, उसे <b class="hi2">द्वंद्व समास</b> कहते हैं। इसका विग्रह करने पर पदों के बीच 'च' (और) लगाया जाता है।</p>
+      <p><b>उदाहरण:</b> <b class="hi3">रामलक्ष्मणौ</b> = रामः च लक्ष्मणः च (राम और लक्ष्मण)<br>
+      <b>अन्य उदाहरण:</b> मातापितरौ = माता च पिता च (माता और पिता); हरिहरौ = हरिः च हरः च (विष्णु और शिव)।</p>
+    </div>
+
+    <div class="rule-card" style="border-left-color:var(--red);">
+      <h4 style="color:var(--red);">6. बहुव्रीहि समास</h4>
+      <p>जिस समास में <b class="hi">पूर्वपद और उत्तरपद — दोनों में से कोई भी पद प्रधान नहीं</b> होता, बल्कि दोनों मिलकर किसी <b class="hi2">तीसरे (अन्य) पद या अर्थ</b> की विशेषता बताते हैं, उसे <b class="hi2">बहुव्रीहि समास</b> कहते हैं। इसके विग्रह में 'यस्य', 'यस्याः' जैसे सर्वनाम-पद आते हैं।</p>
+      <p><b>उदाहरण:</b> <b class="hi3">दशाननः</b> = दश आननानि यस्य सः (जिसके दस मुख हैं, अर्थात् रावण)<br>
+      <b>अन्य उदाहरण:</b> पीताम्बरः = पीतम् अम्बरम् यस्य सः (जिसके पीले वस्त्र हैं, अर्थात् कृष्ण); चक्रपाणिः = चक्रं पाणौ यस्य सः (जिसके हाथ में चक्र है, अर्थात् विष्णु)।</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ FORMULA / RULES SHEET ============ -->
+<section id="formulas">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--purple),#7e4fd1); --glow:#b07dff99;">🧮</div>
+    <div><h2>ज़रूरी नियम (Rules to Remember)</h2><div class="sub en-tag">Defining Rule for Each Samas Type</div></div></div>
+  <div class="grid grid-3" id="formulaSheetGrid" style="margin-bottom:20px;"></div>
+
+  <div class="glass card table-wrap">
+    <table>
+      <thead><tr><th>समास का नाम</th><th>परिभाषा संक्षेप में</th><th>उदाहरण</th><th>विग्रह</th></tr></thead>
+      <tbody>
+        <tr><td>अव्ययीभाव समास</td><td>पूर्वपद (अव्यय) प्रधान; समस्त पद अव्यय बनता है</td><td>यथाशक्ति</td><td>शक्ति के अनुसार</td></tr>
+        <tr><td>तत्पुरुष समास</td><td>उत्तरपद प्रधान; पूर्वपद की विभक्ति लुप्त होती है</td><td>राजपुरुषः</td><td>राज्ञः पुरुषः</td></tr>
+        <tr><td>कर्मधारय समास</td><td>विशेषण-विशेष्य/उपमान-उपमेय; दोनों पद प्रथमा में; उत्तरपद प्रधान</td><td>नीलकमलम्</td><td>नीलं कमलम्</td></tr>
+        <tr><td>द्विगु समास</td><td>पूर्वपद संख्यावाचक; समूह/समाहार का बोध; नपुंसकलिंग एकवचन</td><td>त्रिभुवनम्</td><td>त्रयाणां भुवनानां समाहारः</td></tr>
+        <tr><td>द्वंद्व समास</td><td>दोनों पद प्रधान; विग्रह में 'च' का प्रयोग</td><td>रामलक्ष्मणौ</td><td>रामः च लक्ष्मणः च</td></tr>
+        <tr><td>बहुव्रीहि समास</td><td>कोई भी पद प्रधान नहीं; तीसरा पद/अर्थ प्रधान</td><td>दशाननः</td><td>दश आननानि यस्य सः (रावणः)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ SOLVED IMPORTANT QUESTIONS ============ -->
+<section id="questions">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--green),#1a9c70); --glow:#2ee6a699;">📘</div>
+    <div><h2>महत्वपूर्ण प्रश्न (हल सहित)</h2><div class="sub en-tag">Solved Questions — उत्तर देखने के लिए बटन दबाएँ</div></div></div>
+  <div id="qWrap"></div>
+</section>
+
+<!-- ============ ADDITIONAL IMPORTANT QUESTIONS ============ -->
+<section id="extra">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--orange),#c9650c); --glow:#ff9f4399;">⭐</div>
+    <div><h2>अतिरिक्त महत्वपूर्ण प्रश्न</h2><div class="sub en-tag">Additional Important Questions (BSEB Exam Pattern)</div></div></div>
+  <div id="extraWrap"></div>
+</section>
+
+<!-- ============ HOMEWORK ============ -->
+<section id="homework">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--red),#a82424); --glow:#ff4f4f99;">🏠</div>
+    <div><h2>घर से करने के लिए Homework</h2><div class="sub en-tag">Notebook Exercise — बिना उत्तर देखे खुद हल करें</div></div></div>
+  <div class="glass card hw-card">
+    <ol id="homeworkList"></ol>
+  </div>
+  <p style="color:var(--dim); font-size:12px; margin-top:14px; font-weight:600;">यह सभी प्रश्न अपनी संस्कृत की notebook में हल करके अगली कक्षा में साथ लाइए।</p>
+</section>
+
+<footer>
+  <span class="name">PK STUDY</span> — अध्याय 1: समास पूर्ण
+  <div class="copy">Class 10 · संस्कृत व्याकरण · समास (Samas) — PK STUDY, All Copyright Reserved</div>
+</footer>
+
+<script>
+function toggleTheme(){
+  const html = document.documentElement;
+  const isLight = html.getAttribute('data-theme') === 'light';
+  html.setAttribute('data-theme', isLight ? '' : 'light');
+  document.getElementById('themeToggle').textContent = isLight ? '🌙' : '☀️';
+}
+function el(tag, cls, html){ const d=document.createElement(tag); if(cls)d.className=cls; if(html!==undefined)d.innerHTML=html; return d; }
+
+const formulaSheetData = [
+  {t:"अव्ययीभाव समास", d:"पूर्वपद (अव्यय) प्रधान होता है; समस्त पद सदा अव्यय (नपुंसकलिंग, एकवचन) रहता है।", c:"var(--cyan)"},
+  {t:"तत्पुरुष समास", d:"उत्तरपद प्रधान होता है; पूर्वपद की विभक्ति का लोप होकर छह उपभेद बनते हैं।", c:"var(--pink)"},
+  {t:"कर्मधारय समास", d:"दोनों पद प्रथमा विभक्ति में होते हैं; विशेषण-विशेष्य संबंध; उत्तरपद प्रधान।", c:"var(--green)"},
+  {t:"द्विगु समास", d:"पूर्वपद संख्यावाचक होता है; समस्त पद समूह/समाहार का बोध कराता है।", c:"var(--orange)"},
+  {t:"द्वंद्व समास", d:"दोनों (या सभी) पद प्रधान होते हैं; विग्रह में 'च' का प्रयोग होता है।", c:"var(--purple)"},
+  {t:"बहुव्रीहि समास", d:"कोई भी पद प्रधान नहीं होता; समस्त पद किसी तीसरे पद/अर्थ की विशेषता बताता है।", c:"var(--red)"}
+];
+
+const qData = [
+  {type:"subj", q:"1. निम्नलिखित समस्त पद का विग्रह कीजिए — 'राजपुरुषः', तथा समास का नाम भी बताइए।",
+   a:"विग्रह: राज्ञः पुरुषः (राजा का पुरुष)\nसमास का नाम: षष्ठी तत्पुरुष समास (यहाँ उत्तरपद 'पुरुष' प्रधान है और पूर्वपद की षष्ठी विभक्ति का लोप हुआ है)।"},
+  {type:"obj", q:"2. 'यथाशक्ति' का समास-विग्रह कीजिए।",
+   a:"विग्रह: शक्ति के अनुसार (यथा शक्ति)। यह अव्ययीभाव समास का उदाहरण है, क्योंकि पूर्वपद 'यथा' अव्यय है और समस्त पद भी अव्यय-रूप में प्रयुक्त होता है।"},
+  {type:"subj", q:"3. 'दशाननः' का विग्रह करके समास का नाम बताइए।",
+   a:"विग्रह: दश आननानि यस्य सः (जिसके दस मुख हैं, अर्थात् रावण)\nसमास का नाम: बहुव्रीहि समास — क्योंकि यहाँ न तो 'दश' प्रधान है, न 'आनन', बल्कि 'रावण' नामक तीसरा अर्थ प्रधान है।"},
+  {type:"obj", q:"4. 'नीलकमलम्' का समास-विग्रह कीजिए।",
+   a:"विग्रह: नीलं कमलम् (नीला कमल)। यह कर्मधारय समास का उदाहरण है, क्योंकि 'नीलं' विशेषण और 'कमलम्' विशेष्य है, तथा दोनों पद प्रथमा विभक्ति में हैं।"},
+  {type:"obj", q:"5. निम्नलिखित पदों से समस्त पद बनाइए — 'रामः च लक्ष्मणः च'।",
+   a:"समस्त पद: रामलक्ष्मणौ। यह द्वंद्व समास का उदाहरण है, क्योंकि इसमें 'राम' और 'लक्ष्मण' दोनों पद समान रूप से प्रधान हैं।"},
+  {type:"subj", q:"6. 'त्रिभुवनम्' का विग्रह करके समास का नाम बताइए।",
+   a:"विग्रह: त्रयाणां भुवनानां समाहारः (तीनों भुवनों का समूह)\nसमास का नाम: द्विगु समास — क्योंकि पूर्वपद 'त्रि' संख्यावाचक है और समस्त पद भुवनों के समाहार (समूह) का बोध कराता है।"},
+  {type:"obj", q:"7. 'अज्ञानम्' का समास-विग्रह कीजिए।",
+   a:"विग्रह: न ज्ञानम् (ज्ञान का अभाव)। यह नञ् तत्पुरुष समास का उदाहरण है, जिसमें निषेधवाचक 'न' पूर्वपद के रूप में 'अ' बनकर जुड़ जाता है।"},
+  {type:"subj", q:"8. 'पीताम्बरः' का विग्रह करके समास का नाम बताइए।",
+   a:"विग्रह: पीतम् अम्बरम् यस्य सः (जिसके पीले वस्त्र हैं, अर्थात् कृष्ण)\nसमास का नाम: बहुव्रीहि समास — क्योंकि यह पद किसी तीसरे व्यक्ति (कृष्ण) की विशेषता बताता है, स्वयं 'पीत' या 'अम्बर' प्रधान नहीं है।"},
+  {type:"obj", q:"9. निम्नलिखित पदों से समस्त पद बनाइए — 'राज्ञः पुत्रः'।",
+   a:"समस्त पद: राजपुत्रः (राजा का पुत्र)। यह षष्ठी तत्पुरुष समास का उदाहरण है।"},
+  {type:"obj", q:"10. 'हस्तलिखितम्' का समास-विग्रह कीजिए।",
+   a:"विग्रह: हस्तेन लिखितम् (हाथ से लिखा हुआ)। यह तृतीया तत्पुरुष समास का उदाहरण है, क्योंकि पूर्वपद में तृतीया विभक्ति (हस्तेन) छिपी है।"},
+  {type:"subj", q:"11. 'महादेवः' का विग्रह करके समास का नाम बताइए।",
+   a:"विग्रह: महान् देवः (महान् है जो देव, अर्थात् शिव)\nसमास का नाम: कर्मधारय समास — क्योंकि 'महान्' विशेषण और 'देवः' विशेष्य है, दोनों पद प्रथमा विभक्ति में हैं।"},
+  {type:"obj", q:"12. 'चोरभयम्' का समास-विग्रह कीजिए।",
+   a:"विग्रह: चोरात् भयम् (चोर से भय)। यह पंचमी तत्पुरुष समास का उदाहरण है, क्योंकि पूर्वपद में पंचमी विभक्ति (चोरात्) छिपी है।"},
+  {type:"obj", q:"13. निम्नलिखित पदों से समस्त पद बनाइए — 'पञ्चानां वटानां समाहारः'।",
+   a:"समस्त पद: पञ्चवटी (पाँच वट वृक्षों का समूह)। यह द्विगु समास का उदाहरण है।"},
+  {type:"subj", q:"14. 'मातापितरौ' का विग्रह करके समास का नाम बताइए।",
+   a:"विग्रह: माता च पिता च (माता और पिता)\nसमास का नाम: द्वंद्व समास — क्योंकि 'माता' और 'पिता' दोनों पद समान रूप से प्रधान हैं और विग्रह में 'च' का प्रयोग हुआ है।"},
+  {type:"obj", q:"15. 'पंकजम्' का समास-विग्रह कीजिए।",
+   a:"विग्रह: पंके जातम् (कीचड़ में उत्पन्न, अर्थात् कमल)। यह सप्तमी तत्पुरुष समास का उदाहरण है, क्योंकि पूर्वपद में सप्तमी विभक्ति (पंके) छिपी है।"}
+];
+
+const extraData = [
+  {type:"subj", q:"1. समास किसे कहते हैं? इसकी परिभाषा दीजिए।",
+   a:"दो या दो से अधिक पदों के परस्पर मिलने पर, उनके बीच की विभक्तियों का लोप होकर जो एक नया संक्षिप्त पद बनता है, उसे समास कहते हैं। समास से बने पद को 'समस्त पद' और उसे पुनः अलग-अलग करने की प्रक्रिया को 'समास-विग्रह' कहते हैं।"},
+  {type:"obj", q:"2. समास के कुल कितने भेद माने जाते हैं? नाम लिखिए।",
+   a:"समास के छह प्रमुख भेद माने जाते हैं — अव्ययीभाव समास, तत्पुरुष समास, कर्मधारय समास, द्विगु समास, द्वंद्व समास और बहुव्रीहि समास।"},
+  {type:"obj", q:"3. तत्पुरुष समास में कौन-सा पद प्रधान होता है?",
+   a:"तत्पुरुष समास में उत्तरपद (दूसरा पद) प्रधान होता है और पूर्वपद की विभक्ति का लोप हो जाता है।"},
+  {type:"subj", q:"4. बहुव्रीहि समास की विशेषता बताते हुए एक उदाहरण दीजिए।",
+   a:"बहुव्रीहि समास में पूर्वपद और उत्तरपद — दोनों में से कोई भी पद प्रधान नहीं होता, बल्कि दोनों मिलकर किसी तीसरे (अन्य) पद या अर्थ की विशेषता बताते हैं। उदाहरण: चक्रपाणिः = चक्रं पाणौ यस्य सः (जिसके हाथ में चक्र है, अर्थात् विष्णु) — यहाँ न तो 'चक्र' प्रधान है, न 'पाणि', बल्कि 'विष्णु' नामक तीसरा अर्थ प्रधान है।"},
+  {type:"subj", q:"5. द्वंद्व और द्विगु समास में क्या अंतर है?",
+   a:"द्वंद्व समास में दोनों (या सभी) पद समान रूप से प्रधान होते हैं और विग्रह में 'च' का प्रयोग होता है — जैसे हरिहरौ = हरिः च हरः च। जबकि द्विगु समास में पूर्वपद संख्यावाचक होता है और समस्त पद किसी समूह या समाहार का बोध कराता है, तथा यह सदा नपुंसकलिंग एकवचन में रहता है — जैसे चतुर्युगम् = चतुर्णां युगानां समाहारः।"},
+  {type:"obj", q:"6. 'गुरुणा दत्तम्' से समस्त पद बनाकर समास का नाम बताइए।",
+   a:"समस्त पद: गुरुदत्तम् (गुरु द्वारा दिया गया)। यह तृतीया तत्पुरुष समास का उदाहरण है।"}
+];
+
+const homeworkData = [
+  "'लम्बोदरः' का विग्रह कीजिए और समास का नाम बताइए।",
+  "'यथाविधि' का समास-विग्रह कीजिए।",
+  "निम्नलिखित पदों से समस्त पद बनाइए — 'हरिः च हरः च'।",
+  "'चतुर्युगम्' का विग्रह करके समास का नाम लिखिए।",
+  "'देशरक्षा' का समास-विग्रह कीजिए और समास का नाम बताइए।",
+  "'वृक्षपतितम्' का विग्रह करके समास का नाम लिखिए।"
+];
+
+function buildFormulaSheet(){
+  const g = document.getElementById('formulaSheetGrid');
+  formulaSheetData.forEach(f=>{ const d=el('div','glass def-card', `<h4 style="color:${f.c}">📌 ${f.t}</h4><p>${f.d}</p>`); g.appendChild(d); });
+}
+function buildQA(containerId, data, labelPrefix){
+  const wrap = document.getElementById(containerId);
+  data.forEach((item)=>{
+    const pillHtml = item.type === 'obj' ? '<span class="pill pill-obj">Objective</span>' : '<span class="pill pill-subj">Subjective</span>';
+    const d = el('div','glass example-card', `<div class="qlabel">${labelPrefix} ${pillHtml}</div><div class="qtext">${item.q}</div>
+      <button class="show-ans-btn" onclick="toggleAnswer(this)">उत्तर दिखाएँ (Show Answer)</button>
+      <div class="ans-wrap"><div class="slabel">उत्तर (Answer)</div><div class="stext">${item.a}</div></div>`);
+    wrap.appendChild(d);
+  });
+}
+function toggleAnswer(btn){
+  const wrap = btn.nextElementSibling;
+  const isOpen = wrap.classList.toggle('open');
+  btn.classList.toggle('open', isOpen);
+  btn.textContent = isOpen ? 'उत्तर छुपाएँ (Hide Answer)' : 'उत्तर दिखाएँ (Show Answer)';
+}
+function buildHomework(){
+  const g = document.getElementById('homeworkList');
+  homeworkData.forEach(q=>{ const li = document.createElement('li'); li.textContent = q; g.appendChild(li); });
+}
+
+buildFormulaSheet();
+buildQA('qWrap', qData, 'प्रश्न');
+buildQA('extraWrap', extraData, 'प्रश्न');
+buildHomework();
+</script>
+</body>
+</html>
