@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PK STUDY | रासायनिक अभिक्रियाएँ एवं समीकरण — Chemical Reactions and Equations</title>
+<style>
+:root{
+  --bg:#04050f; --glass:rgba(255,255,255,.045); --glass-strong:rgba(255,255,255,.08);
+  --border:rgba(255,255,255,.12); --text:#f2f6ff; --dim:#9fb0da; --heading:#ffffff;
+  --neon-blue:#3ea6ff; --cyan:#33e0ff; --purple:#b07dff; --gold:#ffc233;
+  --green:#2ee6a6; --orange:#ff9f43; --pink:#ff4d8d; --red:#ff4f4f;
+  --shadow:0 22px 46px -22px #000d; --hshadow:0 30px 56px -20px #000f;
+}
+[data-theme="light"]{
+  --bg:#f6f8fd; --glass:rgba(20,30,65,.045); --glass-strong:rgba(20,30,65,.08);
+  --border:rgba(20,30,65,.12); --text:#161c33; --dim:#535f82; --heading:#12172b;
+  --neon-blue:#2563eb; --cyan:#0891b2; --purple:#7c3aed; --gold:#b45309;
+  --green:#059669; --orange:#c2410c; --pink:#db2777; --red:#dc2626;
+  --shadow:0 18px 36px -20px rgba(30,40,80,.18); --hshadow:0 24px 44px -18px rgba(30,40,80,.24);
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Segoe UI','Noto Sans Devanagari',Arial,sans-serif; color:var(--text); min-height:100vh; overflow-x:hidden;
+  transition:background .4s, color .4s;
+  background:
+    radial-gradient(ellipse at 10% -10%, #1c3a9955, transparent 55%),
+    radial-gradient(ellipse at 95% 10%, #7a2ab866, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, #0a5a6e44, transparent 55%),
+    linear-gradient(180deg,#04050f,#020208 90%);
+}
+[data-theme="light"] body{
+  background:
+    radial-gradient(ellipse at 10% -10%, #dbe4ff99, transparent 55%),
+    radial-gradient(ellipse at 95% 10%, #ede0ff99, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, #d7f5f099, transparent 55%),
+    linear-gradient(180deg,#f8faff,#eef1f9 90%);
+}
+::-webkit-scrollbar{width:8px;} ::-webkit-scrollbar-thumb{background:var(--neon-blue); border-radius:6px;} ::-webkit-scrollbar-track{background:transparent;}
+
+.glass{background:var(--glass); border:1px solid var(--border); border-radius:18px; backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+  box-shadow:var(--shadow), inset 0 1px 0 #ffffff12; transition:transform .35s, box-shadow .35s, background .4s, border .4s;}
+
+header{position:sticky; top:0; z-index:200; display:flex; align-items:center; justify-content:space-between; padding:14px 26px;
+  background:rgba(4,5,15,.75); backdrop-filter:blur(18px); border-bottom:1px solid var(--border); flex-wrap:wrap; gap:10px; transition:background .4s;}
+[data-theme="light"] header{background:rgba(255,255,255,.8);}
+.brand{display:flex; align-items:center; gap:12px;}
+.brand img{width:44px; height:44px; border-radius:10px; object-fit:cover; border:2px solid var(--neon-blue); box-shadow:0 0 18px #3ea6ff88;}
+.logo-fallback{width:44px; height:44px; border-radius:10px; display:flex; align-items:center; justify-content:center;
+  background:linear-gradient(135deg,var(--neon-blue),#1f3d8c); font-weight:900; font-size:12px; border:2px solid var(--cyan); color:#fff;}
+.brand-text .name{font-weight:900; font-size:18px; color:var(--cyan); letter-spacing:.5px;}
+.brand-text .tag{font-size:11px; color:var(--dim); font-weight:600;}
+nav{display:flex; gap:5px; overflow-x:auto; max-width:52vw;}
+nav::-webkit-scrollbar{height:4px;}
+nav a{color:var(--dim); text-decoration:none; font-size:11.5px; padding:6px 11px; border-radius:16px; border:1px solid transparent; transition:.2s; font-weight:700; white-space:nowrap;}
+nav a:hover{color:var(--heading); border-color:var(--neon-blue); background:#3ea6ff1a;}
+.theme-btn{flex-shrink:0; width:40px; height:40px; border-radius:12px; border:1px solid var(--border); background:var(--glass-strong);
+  color:var(--text); font-size:17px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:.25s;}
+.theme-btn:hover{border-color:var(--neon-blue); transform:translateY(-2px);}
+
+.hero{position:relative; padding:60px 6vw 40px; text-align:center;}
+.eyebrow{display:inline-block; padding:7px 22px; border-radius:30px; color:#04050f; font-size:12px; font-weight:900;
+  letter-spacing:2px; text-transform:uppercase; margin-bottom:20px;
+  background:linear-gradient(120deg,var(--gold),var(--orange),var(--pink),var(--purple),var(--cyan));
+  box-shadow:0 10px 26px -6px #000b;}
+.hero h1{font-size:clamp(26px,5.5vw,48px); font-weight:900; line-height:1.25;
+  background:linear-gradient(90deg,var(--neon-blue),var(--cyan) 35%,var(--purple) 65%,var(--pink)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+.hero .en{font-size:16px; color:var(--dim); font-weight:700; margin-top:10px;}
+.hero p{color:var(--dim); max-width:760px; margin:20px auto 0; font-size:14.5px; line-height:1.9; font-weight:500;}
+
+section{position:relative; padding:44px 6vw; max-width:1200px; margin:0 auto;}
+.sec-head{display:flex; align-items:center; gap:14px; margin-bottom:24px;}
+.sec-num{width:44px; height:44px; border-radius:14px; flex-shrink:0; display:flex; align-items:center; justify-content:center;
+  font-weight:900; font-size:16px; color:#04050f; box-shadow:0 8px 22px -6px var(--glow,#3ea6ff99); border:2px solid #ffffffaa;}
+.sec-head h2{font-size:clamp(19px,3vw,26px); font-weight:900; color:var(--heading);}
+.sec-head .sub{color:var(--dim); font-size:12.5px; font-weight:600; margin-top:2px;}
+.sec-head .en-tag{font-size:11px; color:var(--gold); font-weight:700; letter-spacing:.5px;}
+
+.card{padding:20px 22px;}
+.grid{display:grid; gap:16px;}
+.grid-2{grid-template-columns:1fr 1fr;} .grid-3{grid-template-columns:repeat(3,1fr);}
+@media(max-width:900px){.grid-3{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.grid-2,.grid-3{grid-template-columns:1fr;} nav{max-width:100%;}}
+
+b.hi{color:var(--pink); font-weight:900;} b.hi2{color:var(--green); font-weight:900;} b.hi3{color:var(--gold); font-weight:900;}
+.eng-term{color:var(--cyan); font-style:italic; font-weight:700;}
+
+.rule-card{padding:20px; border-left:5px solid var(--neon-blue);}
+.rule-card h4{font-size:15px; color:var(--cyan); font-weight:900; margin-bottom:8px;}
+.rule-card p{font-size:13px; color:var(--dim); line-height:1.8; font-weight:500;}
+
+.def-card{padding:18px 20px; border-radius:16px;}
+.def-card h4{font-size:14.5px; margin-bottom:8px; display:flex; align-items:center; gap:8px; font-weight:900;}
+.def-card p{font-size:12.5px; color:var(--dim); line-height:1.75; font-weight:500;}
+
+.example-card{padding:18px 20px; margin-bottom:14px;}
+.example-card .qlabel{font-size:11px; font-weight:900; color:var(--gold); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;}
+.example-card .qtext{font-size:13.5px; font-weight:700; color:var(--heading); margin-bottom:14px; line-height:1.7;}
+.example-card .slabel{font-size:11px; font-weight:900; color:var(--green); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;}
+.example-card .stext{font-size:13px; color:var(--dim); line-height:1.9; font-weight:500; background:var(--glass-strong); padding:12px 14px; border-radius:10px; white-space:pre-line;}
+.show-ans-btn{padding:9px 20px; border-radius:10px; border:1.5px solid var(--green); background:transparent; color:var(--green);
+  font-weight:800; font-size:12px; cursor:pointer; transition:.2s;}
+.show-ans-btn:hover{background:var(--green); color:#04050f;}
+.show-ans-btn.open{background:var(--green); color:#04050f;}
+.ans-wrap{margin-top:14px; display:none;}
+.ans-wrap.open{display:block;}
+.pill{display:inline-block; padding:3px 10px; border-radius:10px; font-size:10px; font-weight:900; margin-left:8px; vertical-align:middle;}
+.pill-obj{background:linear-gradient(120deg,var(--cyan),#0a85b8); color:#04050f;}
+.pill-subj{background:linear-gradient(120deg,var(--purple),#7e4fd1); color:#fff;}
+
+.hw-card{padding:18px 20px;}
+.hw-card ol{margin:0; padding-left:20px; font-size:13px; color:var(--dim); line-height:2; font-weight:500;}
+.hw-card ol li{margin-bottom:8px;}
+.hw-card ol li::marker{color:var(--heading); font-weight:800;}
+
+.table-wrap{overflow-x:auto; margin-bottom:16px;}
+table{width:100%; border-collapse:collapse; min-width:560px;}
+thead th{text-align:center; padding:12px 14px; background:linear-gradient(120deg,var(--neon-blue),var(--purple)); color:#fff;
+  font-size:12px; text-transform:uppercase; letter-spacing:.5px; font-weight:900;}
+thead th:first-child{border-radius:10px 0 0 0;} thead th:last-child{border-radius:0 10px 0 0;}
+tbody td{padding:12px 14px; border-bottom:1px solid var(--border); color:var(--dim); font-size:12.5px; text-align:center; font-weight:600;}
+tbody tr:hover{background:#3ea6ff14;}
+
+footer{text-align:center; padding:50px 6vw 70px; color:var(--dim); font-size:12.5px; border-top:1px solid var(--border); margin-top:30px; font-weight:600;}
+footer .name{color:var(--cyan); font-weight:900; font-size:16px;}
+footer .copy{margin-top:18px; font-size:11px; color:var(--dim); opacity:.8;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <img src="images/1000043468.png" alt="PK STUDY" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="logo-fallback" style="display:none;">PK</div>
+    <div class="brand-text"><div class="name">PK STUDY</div><div class="tag">Class 10 • Science • Chapter 1</div></div>
+  </div>
+  <nav>
+    <a href="#notes">नोट्स</a><a href="#formulas">सूत्र</a><a href="#solved">हल प्रश्न</a>
+    <a href="#extra">अतिरिक्त प्रश्न</a><a href="#homework">होमवर्क</a>
+  </nav>
+  <button class="theme-btn" id="themeToggle" onclick="toggleTheme()" title="Dark/Light Mode">🌙</button>
+</header>
+
+<!-- ============ HERO ============ -->
+<div class="hero">
+  <span class="eyebrow">कक्षा 10 · अध्याय 1 · रसायन विज्ञान · बिहार बोर्ड</span>
+  <h1>रासायनिक अभिक्रियाएँ एवं समीकरण</h1>
+  <div class="en">Chemical Reactions and Equations</div>
+  <p>इस अध्याय में रासायनिक समीकरण को संतुलित करना, अभिक्रियाओं के पाँच मुख्य प्रकार (संयोजन, वियोजन, विस्थापन, द्विविस्थापन, उपचयन-अपचयन), ऊष्माक्षेपी एवं ऊष्माशोषी अभिक्रियाएँ, तथा दैनिक जीवन में उपचयन के प्रभाव — संक्षारण और विकृतगंधिता — के बारे में पढ़ेंगे। इस पेज में Notes, ज़रूरी सूत्र, हल सहित महत्वपूर्ण प्रश्न, अतिरिक्त प्रश्न और Homework दिया गया है।</p>
+</div>
+
+<!-- ============ NOTES ============ -->
+<section id="notes">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--neon-blue),#1f6fc9); --glow:#3ea6ff99;">📝</div>
+    <div><h2>Notes — मुख्य अवधारणाएँ</h2><div class="sub en-tag">Concept Notes with Worked Examples</div></div></div>
+  <div class="glass card" style="display:flex; flex-direction:column; gap:16px;">
+    <div class="rule-card" style="border-left-color:var(--cyan);">
+      <h4 style="color:var(--cyan);">1. रासायनिक समीकरण एवं उसका संतुलन (Balancing)</h4>
+      <p>किसी रासायनिक अभिक्रिया को संकेतों व सूत्रों की सहायता से संक्षेप में लिखना <b class="hi">रासायनिक समीकरण</b> कहलाता है। तीर के बाईं ओर <b class="eng-term">अभिकारक (Reactants)</b> और दाईं ओर <b class="eng-term">उत्पाद (Products)</b> लिखे जाते हैं। <b class="hi3">द्रव्यमान संरक्षण के नियम</b> के अनुसार किसी अभिक्रिया में द्रव्यमान न तो बनता है न नष्ट होता है, इसलिए तीर के दोनों ओर प्रत्येक तत्व के परमाणुओं की संख्या बराबर होनी चाहिए — इसी को <b class="hi2">संतुलित समीकरण</b> कहते हैं। संतुलन हित-और-प्रयास (Hit and Trial) विधि से किया जाता है — पहले सबसे जटिल अणु के तत्व को संतुलित करते हैं, फिर बाकी तत्वों को एक-एक कर।<br><br>
+      <b>उदाहरण (Step by Step):</b> Fe + H₂O → Fe₃O₄ + H₂ को संतुलित करें।<br>
+      चरण 1 — दाईं ओर Fe₃O₄ में 3 आयरन हैं, इसलिए बाईं ओर 3Fe लें: 3Fe + H₂O → Fe₃O₄ + H₂<br>
+      चरण 2 — Fe₃O₄ में 4 ऑक्सीजन हैं, इसलिए बाईं ओर 4H₂O लें: 3Fe + 4H₂O → Fe₃O₄ + H₂<br>
+      चरण 3 — अब बाईं ओर 8 हाइड्रोजन परमाणु हैं, इसलिए दाईं ओर 4H₂ लें:<br>
+      <b class="hi3">3Fe + 4H₂O → Fe₃O₄ + 4H₂</b><br>
+      जाँच: Fe (3=3), O (4=4), H (8=8) — समीकरण संतुलित है।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--pink);">
+      <h4 style="color:var(--pink);">2. संयोजन एवं वियोजन अभिक्रिया</h4>
+      <p><b class="hi">संयोजन अभिक्रिया (Combination Reaction)</b> — जब दो या अधिक पदार्थ मिलकर एक नया पदार्थ बनाते हैं (A + B → AB)। उदाहरण: CaO(s) + H₂O(l) → Ca(OH)₂(aq) (बुझा हुआ चूना बनना, ऊष्माक्षेपी); 2Mg(s) + O₂(g) → 2MgO(s)।<br><br>
+      <b class="hi2">वियोजन अभिक्रिया (Decomposition Reaction)</b> — जब एक यौगिक टूटकर दो या अधिक सरल पदार्थ बनाता है (AB → A + B)। तीन प्रकार:<br>
+      • <b>ऊष्मीय वियोजन (Thermal)</b> — ऊष्मा से टूटना: CaCO₃(s) →(ऊष्मा) CaO(s) + CO₂(g)<br>
+      • <b>वैद्युत अपघटन (Electrolytic)</b> — विद्युत धारा से टूटना: 2H₂O(l) →(विद्युत धारा) 2H₂(g) + O₂(g)<br>
+      • <b>प्रकाश-अपघटन (Photolytic)</b> — प्रकाश से टूटना: 2AgCl(s) →(सूर्यप्रकाश) 2Ag(s) + Cl₂(g) (फोटोग्राफी में उपयोगी)</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--green);">
+      <h4 style="color:var(--green);">3. विस्थापन एवं द्विविस्थापन अभिक्रिया</h4>
+      <p><b class="hi">विस्थापन अभिक्रिया (Displacement Reaction)</b> — जब एक अधिक क्रियाशील तत्व किसी यौगिक में से कम क्रियाशील तत्व को विस्थापित कर देता है (A + BC → AC + B)।<br><br>
+      <b>उदाहरण:</b> लोहे की कील को कॉपर सल्फेट (CuSO₄) के नीले विलयन में डुबोने पर विलयन का रंग हल्का हरा हो जाता है और कील पर भूरे-लाल रंग का कॉपर जम जाता है, क्योंकि लोहा कॉपर से अधिक क्रियाशील है:<br>
+      <b class="hi3">Fe(s) + CuSO₄(aq) → FeSO₄(aq) + Cu(s)</b><br><br>
+      <b class="hi2">द्विविस्थापन अभिक्रिया (Double Displacement Reaction)</b> — जब दो यौगिकों के बीच आयनों (मूलकों) का आपस में आदान-प्रदान होता है, प्रायः एक अवक्षेप (Precipitate) बनता है (AB + CD → AD + CB)।<br>
+      <b>उदाहरण:</b> BaCl₂(aq) + Na₂SO₄(aq) → BaSO₄(s)↓ + 2NaCl(aq) — यहाँ सफेद रंग का बेरियम सल्फेट अवक्षेप बनता है, इसलिए इसे अवक्षेपण अभिक्रिया (Precipitation Reaction) भी कहते हैं।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--orange);">
+      <h4 style="color:var(--orange);">4. उपचयन-अपचयन (Redox) अभिक्रिया</h4>
+      <p>जब किसी पदार्थ में <b class="hi">ऑक्सीजन जुड़ता है या हाइड्रोजन घटता है</b>, तो वह <b class="hi">उपचयित (Oxidised)</b> होता है। जब किसी पदार्थ से <b class="hi2">ऑक्सीजन घटता है या हाइड्रोजन जुड़ता है</b>, तो वह <b class="hi2">अपचयित (Reduced)</b> होता है। जिस अभिक्रिया में उपचयन और अपचयन एक साथ होते हैं, उसे <b class="hi3">रेडॉक्स (Redox) अभिक्रिया</b> कहते हैं।<br><br>
+      <b>उदाहरण:</b> CuO(s) + H₂(g) → Cu(s) + H₂O(l)<br>
+      यहाँ CuO से ऑक्सीजन हटकर Cu बनता है (अपचयन), और H₂ में ऑक्सीजन जुड़कर H₂O बनता है (उपचयन)।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--purple);">
+      <h4 style="color:var(--purple);">5. ऊष्माक्षेपी एवं ऊष्माशोषी अभिक्रियाएँ</h4>
+      <p><b class="hi">ऊष्माक्षेपी अभिक्रिया (Exothermic Reaction)</b> — जिसमें ऊर्जा (ऊष्मा) उत्पाद के साथ मुक्त होती है। उदाहरण — प्राकृतिक गैस का जलना: CH₄(g) + 2O₂(g) → CO₂(g) + 2H₂O(g) + ऊष्मा; श्वसन (Respiration); सभी दहन अभिक्रियाएँ।<br><br>
+      <b class="hi2">ऊष्माशोषी अभिक्रिया (Endothermic Reaction)</b> — जिसमें ऊर्जा (ऊष्मा) अवशोषित होती है। उदाहरण — कैल्सियम कार्बोनेट का ऊष्मीय वियोजन: CaCO₃(s) →(ऊष्मा) CaO(s) + CO₂(g); प्रकाश-संश्लेषण (Photosynthesis)।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--gold);">
+      <h4 style="color:var(--gold);">6. संक्षारण एवं विकृतगंधिता — दैनिक जीवन में उपचयन के प्रभाव</h4>
+      <p><b class="hi">संक्षारण (Corrosion)</b> — जब कोई धातु नमी, वायु या अम्ल के संपर्क में आकर धीरे-धीरे क्षय (उपचयित) हो जाती है — जैसे लोहे पर जंग (Fe₂O₃·xH₂O) लगना, चाँदी का काला पड़ना, ताँबे पर हरी परत जमना। <b>रोकथाम:</b> पेंट/तेल/ग्रीस लगाना, गैल्वनीकरण (जस्ते की परत चढ़ाना), मिश्रधातु (Alloying) बनाना।<br><br>
+      <b class="hi2">विकृतगंधिता (Rancidity)</b> — वसा एवं तेलयुक्त भोजन का वायु की ऑक्सीजन द्वारा उपचयित होकर स्वाद व गंध बदल जाना। <b>रोकथाम:</b> प्रतिऑक्सीकारक (Antioxidants) मिलाना, वायुरोधी डिब्बों में रखना, रेफ्रिजरेशन, पैकेट में नाइट्रोजन गैस भरना।</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FORMULA / RULES SHEET ============ -->
+<section id="formulas">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--purple),#7e4fd1); --glow:#b07dff99;">🧮</div>
+    <div><h2>सूत्र एवं नियम (Formula / Rules Sheet)</h2><div class="sub en-tag">General Forms, Balancing Rules & Indicators</div></div></div>
+  <div class="grid grid-3" id="formulaSheetGrid" style="margin-bottom:20px;"></div>
+  <div class="glass card table-wrap">
+    <table>
+      <thead><tr><th>परीक्षण / अभिक्रिया</th><th>देखा गया परिवर्तन</th><th>निष्कर्ष</th></tr></thead>
+      <tbody>
+        <tr><td>चूने के पानी में CO₂ प्रवाहित करना</td><td>दूधिया (सफेद) हो जाता है</td><td>CaCO₃ अवक्षेप बनता है</td></tr>
+        <tr><td>लोहे की कील को CuSO₄ विलयन में डालना</td><td>नीला रंग हल्का हरा हो जाता है, कील पर भूरी परत</td><td>विस्थापन अभिक्रिया — कॉपर जमा होता है</td></tr>
+        <tr><td>BaCl₂ + Na₂SO₄ विलयन मिलाना</td><td>सफेद अवक्षेप बनता है</td><td>BaSO₄ — द्विविस्थापन/अवक्षेपण अभिक्रिया</td></tr>
+        <tr><td>KI + Pb(NO₃)₂ विलयन मिलाना</td><td>पीला अवक्षेप बनता है</td><td>PbI₂ — द्विविस्थापन/अवक्षेपण अभिक्रिया</td></tr>
+        <tr><td>AgCl को धूप में रखना</td><td>सफेद से धूसर/काला हो जाता है</td><td>प्रकाश-अपघटन — Ag बनता है</td></tr>
+        <tr><td>मैग्नीशियम रिबन जलाना</td><td>तेज सफेद रोशनी के साथ जलकर सफेद चूर्ण बनता है</td><td>MgO — ऊष्माक्षेपी संयोजन अभिक्रिया</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ SOLVED QUESTIONS ============ -->
+<section id="solved">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--green),#1a9c70); --glow:#2ee6a699;">📘</div>
+    <div><h2>महत्वपूर्ण प्रश्न (हल सहित)</h2><div class="sub en-tag">Objective + Subjective — उत्तर देखने के लिए बटन दबाएँ</div></div></div>
+  <div id="solvedWrap"></div>
+</section>
+
+<!-- ============ ADDITIONAL IMPORTANT QUESTIONS ============ -->
+<section id="extra">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--orange),#c9650c); --glow:#ff9f4399;">⭐</div>
+    <div><h2>अतिरिक्त महत्वपूर्ण प्रश्न</h2><div class="sub en-tag">Additional BSEB Exam-Relevant Questions</div></div></div>
+  <div id="extraWrap"></div>
+</section>
+
+<!-- ============ HOMEWORK ============ -->
+<section id="homework">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--red),#a82424); --glow:#ff4f4f99;">🏠</div>
+    <div><h2>घर से करने के लिए Homework</h2><div class="sub en-tag">Notebook Exercise — बिना उत्तर देखे खुद हल करें</div></div></div>
+  <div class="glass card hw-card">
+    <ol id="homeworkList"></ol>
+  </div>
+  <p style="color:var(--dim); font-size:12px; margin-top:14px; font-weight:600;">सभी समीकरणों को संतुलित करते समय भौतिक अवस्था (s, l, g, aq) लिखना न भूलें। यह प्रश्न अपनी Science की notebook में हल करके अगली कक्षा में साथ लाइए।</p>
+</section>
+
+<footer>
+  <span class="name">PK STUDY</span> — अध्याय 1 पूर्ण
+  <div class="copy">Class 10 · Science · रासायनिक अभिक्रियाएँ एवं समीकरण — PK STUDY, All Copyright Reserved</div>
+</footer>
+
+<script>
+function toggleTheme(){
+  const html = document.documentElement;
+  const isLight = html.getAttribute('data-theme') === 'light';
+  html.setAttribute('data-theme', isLight ? '' : 'light');
+  document.getElementById('themeToggle').textContent = isLight ? '🌙' : '☀️';
+}
+function el(tag, cls, html){ const d=document.createElement(tag); if(cls)d.className=cls; if(html!==undefined)d.innerHTML=html; return d; }
+
+const formulaSheetData = [
+  {t:"संयोजन अभिक्रिया", d:"A + B → AB", c:"var(--cyan)"},
+  {t:"वियोजन अभिक्रिया", d:"AB → A + B (ऊष्मीय / वैद्युत अपघटन / प्रकाश-अपघटन)", c:"var(--pink)"},
+  {t:"विस्थापन अभिक्रिया", d:"A + BC → AC + B", c:"var(--green)"},
+  {t:"द्विविस्थापन अभिक्रिया", d:"AB + CD → AD + CB (अक्सर अवक्षेप बनता है)", c:"var(--orange)"},
+  {t:"उपचयन / अपचयन", d:"उपचयन = ऑक्सीजन वृद्धि / हाइड्रोजन ह्रास; अपचयन = ऑक्सीजन ह्रास / हाइड्रोजन वृद्धि", c:"var(--purple)"},
+  {t:"संतुलन का नियम", d:"द्रव्यमान संरक्षण नियम — तीर के दोनों ओर प्रत्येक तत्व के परमाणुओं की संख्या बराबर होनी चाहिए", c:"var(--gold)"}
+];
+
+const solvedData = [
+  {type:"obj", q:"1. रासायनिक समीकरण किसे कहते हैं?", a:"किसी रासायनिक अभिक्रिया को संकेतों और सूत्रों की सहायता से संक्षेप में लिखना रासायनिक समीकरण कहलाता है। इसमें अभिकारकों (Reactants) को तीर के बाईं ओर और उत्पादों (Products) को तीर के दाईं ओर लिखा जाता है।"},
+  {type:"obj", q:"2. संतुलित रासायनिक समीकरण किसे कहते हैं और यह आवश्यक क्यों है?", a:"जिस समीकरण में तीर के दोनों ओर प्रत्येक तत्व के परमाणुओं की संख्या बराबर हो, उसे संतुलित रासायनिक समीकरण कहते हैं। द्रव्यमान संरक्षण के नियम के अनुसार किसी रासायनिक अभिक्रिया में द्रव्यमान न तो उत्पन्न होता है और न ही नष्ट होता है, इसलिए समीकरण को संतुलित करना आवश्यक है।"},
+  {type:"subj", q:"3. निम्नलिखित समीकरण को संतुलित कीजिए: Fe + H₂O → Fe₃O₄ + H₂", a:"अभिकारक: Fe, H₂O; उत्पाद: Fe₃O₄, H₂\nFe परमाणु संतुलित करने हेतु बाईं ओर 3Fe लें: 3Fe + H₂O → Fe₃O₄ + H₂\nदाईं ओर Fe₃O₄ में 4 ऑक्सीजन हैं, इसलिए बाईं ओर 4H₂O लें: 3Fe + 4H₂O → Fe₃O₄ + H₂\nअब बाईं ओर H परमाणु = 8, इसलिए दाईं ओर 4H₂ लें:\n3Fe + 4H₂O → Fe₃O₄ + 4H₂\nजाँच: Fe (3=3), O (4=4), H (8=8) ✔ संतुलित समीकरण।"},
+  {type:"subj", q:"4. निम्नलिखित समीकरण को संतुलित कीजिए: Al + O₂ → Al₂O₃", a:"दाईं ओर 2Al₂O₃ लेने पर O की संख्या 6 हो जाती है, इसलिए बाईं ओर 3O₂ लें:\nAl + 3O₂ → 2Al₂O₃\nअब बाईं ओर Al संतुलित करने हेतु 4Al लें:\n4Al + 3O₂ → 2Al₂O₃\nजाँच: Al (4=4), O (6=6) ✔ संतुलित समीकरण।"},
+  {type:"subj", q:"5. निम्नलिखित अभिक्रिया का प्रकार बताइए: Zn(s) + H₂SO₄(aq) → ZnSO₄(aq) + H₂(g)", a:"यह विस्थापन अभिक्रिया (Displacement Reaction) है, क्योंकि अधिक क्रियाशील धातु जिंक, सल्फ्यूरिक अम्ल में से हाइड्रोजन को विस्थापित कर देता है। सामान्य रूप: A + BC → AC + B"},
+  {type:"subj", q:"6. निम्नलिखित अभिक्रिया को संतुलित कर उसका प्रकार बताइए: BaCl₂ + Na₂SO₄ → BaSO₄ + NaCl", a:"संतुलित समीकरण: BaCl₂(aq) + Na₂SO₄(aq) → BaSO₄(s)↓ + 2NaCl(aq)\nयह द्विविस्थापन अभिक्रिया (Double Displacement Reaction) है, साथ ही अवक्षेपण अभिक्रिया (Precipitation Reaction) भी है क्योंकि BaSO₄ का सफेद अवक्षेप बनता है।\nजाँच: Ba(1=1), Cl(2=2), Na(2=2), S(1=1), O(4=4) ✔"},
+  {type:"subj", q:"7. निम्नलिखित शब्द समीकरण को संतुलित रासायनिक समीकरण में बदलिए: बेरियम क्लोराइड + अमोनियम सल्फेट → बेरियम सल्फेट + अमोनियम क्लोराइड", a:"BaCl₂(aq) + (NH₄)₂SO₄(aq) → BaSO₄(s)↓ + 2NH₄Cl(aq)\nजाँच: Ba(1=1), Cl(2=2), N(2=2), H(8=8), S(1=1), O(4=4) ✔"},
+  {type:"obj", q:"8. ऊष्माक्षेपी अभिक्रिया किसे कहते हैं? एक उदाहरण दीजिए।", a:"जिस अभिक्रिया में ऊर्जा (ऊष्मा) उत्पाद के साथ मुक्त होती है, उसे ऊष्माक्षेपी अभिक्रिया (Exothermic Reaction) कहते हैं। उदाहरण — प्राकृतिक गैस का जलना: CH₄(g) + 2O₂(g) → CO₂(g) + 2H₂O(g) + ऊष्मा। श्वसन (Respiration) भी एक ऊष्माक्षेपी अभिक्रिया है।"},
+  {type:"obj", q:"9. ऊष्माशोषी अभिक्रिया किसे कहते हैं? एक उदाहरण दीजिए।", a:"जिस अभिक्रिया में ऊर्जा (ऊष्मा) अवशोषित होती है, उसे ऊष्माशोषी अभिक्रिया (Endothermic Reaction) कहते हैं। उदाहरण — कैल्सियम कार्बोनेट का ऊष्मीय वियोजन:\nCaCO₃(s) →(ऊष्मा) CaO(s) + CO₂(g)\nयह ऊष्मीय वियोजन (Thermal Decomposition) के साथ-साथ ऊष्माशोषी अभिक्रिया का भी उदाहरण है।"},
+  {type:"subj", q:"10. उपचयन (Oxidation) और अपचयन (Reduction) को उदाहरण सहित समझाइए।", a:"जब किसी पदार्थ में ऑक्सीजन जुड़ता है या हाइड्रोजन घटता है, तो वह उपचयित (Oxidised) होता है। जब किसी पदार्थ से ऑक्सीजन घटता है या हाइड्रोजन जुड़ता है, तो वह अपचयित (Reduced) होता है।\nउदाहरण: CuO(s) + H₂(g) → Cu(s) + H₂O(l)\nयहाँ CuO से ऑक्सीजन हटकर Cu बनता है (अपचयन), और H₂ में ऑक्सीजन जुड़कर H₂O बनता है (उपचयन)। चूँकि दोनों क्रियाएँ एक साथ हो रही हैं, इसलिए यह उपचयन-अपचयन (Redox) अभिक्रिया है।"},
+  {type:"subj", q:"11. संक्षारण (Corrosion) किसे कहते हैं? इसे रोकने के दो उपाय बताइए।", a:"जब कोई धातु नमी, वायु या अम्ल के संपर्क में आकर धीरे-धीरे संक्षारित (क्षय) हो जाती है, तो इस प्रक्रिया को संक्षारण कहते हैं — जैसे लोहे पर जंग (भूरे रंग की परत, Fe₂O₃·xH₂O) लगना, चाँदी का काला पड़ना, ताँबे पर हरी परत जमना।\nरोकने के उपाय: (1) धातु की सतह पर पेंट या तेल/ग्रीस की परत चढ़ाना, (2) गैल्वनीकरण (Galvanization) द्वारा लोहे पर जस्ते की परत चढ़ाना, ताकि नमी और हवा का सीधा संपर्क न हो।"},
+  {type:"subj", q:"12. विकृतगंधिता (Rancidity) किसे कहते हैं? इसे रोकने के उपाय बताइए।", a:"वसा एवं तेलयुक्त भोजन का वायु की ऑक्सीजन द्वारा उपचयित हो जाना विकृतगंधिता कहलाता है, जिससे भोजन का स्वाद व गंध दोनों बदल जाते हैं और वह खाने योग्य नहीं रहता।\nरोकने के उपाय: (1) भोजन में प्रतिऑक्सीकारक (Antioxidants) मिलाना, (2) वायुरोधी (Airtight) डिब्बों में रखना, (3) रेफ्रिजरेटर में ठंडा रखना, (4) पैकेट में नाइट्रोजन जैसी निष्क्रिय गैस भरकर पैक करना (जैसे चिप्स के पैकेट में)।"},
+  {type:"obj", q:"13. विस्थापन अभिक्रिया और द्विविस्थापन अभिक्रिया में मुख्य अंतर क्या है?", a:"विस्थापन अभिक्रिया में एक अधिक क्रियाशील तत्व दूसरे कम क्रियाशील तत्व को उसके यौगिक से विस्थापित करता है (A + BC → AC + B)। द्विविस्थापन अभिक्रिया में दो यौगिकों के बीच आयनों (मूलकों) का आपस में आदान-प्रदान होता है और प्रायः एक अवक्षेप बनता है (AB + CD → AD + CB)।"},
+  {type:"subj", q:"14. निम्नलिखित अभिक्रिया को संतुलित कीजिए तथा बताइए कि इसमें कौन-सा अवक्षेप बनता है: Pb(NO₃)₂ + KI → PbI₂ + KNO₃", a:"संतुलित समीकरण: Pb(NO₃)₂(aq) + 2KI(aq) → PbI₂(s)↓ + 2KNO₃(aq)\nइस अभिक्रिया में पीले रंग का लेड आयोडाइड (PbI₂) अवक्षेप के रूप में बनता है। यह एक द्विविस्थापन एवं अवक्षेपण अभिक्रिया है।\nजाँच: Pb(1=1), N(2=2), O(6=6), K(2=2), I(2=2) ✔"},
+  {type:"subj", q:"15. लोहे की कील को कॉपर सल्फेट (CuSO₄) के विलयन में कुछ समय के लिए डुबोकर रखने पर क्या परिवर्तन देखे जाते हैं? समीकरण सहित समझाइए।", a:"कॉपर सल्फेट का नीला रंग हल्का हरा हो जाता है (आयरन सल्फेट बनने के कारण) और लोहे की कील पर भूरे-लाल रंग की कॉपर की परत जम जाती है, क्योंकि लोहा कॉपर से अधिक क्रियाशील होने के कारण उसे विस्थापित कर देता है।\nFe(s) + CuSO₄(aq) → FeSO₄(aq) + Cu(s)\nयह एक विस्थापन अभिक्रिया है।"},
+  {type:"obj", q:"16. जल के वैद्युत अपघटन (Electrolysis) में एक परखनली में एकत्रित गैस की मात्रा दूसरी परखनली से दोगुनी क्यों होती है?", a:"जल के वैद्युत अपघटन में निम्न अभिक्रिया होती है:\n2H₂O(l) →(विद्युत धारा) 2H₂(g) + O₂(g)\nसमीकरण के अनुसार हाइड्रोजन गैस के अणुओं की संख्या ऑक्सीजन गैस से दोगुनी बनती है, इसलिए हाइड्रोजन वाली परखनली में एकत्रित गैस का आयतन ऑक्सीजन वाली परखनली से दोगुना होता है।"}
+];
+
+const extraData = [
+  {type:"obj", q:"1. जिंक कार्बोनेट (ZnCO₃) को गर्म करने पर बनने वाली अभिक्रिया का समीकरण लिखिए तथा प्रकार बताइए।", a:"ZnCO₃(s) →(ऊष्मा) ZnO(s) + CO₂(g)\nयह ऊष्मीय वियोजन अभिक्रिया (Thermal Decomposition) है, साथ ही ऊष्माशोषी भी है क्योंकि इसमें बाहर से ऊष्मा दी जाती है।\nजाँच: Zn(1=1), C(1=1), O(3=1+2=3) ✔"},
+  {type:"subj", q:"2. निम्नलिखित समीकरण को संतुलित कर उसका प्रकार बताइए: Pb + CuCl₂ → PbCl₂ + Cu", a:"यह समीकरण पहले से ही संतुलित है: Pb(s) + CuCl₂(aq) → PbCl₂(aq) + Cu(s)\nजाँच: Pb(1=1), Cu(1=1), Cl(2=2) ✔\nयह एक विस्थापन अभिक्रिया है, क्योंकि लेड, कॉपर से अधिक क्रियाशील होने के कारण उसे उसके यौगिक से विस्थापित कर देता है।"},
+  {type:"obj", q:"3. मैग्नीशियम रिबन को जलाने से पहले रेगमार (सैंड पेपर) से साफ़ क्यों किया जाता है?", a:"वायु में खुला रखने पर मैग्नीशियम की सतह पर मैग्नीशियम ऑक्साइड (MgO) की एक निष्क्रिय परत जम जाती है, जो जलने में बाधा डालती है। रेगमार से साफ़ करने पर यह ऑक्साइड परत हट जाती है और शुद्ध धातु वायु की ऑक्सीजन के सीधे संपर्क में आकर आसानी से तेज सफेद रोशनी के साथ जलती है: 2Mg(s) + O₂(g) → 2MgO(s)"},
+  {type:"subj", q:"4. अवक्षेपण अभिक्रिया (Precipitation Reaction) किसे कहते हैं? एक उदाहरण दीजिए।", a:"जिस अभिक्रिया में दो घुलनशील लवणों के विलयन आपस में मिलकर एक अघुलनशील ठोस (अवक्षेप) बनाते हैं, उसे अवक्षेपण अभिक्रिया कहते हैं। यह प्रायः एक प्रकार की द्विविस्थापन अभिक्रिया होती है।\nउदाहरण: AgNO₃(aq) + NaCl(aq) → AgCl(s)↓ + NaNO₃(aq)\nयहाँ सफेद रंग का सिल्वर क्लोराइड (AgCl) अवक्षेप के रूप में बनता है।\nजाँच: Ag(1=1), N(1=1), O(3=3), Na(1=1), Cl(1=1) ✔"},
+  {type:"obj", q:"5. खाद्य पदार्थों के पैकेटों (जैसे चिप्स) में नाइट्रोजन गैस क्यों भरी जाती है?", a:"नाइट्रोजन एक निष्क्रिय (अक्रिय) गैस है, जो भोजन में उपस्थित वसा व तेल के साथ अभिक्रिया नहीं करती। पैकेट में नाइट्रोजन गैस भरने से भोजन का वायु की ऑक्सीजन से संपर्क नहीं हो पाता, जिससे विकृतगंधिता (Rancidity) नहीं होती और भोजन लंबे समय तक ताज़ा बना रहता है।"},
+  {type:"subj", q:"6. लोहे में जंग लगने (Rusting) की प्रक्रिया को समझाइए तथा इसे रोकने के दो उपाय बताइए।", a:"जब लोहा नम वायु (ऑक्सीजन एवं जलवाष्प) के लंबे समय तक संपर्क में रहता है, तो उसकी सतह पर भूरे-लाल रंग की परत जम जाती है, जिसे जंग (हाइड्रेटेड आयरन ऑक्साइड, Fe₂O₃·xH₂O) कहते हैं। यह एक धीमी संक्षारण प्रक्रिया है।\nरोकने के उपाय: (1) लोहे की वस्तुओं पर पेंट या ग्रीस लगाना ताकि नमी व हवा का सीधा संपर्क रुक जाए, (2) गैल्वनीकरण द्वारा लोहे की सतह पर जस्ते (Zinc) की पतली परत चढ़ाना।"}
+];
+
+const homeworkData = [
+  "निम्नलिखित समीकरण को संतुलित कीजिए: HCl + Zn → ZnCl₂ + H₂",
+  "निम्नलिखित समीकरण को संतुलित कीजिए: Na + H₂O → NaOH + H₂",
+  "निम्नलिखित अभिक्रिया का प्रकार पहचानिए: CaO + CO₂ → CaCO₃",
+  "निम्नलिखित समीकरण को संतुलित कर उसका प्रकार बताइए (FeSO₄ को गर्म करने पर): FeSO₄ → Fe₂O₃ + SO₂ + SO₃",
+  "निम्नलिखित शब्द समीकरण को संतुलित रासायनिक समीकरण में बदलिए: कॉपर सल्फेट (विलयन) + सोडियम हाइड्रॉक्साइड (विलयन) → कॉपर हाइड्रॉक्साइड (नीला अवक्षेप) + सोडियम सल्फेट (विलयन)",
+  "ऊष्माक्षेपी और ऊष्माशोषी अभिक्रिया में अंतर स्पष्ट करते हुए अपने आसपास से दो-दो उदाहरण दीजिए।",
+  "अपने घर में संक्षारण (जैसे जंग लगी वस्तुएँ) और विकृतगंधिता (जैसे बासी तेल/घी की गंध) के दो-दो उदाहरण खोजकर नोटबुक में लिखिए और उन्हें रोकने के उपाय भी लिखिए। (Practical Activity)"
+];
+
+function buildFormulaSheet(){
+  const g = document.getElementById('formulaSheetGrid');
+  formulaSheetData.forEach(f=>{ const d=el('div','glass def-card', `<h4 style="color:${f.c}">🧮 ${f.t}</h4><p>${f.d}</p>`); g.appendChild(d); });
+}
+function buildQA(containerId, data){
+  const wrap = document.getElementById(containerId);
+  data.forEach((item)=>{
+    const pillHtml = item.type === 'obj' ? '<span class="pill pill-obj">Objective</span>' : '<span class="pill pill-subj">Subjective</span>';
+    const d = el('div','glass example-card', `<div class="qlabel">प्रश्न ${pillHtml}</div><div class="qtext">${item.q}</div>
+      <button class="show-ans-btn" onclick="toggleAnswer(this)">उत्तर दिखाएँ (Show Answer)</button>
+      <div class="ans-wrap"><div class="slabel">उत्तर (Answer)</div><div class="stext">${item.a}</div></div>`);
+    wrap.appendChild(d);
+  });
+}
+function toggleAnswer(btn){
+  const wrap = btn.nextElementSibling;
+  const isOpen = wrap.classList.toggle('open');
+  btn.classList.toggle('open', isOpen);
+  btn.textContent = isOpen ? 'उत्तर छुपाएँ (Hide Answer)' : 'उत्तर दिखाएँ (Show Answer)';
+}
+function buildHomework(){
+  const g = document.getElementById('homeworkList');
+  homeworkData.forEach(q=>{ const li = document.createElement('li'); li.textContent = q; g.appendChild(li); });
+}
+
+buildFormulaSheet();
+buildQA('solvedWrap', solvedData);
+buildQA('extraWrap', extraData);
+buildHomework();
+</script>
+</body>
+</html>
