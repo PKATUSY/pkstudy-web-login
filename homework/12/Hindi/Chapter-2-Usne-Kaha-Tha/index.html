@@ -144,6 +144,7 @@ tbody tr:hover{background:#3ea6ff14;}
 .tree-box small{display:block; font-weight:700; font-size:10px; margin-top:3px; opacity:.85;}
 .tree-box.root-box{background:linear-gradient(120deg,var(--neon-blue),var(--purple)); color:#fff; font-size:14px; min-width:160px; padding:14px 20px;}
 .tree-box.small{font-size:11px; min-width:100px; padding:9px 10px;}
+.relwho{font-size:14.5px; font-weight:900; color:var(--gold); text-align:center; margin-bottom:6px;}
 
 footer{text-align:center; padding:50px 6vw 70px; color:var(--dim); font-size:12.5px; border-top:1px solid var(--border); margin-top:30px; font-weight:600;}
 footer .name{color:var(--cyan); font-weight:900; font-size:16px;}
@@ -220,25 +221,56 @@ footer .copy{margin-top:18px; font-size:11px; color:var(--dim); opacity:.8;}
   <p style="color:var(--dim); font-size:13px; line-height:1.9; font-weight:600; margin-bottom:14px;">
     कहानी को ठीक से समझने के लिए यह जानना ज़रूरी है कि हर पात्र दूसरे पात्र से <b class="hi">पारिवारिक रिश्ते</b> से जुड़ा है या <b class="hi2">सैनिक/मित्रता के रिश्ते</b> से। नीचे तालिका में यह स्पष्ट किया गया है:
   </p>
-  <div class="table-wrap">
-    <table>
-      <thead><tr><th>पात्र 1</th><th>संबंध (रिश्ता)</th><th>पात्र 2</th></tr></thead>
-      <tbody>
-        <tr><td>सूबेदार हजारा सिंह</td><td><b class="hi">पति</b> (Husband)</td><td>सूबेदारनी</td></tr>
-        <tr><td>सूबेदारनी</td><td><b class="hi">पत्नी</b> (Wife)</td><td>सूबेदार हजारा सिंह</td></tr>
-        <tr><td>हजारा सिंह + सूबेदारनी</td><td><b class="hi2">माता-पिता</b> (Parents)</td><td>बोधा सिंह (पुत्र)</td></tr>
-        <tr><td>बोधा सिंह</td><td><b class="hi2">पुत्र</b> (Son)</td><td>हजारा सिंह व सूबेदारनी</td></tr>
-        <tr><td>अतर सिंह</td><td><b class="hi3">मामा</b> (Maternal Uncle)</td><td>सूबेदारनी (बचपन की लड़की)</td></tr>
-        <tr><td>लहना सिंह</td><td><b class="hi3">बचपन में रक्षक, बाद में अबोले वचन से बंधा रक्षक</b> (कोई खून/विवाह का रिश्ता नहीं — केवल वचन का बंधन)</td><td>सूबेदारनी</td></tr>
-        <tr><td>लहना सिंह</td><td><b class="hi">जमादार — सूबेदार के मातहत सैनिक</b>, परंतु व्यक्तिगत वचन से रक्षक भी</td><td>सूबेदार हजारा सिंह</td></tr>
-        <tr><td>लहना सिंह</td><td><b class="hi2">रक्षक</b> — सूबेदारनी द्वारा सौंपा गया कर्तव्य</td><td>बोधा सिंह</td></tr>
-        <tr><td>लहना सिंह</td><td><b class="hi3">घनिष्ठ मित्र व सहयोगी सिपाही</b> (Close Friend & Fellow Soldier)</td><td>वजीरा सिंह</td></tr>
-      </tbody>
-    </table>
+  <div class="glass card">
+    <div class="relwho">पारिवारिक संबंध — हजारा सिंह परिवार (Family Tree)</div>
+    <div style="overflow-x:auto;">
+      <svg viewBox="0 0 700 340" style="width:100%; max-width:640px; height:auto; display:block; margin:0 auto;">
+        <line x1="350" y1="72" x2="200" y2="140" style="stroke:var(--cyan); stroke-width:2.5;"/>
+        <line x1="280" y1="165" x2="420" y2="165" style="stroke:var(--gold); stroke-width:2.5;"/>
+        <line x1="350" y1="165" x2="350" y2="240" style="stroke:var(--green); stroke-width:2.5;"/>
+
+        <rect x="280" y="20" width="140" height="50" rx="12" style="fill:var(--purple);"/>
+        <text x="350" y="50" text-anchor="middle" style="fill:#fff; font-weight:900; font-size:15px;">अतर सिंह</text>
+
+        <rect x="120" y="140" width="160" height="50" rx="12" style="fill:var(--pink);"/>
+        <text x="200" y="170" text-anchor="middle" style="fill:#fff; font-weight:900; font-size:15px;">सूबेदारनी</text>
+
+        <rect x="420" y="140" width="160" height="50" rx="12" style="fill:var(--green);"/>
+        <text x="500" y="170" text-anchor="middle" style="fill:#04050f; font-weight:900; font-size:15px;">हजारा सिंह</text>
+
+        <rect x="280" y="240" width="140" height="50" rx="12" style="fill:var(--orange);"/>
+        <text x="350" y="270" text-anchor="middle" style="fill:#04050f; font-weight:900; font-size:15px;">बोधा सिंह</text>
+
+        <rect x="240" y="98" width="70" height="24" rx="12" style="fill:var(--bg); stroke:var(--cyan); stroke-width:1.5;"/>
+        <text x="275" y="114" text-anchor="middle" style="fill:var(--cyan); font-weight:800; font-size:11px;">मामा</text>
+
+        <rect x="315" y="153" width="90" height="24" rx="12" style="fill:var(--bg); stroke:var(--gold); stroke-width:1.5;"/>
+        <text x="360" y="169" text-anchor="middle" style="fill:var(--gold); font-weight:800; font-size:11px;">पति-पत्नी</text>
+
+        <rect x="310" y="188" width="80" height="24" rx="12" style="fill:var(--bg); stroke:var(--green); stroke-width:1.5;"/>
+        <text x="350" y="204" text-anchor="middle" style="fill:var(--green); font-weight:800; font-size:11px;">पुत्र</text>
+      </svg>
+    </div>
+    <p style="color:var(--dim); font-size:12.5px; text-align:center; font-weight:600; margin-top:10px;">अतर सिंह, सूबेदारनी के मामा हैं; सूबेदारनी व हजारा सिंह पति-पत्नी हैं; बोधा सिंह इन दोनों का पुत्र है।</p>
   </div>
-  <p style="color:var(--dim); font-size:13px; line-height:1.9; font-weight:600; margin:14px 0 0;">
-    <b class="hi">ध्यान दें:</b> लहना सिंह और सूबेदारनी के बीच कोई पारिवारिक या वैवाहिक रिश्ता नहीं है — उनका संबंध केवल <b class="hi2">बचपन की एक भेंट और एक अबोले (बिना कहे) वचन</b> पर टिका है। यही बात कहानी को खास बनाती है, क्योंकि लहना सिंह बिना किसी औपचारिक रिश्ते के भी अपने प्राण न्योछावर कर देता है।
-  </p>
+
+  <div class="glass card" style="margin-top:18px;">
+    <div class="relwho">लहना सिंह के संबंध — कथा-संबंध (Story Relations, Not Family)</div>
+    <div class="tree-wrap">
+      <ul class="ctree">
+        <li>
+          <span class="tree-box root-box" style="background:linear-gradient(120deg,var(--cyan),#0a85b8);">लहना सिंह</span>
+          <ul>
+            <li><span class="tree-box small">सूबेदारनी<small>वचनबद्ध रक्षक</small></span></li>
+            <li><span class="tree-box small">हजारा सिंह<small>अधीनस्थ सैनिक</small></span></li>
+            <li><span class="tree-box small">बोधा सिंह<small>रक्षा-कर्तव्य</small></span></li>
+            <li><span class="tree-box small">वजीरा सिंह<small>घनिष्ठ मित्र</small></span></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <p style="color:var(--dim); font-size:12.5px; text-align:center; font-weight:600; margin-top:10px;">लहना सिंह का इन चारों से कोई खून या विवाह का रिश्ता नहीं है — यह संबंध केवल बचपन की एक भेंट और एक अबोले वचन पर टिका है, यही कहानी को खास बनाता है।</p>
+  </div>
 
   <div class="grid grid-2" style="margin-top:22px;">
     <div class="rule-card" style="border-left-color:var(--red);">
