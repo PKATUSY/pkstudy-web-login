@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PK STUDY | लोकतंत्र में सत्ता की साझेदारी — Power Sharing</title>
+<style>
+:root{
+  --bg:#04050f; --glass:rgba(255,255,255,.045); --glass-strong:rgba(255,255,255,.08);
+  --border:rgba(255,255,255,.12); --text:#f2f6ff; --dim:#9fb0da; --heading:#ffffff;
+  --neon-blue:#3ea6ff; --cyan:#33e0ff; --purple:#b07dff; --gold:#ffc233;
+  --green:#2ee6a6; --orange:#ff9f43; --pink:#ff4d8d; --red:#ff4f4f;
+  --shadow:0 22px 46px -22px #000d; --hshadow:0 30px 56px -20px #000f;
+}
+[data-theme="light"]{
+  --bg:#f6f8fd; --glass:rgba(20,30,65,.045); --glass-strong:rgba(20,30,65,.08);
+  --border:rgba(20,30,65,.12); --text:#161c33; --dim:#535f82; --heading:#12172b;
+  --neon-blue:#2563eb; --cyan:#0891b2; --purple:#7c3aed; --gold:#b45309;
+  --green:#059669; --orange:#c2410c; --pink:#db2777; --red:#dc2626;
+  --shadow:0 18px 36px -20px rgba(30,40,80,.18); --hshadow:0 24px 44px -18px rgba(30,40,80,.24);
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Segoe UI','Noto Sans Devanagari',Arial,sans-serif; color:var(--text); min-height:100vh; overflow-x:hidden;
+  transition:background .4s, color .4s;
+  background:
+    radial-gradient(ellipse at 10% -10%, #1c3a9955, transparent 55%),
+    radial-gradient(ellipse at 95% 10%, #7a2ab866, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, #0a5a6e44, transparent 55%),
+    linear-gradient(180deg,#04050f,#020208 90%);
+}
+[data-theme="light"] body{
+  background:
+    radial-gradient(ellipse at 10% -10%, #dbe4ff99, transparent 55%),
+    radial-gradient(ellipse at 95% 10%, #ede0ff99, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, #d7f5f099, transparent 55%),
+    linear-gradient(180deg,#f8faff,#eef1f9 90%);
+}
+::-webkit-scrollbar{width:8px;} ::-webkit-scrollbar-thumb{background:var(--neon-blue); border-radius:6px;} ::-webkit-scrollbar-track{background:transparent;}
+
+.glass{background:var(--glass); border:1px solid var(--border); border-radius:18px; backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+  box-shadow:var(--shadow), inset 0 1px 0 #ffffff12;}
+
+header{position:sticky; top:0; z-index:200; display:flex; align-items:center; justify-content:space-between; padding:14px 26px;
+  background:rgba(4,5,15,.75); backdrop-filter:blur(18px); border-bottom:1px solid var(--border); flex-wrap:wrap; gap:10px; transition:background .4s;}
+[data-theme="light"] header{background:rgba(255,255,255,.8);}
+.brand{display:flex; align-items:center; gap:12px;}
+.brand img{width:44px; height:44px; border-radius:10px; object-fit:cover; border:2px solid var(--neon-blue); box-shadow:0 0 18px #3ea6ff88;}
+.logo-fallback{width:44px; height:44px; border-radius:10px; display:flex; align-items:center; justify-content:center;
+  background:linear-gradient(135deg,var(--neon-blue),#1f3d8c); font-weight:900; font-size:12px; border:2px solid var(--cyan); color:#fff;}
+.brand-text .name{font-weight:900; font-size:18px; color:var(--cyan); letter-spacing:.5px;}
+.brand-text .tag{font-size:11px; color:var(--dim); font-weight:600;}
+nav{display:flex; gap:5px; overflow-x:auto; max-width:52vw;}
+nav::-webkit-scrollbar{height:4px;}
+nav a{color:var(--dim); text-decoration:none; font-size:11.5px; padding:6px 11px; border-radius:16px; border:1px solid transparent; transition:.2s; font-weight:700; white-space:nowrap;}
+nav a:hover{color:var(--heading); border-color:var(--neon-blue); background:#3ea6ff1a;}
+.theme-btn{flex-shrink:0; width:40px; height:40px; border-radius:12px; border:1px solid var(--border); background:var(--glass-strong);
+  color:var(--text); font-size:17px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:.25s;}
+.theme-btn:hover{border-color:var(--neon-blue); transform:translateY(-2px);}
+
+.hero{position:relative; padding:60px 6vw 40px; text-align:center;}
+.eyebrow{display:inline-block; padding:7px 22px; border-radius:30px; color:#04050f; font-size:12px; font-weight:900;
+  letter-spacing:2px; text-transform:uppercase; margin-bottom:20px;
+  background:linear-gradient(120deg,var(--gold),var(--orange),var(--pink),var(--purple),var(--cyan));
+  box-shadow:0 10px 26px -6px #000b;}
+.hero h1{font-size:clamp(26px,5.5vw,48px); font-weight:900; line-height:1.25;
+  background:linear-gradient(90deg,var(--neon-blue),var(--cyan) 35%,var(--purple) 65%,var(--pink)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+.hero .en{font-size:16px; color:var(--dim); font-weight:700; margin-top:10px;}
+.hero p{color:var(--dim); max-width:780px; margin:20px auto 0; font-size:14.5px; line-height:1.9; font-weight:500;}
+
+section{position:relative; padding:44px 6vw; max-width:1200px; margin:0 auto;}
+.sec-head{display:flex; align-items:center; gap:14px; margin-bottom:24px;}
+.sec-num{width:44px; height:44px; border-radius:14px; flex-shrink:0; display:flex; align-items:center; justify-content:center;
+  font-weight:900; font-size:16px; color:#04050f; box-shadow:0 8px 22px -6px var(--glow,#3ea6ff99); border:2px solid #ffffffaa;}
+.sec-head h2{font-size:clamp(19px,3vw,26px); font-weight:900; color:var(--heading);}
+.sec-head .sub{color:var(--dim); font-size:12.5px; font-weight:600; margin-top:2px;}
+.sec-head .en-tag{font-size:11px; color:var(--gold); font-weight:700; letter-spacing:.5px;}
+
+.card{padding:20px 22px;}
+.grid{display:grid; gap:16px;}
+.grid-2{grid-template-columns:1fr 1fr;} .grid-3{grid-template-columns:repeat(3,1fr);} .grid-4{grid-template-columns:repeat(4,1fr);}
+@media(max-width:900px){.grid-3,.grid-4{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr;} nav{max-width:100%;}}
+
+b.hi{color:var(--pink); font-weight:900;} b.hi2{color:var(--green); font-weight:900;} b.hi3{color:var(--gold); font-weight:900;}
+
+.rule-card{padding:20px; border-left:5px solid var(--neon-blue);}
+.rule-card h4{font-size:15px; color:var(--cyan); font-weight:900; margin-bottom:10px;}
+.rule-card p{font-size:13px; color:var(--dim); line-height:1.85; font-weight:500; margin-bottom:8px;}
+.rule-card ul{margin:6px 0 6px 20px; font-size:13px; color:var(--dim); line-height:1.9; font-weight:500;}
+.rule-card ul li{margin-bottom:4px;}
+
+.def-card{padding:18px 20px; border-radius:16px;}
+.def-card h4{font-size:14.5px; margin-bottom:8px; display:flex; align-items:center; gap:8px; font-weight:900;}
+.def-card p{font-size:12.5px; color:var(--dim); line-height:1.75; font-weight:500;}
+
+.example-card{padding:18px 20px; margin-bottom:14px;}
+.example-card .qlabel{font-size:11px; font-weight:900; color:var(--gold); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;}
+.example-card .qtext{font-size:13.5px; font-weight:700; color:var(--heading); margin-bottom:14px; line-height:1.7;}
+.example-card .slabel{font-size:11px; font-weight:900; color:var(--green); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;}
+.example-card .stext{font-size:13px; color:var(--dim); line-height:1.9; font-weight:500; background:var(--glass-strong); padding:12px 14px; border-radius:10px; white-space:pre-line;}
+.show-ans-btn{padding:9px 20px; border-radius:10px; border:1.5px solid var(--green); background:transparent; color:var(--green);
+  font-weight:800; font-size:12px; cursor:pointer; transition:.2s;}
+.show-ans-btn:hover{background:var(--green); color:#04050f;}
+.show-ans-btn.open{background:var(--green); color:#04050f;}
+.ans-wrap{margin-top:14px; display:none;}
+.ans-wrap.open{display:block;}
+.pill{display:inline-block; padding:3px 10px; border-radius:10px; font-size:10px; font-weight:900; margin-left:8px; vertical-align:middle;}
+.pill-obj{background:linear-gradient(120deg,var(--cyan),#0a85b8); color:#04050f;}
+.pill-subj{background:linear-gradient(120deg,var(--purple),#7e4fd1); color:#fff;}
+
+.hw-card{padding:18px 20px;}
+.hw-card ol{margin:0; padding-left:20px; font-size:13px; color:var(--dim); line-height:2; font-weight:500;}
+.hw-card ol li{margin-bottom:8px;}
+.hw-card ol li::marker{color:var(--heading); font-weight:800;}
+
+.table-wrap{overflow-x:auto; margin-bottom:16px;}
+table{width:100%; border-collapse:collapse; min-width:560px;}
+thead th{text-align:center; padding:12px 14px; background:linear-gradient(120deg,var(--neon-blue),var(--purple)); color:#fff;
+  font-size:12px; text-transform:uppercase; letter-spacing:.5px; font-weight:900;}
+thead th:first-child{border-radius:10px 0 0 0;} thead th:last-child{border-radius:0 10px 0 0;}
+tbody td{padding:12px 14px; border-bottom:1px solid var(--border); color:var(--dim); font-size:12.5px; text-align:center; font-weight:600;}
+tbody tr:hover{background:#3ea6ff14;}
+
+/* ===== MIND MAP TREE ===== */
+.tree-wrap{overflow-x:auto; padding:18px 4px 4px;}
+.ctree, .ctree ul, .ctree li{list-style-type:none; margin:0; padding:0; position:relative;}
+.ctree{display:table; margin:0 auto; text-align:center;}
+.ctree ul{display:table; width:100%;}
+.ctree li{display:table-cell; padding:1.9em .7em 0; vertical-align:top;}
+.ctree li::before{outline:solid 2px var(--cyan); content:""; left:0; position:absolute; right:0; top:0;}
+.ctree li:first-child::before{left:50%; border-radius:8px 0 0 0;}
+.ctree li:last-child::before{right:50%; border-radius:0 8px 0 0;}
+.ctree ul::before{outline:solid 2px var(--cyan); content:""; height:1.9em; left:50%; position:absolute; top:-1.9em;}
+.ctree > li{padding-top:0;}
+.ctree > li::before{display:none;}
+.ctree li:only-child{padding-top:0;}
+.ctree li:only-child::before{display:none;}
+.tree-box{display:inline-block; padding:12px 16px; border-radius:12px; font-weight:900; font-size:12.5px; color:#04050f; text-align:center;
+  min-width:135px; box-shadow:0 8px 20px -6px #0009; background:linear-gradient(120deg,var(--gold),var(--orange)); position:relative;}
+.tree-box small{display:block; font-weight:700; font-size:10px; margin-top:3px; opacity:.85;}
+.tree-box.root-box{background:linear-gradient(120deg,var(--neon-blue),var(--purple)); color:#fff; font-size:14px; min-width:190px; padding:14px 22px;}
+
+footer{text-align:center; padding:50px 6vw 70px; color:var(--dim); font-size:12.5px; border-top:1px solid var(--border); margin-top:30px; font-weight:600;}
+footer .name{color:var(--cyan); font-weight:900; font-size:16px;}
+footer .copy{margin-top:18px; font-size:11px; color:var(--dim); opacity:.8;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <img src="images/1000043468.png" alt="PK STUDY" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="logo-fallback" style="display:none;">PK</div>
+    <div class="brand-text"><div class="name">PK STUDY</div><div class="tag">Class 10 • Social Science (नागरिक शास्त्र) • अध्याय 1</div></div>
+  </div>
+  <nav>
+    <a href="#notes">नोट्स</a><a href="#mindmap">माइंड मैप</a><a href="#tables">केस स्टडी</a><a href="#questions">प्रश्न</a><a href="#homework">होमवर्क</a>
+  </nav>
+  <button class="theme-btn" id="themeToggle" onclick="toggleTheme()" title="Dark/Light Mode">🌙</button>
+</header>
+
+<!-- ============ HERO ============ -->
+<div class="hero">
+  <span class="eyebrow">कक्षा 10 · अध्याय 1 · नागरिक शास्त्र (लोकतांत्रिक राजनीति) · बिहार बोर्ड</span>
+  <h1>लोकतंत्र में सत्ता की साझेदारी</h1>
+  <div class="en">Power Sharing in a Democracy</div>
+  <p>इस अध्याय में हम पढ़ेंगे कि लोकतंत्र में सत्ता की साझेदारी क्यों ज़रूरी है, इसके अलग-अलग स्वरूप क्या हैं, तथा दो महत्वपूर्ण उदाहरणों — <b class="hi">बेल्जियम</b> (जहाँ सत्ता की साझेदारी सफल रही) और <b class="hi2">श्रीलंका</b> (जहाँ बहुसंख्यकवाद की नीति असफल रही) — के माध्यम से इसे समझेंगे। इस पेज में पूर्ण Notes, माइंड मैप, दोनों केस स्टडी की तुलना, हल सहित महत्वपूर्ण प्रश्न और Homework दिया गया है।</p>
+</div>
+
+<!-- ============ NOTES ============ -->
+<section id="notes">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--neon-blue),#1f6fc9); --glow:#3ea6ff99;">📝</div>
+    <div><h2>Notes — विस्तार से समझें</h2><div class="sub en-tag">Concept Notes with Case Studies</div></div></div>
+  <div style="display:flex; flex-direction:column; gap:16px;">
+    <div class="rule-card" style="border-left-color:var(--cyan);">
+      <h4 style="color:var(--cyan);">1. सत्ता की साझेदारी क्या है?</h4>
+      <p>लोकतंत्र में <b class="hi">कोई एक अंग, स्तर या समूह अकेले सारी राजनीतिक सत्ता का उपयोग नहीं करता</b> — सत्ता को विधायिका, कार्यपालिका, न्यायपालिका जैसे अलग-अलग अंगों के बीच, सरकार के अलग-अलग स्तरों (केंद्र, राज्य, स्थानीय) के बीच, और अलग-अलग सामाजिक समूहों के बीच बाँटा जाता है। इसी को <b class="hi2">सत्ता की साझेदारी (Power Sharing)</b> कहते हैं।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--pink);">
+      <h4 style="color:var(--pink);">2. सत्ता की साझेदारी क्यों वांछनीय है?</h4>
+      <p><b class="hi">विवेकसम्मत कारण (Prudential Reasons):</b> सत्ता की साझेदारी से विभिन्न सामाजिक समूहों के बीच टकराव कम होता है, क्योंकि किसी एक समूह के निर्णय दूसरे समूह के हितों पर हावी होने की संभावना घट जाती है — इससे अत्याचार (tyranny) व सामाजिक संघर्ष/गृहयुद्ध की आशंका कम होती है। यह तर्क परिणाम (शांति, स्थिरता) पर आधारित है।<br><br>
+      <b class="hi2">नैतिक कारण (Moral Reasons):</b> सत्ता की साझेदारी स्वयं लोकतंत्र की आत्मा है — नागरिकों को उन निर्णयों में भागीदार होने का अधिकार है जो उन्हें प्रभावित करते हैं। सत्ता बाँटना अपने आप में एक मूल्यवान बात है, चाहे इसका कोई विशेष लाभकारी परिणाम हो या न हो।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--green);">
+      <h4 style="color:var(--green);">3. सत्ता की साझेदारी के स्वरूप</h4>
+      <p>• <b class="hi">क्षैतिज वितरण (Horizontal Distribution)</b> — सरकार के विभिन्न अंगों (विधायिका, कार्यपालिका, न्यायपालिका) के बीच, ताकि एक-दूसरे पर नियंत्रण (checks and balances) बना रहे और कोई भी अंग सर्वशक्तिमान न बने।<br>
+      • <b class="hi2">उर्ध्वाधर वितरण (Vertical Distribution)</b> — सरकार के अलग-अलग स्तरों (केंद्र, राज्य, स्थानीय निकाय) के बीच — जैसा संघीय (federal) व्यवस्था में होता है।<br>
+      • <b class="hi3">सामाजिक समूहों में साझेदारी (Community-Based)</b> — भाषायी, धार्मिक समुदायों के बीच, जैसे आरक्षित सीटें या बेल्जियम की सामुदायिक सरकारें।<br>
+      • <b class="hi">राजनीतिक दलों, दबाव समूहों एवं आंदोलनों में साझेदारी</b> — लोकतंत्र में नागरिक प्रतिस्पर्धी दलों में से चुन सकते हैं; दबाव समूह (जैसे ट्रेड यूनियन) भी नीति को प्रत्यक्ष/अप्रत्यक्ष रूप से प्रभावित करते हैं।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--orange);">
+      <h4 style="color:var(--orange);">4. बेल्जियम — सफल साझेदारी का उदाहरण</h4>
+      <p>बेल्जियम की जनसंख्या में <b class="hi">59% फ्लेमिश क्षेत्र</b> (डच भाषी), <b class="hi2">40% वैलोनिया क्षेत्र</b> (फ्रेंच भाषी) तथा 1% जर्मन भाषी हैं। राजधानी <b class="hi3">ब्रसेल्स</b> में 80% फ्रेंच भाषी व 20% डच भाषी हैं — यानी राष्ट्रीय स्तर पर बहुसंख्यक डच भाषी, राजधानी में अल्पसंख्यक बन जाते हैं, जिससे तनाव बढ़ता था। फ्रेंच भाषी समुदाय ऐतिहासिक रूप से अधिक समृद्ध व शक्तिशाली था, जिससे डच भाषी बहुसंख्यकों में असंतोष था।<br><br>
+      <b class="hi">1970 से 1993 के बीच बेल्जियम ने संविधान में चार बार संशोधन</b> कर एक साझेदारी व्यवस्था बनाई:<br>
+      • केंद्र सरकार में डच व फ्रेंच भाषी मंत्रियों की संख्या बराबर रखी जाती है।<br>
+      • कई कानूनों के लिए दोनों भाषायी समूहों के बहुमत का समर्थन आवश्यक है — कोई एक समुदाय अकेले निर्णय नहीं ले सकता।<br>
+      • राज्य सरकारें केंद्र सरकार के अधीन नहीं हैं (विकेंद्रीकरण)।<br>
+      • ब्रसेल्स की अपनी अलग सरकार है, जिसमें दोनों समुदायों को बराबर प्रतिनिधित्व मिलता है।<br>
+      • <b class="hi2">सामुदायिक सरकारें (Community Governments)</b> — भाषा-समूह के आधार पर चुनी जाती हैं, चाहे व्यक्ति कहीं भी रहता हो।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--red);">
+      <h4 style="color:var(--red);">5. श्रीलंका — बहुसंख्यकवाद की असफलता का उदाहरण</h4>
+      <p>श्रीलंका में बहुसंख्यक <b class="hi">सिंहली समुदाय</b> (बौद्ध धर्मावलंबी) तथा अल्पसंख्यक <b class="hi2">श्रीलंकाई तमिल समुदाय</b> (हिंदू धर्मावलंबी, उत्तर-पूर्व में केंद्रित) रहते हैं। स्वतंत्रता (1948) के समय तमिल लगभग 20% जनसंख्या होते हुए भी सरकारी नौकरियों में उनका हिस्सा असंगत रूप से अधिक था (औपनिवेशिक काल की व्यवस्था के कारण), जिससे सिंहली समुदाय में असंतोष था।<br><br>
+      <b class="hi3">1956 का 'सिंहली मात्र अधिनियम' (Sinhala Only Act)</b> — प्रधानमंत्री एस.डब्ल्यू.आर.डी. बंडारनायके की सरकार ने सिंहली को एकमात्र राजभाषा घोषित कर तमिल भाषा को हटा दिया — यह एक <b class="hi">बहुसंख्यकवादी (Majoritarian)</b> कदम था। सरकारी नीतियों ने बौद्ध धर्म (बहुसंख्यक धर्म) को भी वरीयता दी।<br><br>
+      <b class="hi2">परिणाम:</b> तमिल समुदाय में भेदभाव की भावना व क्षेत्रीय स्वायत्तता/स्वतंत्रता की माँग बढ़ी → सरकार व तमिल उग्रवादी संगठनों (जैसे LTTE) के बीच दशकों तक चला <b class="hi">गृहयुद्ध</b> हुआ, जिसमें भारी जन-धन की हानि हुई।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--purple);">
+      <h4 style="color:var(--purple);">6. बेल्जियम बनाम श्रीलंका — सीखा गया सबक</h4>
+      <p><b class="hi">बेल्जियम</b> ने सत्ता की साझेदारी अपनाकर विभिन्न भाषायी समुदायों के बीच संतुलन बनाया और संघर्ष टाला। <b class="hi2">श्रीलंका</b> ने इसके विपरीत बहुसंख्यक समुदाय की इच्छा को पूरे राष्ट्र पर थोपने की कोशिश की — इससे सत्ता की साझेदारी की बजाय एकतरफा वर्चस्व बना, जिसने संघर्ष को सुलझाने की बजाय गहरा कर दिया। इससे यह स्पष्ट सबक मिलता है कि <b class="hi3">विविधता वाले समाजों में सत्ता की साझेदारी शांति व स्थिरता के लिए आवश्यक है।</b></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MIND MAP ============ -->
+<section id="mindmap">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--purple),#7e4fd1); --glow:#b07dff99;">🧠</div>
+    <div><h2>माइंड मैप — सत्ता की साझेदारी के स्वरूप</h2><div class="sub en-tag">Forms of Power Sharing</div></div></div>
+  <div class="glass card">
+    <div class="tree-wrap">
+      <ul class="ctree">
+        <li>
+          <span class="tree-box root-box">सत्ता की साझेदारी</span>
+          <ul>
+            <li><span class="tree-box" style="background:linear-gradient(120deg,var(--cyan),#0a85b8);">क्षैतिज वितरण<small>विधायिका-कार्यपालिका-न्यायपालिका</small></span></li>
+            <li><span class="tree-box" style="background:linear-gradient(120deg,var(--pink),#b8215f); color:#fff;">उर्ध्वाधर वितरण<small>केंद्र-राज्य-स्थानीय</small></span></li>
+            <li><span class="tree-box" style="background:linear-gradient(120deg,var(--green),#1a9c70);">सामाजिक समूह<small>भाषायी/धार्मिक समुदाय</small></span></li>
+            <li><span class="tree-box" style="background:linear-gradient(120deg,var(--orange),#c9650c);">दल एवं दबाव समूह<small>राजनीतिक दल, आंदोलन</small></span></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CASE STUDY COMPARISON ============ -->
+<section id="tables">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--gold),#b8860b); --glow:#ffc23399;">⚖️</div>
+    <div><h2>केस स्टडी तुलना — बेल्जियम बनाम श्रीलंका</h2><div class="sub en-tag">Belgium vs Sri Lanka</div></div></div>
+  <div class="glass card table-wrap">
+    <table>
+      <thead><tr><th>बिंदु</th><th>बेल्जियम</th><th>श्रीलंका</th></tr></thead>
+      <tbody>
+        <tr><td>जनसंख्या संरचना</td><td>59% डच भाषी, 40% फ्रेंच भाषी, 1% जर्मन भाषी</td><td>~74% सिंहली, ~18% तमिल</td></tr>
+        <tr><td>नीति</td><td>सत्ता की साझेदारी (Power Sharing)</td><td>बहुसंख्यकवाद (Majoritarianism)</td></tr>
+        <tr><td>प्रमुख कदम</td><td>1970-1993 में 4 बार संविधान संशोधन</td><td>1956 का सिंहली मात्र अधिनियम</td></tr>
+        <tr><td>परिणाम</td><td>शांतिपूर्ण, संतुलित सह-अस्तित्व</td><td>तमिल असंतोष व दशकों लंबा गृहयुद्ध</td></tr>
+        <tr><td>सीख</td><td>साझेदारी से संघर्ष टलता है</td><td>बहुसंख्यकवाद संघर्ष को गहरा करता है</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ QUESTIONS ============ -->
+<section id="questions">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--green),#1a9c70); --glow:#2ee6a699;">📘</div>
+    <div><h2>महत्वपूर्ण प्रश्न (हल सहित)</h2><div class="sub en-tag">Objective + Subjective — उत्तर देखने के लिए बटन दबाएँ</div></div></div>
+  <div id="qWrap"></div>
+</section>
+
+<!-- ============ HOMEWORK ============ -->
+<section id="homework">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--red),#a82424); --glow:#ff4f4f99;">🏠</div>
+    <div><h2>घर से करने के लिए Homework</h2><div class="sub en-tag">बिना उत्तर देखे खुद हल करें</div></div></div>
+  <div class="glass card hw-card">
+    <ol id="homeworkList"></ol>
+  </div>
+  <p style="color:var(--dim); font-size:12px; margin-top:14px; font-weight:600;">यह प्रश्न अपनी Social Science की notebook में हल करके अगली कक्षा में साथ लाइए।</p>
+</section>
+
+<footer>
+  <span class="name">PK STUDY</span> — अध्याय 1 पूर्ण
+  <div class="copy">Class 10 · Social Science (नागरिक शास्त्र) · लोकतंत्र में सत्ता की साझेदारी — PK STUDY, All Copyright Reserved</div>
+</footer>
+
+<script>
+function toggleTheme(){
+  const html = document.documentElement;
+  const isLight = html.getAttribute('data-theme') === 'light';
+  html.setAttribute('data-theme', isLight ? '' : 'light');
+  document.getElementById('themeToggle').textContent = isLight ? '🌙' : '☀️';
+}
+function el(tag, cls, html){ const d=document.createElement(tag); if(cls)d.className=cls; if(html!==undefined)d.innerHTML=html; return d; }
+
+const qData = [
+  {type:"obj", q:"1. सत्ता की साझेदारी किसे कहते हैं?", a:"जब लोकतंत्र में राजनीतिक सत्ता किसी एक अंग, स्तर या समूह के पास न होकर विभिन्न अंगों, स्तरों व सामाजिक समूहों के बीच बाँटी जाती है, तो उसे सत्ता की साझेदारी कहते हैं।"},
+  {type:"obj", q:"2. सत्ता की साझेदारी के विवेकसम्मत कारण क्या हैं?", a:"सत्ता की साझेदारी से विभिन्न सामाजिक समूहों के बीच टकराव कम होता है और अत्याचार व सामाजिक संघर्ष की आशंका घटती है — यह परिणाम-आधारित तर्क है।"},
+  {type:"subj", q:"3. सत्ता की साझेदारी के नैतिक कारण को स्पष्ट कीजिए।", a:"नैतिक दृष्टि से सत्ता की साझेदारी स्वयं लोकतंत्र की आत्मा है — नागरिकों को उन निर्णयों में भागीदार होने का अधिकार है जो उन्हें प्रभावित करते हैं। यह अपने आप में मूल्यवान है, चाहे इसका कोई विशेष लाभकारी परिणाम हो या न हो।"},
+  {type:"obj", q:"4. क्षैतिज वितरण (Horizontal Distribution) किसे कहते हैं?", a:"सरकार के विभिन्न अंगों — विधायिका, कार्यपालिका, न्यायपालिका — के बीच सत्ता का बँटवारा क्षैतिज वितरण कहलाता है, जिससे एक-दूसरे पर नियंत्रण (checks and balances) बना रहता है।"},
+  {type:"obj", q:"5. उर्ध्वाधर वितरण (Vertical Distribution) किसे कहते हैं?", a:"सरकार के अलग-अलग स्तरों — केंद्र, राज्य, स्थानीय निकाय — के बीच सत्ता का बँटवारा उर्ध्वाधर वितरण कहलाता है, जैसा संघीय व्यवस्था में होता है।"},
+  {type:"subj", q:"6. बेल्जियम की जनसंख्या संरचना का वर्णन कीजिए।", a:"बेल्जियम की जनसंख्या में 59% लोग फ्लेमिश क्षेत्र में रहते हैं और डच भाषा बोलते हैं, 40% लोग वैलोनिया क्षेत्र में रहते हैं और फ्रेंच भाषा बोलते हैं, तथा 1% जर्मन भाषा बोलते हैं। राजधानी ब्रसेल्स में 80% फ्रेंच भाषी और 20% डच भाषी हैं।"},
+  {type:"subj", q:"7. बेल्जियम ने अपनी साझेदारी व्यवस्था कैसे बनाई? किन्हीं तीन प्रावधानों का वर्णन कीजिए।", a:"1970 से 1993 के बीच बेल्जियम के संविधान में चार बार संशोधन किए गए। प्रमुख प्रावधान: (1) केंद्र सरकार में डच व फ्रेंच भाषी मंत्रियों की संख्या बराबर रखी जाती है, (2) कई कानूनों के लिए दोनों भाषायी समूहों के बहुमत का समर्थन आवश्यक है, (3) ब्रसेल्स की अपनी अलग सरकार है जिसमें दोनों समुदायों को बराबर प्रतिनिधित्व मिलता है।"},
+  {type:"obj", q:"8. श्रीलंका में बहुसंख्यक व अल्पसंख्यक समुदाय कौन-कौन से हैं?", a:"बहुसंख्यक सिंहली समुदाय (बौद्ध धर्मावलंबी) तथा अल्पसंख्यक श्रीलंकाई तमिल समुदाय (हिंदू धर्मावलंबी)।"},
+  {type:"obj", q:"9. 'सिंहली मात्र अधिनियम' कब और किसने पारित किया?", a:"1956 में प्रधानमंत्री एस.डब्ल्यू.आर.डी. बंडारनायके की सरकार ने यह अधिनियम पारित किया, जिसमें सिंहली को एकमात्र राजभाषा घोषित किया गया।"},
+  {type:"subj", q:"10. सिंहली मात्र अधिनियम के क्या परिणाम हुए?", a:"इस अधिनियम से तमिल भाषी समुदाय में भेदभाव की भावना पैदा हुई, क्योंकि सरकारी नौकरियों व शिक्षा में उनका प्रतिनिधित्व तेज़ी से घट गया। इससे तमिल समुदाय में असंतोष बढ़ा और क्षेत्रीय स्वायत्तता की माँग उठी, जो अंततः सरकार व तमिल उग्रवादी संगठनों के बीच दशकों तक चले गृहयुद्ध में बदल गई।"},
+  {type:"subj", q:"11. बेल्जियम और श्रीलंका के अनुभवों की तुलना करते हुए बताइए कि लोकतंत्र के लिए सत्ता की साझेदारी क्यों आवश्यक है।", a:"बेल्जियम ने सत्ता की साझेदारी अपनाकर अपने भाषायी समुदायों के बीच संतुलन बनाया और शांतिपूर्ण सह-अस्तित्व सुनिश्चित किया। इसके विपरीत श्रीलंका ने बहुसंख्यक समुदाय (सिंहली) की इच्छा को पूरे राष्ट्र पर थोपने की कोशिश की, जिससे अल्पसंख्यक तमिल समुदाय में गहरा असंतोष फैला और गृहयुद्ध हुआ। इससे स्पष्ट होता है कि विविधतापूर्ण समाजों में सत्ता की साझेदारी संघर्ष रोकने व स्थिरता बनाए रखने के लिए आवश्यक है।"},
+  {type:"obj", q:"12. सामुदायिक सरकार (Community Government) किसे कहते हैं?", a:"बेल्जियम में भाषा-समूह के आधार पर चुनी जाने वाली सरकार, चाहे व्यक्ति देश में कहीं भी रहता हो, सामुदायिक सरकार कहलाती है — यह क्षेत्र-आधारित नहीं, समुदाय-आधारित साझेदारी का उदाहरण है।"},
+  {type:"subj", q:"13. सत्ता की साझेदारी के सामाजिक समूहों में साझेदारी वाले स्वरूप को उदाहरण सहित समझाइए।", a:"जब सत्ता को भाषायी, धार्मिक या नृजातीय समुदायों के बीच साझा किया जाता है, तो उसे सामाजिक समूहों में साझेदारी कहते हैं। उदाहरण: बेल्जियम में डच व फ्रेंच भाषी समुदायों के बीच मंत्री-पदों व कानून-निर्माण में बराबर की साझेदारी, या भारत में विभिन्न समुदायों के लिए आरक्षित सीटों की व्यवस्था।"},
+  {type:"obj", q:"14. श्रीलंका में गृहयुद्ध किन दो पक्षों के बीच हुआ?", a:"श्रीलंका की सरकार और तमिल उग्रवादी संगठनों (जैसे LTTE) के बीच।"},
+  {type:"subj", q:"15. लोकतंत्र में दबाव समूहों व आंदोलनों की भूमिका बताइए।", a:"लोकतंत्र में नागरिक अपने हितों की रक्षा के लिए ट्रेड यूनियन, व्यापारिक संगठन या सामाजिक आंदोलनों जैसे दबाव समूह बनाते हैं। ये समूह सरकार की नीतियों को प्रत्यक्ष रूप से (बातचीत, प्रदर्शन के माध्यम से) या अप्रत्यक्ष रूप से (जनमत बनाकर) प्रभावित करते हैं, जिससे सत्ता का एक और स्वरूप में बँटवारा होता है।"},
+  {type:"obj", q:"16. भारत में उर्ध्वाधर वितरण का एक उदाहरण दीजिए।", a:"भारत में केंद्र सरकार, राज्य सरकारें और पंचायत/नगरपालिका जैसे स्थानीय निकायों के बीच सत्ता का बँटवारा उर्ध्वाधर वितरण का उदाहरण है।"}
+];
+
+const homeworkData = [
+  "सत्ता की साझेदारी के चार स्वरूपों के नाम व एक-एक उदाहरण अपने शब्दों में लिखिए।",
+  "बेल्जियम के संविधान संशोधन (1970-1993) के किन्हीं तीन प्रावधानों को अपने शब्दों में समझाइए।",
+  "श्रीलंका में सिंहली मात्र अधिनियम के परिणामों पर एक अनुच्छेद लिखिए।",
+  "यदि भारत में सत्ता की साझेदारी न होती, तो क्या-क्या समस्याएँ हो सकती थीं? अपने विचार लिखिए।",
+  "'बहुसंख्यकवाद' और 'सत्ता की साझेदारी' में अंतर स्पष्ट करते हुए एक तालिका बनाइए।"
+];
+
+function buildQuestions(){
+  const wrap = document.getElementById('qWrap');
+  qData.forEach((item)=>{
+    const pillHtml = item.type === 'obj' ? '<span class="pill pill-obj">Objective</span>' : '<span class="pill pill-subj">Subjective</span>';
+    const d = el('div','glass example-card', `<div class="qlabel">प्रश्न ${pillHtml}</div><div class="qtext">${item.q}</div>
+      <button class="show-ans-btn" onclick="toggleAnswer(this)">उत्तर दिखाएँ (Show Answer)</button>
+      <div class="ans-wrap"><div class="slabel">उत्तर (Answer)</div><div class="stext">${item.a}</div></div>`);
+    wrap.appendChild(d);
+  });
+}
+function toggleAnswer(btn){
+  const wrap = btn.nextElementSibling;
+  const isOpen = wrap.classList.toggle('open');
+  btn.classList.toggle('open', isOpen);
+  btn.textContent = isOpen ? 'उत्तर छुपाएँ (Hide Answer)' : 'उत्तर दिखाएँ (Show Answer)';
+}
+function buildHomework(){
+  const g = document.getElementById('homeworkList');
+  homeworkData.forEach(q=>{ const li = document.createElement('li'); li.textContent = q; g.appendChild(li); });
+}
+
+buildQuestions();
+buildHomework();
+</script>
+</body>
+</html>
