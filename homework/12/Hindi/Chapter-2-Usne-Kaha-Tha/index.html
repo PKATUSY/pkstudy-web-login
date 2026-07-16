@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PK STUDY | उसने कहा था — चंद्रधर शर्मा गुलेरी</title>
+<style>
+:root{
+  --bg:#04050f; --glass:rgba(255,255,255,.045); --glass-strong:rgba(255,255,255,.08);
+  --border:rgba(255,255,255,.12); --text:#f2f6ff; --dim:#9fb0da; --heading:#ffffff;
+  --neon-blue:#3ea6ff; --cyan:#33e0ff; --purple:#b07dff; --gold:#ffc233;
+  --green:#2ee6a6; --orange:#ff9f43; --pink:#ff4d8d; --red:#ff4f4f;
+  --shadow:0 22px 46px -22px #000d; --hshadow:0 30px 56px -20px #000f;
+}
+[data-theme="light"]{
+  --bg:#f6f8fd; --glass:rgba(20,30,65,.045); --glass-strong:rgba(20,30,65,.08);
+  --border:rgba(20,30,65,.12); --text:#161c33; --dim:#535f82; --heading:#12172b;
+  --neon-blue:#2563eb; --cyan:#0891b2; --purple:#7c3aed; --gold:#b45309;
+  --green:#059669; --orange:#c2410c; --pink:#db2777; --red:#dc2626;
+  --shadow:0 18px 36px -20px rgba(30,40,80,.18); --hshadow:0 24px 44px -18px rgba(30,40,80,.24);
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Segoe UI','Noto Sans Devanagari',Arial,sans-serif; color:var(--text); min-height:100vh; overflow-x:hidden;
+  transition:background .4s, color .4s;
+  background:
+    radial-gradient(ellipse at 10% -10%, #1c3a9955, transparent 55%),
+    radial-gradient(ellipse at 95% 10%, #7a2ab866, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, #0a5a6e44, transparent 55%),
+    linear-gradient(180deg,#04050f,#020208 90%);
+}
+[data-theme="light"] body{
+  background:
+    radial-gradient(ellipse at 10% -10%, #dbe4ff99, transparent 55%),
+    radial-gradient(ellipse at 95% 10%, #ede0ff99, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, #d7f5f099, transparent 55%),
+    linear-gradient(180deg,#f8faff,#eef1f9 90%);
+}
+::-webkit-scrollbar{width:8px;} ::-webkit-scrollbar-thumb{background:var(--neon-blue); border-radius:6px;} ::-webkit-scrollbar-track{background:transparent;}
+
+.glass{background:var(--glass); border:1px solid var(--border); border-radius:18px; backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+  box-shadow:var(--shadow), inset 0 1px 0 #ffffff12; transition:transform .35s, box-shadow .35s, background .4s, border .4s;}
+
+header{position:sticky; top:0; z-index:200; display:flex; align-items:center; justify-content:space-between; padding:14px 26px;
+  background:rgba(4,5,15,.75); backdrop-filter:blur(18px); border-bottom:1px solid var(--border); flex-wrap:wrap; gap:10px; transition:background .4s;}
+[data-theme="light"] header{background:rgba(255,255,255,.8);}
+.brand{display:flex; align-items:center; gap:12px;}
+.brand img{width:44px; height:44px; border-radius:10px; object-fit:cover; border:2px solid var(--neon-blue); box-shadow:0 0 18px #3ea6ff88;}
+.logo-fallback{width:44px; height:44px; border-radius:10px; display:flex; align-items:center; justify-content:center;
+  background:linear-gradient(135deg,var(--neon-blue),#1f3d8c); font-weight:900; font-size:12px; border:2px solid var(--cyan); color:#fff;}
+.brand-text .name{font-weight:900; font-size:18px; color:var(--cyan); letter-spacing:.5px;}
+.brand-text .tag{font-size:11px; color:var(--dim); font-weight:600;}
+nav{display:flex; gap:5px; overflow-x:auto; max-width:52vw;}
+nav::-webkit-scrollbar{height:4px;}
+nav a{color:var(--dim); text-decoration:none; font-size:11.5px; padding:6px 11px; border-radius:16px; border:1px solid transparent; transition:.2s; font-weight:700; white-space:nowrap;}
+nav a:hover{color:var(--heading); border-color:var(--neon-blue); background:#3ea6ff1a;}
+.theme-btn{flex-shrink:0; width:40px; height:40px; border-radius:12px; border:1px solid var(--border); background:var(--glass-strong);
+  color:var(--text); font-size:17px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:.25s;}
+.theme-btn:hover{border-color:var(--neon-blue); transform:translateY(-2px);}
+
+.hero{position:relative; padding:60px 6vw 40px; text-align:center;}
+.eyebrow{display:inline-block; padding:7px 22px; border-radius:30px; color:#04050f; font-size:12px; font-weight:900;
+  letter-spacing:2px; text-transform:uppercase; margin-bottom:20px;
+  background:linear-gradient(120deg,var(--gold),var(--orange),var(--pink),var(--purple),var(--cyan));
+  box-shadow:0 10px 26px -6px #000b;}
+.hero h1{font-size:clamp(26px,5.5vw,48px); font-weight:900; line-height:1.25;
+  background:linear-gradient(90deg,var(--neon-blue),var(--cyan) 35%,var(--purple) 65%,var(--pink)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+.hero .en{font-size:16px; color:var(--dim); font-weight:700; margin-top:10px;}
+.hero p{color:var(--dim); max-width:780px; margin:20px auto 0; font-size:14.5px; line-height:1.9; font-weight:600;}
+
+section{position:relative; padding:44px 6vw; max-width:1200px; margin:0 auto;}
+.sec-head{display:flex; align-items:center; gap:14px; margin-bottom:24px;}
+.sec-num{width:44px; height:44px; border-radius:14px; flex-shrink:0; display:flex; align-items:center; justify-content:center;
+  font-weight:900; font-size:16px; color:#04050f; box-shadow:0 8px 22px -6px var(--glow,#3ea6ff99); border:2px solid #ffffffaa;}
+.sec-head h2{font-size:clamp(19px,3vw,26px); font-weight:900; color:var(--heading);}
+.sec-head .sub{color:var(--dim); font-size:12.5px; font-weight:600; margin-top:2px;}
+.sec-head .en-tag{font-size:11px; color:var(--gold); font-weight:700; letter-spacing:.5px;}
+
+.card{padding:20px 22px;}
+.grid{display:grid; gap:16px;}
+.grid-2{grid-template-columns:1fr 1fr;} .grid-3{grid-template-columns:repeat(3,1fr);}
+@media(max-width:900px){.grid-3{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.grid-2,.grid-3{grid-template-columns:1fr;} nav{max-width:100%;}}
+
+b.hi{color:var(--pink); font-weight:900;} b.hi2{color:var(--green); font-weight:900;} b.hi3{color:var(--gold); font-weight:900;}
+.eng-term{color:var(--cyan); font-style:italic; font-weight:700;}
+
+.rule-card{padding:22px; border-left:5px solid var(--neon-blue);}
+.rule-card h4{font-size:16.5px; color:var(--cyan); font-weight:900; margin-bottom:10px;}
+.rule-card p{font-size:14px; color:var(--dim); line-height:1.9; font-weight:600;}
+
+.def-card{padding:18px 20px; border-radius:16px;}
+.def-card h4{font-size:14.5px; margin-bottom:8px; display:flex; align-items:center; gap:8px; font-weight:900;}
+.def-card p{font-size:13px; color:var(--dim); line-height:1.8; font-weight:600;}
+
+.q-card{padding:18px 20px; margin-bottom:14px;}
+.q-card .qlabel{font-size:11.5px; font-weight:900; color:var(--gold); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px; display:flex; align-items:center; gap:10px; flex-wrap:wrap;}
+.q-card .qtext{font-size:14.5px; font-weight:800; color:var(--heading); margin-bottom:14px; line-height:1.75;}
+.pill{display:inline-block; padding:3px 10px; border-radius:10px; font-size:10px; font-weight:900;}
+.pill-obj{background:linear-gradient(120deg,var(--cyan),#0a85b8); color:#04050f;}
+.pill-subj{background:linear-gradient(120deg,var(--purple),#7e4fd1); color:#fff;}
+.show-ans-btn{padding:9px 20px; border-radius:10px; border:1.5px solid var(--green); background:transparent; color:var(--green);
+  font-weight:800; font-size:12px; cursor:pointer; transition:.2s;}
+.show-ans-btn:hover{background:var(--green); color:#04050f;}
+.show-ans-btn.open{background:var(--green); color:#04050f;}
+.ans-wrap{margin-top:14px; display:none;}
+.ans-wrap.open{display:block;}
+.q-card .slabel{font-size:11.5px; font-weight:900; color:var(--green); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;}
+.q-card .stext{font-size:14px; color:var(--dim); line-height:2; font-weight:600; background:var(--glass-strong); padding:12px 14px; border-radius:10px;}
+
+.hw-card{padding:18px 20px;}
+.hw-card ol{margin:0; padding-left:20px; font-size:13.5px; color:var(--dim); line-height:2.1; font-weight:600;}
+.hw-card ol li{margin-bottom:8px;}
+.hw-card ol li::marker{color:var(--heading); font-weight:800;}
+
+.table-wrap{overflow-x:auto; margin-bottom:16px;}
+table{width:100%; border-collapse:collapse; min-width:560px;}
+thead th{text-align:center; padding:12px 14px; background:linear-gradient(120deg,var(--neon-blue),var(--purple)); color:#fff;
+  font-size:12px; text-transform:uppercase; letter-spacing:.5px; font-weight:900;}
+thead th:first-child{border-radius:10px 0 0 0;} thead th:last-child{border-radius:0 10px 0 0;}
+tbody td{padding:12px 14px; border-bottom:1px solid var(--border); color:var(--dim); font-size:13px; text-align:left; font-weight:600;}
+tbody tr:hover{background:#3ea6ff14;}
+
+.quote-card{padding:18px 22px; border-radius:16px; text-align:center; font-style:italic; font-weight:800; font-size:15px; color:var(--heading); position:relative;}
+.quote-card .who{margin-top:10px; font-size:11.5px; font-style:normal; color:var(--gold); font-weight:700;}
+
+/* ===== MIND MAP TREE ===== */
+.tree-wrap{overflow-x:auto; padding:18px 4px 4px;}
+.ctree, .ctree ul, .ctree li{list-style-type:none; margin:0; padding:0; position:relative;}
+.ctree{display:table; margin:0 auto; text-align:center;}
+.ctree ul{display:table; width:100%;}
+.ctree li{display:table-cell; padding:1.9em .7em 0; vertical-align:top;}
+.ctree li::before{outline:solid 2px var(--cyan); content:""; left:0; position:absolute; right:0; top:0;}
+.ctree li:first-child::before{left:50%; border-radius:8px 0 0 0;}
+.ctree li:last-child::before{right:50%; border-radius:0 8px 0 0;}
+.ctree ul::before{outline:solid 2px var(--cyan); content:""; height:1.9em; left:50%; position:absolute; top:-1.9em;}
+.ctree > li{padding-top:0;}
+.ctree > li::before{display:none;}
+.ctree li:only-child{padding-top:0;}
+.ctree li:only-child::before{display:none;}
+.tree-box{display:inline-block; padding:12px 16px; border-radius:12px; font-weight:900; font-size:12.5px; color:#04050f; text-align:center;
+  min-width:120px; box-shadow:0 8px 20px -6px #0009; background:linear-gradient(120deg,var(--gold),var(--orange)); position:relative;}
+.tree-box small{display:block; font-weight:700; font-size:10px; margin-top:3px; opacity:.85;}
+.tree-box.root-box{background:linear-gradient(120deg,var(--neon-blue),var(--purple)); color:#fff; font-size:14px; min-width:160px; padding:14px 20px;}
+.tree-box.small{font-size:11px; min-width:100px; padding:9px 10px;}
+
+footer{text-align:center; padding:50px 6vw 70px; color:var(--dim); font-size:12.5px; border-top:1px solid var(--border); margin-top:30px; font-weight:600;}
+footer .name{color:var(--cyan); font-weight:900; font-size:16px;}
+footer .copy{margin-top:18px; font-size:11px; color:var(--dim); opacity:.8;}
+@media(max-width:480px){
+  .rule-card p, .q-card .stext, .def-card p{font-size:14.5px;}
+  .rule-card h4{font-size:17px;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <img src="images/1000043468.png" alt="PK STUDY" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="logo-fallback" style="display:none;">PK</div>
+    <div class="brand-text"><div class="name">PK STUDY</div><div class="tag">Class 12 • Hindi • पाठ 2</div></div>
+  </div>
+  <nav>
+    <a href="#notes">नोट्स</a><a href="#mindmap">माइंड मैप</a><a href="#facts">त्वरित तथ्य</a>
+    <a href="#solved">महत्वपूर्ण प्रश्न</a><a href="#extra">अतिरिक्त प्रश्न</a><a href="#homework">होमवर्क</a>
+  </nav>
+  <button class="theme-btn" id="themeToggle" onclick="toggleTheme()" title="Dark/Light Mode">🌙</button>
+</header>
+
+<!-- ============ HERO ============ -->
+<div class="hero">
+  <span class="eyebrow">कक्षा 12 · गद्य खंड · पाठ 2 · बिहार बोर्ड</span>
+  <h1>उसने कहा था</h1>
+  <div class="en">लेखक: चंद्रधर शर्मा गुलेरी</div>
+  <p>यह हिंदी की सबसे प्रसिद्ध और हिंदी की <b class="hi">प्रथम मनोवैज्ञानिक कहानी</b> मानी जाने वाली रचना है, जो <b class="hi2">प्रेम, विश्वास, वचन-निर्वाह और आत्मबलिदान</b> की अमर गाथा है। इस पेज में लेखक-परिचय, कहानी का पूरा सारांश, पात्र-चरित्र चित्रण, मूल भाव, शीर्षक की सार्थकता, एक माइंड मैप (जो कहानी के सभी तत्वों को आपस में जोड़कर दिखाता है), त्वरित तथ्य, हल सहित महत्वपूर्ण प्रश्न, अतिरिक्त प्रश्न और Homework दिया गया है।</p>
+</div>
+
+<!-- ============ NOTES ============ -->
+<section id="notes">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--neon-blue),#1f6fc9); --glow:#3ea6ff99;">📝</div>
+    <div><h2>Notes — विस्तार से समझें</h2><div class="sub en-tag">Detailed Concept Notes</div></div></div>
+
+  <div style="display:flex; flex-direction:column; gap:16px;">
+    <div class="rule-card" style="border-left-color:var(--cyan);">
+      <h4 style="color:var(--cyan);">1. लेखक परिचय — चंद्रधर शर्मा गुलेरी</h4>
+      <p><b class="hi">जन्म:</b> 7 जुलाई 1883, जयपुर (राजस्थान) &nbsp;|&nbsp; <b class="hi">निधन:</b> 12 सितंबर 1922 (मात्र 39 वर्ष की आयु में)<br>
+      इनके पिता पंडित शिवराम शास्त्री मूलतः हिमाचल प्रदेश के <b class="hi2">"गुलेर"</b> गाँव के निवासी थे, इसी से उपनाम "गुलेरी" पड़ा। गुलेरी जी <b class="hi3">बहुभाषाविद्</b> थे — हिंदी, अंग्रेज़ी के अतिरिक्त संस्कृत, प्राकृत, बांग्ला, मराठी, जर्मन, फ्रेंच भाषाओं का ज्ञान रखते थे। वे कथाकार, निबंधकार व व्यंग्यकार थे और उनकी रुचि का क्षेत्र अत्यंत व्यापक था — धर्म, ज्योतिष, इतिहास, पुरातत्त्व, दर्शन, भाषाविज्ञान, शिक्षाशास्त्र, संगीत व चित्रकला तक। विशेष बात यह है कि उन्होंने जीवन में <b class="hi">केवल 3 कहानियाँ</b> लिखीं — "उसने कहा था", "सुखमय जीवन", "बुद्धू का काँटा" — फिर भी हिंदी कथा-साहित्य को एक नई दिशा दी।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--pink);">
+      <h4 style="color:var(--pink);">2. पाठ का प्रकाशन एवं महत्व</h4>
+      <p>यह कहानी <b class="hi">अक्टूबर 1915</b> में आचार्य <b class="hi2">महावीरप्रसाद द्विवेदी</b> द्वारा संपादित <b class="hi3">"सरस्वती"</b> पत्रिका में प्रकाशित हुई थी। इसे हिंदी की <b class="hi">प्रथम मनोवैज्ञानिक (Psychological) कहानी</b> माना जाता है और शिल्प-विधान (कथा-शैली) की दृष्टि से इसे हिंदी कथा-साहित्य में "मील का पत्थर" कहा जाता है। कहानी की पृष्ठभूमि <b class="hi2">प्रथम विश्वयुद्ध</b> (पश्चिमी मोर्चा, फ्रांस-बेल्जियम क्षेत्र) है, जिसमें पंजाब के सिख सैनिकों को अंग्रेज़ी सेना की ओर से लड़ते हुए दिखाया गया है।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--green);">
+      <h4 style="color:var(--green);">3. कहानी का सारांश (भाग 1 — बचपन की भेंट)</h4>
+      <p>अमृतसर के भीड़-भरे बाँस-बाज़ार में एक <b class="hi">12 वर्षीय लड़का (लहना सिंह)</b> एक <b class="hi2">8 वर्षीय लड़की</b> को तांगे के नीचे आने से बचाता है, स्वयं जोखिम उठाकर। इसके बाद लगभग एक महीने तक सब्ज़ीवाले व दूधवाले की दुकानों पर दोनों की मुलाकातें होती रहती हैं। लड़का हर बार लड़की को छेड़ते हुए पूछता है — <b class="hi3">"तेरी कुड़माई हो गई?"</b> — और लड़की <b class="hi3">"धत्!"</b> कहकर शरमाकर भाग जाती है। एक दिन वह "हाँ, कल हो गई" कहकर रेशम के फूलों वाला <b class="hi2">सालू</b> (शॉल) दिखा देती है — यह उन दोनों की अंतिम बचपन-भेंट है, इसके बाद दोनों बिछड़ जाते हैं।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--orange);">
+      <h4 style="color:var(--orange);">4. कहानी का सारांश (भाग 2 — 25 वर्ष बाद पुनर्मिलन)</h4>
+      <p>ठीक <b class="hi">25 वर्ष बाद</b> लहना सिंह, जो अब <b class="hi2">77 सिख राइफल्स</b> में जमादार है, अपने सूबेदार हजारा सिंह के घर जाता है और वहाँ सूबेदारनी में उसी बचपन की लड़की को पहचान लेता है। सूबेदारनी तुरंत कहती है — <b class="hi3">"मैंने तेरे को आते ही पहचान लिया।"</b> वह याद दिलाती है कि बचपन में उसने उसकी जान बचाई थी, और अब प्रथम विश्वयुद्ध में जाते समय अपने पति (हजारा सिंह) और पुत्र (बोधा सिंह, जो उसी रेजिमेंट का सिपाही है) की रक्षा का अबोला वचन उससे ले लेती है।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--purple);">
+      <h4 style="color:var(--purple);">5. कहानी का सारांश (भाग 3-5 — युद्धक्षेत्र और बलिदान)</h4>
+      <p>फ्रांस-बेल्जियम के युद्ध-क्षेत्र में जर्मनों से भीषण लड़ाई होती है। एक जर्मन जासूस "कैप्टन साहब" के भेष में घुसपैठ करता है — लहना सिंह अपनी सूझबूझ से उसे पहचान लेता है और अपने साथी <b class="hi">वजीरा सिंह</b> को सतर्क करता है। अंतिम युद्ध में लहना सिंह हजारा सिंह और बोधा सिंह — दोनों की जान बचाता है, परंतु स्वयं गंभीर रूप से घायल हो जाता है और अपने साथी वजीरा सिंह की गोद में प्राण त्याग देता है। मरते समय भी उसके भीतर सूबेदारनी के शब्द <b class="hi2">"उसने कहा था"</b> गूंजते रहते हैं, और उसे यह संतोष रहता है कि उसने अपनी प्रतिज्ञा पूरी कर दी।</p>
+    </div>
+  </div>
+
+  <h3 style="color:var(--gold); font-size:16.5px; margin:30px 0 16px;">6. पात्र-चरित्र चित्रण (Character Sketches)</h3>
+  <div class="grid grid-3">
+    <div class="def-card glass"><h4 style="color:var(--cyan);">🎖️ लहना सिंह</h4><p>कहानी का नायक; 77 सिख राइफल्स का जमादार। वीर, चतुर, सूझ-बूझ वाला, अपने वचन व कर्तव्य के प्रति पूर्ण समर्पित। बचपन के अव्यक्त (अबोला) प्रेम को आजीवन निभाता है और अंततः अपने प्राणों का बलिदान देकर सूबेदारनी को दिया वचन पूरा करता है।</p></div>
+    <div class="def-card glass"><h4 style="color:var(--pink);">👩 सूबेदारनी</h4><p>बचपन की वह लड़की, अब सूबेदार हजारा सिंह की पत्नी। बचपन में नटखट, चंचल व लजीली स्वभाव की; वयस्क होने पर ममतामयी माँ व कर्तव्यपरायण पत्नी बनती है। लहना सिंह पर उसका गहरा अबोला विश्वास है, जो कहानी की धुरी है।</p></div>
+    <div class="def-card glass"><h4 style="color:var(--green);">🎖️ सूबेदार हजारा सिंह</h4><p>सूबेदारनी के पति; वीर व साहसी सैनिक, अपने सिपाहियों से प्रेमपूर्ण व्यवहार करने वाला अधिकारी। युद्ध में लहना सिंह द्वारा उसकी जान बचाई जाती है।</p></div>
+    <div class="def-card glass"><h4 style="color:var(--orange);">👦 बोधा सिंह</h4><p>सूबेदार हजारा सिंह का पुत्र, वही रेजिमेंट का सिपाही। सूबेदारनी लहना सिंह से विशेष रूप से इसकी रक्षा का वचन लेती है; युद्ध में लहना सिंह इसकी जान बचाता है।</p></div>
+    <div class="def-card glass"><h4 style="color:var(--purple);">🎖️ वजीरा सिंह</h4><p>लहना सिंह का घनिष्ठ साथी सिपाही; मसखरा स्वभाव, युद्ध में भी गीत गाता है। अंत में लहना सिंह की मृत्यु के समय उसे अपनी गोद में लिए रहता है — कहानी के सबसे भावुक दृश्य का साक्षी।</p></div>
+    <div class="def-card glass"><h4 style="color:var(--gold);">👴 अतर सिंह</h4><p>लड़की के मामा, अमृतसर में जिनके घर लहना सिंह बचपन में ठहरा था। कहानी की शुरुआती पृष्ठभूमि से जुड़ा पात्र।</p></div>
+  </div>
+
+  <div class="grid grid-2" style="margin-top:22px;">
+    <div class="rule-card" style="border-left-color:var(--red);">
+      <h4 style="color:var(--red);">7. मूल भाव / उद्देश्य</h4>
+      <p><b class="hi">प्रेम, विश्वास, वचन-निर्वाह, त्याग और देशभक्ति</b> — ये सब एक ही भावना (प्रेम) के विभिन्न रूप हैं, यही कहानी का केंद्रीय संदेश है। कहानी दिखाती है कि बिना किसी औपचारिक प्रेम-प्रसंग के भी, अबोला विश्वास और वचन-पालन जीवन का सर्वोच्च मूल्य बन सकता है।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--gold);">
+      <h4 style="color:var(--gold);">8. शीर्षक की सार्थकता</h4>
+      <p>शीर्षक सूबेदारनी के उन शब्दों की ओर संकेत करता है जिनसे उसने लहना सिंह को अपने पति-पुत्र की रक्षा का उत्तरदायित्व सौंपा था। संक्षिप्त होते हुए भी यह शीर्षक कहानी की संपूर्ण भावनात्मक व नैतिक कथावस्तु को समेटे हुए है — मरते समय भी लहना सिंह के मन में यही शब्द गूंजते रहते हैं, इसलिए शीर्षक पूर्णतः सार्थक व उपयुक्त है।</p>
+    </div>
+  </div>
+
+  <h3 style="color:var(--gold); font-size:16.5px; margin:26px 0 14px;">9. महत्वपूर्ण उद्धरण / संवाद</h3>
+  <div class="grid grid-3">
+    <div class="quote-card glass">"तेरी कुड़माई हो गई?"<div class="who">— लहना सिंह (बचपन में, लड़की को छेड़ते हुए)</div></div>
+    <div class="quote-card glass">"हाँ, कल हो गई, देखते नहीं यह रेशम के फूलों वाला सालू?"<div class="who">— लड़की (अंतिम बचपन-भेंट में)</div></div>
+    <div class="quote-card glass">"मैंने तेरे को आते ही पहचान लिया।"<div class="who">— सूबेदारनी (25 वर्ष बाद पुनर्मिलन पर)</div></div>
+  </div>
+
+  <h3 style="color:var(--gold); font-size:16.5px; margin:26px 0 14px;">10. शब्दार्थ (चयनित महत्वपूर्ण शब्द)</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>शब्द</th><th>अर्थ</th></tr></thead>
+      <tbody>
+        <tr><td>कुड़माई</td><td>सगाई / मंगनी</td></tr>
+        <tr><td>धत्</td><td>अस्वीकृति-सूचक शब्द (शरमाकर मना करने में प्रयुक्त)</td></tr>
+        <tr><td>सालू</td><td>विवाह/मंगनी में पहनी जाने वाली रेशमी लाल चुनरी/शॉल</td></tr>
+        <tr><td>सूबेदार / जमादार</td><td>ब्रिटिश भारतीय सेना में सैनिक पदवियाँ (अधिकारी रैंक)</td></tr>
+        <tr><td>अबोला</td><td>बिना कहे, मौन/अव्यक्त (यहाँ — बिना कहे निभाया गया वचन)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="color:var(--dim); font-size:12px; font-weight:600;">नोट: पूर्ण शब्दार्थ सूची के लिए अपनी पाठ्यपुस्तक "दिगंत भाग-2" का मूल शब्दार्थ अनुभाग अवश्य देखें।</p>
+</section>
+
+<!-- ============ MIND MAP ============ -->
+<section id="mindmap">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--purple),#7e4fd1); --glow:#b07dff99;">🧠</div>
+    <div><h2>माइंड मैप — कहानी के तत्व आपस में कैसे जुड़े हैं</h2><div class="sub en-tag">Mind Map — Relationships Between Story Elements</div></div></div>
+
+  <div class="glass card">
+    <p style="color:var(--dim); font-size:13px; line-height:1.9; font-weight:600; margin-bottom:16px;">
+      "उसने कहा था" कहानी को समझने के लिए यह ज़रूरी है कि हम देखें — <b class="hi">लेखक, पात्र, घटनाक्रम, मूल भाव और शीर्षक</b> — ये पाँचों तत्व आपस में कैसे जुड़े हुए हैं। नीचे box diagram में यह संबंध दिखाया गया है:
+    </p>
+    <div class="tree-wrap">
+      <ul class="ctree">
+        <li>
+          <span class="tree-box root-box">उसने कहा था<small>(कहानी)</small></span>
+          <ul>
+            <li><span class="tree-box" style="background:linear-gradient(120deg,var(--cyan),#0a85b8);">लेखक<small>चंद्रधर शर्मा गुलेरी</small></span></li>
+            <li><span class="tree-box" style="background:linear-gradient(120deg,var(--pink),#b8215f); color:#fff;">मुख्य पात्र<small>6 पात्र</small></span></li>
+            <li><span class="tree-box" style="background:linear-gradient(120deg,var(--green),#1a9c70);">घटनाक्रम<small>बचपन → युद्ध</small></span></li>
+            <li><span class="tree-box" style="background:linear-gradient(120deg,var(--orange),#c9650c);">मूल भाव<small>प्रेम-त्याग</small></span></li>
+            <li><span class="tree-box" style="background:linear-gradient(120deg,var(--gold),#b8860b);">शीर्षक<small>वचन-निर्वाह</small></span></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <p style="color:var(--dim); font-size:13px; line-height:1.9; font-weight:600; margin:26px 0 6px;">
+      इनमें से <b class="hi2">"मुख्य पात्र"</b> शाखा को आगे विस्तार से देखें — सभी पात्र किसी न किसी रूप में लहना सिंह के इर्द-गिर्द जुड़े हैं:
+    </p>
+    <div class="tree-wrap">
+      <ul class="ctree">
+        <li>
+          <span class="tree-box root-box" style="background:linear-gradient(120deg,var(--pink),#b8215f);">मुख्य पात्र</span>
+          <ul>
+            <li><span class="tree-box small">लहना सिंह<small>नायक</small></span></li>
+            <li><span class="tree-box small">सूबेदारनी<small>बचपन की सहेली</small></span></li>
+            <li><span class="tree-box small">हजारा सिंह<small>सूबेदार</small></span></li>
+            <li><span class="tree-box small">बोधा सिंह<small>पुत्र</small></span></li>
+            <li><span class="tree-box small">वजीरा सिंह<small>साथी सिपाही</small></span></li>
+            <li><span class="tree-box small">अतर सिंह<small>मामा</small></span></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <p style="color:var(--dim); font-size:13px; line-height:1.9; font-weight:600; margin:26px 0 6px;">
+      <b class="hi">संबंधों का सार:</b> लहना सिंह बचपन में <b class="hi2">सूबेदारनी</b> की जान बचाता है (घटनाक्रम) → 25 वर्ष बाद वह <b class="hi2">सूबेदारनी</b> से मिलता है, जो उससे उसके पति <b class="hi3">हजारा सिंह</b> और पुत्र <b class="hi3">बोधा सिंह</b> की रक्षा का वचन लेती है (शीर्षक "उसने कहा था" यहीं से आता है) → युद्धक्षेत्र में लहना सिंह अपने साथी <b class="hi">वजीरा सिंह</b> की मदद से जर्मन जासूस को पकड़ता है और अंततः हजारा सिंह व बोधा सिंह को बचाकर स्वयं वजीरा सिंह की गोद में बलिदान देता है (मूल भाव — प्रेम व त्याग)। इस तरह हर पात्र और हर घटना, शीर्षक के एक ही वाक्य — "उसने कहा था" — से जुड़ी हुई है।
+    </p>
+  </div>
+</section>
+
+<!-- ============ QUICK FACTS ============ -->
+<section id="facts">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--gold),#b8860b); --glow:#ffc23399;">⚡</div>
+    <div><h2>त्वरित तथ्य (Quick Revision Facts)</h2><div class="sub en-tag">परीक्षा से ठीक पहले दोहराने के लिए</div></div></div>
+  <div class="grid grid-3" id="factsGrid"></div>
+</section>
+
+<!-- ============ SOLVED QUESTIONS ============ -->
+<section id="solved">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--green),#1a9c70); --glow:#2ee6a699;">📘</div>
+    <div><h2>महत्वपूर्ण प्रश्न (हल सहित)</h2><div class="sub en-tag">Objective + Subjective — उत्तर देखने के लिए बटन दबाएँ</div></div></div>
+  <div id="solvedWrap"></div>
+</section>
+
+<!-- ============ ADDITIONAL QUESTIONS ============ -->
+<section id="extra">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--orange),#c9650c); --glow:#ff9f4399;">⭐</div>
+    <div><h2>अतिरिक्त महत्वपूर्ण प्रश्न</h2><div class="sub en-tag">Additional BSEB Exam-Relevant Questions</div></div></div>
+  <div id="extraWrap"></div>
+</section>
+
+<!-- ============ HOMEWORK ============ -->
+<section id="homework">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--red),#a82424); --glow:#ff4f4f99;">🏠</div>
+    <div><h2>घर से करने के लिए Homework</h2><div class="sub en-tag">बिना उत्तर देखे खुद अपने शब्दों में लिखें</div></div></div>
+  <div class="glass card hw-card">
+    <ol id="homeworkList"></ol>
+  </div>
+  <p style="color:var(--dim); font-size:12px; margin-top:14px; font-weight:600;">यह सभी प्रश्न अपनी Hindi की notebook में अपने शब्दों में हल करके अगली कक्षा में साथ लाइए।</p>
+</section>
+
+<footer>
+  <span class="name">PK STUDY</span> — पाठ 2 पूर्ण
+  <div class="copy">Class 12 · Hindi · उसने कहा था — चंद्रधर शर्मा गुलेरी — PK STUDY, All Copyright Reserved</div>
+</footer>
+
+<script>
+function toggleTheme(){
+  const html = document.documentElement;
+  const isLight = html.getAttribute('data-theme') === 'light';
+  html.setAttribute('data-theme', isLight ? '' : 'light');
+  document.getElementById('themeToggle').textContent = isLight ? '🌙' : '☀️';
+}
+function el(tag, cls, html){ const d=document.createElement(tag); if(cls)d.className=cls; if(html!==undefined)d.innerHTML=html; return d; }
+
+const factsData = [
+  {t:"लेखक", d:"चंद्रधर शर्मा गुलेरी", c:"var(--cyan)"},
+  {t:"जन्म–निधन", d:"7 जुलाई 1883 – 12 सितंबर 1922 (जयपुर)", c:"var(--pink)"},
+  {t:"प्रकाशन", d:"अक्टूबर 1915, पत्रिका 'सरस्वती' में", c:"var(--green)"},
+  {t:"संपादक (सरस्वती)", d:"आचार्य महावीरप्रसाद द्विवेदी", c:"var(--orange)"},
+  {t:"विधा", d:"हिंदी की प्रथम मनोवैज्ञानिक कहानी", c:"var(--purple)"},
+  {t:"कहानी के भाग", d:"कुल 5 भागों में विभाजित", c:"var(--gold)"},
+  {t:"पृष्ठभूमि", d:"प्रथम विश्वयुद्ध (फ्रांस-बेल्जियम मोर्चा)", c:"var(--red)"},
+  {t:"नायक", d:"लहना सिंह — 77 सिख राइफल्स का जमादार", c:"var(--cyan)"},
+  {t:"दूसरी मुलाकात", d:"पहली मुलाकात के 25 वर्ष बाद", c:"var(--pink)"}
+];
+
+const solvedData = [
+  {type:"obj", q:"1. \"उसने कहा था\" कहानी के लेखक कौन हैं?", a:"चंद्रधर शर्मा गुलेरी"},
+  {type:"obj", q:"2. यह कहानी सर्वप्रथम किस पत्रिका में और कब प्रकाशित हुई?", a:"'सरस्वती' पत्रिका में, अक्टूबर 1915 में, आचार्य महावीरप्रसाद द्विवेदी के संपादन में।"},
+  {type:"obj", q:"3. कहानी के नायक का नाम क्या है और वह किस रेजिमेंट में था?", a:"नायक का नाम लहना सिंह है; वह 77 सिख राइफल्स में जमादार था।"},
+  {type:"obj", q:"4. कहानी कितने भागों में विभाजित है?", a:"कहानी कुल 5 भागों में विभाजित है।"},
+  {type:"obj", q:"5. लहना सिंह और सूबेदारनी की दूसरी मुलाकात पहली मुलाकात के कितने वर्ष बाद होती है?", a:"25 वर्ष बाद।"},
+  {type:"obj", q:"6. कहानी किस युद्ध की पृष्ठभूमि पर आधारित है?", a:"प्रथम विश्वयुद्ध (फ्रांस-बेल्जियम के पश्चिमी मोर्चे) की पृष्ठभूमि पर।"},
+  {type:"obj", q:"7. अंत में लहना सिंह किसकी गोद में प्राण त्यागता है?", a:"अपने साथी सिपाही वजीरा सिंह की गोद में।"},
+  {type:"obj", q:"8. गुलेरी जी ने जीवन में कुल कितनी कहानियाँ लिखीं?", a:"केवल 3 कहानियाँ — 'उसने कहा था', 'सुखमय जीवन', 'बुद्धू का काँटा'।"},
+  {type:"subj", q:"9. \"उसने कहा था\" कहानी का सारांश अपने शब्दों में लिखिए।", a:"बचपन में लहना सिंह एक लड़की को तांगे से बचाता है; एक महीने की मुलाकातों के बाद दोनों बिछड़ जाते हैं। 25 वर्ष बाद युद्ध में जाने से पहले लहना सिंह सूबेदार हजारा सिंह के घर जाता है, जहाँ सूबेदारनी में वह बचपन की लड़की को पहचानता है। सूबेदारनी उससे अपने पति व पुत्र की रक्षा का वचन लेती है। युद्ध में लहना सिंह जर्मन जासूस को पहचानता है, अंतिम युद्ध में दोनों को बचाता है, परंतु स्वयं घायल होकर वजीरा सिंह की गोद में अपना वचन निभाते हुए प्राण त्याग देता है।"},
+  {type:"subj", q:"10. लहना सिंह का चरित्र-चित्रण कीजिए।", a:"लहना सिंह कहानी का नायक है — वीर, चतुर, सूझ-बूझ वाला और कर्तव्यनिष्ठ सैनिक। वह बचपन के अव्यक्त प्रेम को जीवन भर मन में संजोए रखता है और अंततः सूबेदारनी को दिए गए अबोले वचन को अपने प्राणों की कीमत पर निभाता है। उसकी वीरता युद्धक्षेत्र में जर्मन जासूस को पहचानने और अंतिम मोर्चे पर दो लोगों की जान बचाने में स्पष्ट झलकती है। वह त्याग और वचन-निर्वाह का आदर्श प्रतीक है।"},
+  {type:"subj", q:"11. सूबेदारनी का चरित्र-चित्रण कीजिए।", a:"सूबेदारनी बचपन की वह लड़की है जिसे लहना सिंह ने बचाया था। बचपन में वह चंचल व लजीली थी; वयस्क होने पर एक ममतामयी माँ व कर्तव्यपरायण पत्नी बनती है। वह लहना सिंह को तुरंत पहचान लेती है और अपने पति-पुत्र की रक्षा का उत्तरदायित्व उसे सौंपती है — यह उसके गहरे विश्वास व दूरदर्शिता को दर्शाता है।"},
+  {type:"subj", q:"12. \"उसने कहा था\" शीर्षक की सार्थकता पर अपने विचार व्यक्त कीजिए।", a:"शीर्षक सूबेदारनी के उन शब्दों की ओर संकेत करता है जिनसे उसने लहना सिंह को अपने पति व पुत्र की रक्षा का वचन लेने के लिए बाध्य किया था। मरते समय भी लहना सिंह के मन में यही शब्द गूंजते हैं और वह अपना वचन निभाकर ही प्राण त्यागता है। इस प्रकार शीर्षक कहानी की संपूर्ण भावनात्मक व नैतिक कथावस्तु को संक्षेप में समेटता है, इसलिए यह पूर्णतः सार्थक है।"},
+  {type:"subj", q:"13. कहानी का मूल भाव/उद्देश्य स्पष्ट कीजिए।", a:"कहानी का मूल भाव यह है कि प्रेम, विश्वास, वचन-निर्वाह, त्याग और देशभक्ति — ये सब एक ही भावना के विभिन्न रूप हैं। बिना किसी औपचारिक प्रेम-प्रसंग के भी अबोला विश्वास और वचन-पालन जीवन का सर्वोच्च मूल्य बन सकता है, यही कहानी का उद्देश्य है।"},
+  {type:"subj", q:"14. वजीरा सिंह के चरित्र पर संक्षिप्त टिप्पणी लिखिए।", a:"वजीरा सिंह लहना सिंह का घनिष्ठ साथी सिपाही है। स्वभाव से मसखरा है, युद्ध जैसी विकट परिस्थिति में भी गीत गाता है और साथियों का उत्साह बनाए रखता है। कहानी के सबसे मार्मिक दृश्य में वही लहना सिंह को अपनी गोद में लिए रहता है, जब वह अपने प्राण त्यागता है — यह उसकी सच्ची मित्रता को दर्शाता है।"},
+  {type:"subj", q:"15. \"उसने कहा था\" को हिंदी की प्रथम मनोवैज्ञानिक कहानी क्यों कहा जाता है?", a:"इस कहानी में पात्रों के बाहरी व्यवहार से अधिक उनके भीतरी मनोभावों, अव्यक्त भावनाओं और मौन संवेदनाओं का सूक्ष्म चित्रण किया गया है — जैसे लहना सिंह व सूबेदारनी के बीच कभी सीधे प्रेम की बात नहीं होती, फिर भी दोनों के मन की गहराई पाठक को स्पष्ट महसूस होती है। शिल्प-विधान की यही मनोवैज्ञानिक सूक्ष्मता इसे हिंदी की प्रथम मनोवैज्ञानिक कहानी का दर्जा दिलाती है।"},
+  {type:"subj", q:"16. कहानी में बचपन की भेंट और युद्धक्षेत्र की घटनाओं में क्या संबंध है, समझाइए।", a:"बचपन में लहना सिंह द्वारा लड़की को बचाना ही आगे चलकर 25 वर्ष बाद सूबेदारनी के विश्वास और वचन-याचना की नींव बनता है। यही वचन युद्धक्षेत्र में लहना सिंह की वीरता व बलिदान को प्रेरित करता है। इस प्रकार कहानी की शुरुआत और अंत एक ही धागे — वचन-निर्वाह — से जुड़े हुए हैं।"}
+];
+
+const extraData = [
+  {type:"subj", q:"1. गुलेरी जी की भाषा-शैली की विशेषताएँ बताइए।", a:"गुलेरी जी की भाषा सरल, प्रवाहमयी व पंजाबी लोक-जीवन से युक्त है। उन्होंने पात्रों के संवादों में पंजाबी शब्दों व मुहावरों का स्वाभाविक प्रयोग किया है, जिससे कथा में यथार्थता आती है। भावनाओं का सूक्ष्म व संकेतात्मक चित्रण उनकी शैली की विशेष पहचान है — बिना अधिक कहे भी बहुत कुछ कह देना।"},
+  {type:"subj", q:"2. कहानी में देशभक्ति और प्रेम का चित्रण किस प्रकार हुआ है?", a:"कहानी में लहना सिंह का अपने वचन के प्रति समर्पण और सैनिक कर्तव्य दोनों एक साथ चलते हैं — वह अपने साथियों की रक्षा के लिए युद्धक्षेत्र में वीरता दिखाता है (देशभक्ति) और साथ ही सूबेदारनी को दिया वचन निभाता है (प्रेम व त्याग)। इस प्रकार प्रेम और देशभक्ति दोनों एक-दूसरे में गुंथे हुए दिखाए गए हैं।"},
+  {type:"subj", q:"3. सूबेदार हजारा सिंह के चरित्र की मुख्य विशेषताएँ बताइए।", a:"सूबेदार हजारा सिंह वीर व साहसी सैनिक है, जो अपने सिपाहियों से प्रेमपूर्ण व्यवहार करता है। वह एक उत्तरदायी पति व पिता भी है। युद्ध में लहना सिंह द्वारा उसकी जान बचाई जाती है, जो कहानी की चरम घटना है।"},
+  {type:"obj", q:"4. लहना सिंह ने युद्धक्षेत्र में किस भेष में आए जर्मन सैनिक को पहचाना था?", a:"'कैप्टन साहब' के भेष में घुसे जर्मन जासूस को।"},
+  {type:"obj", q:"5. कहानी में लड़की ने अपनी सगाई की बात किस वस्तु को दिखाकर बताई थी?", a:"रेशम के फूलों वाले 'सालू' (शॉल) को दिखाकर।"},
+  {type:"subj", q:"6. लहना सिंह के बलिदान से पाठकों को क्या संदेश मिलता है?", a:"लहना सिंह का बलिदान यह संदेश देता है कि दिया गया वचन चाहे शब्दों में औपचारिक रूप से न भी कहा जाए, फिर भी उसे प्राणों की कीमत पर निभाना ही सच्ची मानवीयता व वीरता है। त्याग और कर्तव्य-निष्ठा किसी भी संबंध को अमर बना देते हैं।"}
+];
+
+const homeworkData = [
+  "अपने शब्दों में सूबेदार हजारा सिंह का चरित्र-चित्रण लगभग 100 शब्दों में लिखिए।",
+  "कहानी के भाग 3-5 (युद्धक्षेत्र की घटनाएँ) को अपने शब्दों में संक्षेप में लिखिए।",
+  "\"वचन-निर्वाह\" विषय पर, कहानी के आधार पर 5-6 पंक्तियाँ लिखिए।",
+  "अतर सिंह का चरित्र कहानी में किस प्रकार सहायक है, इस पर एक अनुच्छेद लिखिए।",
+  "यदि आप लहना सिंह की जगह होते, तो क्या आप भी वैसा ही निर्णय लेते? अपने विचार तर्कसहित लिखिए।",
+  "कहानी में स्त्री-चरित्र (सूबेदारनी) की भूमिका पर अपने शब्दों में एक संक्षिप्त टिप्पणी लिखिए।"
+];
+
+function buildFacts(){
+  const g = document.getElementById('factsGrid');
+  factsData.forEach(f=>{ const d=el('div','glass def-card', `<h4 style="color:${f.c}">⚡ ${f.t}</h4><p>${f.d}</p>`); g.appendChild(d); });
+}
+function buildQA(containerId, data){
+  const wrap = document.getElementById(containerId);
+  data.forEach((item)=>{
+    const pillHtml = item.type === 'obj' ? '<span class="pill pill-obj">Objective</span>' : '<span class="pill pill-subj">Subjective</span>';
+    const d = el('div','glass q-card', `<div class="qlabel">प्रश्न ${pillHtml}</div><div class="qtext">${item.q}</div>
+      <button class="show-ans-btn" onclick="toggleAnswer(this)">उत्तर दिखाएँ (Show Answer)</button>
+      <div class="ans-wrap"><div class="slabel">उत्तर (Answer)</div><div class="stext">${item.a}</div></div>`);
+    wrap.appendChild(d);
+  });
+}
+function toggleAnswer(btn){
+  const wrap = btn.nextElementSibling;
+  const isOpen = wrap.classList.toggle('open');
+  btn.classList.toggle('open', isOpen);
+  btn.textContent = isOpen ? 'उत्तर छुपाएँ (Hide Answer)' : 'उत्तर दिखाएँ (Show Answer)';
+}
+function buildHomework(){
+  const g = document.getElementById('homeworkList');
+  homeworkData.forEach(q=>{ const li = document.createElement('li'); li.textContent = q; g.appendChild(li); });
+}
+
+buildFacts();
+buildQA('solvedWrap', solvedData);
+buildQA('extraWrap', extraData);
+buildHomework();
+</script>
+</body>
+</html>
