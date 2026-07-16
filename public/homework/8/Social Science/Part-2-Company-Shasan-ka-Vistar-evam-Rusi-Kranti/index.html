@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PK STUDY | कंपनी शासन का विस्तार एवं रूसी क्रांति</title>
+<style>
+:root{
+  --bg:#04050f; --glass:rgba(255,255,255,.045); --glass-strong:rgba(255,255,255,.08);
+  --border:rgba(255,255,255,.12); --text:#f2f6ff; --dim:#9fb0da; --heading:#ffffff;
+  --neon-blue:#3ea6ff; --cyan:#33e0ff; --purple:#b07dff; --gold:#ffc233;
+  --green:#2ee6a6; --orange:#ff9f43; --pink:#ff4d8d; --red:#ff4f4f;
+  --shadow:0 22px 46px -22px #000d; --hshadow:0 30px 56px -20px #000f;
+}
+[data-theme="light"]{
+  --bg:#f6f8fd; --glass:rgba(20,30,65,.045); --glass-strong:rgba(20,30,65,.08);
+  --border:rgba(20,30,65,.12); --text:#161c33; --dim:#535f82; --heading:#12172b;
+  --neon-blue:#2563eb; --cyan:#0891b2; --purple:#7c3aed; --gold:#b45309;
+  --green:#059669; --orange:#c2410c; --pink:#db2777; --red:#dc2626;
+  --shadow:0 18px 36px -20px rgba(30,40,80,.18); --hshadow:0 24px 44px -18px rgba(30,40,80,.24);
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Segoe UI','Noto Sans Devanagari',Arial,sans-serif; color:var(--text); min-height:100vh; overflow-x:hidden;
+  transition:background .4s, color .4s;
+  background:
+    radial-gradient(ellipse at 10% -10%, #1c3a9955, transparent 55%),
+    radial-gradient(ellipse at 95% 10%, #7a2ab866, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, #0a5a6e44, transparent 55%),
+    linear-gradient(180deg,#04050f,#020208 90%);
+}
+[data-theme="light"] body{
+  background:
+    radial-gradient(ellipse at 10% -10%, #dbe4ff99, transparent 55%),
+    radial-gradient(ellipse at 95% 10%, #ede0ff99, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, #d7f5f099, transparent 55%),
+    linear-gradient(180deg,#f8faff,#eef1f9 90%);
+}
+::-webkit-scrollbar{width:8px;} ::-webkit-scrollbar-thumb{background:var(--neon-blue); border-radius:6px;} ::-webkit-scrollbar-track{background:transparent;}
+
+.glass{background:var(--glass); border:1px solid var(--border); border-radius:18px; backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+  box-shadow:var(--shadow), inset 0 1px 0 #ffffff12; transition:transform .3s, box-shadow .3s;}
+.glass:hover{transform:translateY(-3px);}
+
+header{position:sticky; top:0; z-index:200; display:flex; align-items:center; justify-content:space-between; padding:14px 26px;
+  background:rgba(4,5,15,.75); backdrop-filter:blur(18px); border-bottom:1px solid var(--border); flex-wrap:wrap; gap:10px; transition:background .4s;}
+[data-theme="light"] header{background:rgba(255,255,255,.8);}
+.brand{display:flex; align-items:center; gap:12px;}
+.brand img{width:44px; height:44px; border-radius:10px; object-fit:cover; border:2px solid var(--neon-blue); box-shadow:0 0 18px #3ea6ff88;}
+.logo-fallback{width:44px; height:44px; border-radius:10px; display:flex; align-items:center; justify-content:center;
+  background:linear-gradient(135deg,var(--neon-blue),#1f3d8c); font-weight:900; font-size:12px; border:2px solid var(--cyan); color:#fff;}
+.brand-text .name{font-weight:900; font-size:18px; color:var(--cyan); letter-spacing:.5px;}
+.brand-text .tag{font-size:11px; color:var(--dim); font-weight:600;}
+nav{display:flex; gap:5px; overflow-x:auto; max-width:52vw;}
+nav::-webkit-scrollbar{height:4px;}
+nav a{color:var(--dim); text-decoration:none; font-size:11.5px; padding:6px 11px; border-radius:16px; border:1px solid transparent; transition:.2s; font-weight:700; white-space:nowrap;}
+nav a:hover{color:var(--heading); border-color:var(--neon-blue); background:#3ea6ff1a;}
+.theme-btn{flex-shrink:0; width:40px; height:40px; border-radius:12px; border:1px solid var(--border); background:var(--glass-strong);
+  color:var(--text); font-size:17px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:.25s;}
+.theme-btn:hover{border-color:var(--neon-blue); transform:translateY(-2px);}
+
+.hero{position:relative; padding:60px 6vw 40px; text-align:center;}
+.eyebrow{display:inline-block; padding:7px 22px; border-radius:30px; color:#04050f; font-size:12px; font-weight:900;
+  letter-spacing:2px; text-transform:uppercase; margin-bottom:20px;
+  background:linear-gradient(120deg,var(--gold),var(--orange),var(--pink),var(--purple),var(--cyan));
+  box-shadow:0 10px 26px -6px #000b;}
+.hero h1{font-size:clamp(24px,5.2vw,44px); font-weight:900; line-height:1.3;
+  background:linear-gradient(90deg,var(--neon-blue),var(--cyan) 35%,var(--purple) 65%,var(--pink)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+.hero .en{font-size:15px; color:var(--dim); font-weight:700; margin-top:10px;}
+.hero p{color:var(--dim); max-width:780px; margin:20px auto 0; font-size:14px; line-height:1.9; font-weight:500;}
+
+section{position:relative; padding:44px 6vw; max-width:1220px; margin:0 auto;}
+.sec-head{display:flex; align-items:center; gap:14px; margin-bottom:24px;}
+.sec-num{width:44px; height:44px; border-radius:14px; flex-shrink:0; display:flex; align-items:center; justify-content:center;
+  font-weight:900; font-size:16px; color:#04050f; box-shadow:0 8px 22px -6px var(--glow,#3ea6ff99); border:2px solid #ffffffaa;}
+.sec-head h2{font-size:clamp(19px,3vw,26px); font-weight:900; color:var(--heading);}
+.sec-head .sub{color:var(--dim); font-size:12.5px; font-weight:600; margin-top:2px;}
+.sec-head .en-tag{font-size:11px; color:var(--gold); font-weight:700; letter-spacing:.5px;}
+
+.card{padding:20px 22px;}
+.grid{display:grid; gap:16px;}
+.grid-2{grid-template-columns:1fr 1fr;} .grid-3{grid-template-columns:repeat(3,1fr);} .grid-4{grid-template-columns:repeat(4,1fr);}
+@media(max-width:900px){.grid-3,.grid-4{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr;} nav{max-width:100%;}}
+
+b.hi{color:var(--pink); font-weight:900;} b.hi2{color:var(--green); font-weight:900;} b.hi3{color:var(--gold); font-weight:900;}
+
+.rule-card{padding:20px; border-left:5px solid var(--neon-blue);}
+.rule-card h4{font-size:15px; color:var(--cyan); font-weight:900; margin-bottom:10px;}
+.rule-card p{font-size:13px; color:var(--dim); line-height:1.85; font-weight:500; margin-bottom:8px;}
+.rule-card ul{margin:6px 0 6px 20px; font-size:13px; color:var(--dim); line-height:1.9; font-weight:500;}
+.rule-card ul li{margin-bottom:4px;}
+
+.example-card{padding:18px 20px; margin-bottom:14px;}
+.example-card .qlabel{font-size:11px; font-weight:900; color:var(--gold); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;}
+.example-card .qtext{font-size:13.5px; font-weight:700; color:var(--heading); margin-bottom:14px; line-height:1.7;}
+.example-card .slabel{font-size:11px; font-weight:900; color:var(--green); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;}
+.example-card .stext{font-size:13px; color:var(--dim); line-height:1.9; font-weight:500; background:var(--glass-strong); padding:12px 14px; border-radius:10px; white-space:pre-line;}
+.show-ans-btn{padding:9px 20px; border-radius:10px; border:1.5px solid var(--green); background:transparent; color:var(--green);
+  font-weight:800; font-size:12px; cursor:pointer; transition:.2s;}
+.show-ans-btn:hover{background:var(--green); color:#04050f;}
+.show-ans-btn.open{background:var(--green); color:#04050f;}
+.ans-wrap{margin-top:14px; display:none;}
+.ans-wrap.open{display:block;}
+.pill{display:inline-block; padding:3px 10px; border-radius:10px; font-size:10px; font-weight:900; margin-left:8px; vertical-align:middle;}
+.pill-obj{background:linear-gradient(120deg,var(--cyan),#0a85b8); color:#04050f;}
+.pill-subj{background:linear-gradient(120deg,var(--purple),#7e4fd1); color:#fff;}
+
+.hw-card{padding:18px 20px;}
+.hw-card ol{margin:0; padding-left:20px; font-size:13px; color:var(--dim); line-height:2; font-weight:500;}
+.hw-card ol li{margin-bottom:8px;}
+.hw-card ol li::marker{color:var(--heading); font-weight:800;}
+
+.table-wrap{overflow-x:auto; margin-bottom:16px;}
+table{width:100%; border-collapse:collapse; min-width:560px;}
+thead th{text-align:center; padding:12px 14px; background:linear-gradient(120deg,var(--neon-blue),var(--purple)); color:#fff;
+  font-size:12px; text-transform:uppercase; letter-spacing:.5px; font-weight:900;}
+thead th:first-child{border-radius:10px 0 0 0;} thead th:last-child{border-radius:0 10px 0 0;}
+tbody td{padding:12px 14px; border-bottom:1px solid var(--border); color:var(--dim); font-size:12.5px; text-align:center; font-weight:600;}
+tbody tr:hover{background:#3ea6ff14;}
+
+/* ===== PORTRAIT CARDS ===== */
+.portrait-card{padding:22px 18px; text-align:center; border-radius:18px;}
+.portrait-avatar{width:88px; height:88px; border-radius:50%; margin:0 auto 14px; display:flex; align-items:center; justify-content:center;
+  font-size:38px; box-shadow:0 10px 24px -6px #0009; border:3px solid; position:relative;}
+.portrait-card .pname{font-weight:900; font-size:14.5px; color:var(--heading); line-height:1.4;}
+.portrait-card .prole{font-size:10.5px; color:var(--gold); font-weight:800; margin-top:5px; letter-spacing:.3px;}
+.portrait-card .pdesc{font-size:11.5px; color:var(--dim); margin-top:10px; line-height:1.7; font-weight:500;}
+
+/* ===== MIND MAP TREE ===== */
+.tree-wrap{overflow-x:auto; padding:18px 4px 4px;}
+.ctree, .ctree ul, .ctree li{list-style-type:none; margin:0; padding:0; position:relative;}
+.ctree{display:table; margin:0 auto; text-align:center;}
+.ctree ul{display:table; width:100%;}
+.ctree li{display:table-cell; padding:1.9em .7em 0; vertical-align:top;}
+.ctree li::before{outline:solid 2px var(--cyan); content:""; left:0; position:absolute; right:0; top:0;}
+.ctree li:first-child::before{left:50%; border-radius:8px 0 0 0;}
+.ctree li:last-child::before{right:50%; border-radius:0 8px 0 0;}
+.ctree ul::before{outline:solid 2px var(--cyan); content:""; height:1.9em; left:50%; position:absolute; top:-1.9em;}
+.ctree > li{padding-top:0;}
+.ctree > li::before{display:none;}
+.ctree li:only-child{padding-top:0;}
+.ctree li:only-child::before{display:none;}
+.tree-box{display:inline-block; padding:12px 16px; border-radius:12px; font-weight:900; font-size:12.5px; color:#04050f; text-align:center;
+  min-width:130px; box-shadow:0 8px 20px -6px #0009; background:linear-gradient(120deg,var(--gold),var(--orange)); position:relative;}
+.tree-box small{display:block; font-weight:700; font-size:10px; margin-top:3px; opacity:.85;}
+.tree-box.root-box{background:linear-gradient(120deg,var(--neon-blue),var(--purple)); color:#fff; font-size:14px; min-width:170px; padding:14px 22px;}
+.tree-box.small{font-size:11px; min-width:118px; padding:10px 12px;}
+
+.sub-title{margin:6px 0 4px; font-size:16px; font-weight:900; color:var(--heading); padding-top:6px;}
+.sub-title .en{display:block; font-size:11px; color:var(--dim); font-weight:700; margin-top:2px; letter-spacing:.3px;}
+.divider{height:1px; background:var(--border); margin:8px 0 4px;}
+
+footer{text-align:center; padding:50px 6vw 70px; color:var(--dim); font-size:12.5px; border-top:1px solid var(--border); margin-top:30px; font-weight:600;}
+footer .name{color:var(--cyan); font-weight:900; font-size:16px;}
+footer .copy{margin-top:18px; font-size:11px; color:var(--dim); opacity:.8;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <img src="images/1000043468.png" alt="PK STUDY" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="logo-fallback" style="display:none;">PK</div>
+    <div class="brand-text"><div class="name">PK STUDY</div><div class="tag">Class 8-9 (Combined) • Social Science (History) • Part 2</div></div>
+  </div>
+  <nav>
+    <a href="#notes">नोट्स</a><a href="#portraits">शासक</a><a href="#mindmap">माइंड मैप</a><a href="#facts">तथ्य</a><a href="#questions">प्रश्न</a><a href="#homework">होमवर्क</a>
+  </nav>
+  <button class="theme-btn" id="themeToggle" onclick="toggleTheme()" title="Dark/Light Mode">🌙</button>
+</header>
+
+<!-- ============ HERO ============ -->
+<div class="hero">
+  <span class="eyebrow">कक्षा 8-9 (संयुक्त) · सामाजिक विज्ञान (इतिहास) · Part 2</span>
+  <h1>कंपनी शासन का विस्तार एवं रूसी क्रांति</h1>
+  <div class="en">Expansion of Company Rule &amp; The Russian Revolution</div>
+  <p>Part 1 में हमने यूरोपीय कंपनियों के भारत आगमन एवं फ्रांसीसी क्रांति को पढ़ा था। अब Part 2 में <b class="hi">भाग 2A</b> में कक्षा 8 के अध्याय "भारत में अंग्रेज़ी राज्य की स्थापना" का अगला भाग — <b class="hi2">कंपनी ने युद्ध व नीतियों से अपना शासन कैसे फैलाया</b> (सहायक संधि, व्यपगत का सिद्धांत, मैसूर व मराठा युद्ध) — पढ़ेंगे। <b class="hi">भाग 2B</b> में कक्षा 9 के अध्याय "विश्वयुद्धों का इतिहास" के भीतर आने वाला महत्वपूर्ण प्रसंग — <b class="hi3">रूस में जारशाही का पतन एवं रूसी क्रांति (1917)</b> — पढ़ेंगे। इसमें शासकों के परिचय-कार्ड, माइंड मैप, महत्वपूर्ण तथ्य, हल किए गए प्रश्न और Homework दिया गया है।</p>
+</div>
+
+<!-- ============ NOTES ============ -->
+<section id="notes">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--neon-blue),#1f6fc9); --glow:#3ea6ff99;">📝</div>
+    <div><h2>Notes — विस्तार से समझें</h2><div class="sub en-tag">Detailed Concept Notes</div></div></div>
+
+  <div class="sub-title">भाग 2A — कक्षा 8: कंपनी शासन का विस्तार<span class="en">Class 8 — Expansion of Company Rule</span></div>
+  <div class="divider"></div>
+
+  <div style="display:flex; flex-direction:column; gap:16px; margin-top:16px;">
+    <div class="rule-card" style="border-left-color:var(--cyan);">
+      <h4 style="color:var(--cyan);">1. सहायक संधि (Subsidiary Alliance)</h4>
+      <p><b class="hi">लॉर्ड वेलेज़ली</b> (गवर्नर-जनरल, 1798–1805) ने भारतीय राज्यों पर नियंत्रण बढ़ाने के लिए यह नीति शुरू की। इसकी शर्तें:</p>
+      <ul>
+        <li>भारतीय राजा को अपने राज्य में अंग्रेज़ी सेना रखनी पड़ती थी, जिसका खर्च वही राजा उठाता था।</li>
+        <li>राजा अपनी स्वतंत्र सेना नहीं रख सकता था, और कंपनी के रेज़िडेंट (प्रतिनिधि) को दरबार में स्वीकार करना पड़ता था।</li>
+        <li>बदले में कंपनी राजा की "रक्षा" करती थी, परंतु राजा अपनी विदेश-नीति व सैन्य शक्ति खो देता था।</li>
+      </ul>
+      <p>जिन राज्यों ने यह संधि स्वीकार की: हैदराबाद (निज़ाम), मैसूर (1799 के बाद), अवध, तंजौर, तथा 1802-04 के बीच अनेक मराठा सरदार (पेशवा, सिंधिया आदि)।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--pink);">
+      <h4 style="color:var(--pink);">2. चतुर्थ आंग्ल-मैसूर युद्ध (1799) — टीपू सुल्तान</h4>
+      <p>वेलेज़ली, टीपू सुल्तान के <b class="hi">नेपोलियन के फ्रांस से संपर्कों</b> से चिंतित होकर, उन पर सहायक संधि स्वीकार करने का दबाव डालता है। टीपू सुल्तान इनकार कर देते हैं। <b class="hi3">4 मई 1799</b> को श्रीरंगपट्टनम (सेरिंगपट्टम) के किले पर अंग्रेज़ी सेना का हमला होता है और <b class="hi2">टीपू सुल्तान जल-द्वार के पास लड़ते हुए वीरगति को प्राप्त होते हैं।</b> मैसूर का कुछ भाग निज़ाम को, कुछ कंपनी को दिया गया, तथा शेष भाग पुराने हिंदू वाडियार राजवंश के नाबालिग उत्तराधिकारी को अधीनस्थ सहयोगी के रूप में लौटाया गया।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--green);">
+      <h4 style="color:var(--green);">3. आंग्ल-मराठा युद्ध — पेशवा बाजी राव द्वितीय</h4>
+      <p>तृतीय आंग्ल-मराठा युद्ध (1817-18) में मराठा शक्ति का अंत हो गया। <b class="hi">पेशवा बाजी राव द्वितीय</b> हार गए और उन्हें पेंशन देकर <b class="hi2">बिठूर (कानपुर के पास)</b> में निर्वासित कर दिया गया — इसके साथ ही मराठा साम्राज्य की स्वतंत्र सत्ता समाप्त हो गई।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--orange);">
+      <h4 style="color:var(--orange);">4. व्यपगत का सिद्धांत (Doctrine of Lapse)</h4>
+      <p><b class="hi">लॉर्ड डलहौज़ी</b> (गवर्नर-जनरल, 1848–1856) ने यह नीति लागू की — यदि किसी शासक की मृत्यु बिना प्राकृतिक (जैविक) पुत्र के हो, तो राज्य कंपनी में "विलीन" (lapse) हो जाएगा; गोद लिए पुत्र को उत्तराधिकार के लिए मान्यता नहीं दी जाती थी (हालाँकि धार्मिक/पारिवारिक कारणों से गोद लेना अनुमत था)।</p>
+      <p><b class="hi3">इस सिद्धांत से विलय किए गए राज्य:</b> सतारा (1848), जैतपुर व संबलपुर (1849), बघाट (1850), (छोटा) उदयपुर (1852), <b class="hi2">झाँसी (1853)</b>, नागपुर (1854)।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--purple);">
+      <h4 style="color:var(--purple);">5. अवध का विलय (1856) — नवाब वाजिद अली शाह</h4>
+      <p>अवध का विलय व्यपगत सिद्धांत से नहीं, बल्कि <b class="hi">"कुशासन" (misgovernance)</b> के आरोप में किया गया — डलहौज़ी की नीति से जुड़ा होने के कारण इसे प्रायः व्यपगत सिद्धांत के साथ ही पढ़ाया जाता है। <b class="hi2">नवाब वाजिद अली शाह</b> को गद्दी से हटाकर कलकत्ता भेज दिया गया। इस विलय से अवध के जनमानस में गहरा असंतोष फैला, जो आगे चलकर 1857 के विद्रोह का एक बड़ा कारण बना।</p>
+    </div>
+  </div>
+
+  <div class="sub-title" style="margin-top:34px;">भाग 2B — कक्षा 9: रूस में जारशाही का पतन एवं रूसी क्रांति<span class="en">Class 9 — Fall of Tsarist Russia &amp; The Russian Revolution</span></div>
+  <div class="divider"></div>
+
+  <div style="display:flex; flex-direction:column; gap:16px; margin-top:16px;">
+    <div class="rule-card" style="border-left-color:var(--gold);">
+      <h4 style="color:var(--gold);">6. प्रथम विश्वयुद्ध की पृष्ठभूमि (संक्षेप में)</h4>
+      <p><b class="hi">प्रथम विश्वयुद्ध (1914-1918)</b> यूरोप की बड़ी शक्तियों के दो गुटों — मित्र राष्ट्र (ब्रिटेन, फ्रांस, रूस) और केंद्रीय शक्तियाँ (जर्मनी, ऑस्ट्रिया-हंगरी) — के बीच लड़ा गया। इसी युद्ध के दौरान रूस के भीतर आर्थिक तंगी, भुखमरी व सैनिक असंतोष चरम पर पहुँच गया, जिसने आगे चलकर क्रांति की ज़मीन तैयार की।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--red);">
+      <h4 style="color:var(--red);">7. 1905 की क्रांति — रक्तरंजित रविवार</h4>
+      <p><b class="hi">ज़ार निकोलस द्वितीय</b> रूस के अंतिम सम्राट थे, जो निरंकुश (autocratic) शासन चलाते थे। 1905 में श्रमिकों के शांतिपूर्ण प्रदर्शन पर सेना की गोलीबारी से सैकड़ों लोग मारे गए — इस घटना को <b class="hi2">"रक्तरंजित रविवार" (Bloody Sunday)</b> कहा जाता है। इससे जनता में ज़ार-शासन के प्रति भारी असंतोष फैल गया, जो 1917 की क्रांति की नींव बना।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--cyan);">
+      <h4 style="color:var(--cyan);">8. फरवरी क्रांति, 1917</h4>
+      <p>युद्ध के कारण भुखमरी व अव्यवस्था चरम पर पहुँचने पर जनता व सैनिकों का विद्रोह भड़क उठा। दबाव में आकर <b class="hi">ज़ार निकोलस द्वितीय को गद्दी छोड़नी पड़ी</b>, जिससे रूस में सदियों पुराने रोमानोव राजवंश (Romanov dynasty) का अंत हो गया।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--green);">
+      <h4 style="color:var(--green);">9. अक्टूबर क्रांति, 1917 — लेनिन एवं बोल्शेविक</h4>
+      <p>फरवरी क्रांति के बाद बनी अस्थायी सरकार जनता की उम्मीदों पर खरी नहीं उतरी। <b class="hi">व्लादिमीर लेनिन</b> के नेतृत्व में <b class="hi2">बोल्शेविक पार्टी</b> ने अक्टूबर 1917 में सत्ता पर कब्ज़ा कर लिया और रूस में समाजवादी (साम्यवादी) सरकार की स्थापना हुई — यह विश्व की पहली सफल समाजवादी क्रांति मानी जाती है।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--purple);">
+      <h4 style="color:var(--purple);">10. द्वितीय विश्वयुद्ध — संक्षिप्त परिचय</h4>
+      <p><b class="hi">द्वितीय विश्वयुद्ध (1939-1945)</b> जर्मनी, इटली व जापान (धुरी शक्तियाँ) तथा ब्रिटेन, फ्रांस, अमेरिका, सोवियत संघ (मित्र राष्ट्र) के बीच लड़ा गया — इसका विस्तृत अध्ययन "नाज़ीवाद" नामक अलग अध्याय में किया जाता है, यहाँ केवल पृष्ठभूमि के रूप में समझना ज़रूरी है कि प्रथम विश्वयुद्ध के असंतोष व आर्थिक संकट ने ही आगे चलकर द्वितीय विश्वयुद्ध को जन्म दिया।</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RULERS / PORTRAITS ============ -->
+<section id="portraits">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--purple),#7e4fd1); --glow:#b07dff99;">👑</div>
+    <div><h2>इस पाठ के प्रमुख शासक एवं नेता</h2><div class="sub en-tag">Key Rulers &amp; Leaders — Portrait Cards</div></div></div>
+  <div class="grid grid-4" id="portraitGrid"></div>
+</section>
+
+<!-- ============ MIND MAP ============ -->
+<section id="mindmap">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--gold),#b8860b); --glow:#ffc23399;">🧠</div>
+    <div><h2>माइंड मैप</h2><div class="sub en-tag">दोनों विषयों को जोड़कर समझें</div></div></div>
+
+  <div class="glass card">
+    <div style="text-align:center; font-weight:900; color:var(--gold); font-size:14.5px; margin-bottom:6px;">कंपनी शासन के विस्तार की नीतियाँ</div>
+    <div class="tree-wrap">
+      <ul class="ctree">
+        <li>
+          <span class="tree-box root-box">कंपनी शासन का विस्तार</span>
+          <ul>
+            <li><span class="tree-box" style="background:linear-gradient(120deg,var(--cyan),#0a85b8);">सहायक संधि<small>वेलेज़ली</small></span></li>
+            <li><span class="tree-box" style="background:linear-gradient(120deg,var(--pink),#b8215f); color:#fff;">व्यपगत का सिद्धांत<small>डलहौज़ी</small></span></li>
+            <li><span class="tree-box" style="background:linear-gradient(120deg,var(--green),#1a9c70);">युद्ध द्वारा विजय<small>मैसूर, मराठा</small></span></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="glass card" style="margin-top:20px;">
+    <div style="text-align:center; font-weight:900; color:var(--gold); font-size:14.5px; margin-bottom:6px;">रूसी क्रांति के चरण (क्रमवार)</div>
+    <div class="tree-wrap">
+      <ul class="ctree">
+        <li>
+          <span class="tree-box root-box" style="background:linear-gradient(120deg,var(--red),#a82424);">रूसी क्रांति</span>
+          <ul>
+            <li><span class="tree-box small">1905<small>रक्तरंजित रविवार</small></span></li>
+            <li><span class="tree-box small">फरवरी 1917<small>ज़ार की गद्दी छोड़ना</small></span></li>
+            <li><span class="tree-box small">अक्टूबर 1917<small>लेनिन व बोल्शेविक सत्ता में</small></span></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUICK FACTS ============ -->
+<section id="facts">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--green),#1a9c70); --glow:#2ee6a699;">⚡</div>
+    <div><h2>महत्वपूर्ण तथ्य (Quick Facts)</h2><div class="sub en-tag">परीक्षा से पहले दोहराने के लिए</div></div></div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>घटना/नीति</th><th>वर्ष</th><th>जुड़ा शासक/नेता</th></tr></thead>
+      <tbody>
+        <tr><td>सहायक संधि की शुरुआत</td><td>1798</td><td>लॉर्ड वेलेज़ली</td></tr>
+        <tr><td>चतुर्थ आंग्ल-मैसूर युद्ध, टीपू की मृत्यु</td><td>1799</td><td>टीपू सुल्तान</td></tr>
+        <tr><td>तृतीय आंग्ल-मराठा युद्ध</td><td>1817-18</td><td>पेशवा बाजी राव द्वितीय</td></tr>
+        <tr><td>व्यपगत सिद्धांत — झाँसी विलय</td><td>1853</td><td>लॉर्ड डलहौज़ी</td></tr>
+        <tr><td>अवध का विलय</td><td>1856</td><td>नवाब वाजिद अली शाह</td></tr>
+        <tr><td>रक्तरंजित रविवार</td><td>1905</td><td>ज़ार निकोलस द्वितीय</td></tr>
+        <tr><td>फरवरी क्रांति — ज़ार की गद्दी छूटना</td><td>1917</td><td>ज़ार निकोलस द्वितीय</td></tr>
+        <tr><td>अक्टूबर क्रांति — बोल्शेविक सत्ता</td><td>1917</td><td>लेनिन</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ QUESTIONS ============ -->
+<section id="questions">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--orange),#c9650c); --glow:#ff9f4399;">📘</div>
+    <div><h2>महत्वपूर्ण प्रश्न (हल सहित)</h2><div class="sub en-tag">Objective + Subjective — उत्तर देखने के लिए बटन दबाएँ</div></div></div>
+  <div id="qWrap"></div>
+</section>
+
+<!-- ============ HOMEWORK ============ -->
+<section id="homework">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--red),#a82424); --glow:#ff4f4f99;">🏠</div>
+    <div><h2>घर से करने के लिए Homework</h2><div class="sub en-tag">बिना उत्तर देखे खुद हल करें</div></div></div>
+  <div class="glass card hw-card">
+    <ol id="homeworkList"></ol>
+  </div>
+  <p style="color:var(--dim); font-size:12px; margin-top:14px; font-weight:600;">यह प्रश्न अपनी Social Science की notebook में हल करके अगली कक्षा में साथ लाइए।</p>
+</section>
+
+<footer>
+  <span class="name">PK STUDY</span> — Part 2 पूर्ण
+  <div class="copy">Class 8-9 (Combined) · Social Science (History) · Part 2 — PK STUDY, All Copyright Reserved</div>
+</footer>
+
+<script>
+function toggleTheme(){
+  const html = document.documentElement;
+  const isLight = html.getAttribute('data-theme') === 'light';
+  html.setAttribute('data-theme', isLight ? '' : 'light');
+  document.getElementById('themeToggle').textContent = isLight ? '🌙' : '☀️';
+}
+function el(tag, cls, html){ const d=document.createElement(tag); if(cls)d.className=cls; if(html!==undefined)d.innerHTML=html; return d; }
+
+const portraitData = [
+  {icon:"⚔️", name:"टीपू सुल्तान", role:"मैसूर के शासक (1782–1799)", desc:"नेपोलियन के फ्रांस से संपर्क रखने वाले, सहायक संधि ठुकराने वाले और श्रीरंगपट्टनम में वीरगति पाने वाले साहसी शासक।", color:"var(--red)"},
+  {icon:"🎖️", name:"लॉर्ड वेलेज़ली", role:"गवर्नर-जनरल (1798–1805)", desc:"सहायक संधि नीति के जनक, जिसने अनेक भारतीय राज्यों को कंपनी का अधीनस्थ सहयोगी बना दिया।", color:"var(--cyan)"},
+  {icon:"👑", name:"पेशवा बाजी राव द्वितीय", role:"अंतिम मराठा पेशवा", desc:"तृतीय आंग्ल-मराठा युद्ध में हारकर बिठूर में निर्वासित हुए — इनके साथ मराठा साम्राज्य की स्वतंत्र सत्ता समाप्त हो गई।", color:"var(--orange)"},
+  {icon:"🎖️", name:"लॉर्ड डलहौज़ी", role:"गवर्नर-जनरल (1848–1856)", desc:"व्यपगत के सिद्धांत के प्रवर्तक, जिसकी नीति से झाँसी, सतारा, नागपुर जैसे कई राज्य कंपनी में विलीन हुए।", color:"var(--purple)"},
+  {icon:"👑", name:"नवाब वाजिद अली शाह", role:"अवध के अंतिम नवाब", desc:"1856 में 'कुशासन' के आरोप में गद्दी से हटाकर कलकत्ता भेजे गए — इनके विलय से अवध में गहरा असंतोष फैला।", color:"var(--gold)"},
+  {icon:"⚔️", name:"रानी लक्ष्मीबाई", role:"झाँसी की रानी", desc:"1853 में व्यपगत सिद्धांत से झाँसी विलय की शिकार बनीं — आगे 1857 के विद्रोह की सबसे वीर योद्धाओं में गिनी गईं।", color:"var(--pink)"},
+  {icon:"👑", name:"ज़ार निकोलस द्वितीय", role:"रूस के अंतिम सम्राट", desc:"निरंकुश शासक, जिन्हें 1917 की फरवरी क्रांति में गद्दी छोड़नी पड़ी — इनके साथ रोमानोव राजवंश का अंत हुआ।", color:"var(--red)"},
+  {icon:"🧔", name:"व्लादिमीर लेनिन", role:"बोल्शेविक नेता", desc:"अक्टूबर 1917 की क्रांति का नेतृत्व कर रूस में विश्व की पहली सफल समाजवादी सरकार स्थापित की।", color:"var(--green)"}
+];
+
+const qData = [
+  {type:"obj", q:"1. सहायक संधि की शुरुआत किसने और कब की?", a:"लॉर्ड वेलेज़ली ने 1798 में सहायक संधि की शुरुआत की।"},
+  {type:"obj", q:"2. सहायक संधि स्वीकार करने वाले किन्हीं दो राज्यों के नाम लिखिए।", a:"हैदराबाद (निज़ाम) और मैसूर (1799 के बाद) — इनके अतिरिक्त अवध, तंजौर व कई मराठा सरदार भी।"},
+  {type:"subj", q:"3. सहायक संधि की शर्तें क्या थीं? इससे भारतीय राजाओं को क्या नुकसान हुआ?", a:"शर्तें: राजा को अपने राज्य में अंग्रेज़ी सेना रखनी पड़ती थी (जिसका खर्च वही उठाता था), स्वतंत्र सेना नहीं रख सकता था, और कंपनी के रेज़िडेंट को दरबार में स्वीकार करना पड़ता था।\nनुकसान: राजा अपनी विदेश-नीति व सैन्य शक्ति खो देता था और वास्तव में कंपनी पर निर्भर हो जाता था, भले ही नाम मात्र का शासक बना रहे।"},
+  {type:"subj", q:"4. टीपू सुल्तान की मृत्यु किस युद्ध में और कैसे हुई?", a:"चतुर्थ आंग्ल-मैसूर युद्ध (1799) में, श्रीरंगपट्टनम के किले पर अंग्रेज़ी सेना के हमले के दौरान टीपू सुल्तान जल-द्वार के पास लड़ते हुए वीरगति को प्राप्त हुए। वे सहायक संधि स्वीकार करने से इनकार करने के कारण युद्ध का सामना कर रहे थे।"},
+  {type:"obj", q:"5. तृतीय आंग्ल-मराठा युद्ध के बाद पेशवा बाजी राव द्वितीय को कहाँ निर्वासित किया गया?", a:"बिठूर (कानपुर के निकट) में, जहाँ उन्हें पेंशन देकर रखा गया।"},
+  {type:"obj", q:"6. व्यपगत का सिद्धांत किसने लागू किया?", a:"लॉर्ड डलहौज़ी (गवर्नर-जनरल, 1848–1856) ने।"},
+  {type:"subj", q:"7. व्यपगत का सिद्धांत क्या था? इससे विलय किए गए किन्हीं चार राज्यों के नाम लिखिए।", a:"यदि किसी शासक की मृत्यु बिना प्राकृतिक (जैविक) पुत्र के होती थी, तो राज्य कंपनी में विलीन हो जाता था; गोद लिए पुत्र को उत्तराधिकार के लिए मान्यता नहीं दी जाती थी।\nविलय किए गए राज्य: सतारा (1848), संबलपुर (1849), झाँसी (1853), नागपुर (1854)।"},
+  {type:"obj", q:"8. अवध का विलय किस आधार पर और कब किया गया?", a:"1856 में 'कुशासन' (misgovernance) के आरोप में — नवाब वाजिद अली शाह को गद्दी से हटाकर कलकत्ता भेज दिया गया।"},
+  {type:"subj", q:"9. अवध के विलय का क्या परिणाम हुआ?", a:"अवध के जनमानस में गहरा असंतोष फैला, क्योंकि नवाब को बिना उचित कारण गद्दी से हटाया गया माना गया — यह असंतोष आगे चलकर 1857 के विद्रोह का एक बड़ा कारण बना।"},
+  {type:"obj", q:"10. रूस के अंतिम ज़ार का नाम क्या था?", a:"ज़ार निकोलस द्वितीय।"},
+  {type:"subj", q:"11. 'रक्तरंजित रविवार' (Bloody Sunday) की घटना क्या थी?", a:"1905 में श्रमिकों के एक शांतिपूर्ण प्रदर्शन पर ज़ार की सेना ने गोलीबारी कर दी, जिसमें सैकड़ों लोग मारे गए। इस घटना को 'रक्तरंजित रविवार' कहा जाता है, जिसने रूस की जनता में ज़ार-शासन के प्रति भारी असंतोष पैदा किया।"},
+  {type:"obj", q:"12. फरवरी 1917 की क्रांति में क्या हुआ?", a:"जनता व सैनिकों के विद्रोह के दबाव में ज़ार निकोलस द्वितीय को गद्दी छोड़नी पड़ी, जिससे रोमानोव राजवंश का अंत हो गया।"},
+  {type:"subj", q:"13. अक्टूबर 1917 की क्रांति में लेनिन की क्या भूमिका थी?", a:"व्लादिमीर लेनिन के नेतृत्व में बोल्शेविक पार्टी ने अक्टूबर 1917 में सत्ता पर कब्ज़ा कर लिया और रूस में समाजवादी (साम्यवादी) सरकार की स्थापना की — यह विश्व की पहली सफल समाजवादी क्रांति मानी जाती है।"},
+  {type:"obj", q:"14. प्रथम विश्वयुद्ध किन दो गुटों के बीच लड़ा गया?", a:"मित्र राष्ट्र (ब्रिटेन, फ्रांस, रूस) और केंद्रीय शक्तियाँ (जर्मनी, ऑस्ट्रिया-हंगरी) के बीच।"},
+  {type:"subj", q:"15. फरवरी क्रांति और अक्टूबर क्रांति में क्या अंतर था?", a:"फरवरी क्रांति (1917) में जनता के दबाव से ज़ार निकोलस द्वितीय को गद्दी छोड़नी पड़ी और एक अस्थायी सरकार बनी। अक्टूबर क्रांति (1917) में उसी वर्ष बाद में लेनिन के नेतृत्व में बोल्शेविकों ने उस अस्थायी सरकार को हटाकर समाजवादी सत्ता स्थापित की — फरवरी क्रांति ने राजतंत्र समाप्त किया, अक्टूबर क्रांति ने समाजवादी शासन स्थापित किया।"},
+  {type:"obj", q:"16. द्वितीय विश्वयुद्ध किस वर्ष शुरू व समाप्त हुआ?", a:"1939 में शुरू होकर 1945 में समाप्त हुआ।"},
+  {type:"subj", q:"17. सहायक संधि और व्यपगत सिद्धांत में क्या अंतर है?", a:"सहायक संधि में राजा नाम मात्र का शासक बना रहता था परंतु अपनी सेना व विदेश-नीति खो देता था, राज्य औपचारिक रूप से विलीन नहीं होता था। व्यपगत सिद्धांत में तो राज्य को सीधे कंपनी में मिला ही लिया जाता था, यदि शासक की बिना प्राकृतिक पुत्र के मृत्यु हो जाए।"},
+  {type:"subj", q:"18. रानी लक्ष्मीबाई का झाँसी से क्या संबंध था?", a:"झाँसी को 1853 में लॉर्ड डलहौज़ी के व्यपगत सिद्धांत के तहत कंपनी में विलीन कर लिया गया, जबकि रानी लक्ष्मीबाई इसकी शासक थीं। इस विलय के विरोध में आगे चलकर वे 1857 के विद्रोह की सबसे वीर योद्धाओं में गिनी गईं।"},
+  {type:"obj", q:"19. रोमानोव राजवंश का अंत कब और कैसे हुआ?", a:"फरवरी 1917 की क्रांति में ज़ार निकोलस द्वितीय को गद्दी छोड़नी पड़ी, जिससे सदियों पुराने रोमानोव राजवंश का अंत हो गया।"},
+  {type:"subj", q:"20. कंपनी शासन के विस्तार की तीन मुख्य नीतियाँ/तरीके बताइए।", a:"(1) सहायक संधि — राज्यों को नाम-मात्र स्वतंत्र रखकर वास्तविक नियंत्रण अपने हाथ में लेना, (2) व्यपगत का सिद्धांत — बिना प्राकृतिक उत्तराधिकारी वाले राज्यों को सीधे विलय करना, (3) प्रत्यक्ष युद्ध द्वारा विजय — जैसे मैसूर व मराठा युद्ध, जिनमें सैन्य बल से राज्यों को हराकर क्षेत्र हथियाना।"}
+];
+
+const homeworkData = [
+  "सहायक संधि की तीन प्रमुख शर्तें अपने शब्दों में लिखिए।",
+  "व्यपगत के सिद्धांत से विलय किए गए किन्हीं तीन राज्यों के नाम व वर्ष लिखिए।",
+  "टीपू सुल्तान की वीरता पर आधारित 4-5 पंक्तियाँ अपने शब्दों में लिखिए।",
+  "फरवरी 1917 और अक्टूबर 1917 की क्रांतियों की तुलना करते हुए एक तालिका बनाइए (कारण, नेतृत्व, परिणाम)।",
+  "यदि आप उस समय के किसी भारतीय राजा होते और कंपनी सहायक संधि का प्रस्ताव रखती, तो आप क्या निर्णय लेते? कारण सहित लिखिए।",
+  "ज़ार निकोलस द्वितीय के शासन के विरुद्ध जनता में असंतोष के तीन कारण लिखिए।"
+];
+
+function buildPortraits(){
+  const g = document.getElementById('portraitGrid');
+  portraitData.forEach(p=>{
+    const d = el('div','glass portrait-card', `
+      <div class="portrait-avatar" style="background:radial-gradient(circle at 35% 30%, ${p.color}55, ${p.color}22); border-color:${p.color};">${p.icon}</div>
+      <div class="pname">${p.name}</div>
+      <div class="prole">${p.role}</div>
+      <div class="pdesc">${p.desc}</div>`);
+    g.appendChild(d);
+  });
+}
+function buildQuestions(){
+  const wrap = document.getElementById('qWrap');
+  qData.forEach((item)=>{
+    const pillHtml = item.type === 'obj' ? '<span class="pill pill-obj">Objective</span>' : '<span class="pill pill-subj">Subjective</span>';
+    const d = el('div','glass example-card', `<div class="qlabel">प्रश्न ${pillHtml}</div><div class="qtext">${item.q}</div>
+      <button class="show-ans-btn" onclick="toggleAnswer(this)">उत्तर दिखाएँ (Show Answer)</button>
+      <div class="ans-wrap"><div class="slabel">उत्तर (Answer)</div><div class="stext">${item.a}</div></div>`);
+    wrap.appendChild(d);
+  });
+}
+function toggleAnswer(btn){
+  const wrap = btn.nextElementSibling;
+  const isOpen = wrap.classList.toggle('open');
+  btn.classList.toggle('open', isOpen);
+  btn.textContent = isOpen ? 'उत्तर छुपाएँ (Hide Answer)' : 'उत्तर दिखाएँ (Show Answer)';
+}
+function buildHomework(){
+  const g = document.getElementById('homeworkList');
+  homeworkData.forEach(q=>{ const li = document.createElement('li'); li.textContent = q; g.appendChild(li); });
+}
+
+buildPortraits();
+buildQuestions();
+buildHomework();
+</script>
+</body>
+</html>
