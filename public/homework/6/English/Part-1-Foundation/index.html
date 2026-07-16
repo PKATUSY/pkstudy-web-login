@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PK STUDY | अंग्रेज़ी की नींव — वर्णमाला और अभिवादन</title>
+<style>
+:root{
+  --bg:#04050f; --glass:rgba(255,255,255,.045); --glass-strong:rgba(255,255,255,.08);
+  --border:rgba(255,255,255,.12); --text:#f2f6ff; --dim:#9fb0da; --heading:#ffffff;
+  --neon-blue:#3ea6ff; --cyan:#33e0ff; --purple:#b07dff; --gold:#ffc233;
+  --green:#2ee6a6; --orange:#ff9f43; --pink:#ff4d8d; --red:#ff4f4f;
+  --shadow:0 22px 46px -22px #000d; --hshadow:0 30px 56px -20px #000f;
+}
+[data-theme="light"]{
+  --bg:#f6f8fd; --glass:rgba(20,30,65,.045); --glass-strong:rgba(20,30,65,.08);
+  --border:rgba(20,30,65,.12); --text:#161c33; --dim:#535f82; --heading:#12172b;
+  --neon-blue:#2563eb; --cyan:#0891b2; --purple:#7c3aed; --gold:#b45309;
+  --green:#059669; --orange:#c2410c; --pink:#db2777; --red:#dc2626;
+  --shadow:0 18px 36px -20px rgba(30,40,80,.18); --hshadow:0 24px 44px -18px rgba(30,40,80,.24);
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Segoe UI','Noto Sans Devanagari',Arial,sans-serif; color:var(--text); min-height:100vh; overflow-x:hidden;
+  transition:background .4s, color .4s;
+  background:
+    radial-gradient(ellipse at 10% -10%, #1c3a9955, transparent 55%),
+    radial-gradient(ellipse at 95% 10%, #7a2ab866, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, #0a5a6e44, transparent 55%),
+    linear-gradient(180deg,#04050f,#020208 90%);
+}
+[data-theme="light"] body{
+  background:
+    radial-gradient(ellipse at 10% -10%, #dbe4ff99, transparent 55%),
+    radial-gradient(ellipse at 95% 10%, #ede0ff99, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, #d7f5f099, transparent 55%),
+    linear-gradient(180deg,#f8faff,#eef1f9 90%);
+}
+::-webkit-scrollbar{width:8px;} ::-webkit-scrollbar-thumb{background:var(--neon-blue); border-radius:6px;} ::-webkit-scrollbar-track{background:transparent;}
+
+.glass{background:var(--glass); border:1px solid var(--border); border-radius:18px; backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+  box-shadow:var(--shadow), inset 0 1px 0 #ffffff12; transition:transform .35s, box-shadow .35s, background .4s, border .4s;}
+.glass:hover{transform:translateY(-4px); box-shadow:var(--hshadow), inset 0 1px 0 #ffffff1e;}
+
+header{position:sticky; top:0; z-index:200; display:flex; align-items:center; justify-content:space-between; padding:14px 26px;
+  background:rgba(4,5,15,.75); backdrop-filter:blur(18px); border-bottom:1px solid var(--border); flex-wrap:wrap; gap:10px; transition:background .4s;}
+[data-theme="light"] header{background:rgba(255,255,255,.8);}
+.brand{display:flex; align-items:center; gap:12px;}
+.brand img{width:44px; height:44px; border-radius:10px; object-fit:cover; border:2px solid var(--neon-blue); box-shadow:0 0 18px #3ea6ff88;}
+.logo-fallback{width:44px; height:44px; border-radius:10px; display:flex; align-items:center; justify-content:center;
+  background:linear-gradient(135deg,var(--neon-blue),#1f3d8c); font-weight:900; font-size:12px; border:2px solid var(--cyan); color:#fff;}
+.brand-text .name{font-weight:900; font-size:18px; color:var(--cyan); letter-spacing:.5px;}
+.brand-text .tag{font-size:11px; color:var(--dim); font-weight:600;}
+nav{display:flex; gap:5px; overflow-x:auto; max-width:52vw;}
+nav::-webkit-scrollbar{height:4px;}
+nav a{color:var(--dim); text-decoration:none; font-size:11.5px; padding:6px 11px; border-radius:16px; border:1px solid transparent; transition:.2s; font-weight:700; white-space:nowrap;}
+nav a:hover{color:var(--heading); border-color:var(--neon-blue); background:#3ea6ff1a;}
+.theme-btn{flex-shrink:0; width:40px; height:40px; border-radius:12px; border:1px solid var(--border); background:var(--glass-strong);
+  color:var(--text); font-size:17px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:.25s;}
+.theme-btn:hover{border-color:var(--neon-blue); transform:translateY(-2px);}
+
+/* ===== HERO ===== */
+.hero{position:relative; padding:80px 6vw 60px; text-align:center; overflow:hidden;}
+.hero-bg{position:absolute; inset:0; z-index:0; opacity:.5;}
+.eyebrow{display:inline-block; padding:7px 22px; border-radius:30px; color:#04050f; font-size:12px; font-weight:900;
+  letter-spacing:2.5px; text-transform:uppercase; margin-bottom:20px; position:relative; z-index:2;
+  background:linear-gradient(120deg,var(--gold),var(--orange),var(--pink),var(--purple),var(--cyan)); background-size:400% 100%; animation:shim 8s linear infinite;
+  box-shadow:0 10px 26px -6px #000b;}
+@keyframes shim{0%{background-position:0% 0;}100%{background-position:400% 0;}}
+.hero h1{position:relative; z-index:2; font-size:clamp(28px,6vw,54px); font-weight:900; line-height:1.25;
+  background:linear-gradient(90deg,var(--neon-blue),var(--cyan) 35%,var(--purple) 65%,var(--pink)); -webkit-background-clip:text; background-clip:text; color:transparent;
+  text-shadow:0 0 60px #3ea6ff33; animation:hueGlow 6s ease-in-out infinite;}
+@keyframes hueGlow{0%,100%{filter:brightness(1);} 50%{filter:brightness(1.2);}}
+.hero .en{position:relative; z-index:2; font-size:16px; color:var(--dim); font-weight:700; margin-top:10px; letter-spacing:1px;}
+.hero p{position:relative; z-index:2; color:var(--dim); max-width:760px; margin:20px auto 0; font-size:14.5px; line-height:1.9; font-weight:500;}
+.pulse-line{position:relative; z-index:2; width:150px; height:4px; margin:28px auto 0; border-radius:4px;
+  background:linear-gradient(90deg,var(--neon-blue),var(--cyan),var(--purple),var(--gold)); background-size:300% 100%; animation:shim 4s linear infinite;
+  box-shadow:0 4px 20px -2px #3ea6ff88;}
+
+.optics-scene{position:relative; z-index:2; max-width:680px; margin:36px auto 0; height:210px;}
+.optics-scene svg{width:100%; height:100%;}
+.laser{stroke-dasharray:8 6; animation:dash 1.4s linear infinite;}
+@keyframes dash{to{stroke-dashoffset:-28;}}
+.glow-dot{filter:drop-shadow(0 0 8px currentColor);}
+@keyframes floaty{0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);}}
+.float-ic{animation:floaty 4s ease-in-out infinite;}
+
+section{position:relative; z-index:1; padding:52px 6vw; max-width:1300px; margin:0 auto;}
+.sec-head{display:flex; align-items:center; gap:14px; margin-bottom:28px;}
+.sec-num{width:44px; height:44px; border-radius:14px; flex-shrink:0; display:flex; align-items:center; justify-content:center;
+  font-weight:900; font-size:16px; color:#04050f; box-shadow:0 8px 22px -6px var(--glow,#3ea6ff99); border:2px solid #ffffffaa;}
+.sec-head h2{font-size:clamp(19px,3vw,26px); font-weight:900; color:var(--heading);}
+.sec-head .sub{color:var(--dim); font-size:12.5px; font-weight:600; margin-top:2px;}
+.sec-head .en-tag{font-size:11px; color:var(--gold); font-weight:700; letter-spacing:.5px;}
+
+.card{padding:20px 22px;}
+.grid{display:grid; gap:16px;}
+.grid-2{grid-template-columns:1fr 1fr;} .grid-3{grid-template-columns:repeat(3,1fr);}
+.grid-4{grid-template-columns:repeat(4,1fr);} .grid-5{grid-template-columns:repeat(5,1fr);}
+@media(max-width:900px){.grid-3,.grid-4,.grid-5{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.grid-2,.grid-3,.grid-4,.grid-5{grid-template-columns:1fr;} nav{max-width:100%;}}
+
+b.hi{color:var(--pink); font-weight:900;} b.hi2{color:var(--green); font-weight:900;} b.hi3{color:var(--gold); font-weight:900;}
+.eng-term{color:var(--cyan); font-style:italic; font-weight:700;}
+
+.obj-card{padding:16px 18px; display:flex; align-items:center; gap:12px;}
+.obj-card .ic{font-size:24px; flex-shrink:0;}
+.obj-card .t{font-size:13.5px; font-weight:800; color:var(--text);}
+
+.timeline{position:relative; padding-left:36px;}
+.timeline::before{content:''; position:absolute; left:11px; top:6px; bottom:6px; width:3px;
+  background:linear-gradient(180deg,var(--neon-blue),var(--cyan),var(--purple),var(--gold)); border-radius:3px; box-shadow:0 0 14px #3ea6ff66;}
+.t-item{position:relative; margin-bottom:26px;}
+.t-item::before{content:''; position:absolute; left:-31px; top:6px; width:18px; height:18px; border-radius:50%;
+  background:var(--bg); border:3px solid var(--dotcolor,var(--neon-blue)); box-shadow:0 0 16px var(--dotcolor,var(--neon-blue));}
+.t-item:nth-child(1){--dotcolor:var(--gold);} .t-item:nth-child(2){--dotcolor:var(--cyan);}
+.t-item:nth-child(3){--dotcolor:var(--purple);} .t-item:nth-child(4){--dotcolor:var(--green);} .t-item:nth-child(5){--dotcolor:var(--pink);}
+.t-year{display:inline-block; font-weight:900; font-size:13.5px; color:#04050f; background:var(--dotcolor,var(--neon-blue));
+  padding:5px 16px; border-radius:20px; margin-bottom:8px; box-shadow:0 4px 14px -2px var(--dotcolor,#3ea6ff88);}
+.t-item h3{font-size:16px; color:var(--heading); font-weight:800; margin-bottom:4px;}
+.t-item p{font-size:13px; color:var(--dim); line-height:1.8; font-weight:500;}
+
+.mindmap-wrap{display:flex; justify-content:center;}
+.mindmap-wrap svg{width:100%; max-width:1100px; height:auto;}
+.mm-node{stroke-width:2; rx:14;}
+.mm-text{fill:var(--heading); font-size:12.5px; font-weight:800;}
+.mm-line{stroke-width:2; opacity:.55; stroke-dasharray:5 4;}
+
+.flow-col{display:flex; flex-direction:column; align-items:center; gap:6px;}
+.flow-box{padding:12px 22px; border-radius:12px; font-weight:900; font-size:13px; color:#04050f; text-align:center; min-width:180px; box-shadow:0 8px 20px -6px #0009;}
+.flow-arrow{font-size:20px; color:var(--cyan); font-weight:900;}
+
+.def-card{padding:18px 20px; border-radius:16px;}
+.def-card h4{font-size:14.5px; margin-bottom:8px; display:flex; align-items:center; gap:8px; font-weight:900;}
+.def-card p{font-size:12.5px; color:var(--dim); line-height:1.75; font-weight:500;}
+
+.diagram-card{padding:18px; text-align:center;}
+.diagram-card svg{width:100%; max-width:280px; height:150px;}
+.diagram-card .cap{font-weight:800; font-size:13px; color:var(--heading); margin-top:8px;}
+.diagram-card .cap2{font-size:11px; color:var(--dim); margin-top:2px;}
+
+.rule-card{padding:20px; border-left:5px solid var(--neon-blue);}
+.rule-card h4{font-size:15px; color:var(--cyan); font-weight:900; margin-bottom:8px;}
+.rule-card p{font-size:13px; color:var(--dim); line-height:1.8; font-weight:500;}
+
+.example-card{padding:18px 20px;}
+.example-card .qlabel{font-size:11px; font-weight:900; color:var(--gold); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;}
+.example-card .qtext{font-size:13.5px; font-weight:700; color:var(--heading); margin-bottom:14px; line-height:1.7;}
+.example-card .slabel{font-size:11px; font-weight:900; color:var(--green); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;}
+.example-card .stext{font-size:13px; color:var(--dim); line-height:1.8; font-weight:500; background:var(--glass-strong); padding:12px 14px; border-radius:10px;}
+.example-card{margin-bottom:14px;}
+
+.hw-card{padding:18px 20px;}
+.hw-card ol{margin:0; padding-left:20px; font-size:13px; color:var(--dim); line-height:2; font-weight:500;}
+.hw-card ol li{margin-bottom:6px;}
+.hw-card ol li::marker{color:var(--heading); font-weight:800;}
+
+.table-wrap{overflow-x:auto;}
+table{width:100%; border-collapse:collapse; min-width:700px;}
+thead th{text-align:center; padding:12px 14px; background:linear-gradient(120deg,var(--neon-blue),var(--purple)); color:#fff;
+  font-size:12px; text-transform:uppercase; letter-spacing:.5px; font-weight:900;}
+thead th:first-child{border-radius:10px 0 0 0;} thead th:last-child{border-radius:0 10px 0 0;}
+tbody td{padding:12px 14px; border-bottom:1px solid var(--border); color:var(--dim); font-size:12.5px; text-align:center; font-weight:600;}
+tbody tr:hover{background:#3ea6ff14;}
+.pill{display:inline-block; padding:4px 12px; border-radius:12px; font-size:10.5px; font-weight:900;}
+.pill-real{background:linear-gradient(120deg,var(--red),#a82424); color:#fff;}
+.pill-virtual{background:linear-gradient(120deg,var(--cyan),#0a85b8); color:#04050f;}
+.pill-erect{background:linear-gradient(120deg,var(--green),#1a9c70); color:#04050f;}
+.pill-inverted{background:linear-gradient(120deg,var(--orange),#c9650c); color:#04050f;}
+
+.formula-card{padding:24px; text-align:center; border-radius:18px; position:relative; overflow:hidden;}
+.formula-card .big{font-size:22px; font-weight:900; color:var(--heading); margin:10px 0; font-family:'Segoe UI',sans-serif;}
+.formula-card .name{font-size:12.5px; color:var(--gold); font-weight:800; text-transform:uppercase; letter-spacing:1px;}
+.formula-card .d{font-size:11.5px; color:var(--dim); margin-top:8px; line-height:1.6; font-weight:500;}
+
+.app-card{padding:18px; text-align:center;}
+.app-card .ic{font-size:34px; margin-bottom:8px;}
+.app-card .t{font-weight:800; font-size:13px; color:var(--heading);}
+.app-card .d{font-size:11px; color:var(--dim); margin-top:4px;}
+
+.trick-card{padding:16px 18px; border-left:4px solid var(--gold);}
+.mistake-card{padding:16px 18px; border-left:4px solid var(--red); background:linear-gradient(120deg,#ff4f4f14,transparent);}
+.mistake-card .wrong{color:var(--red); font-weight:800; font-size:12.5px; text-decoration:line-through;}
+.mistake-card .right{color:var(--green); font-weight:800; font-size:12.5px;}
+
+.q-card{margin-bottom:10px; overflow:hidden;}
+.q-head{padding:14px 18px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:10px;}
+.q-head .txt{font-weight:800; font-size:13px; color:var(--heading);}
+.q-head .tag{font-size:10px; padding:3px 10px; border-radius:10px; font-weight:900; color:#04050f; flex-shrink:0;}
+.q-head .arrow{color:var(--cyan); transition:transform .3s;}
+.q-head.open .arrow{transform:rotate(180deg);}
+.q-body{max-height:0; overflow:hidden; transition:max-height .4s; padding:0 18px;}
+.q-body.open{max-height:300px; padding:0 18px 16px;}
+.q-body p{font-size:12.5px; color:var(--dim); line-height:1.8; font-weight:500;}
+
+.quiz-item{padding:16px 18px; margin-bottom:12px;}
+.quiz-item .q{font-weight:800; font-size:13.5px; margin-bottom:10px; color:var(--heading);}
+.quiz-opt{display:block; padding:9px 14px; margin:6px 0; border-radius:10px; border:1.5px solid var(--border); font-size:12.5px;
+  color:var(--dim); font-weight:600; cursor:pointer; transition:.2s;}
+.quiz-opt:hover{border-color:var(--cyan);}
+.quiz-opt.selected{border-color:var(--neon-blue); background:#3ea6ff1a;}
+.quiz-opt.correct-answer{background:linear-gradient(120deg,var(--green),#1a9c70); color:#04050f; border-color:transparent; font-weight:900;}
+.quiz-opt.wrong-answer{background:linear-gradient(120deg,var(--red),#b82828); color:#fff; border-color:transparent; font-weight:900;}
+.score-box{text-align:center; padding:24px;}
+.score-box .num{font-size:44px; font-weight:900; color:var(--gold);}
+.btn-primary{padding:12px 26px; border-radius:14px; border:none; font-weight:900; font-size:13px; cursor:pointer;
+  background:linear-gradient(120deg,var(--neon-blue),var(--purple)); color:#fff; box-shadow:0 10px 24px -6px #0009;}
+
+footer{text-align:center; padding:50px 6vw 70px; color:var(--dim); font-size:12.5px; border-top:1px solid var(--border); margin-top:30px; font-weight:600;}
+footer .name{color:var(--cyan); font-weight:900; font-size:16px;}
+footer .badges{display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin:16px 0;}
+footer .badge{padding:6px 16px; border-radius:20px; font-size:11px; font-weight:800; background:var(--glass-strong); border:1px solid var(--border);}
+footer .copy{margin-top:18px; font-size:11px; color:var(--dim); opacity:.8;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <img src="images/1000043468.png" alt="PK STUDY" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="logo-fallback" style="display:none;">PK</div>
+    <div class="brand-text"><div class="name">PK STUDY</div><div class="tag">Class 6 • English • Part 1</div></div>
+  </div>
+  <nav>
+    <a href="#s2">उद्देश्य</a><a href="#s3">यात्रा</a><a href="#s4">माइंड मैप</a><a href="#s6">परिभाषाएँ</a>
+    <a href="#notes">नोट्स</a><a href="#rules">नियम</a><a href="#s7">ध्वनियाँ</a><a href="#s10">अभ्यास स्थान</a><a href="#s11">तालिका</a>
+    <a href="#s14">तथ्य दीवार</a><a href="#s17">प्रश्न</a><a href="#s18">क्विज़</a><a href="#homework">होमवर्क</a>
+  </nav>
+  <button class="theme-btn" id="themeToggle" onclick="toggleTheme()" title="Dark/Light Mode">🌙</button>
+</header>
+
+<!-- ============ HERO ============ -->
+<div class="hero">
+  <span class="eyebrow">कक्षा 6 · Spoken English · Part 1</span>
+  <h1>अंग्रेज़ी की नींव — वर्णमाला और अभिवादन</h1>
+  <div class="en">English Foundation — Alphabets & Greetings</div>
+  <p>Week 1-2 (Day 1-14) में हम 26 अक्षरों की सही ध्वनि और रोज़ इस्तेमाल होने वाले <b>Greetings</b> सीखेंगे — ताकि अंग्रेज़ी बोलने की एक confident शुरुआत हो सके। रोज़ सिर्फ 30-40 मिनट practice करनी है — थोड़ा-थोड़ा, लेकिन रोज़ाना।</p>
+  <div class="pulse-line"></div>
+
+  <div class="optics-scene">
+    <svg viewBox="0 0 640 210">
+      <defs>
+        <radialGradient id="coreGrad" cx="50%" cy="50%" r="60%">
+          <stop offset="0%" stop-color="#7ad6ff"/><stop offset="100%" stop-color="#3ea6ff"/>
+        </radialGradient>
+      </defs>
+      <circle cx="320" cy="105" r="46" fill="url(#coreGrad)" stroke="#fff8" stroke-width="2" class="glow-dot"/>
+      <text x="320" y="113" text-anchor="middle" font-size="22" font-weight="900" fill="#04050f">🔤</text>
+      <text x="320" y="168" text-anchor="middle" font-size="12" font-weight="900" fill="#ffc233">Foundation</text>
+
+      <line class="laser" x1="284" y1="85" x2="120" y2="40" stroke="#33e0ff" stroke-width="2.5"/>
+      <circle cx="110" cy="35" r="18" fill="#33e0ff33" stroke="#33e0ff" stroke-width="2" class="glow-dot float-ic"/>
+      <text x="110" y="41" text-anchor="middle" font-size="16">🔤</text>
+      <text x="110" y="68" text-anchor="middle" font-size="11" font-weight="800" fill="#33e0ff">वर्णमाला</text>
+
+      <line class="laser" x1="284" y1="125" x2="120" y2="170" stroke="#2ee6a6" stroke-width="2.5"/>
+      <circle cx="110" cy="175" r="18" fill="#2ee6a633" stroke="#2ee6a6" stroke-width="2" class="glow-dot float-ic"/>
+      <text x="110" y="181" text-anchor="middle" font-size="16">👋</text>
+      <text x="110" y="204" text-anchor="middle" font-size="11" font-weight="800" fill="#2ee6a6">अभिवादन</text>
+
+      <line class="laser" x1="356" y1="85" x2="520" y2="40" stroke="#ff4d8d" stroke-width="2.5"/>
+      <circle cx="530" cy="35" r="18" fill="#ff4d8d33" stroke="#ff4d8d" stroke-width="2" class="glow-dot float-ic"/>
+      <text x="530" y="41" text-anchor="middle" font-size="16">🗣️</text>
+      <text x="530" y="68" text-anchor="middle" font-size="11" font-weight="800" fill="#ff4d8d">उच्चारण</text>
+
+      <line class="laser" x1="356" y1="125" x2="520" y2="170" stroke="#ffc233" stroke-width="2.5"/>
+      <circle cx="530" cy="175" r="18" fill="#ffc23333" stroke="#ffc233" stroke-width="2" class="glow-dot float-ic"/>
+      <text x="530" y="181" text-anchor="middle" font-size="16">🙏</text>
+      <text x="530" y="204" text-anchor="middle" font-size="11" font-weight="800" fill="#ffc233">शिष्टाचार</text>
+    </svg>
+  </div>
+</div>
+
+<!-- ============ 2. LEARNING OBJECTIVES ============ -->
+<section id="s2">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--cyan),#0a85b8); --glow:#33e0ff99;">2</div>
+    <div><h2>सीखने के उद्देश्य</h2><div class="sub en-tag">Learning Objectives</div></div></div>
+  <div class="grid grid-3" id="objGrid"></div>
+</section>
+
+<!-- ============ 3. TIMELINE (STORY) ============ -->
+<section id="s3">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--gold),#c9650c); --glow:#ffc23399;">3</div>
+    <div><h2>14 दिन में हम कैसे सीखेंगे?</h2><div class="sub en-tag">Our Journey — Day by Day</div></div></div>
+  <div class="glass card">
+    <div class="timeline" id="timelineList"></div>
+  </div>
+</section>
+
+<!-- ============ 4. MIND MAP ============ -->
+<section id="s4">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--purple),#7e4fd1); --glow:#b07dff99;">4</div>
+    <div><h2>Color Mind Map — Part 1: Foundation</h2><div class="sub en-tag">Complete overview of alphabets & greetings</div></div></div>
+  <div class="glass card mindmap-wrap">
+    <svg viewBox="0 0 1100 640">
+      <defs><radialGradient id="mmCoreGrad" cx="50%" cy="50%" r="60%"><stop offset="0%" stop-color="#3ea6ff"/><stop offset="100%" stop-color="#1f6fc9"/></radialGradient></defs>
+      <line class="mm-line" x1="550" y1="320" x2="180" y2="100" stroke="#33e0ff"/>
+      <line class="mm-line" x1="550" y1="320" x2="920" y2="100" stroke="#ff4d8d"/>
+      <line class="mm-line" x1="550" y1="320" x2="140" y2="330" stroke="#ff9f43"/>
+      <line class="mm-line" x1="550" y1="320" x2="960" y2="330" stroke="#b07dff"/>
+      <line class="mm-line" x1="550" y1="320" x2="220" y2="560" stroke="#2ee6a6"/>
+      <line class="mm-line" x1="550" y1="320" x2="880" y2="560" stroke="#ffe14d"/>
+      <circle cx="550" cy="320" r="70" fill="url(#mmCoreGrad)" stroke="#7ad6ff" stroke-width="2.5"/>
+      <text x="550" y="326" text-anchor="middle" fill="#fff" font-size="15" font-weight="900">Part 1: Foundation</text>
+
+      <rect class="mm-node" x="30" y="50" width="240" height="90" rx="14" fill="#33e0ff22" stroke="#33e0ff"/>
+      <text class="mm-text" x="50" y="78" fill="#33e0ff" font-size="14">Alphabet Sounds</text><text class="mm-text" x="50" y="98">Day 1-4</text>
+      <text class="mm-text" x="50" y="118" font-size="11" fill="#9fb0da">26 letters — A to Z</text>
+
+      <rect class="mm-node" x="820" y="50" width="250" height="90" rx="14" fill="#ff4d8d22" stroke="#ff4d8d"/>
+      <text class="mm-text" x="840" y="78" fill="#ff4d8d" font-size="14">Phonics Practice</text><text class="mm-text" x="840" y="98">Day 5-7</text>
+      <text class="mm-text" x="840" y="118" font-size="11" fill="#9fb0da">TH, SH, CH, R जैसी tricky sounds</text>
+
+      <rect class="mm-node" x="10" y="290" width="230" height="90" rx="14" fill="#ff9f4322" stroke="#ff9f43"/>
+      <text class="mm-text" x="30" y="318" fill="#ff9f43" font-size="14">Meeting Greetings</text><text class="mm-text" x="30" y="338">Day 8-9</text>
+      <text class="mm-text" x="30" y="358" font-size="11" fill="#9fb0da">Hello, Good Morning, How are you</text>
+
+      <rect class="mm-node" x="860" y="290" width="240" height="90" rx="14" fill="#b07dff22" stroke="#b07dff"/>
+      <text class="mm-text" x="880" y="318" fill="#b07dff" font-size="14">Parting Greetings</text><text class="mm-text" x="880" y="338">Day 10-11</text>
+      <text class="mm-text" x="880" y="358" font-size="11" fill="#9fb0da">Goodbye, Good Night, Take care</text>
+
+      <rect class="mm-node" x="60" y="510" width="270" height="100" rx="14" fill="#2ee6a622" stroke="#2ee6a6"/>
+      <text class="mm-text" x="80" y="538" fill="#2ee6a6" font-size="14">Politeness Words</text><text class="mm-text" x="80" y="558">Day 12-13</text>
+      <text class="mm-text" x="80" y="578" font-size="11" fill="#9fb0da">Please, Thank you, Sorry</text>
+
+      <rect class="mm-node" x="750" y="510" width="290" height="100" rx="14" fill="#ffe14d22" stroke="#ffe14d"/>
+      <text class="mm-text" x="770" y="538" fill="#ffe14d" font-size="14">Self-Introduction</text><text class="mm-text" x="770" y="558">Day 14</text>
+      <text class="mm-text" x="770" y="578" font-size="11" fill="#9fb0da">Revision + record करके बोलना</text>
+    </svg>
+  </div>
+</section>
+
+<!-- ============ 5. FLOWCHART ============ -->
+<section id="s5">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--neon-blue),#1f6fc9); --glow:#3ea6ff99;">5</div>
+    <div><h2>Flowchart — Alphabet और Greetings की कहानी</h2><div class="sub en-tag">Alphabet & Greetings Story Flowcharts</div></div></div>
+  <div class="grid grid-2">
+    <div class="glass card">
+      <h4 style="color:var(--cyan); text-align:center; margin-bottom:14px; font-weight:900;">Alphabet शाखा (Alphabet Branch)</h4>
+      <div class="flow-col">
+        <div class="flow-box" style="background:var(--cyan);">Letter की sound सुनो</div><div class="flow-arrow">↓</div>
+        <div class="flow-box" style="background:var(--neon-blue);">ज़ोर से बोलना practice करो</div><div class="flow-arrow">↓</div>
+        <div class="flow-box" style="background:var(--purple);">Tricky sounds पहचानो</div><div class="flow-arrow">↓</div>
+        <div class="flow-box" style="background:var(--orange);">Mirror के सामने बोलो</div><div class="flow-arrow">↓</div>
+        <div class="flow-box" style="background:var(--green);">Confidence बढ़ाओ</div>
+      </div>
+    </div>
+    <div class="glass card">
+      <h4 style="color:var(--pink); text-align:center; margin-bottom:14px; font-weight:900;">Greetings शाखा (Greetings Branch)</h4>
+      <div class="flow-col">
+        <div class="flow-box" style="background:var(--cyan);">किसी से मिलो</div><div class="flow-arrow">↓</div>
+        <div class="flow-box" style="background:var(--pink);">सही greeting बोलो</div><div class="flow-arrow">↓</div>
+        <div class="flow-box" style="background:var(--purple);">जवाब सुनो-समझो</div><div class="flow-arrow">↓</div>
+        <div class="flow-box" style="background:var(--gold);">जाते वक़्त parting बोलो</div><div class="flow-arrow">↓</div>
+        <div class="flow-box" style="background:var(--orange);">Politeness words दिखाओ</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. DEFINITION CARDS ============ -->
+<section id="s6">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--green),#1a9c70); --glow:#2ee6a699;">6</div>
+    <div><h2>परिभाषाएँ</h2><div class="sub en-tag">Key Definitions</div></div></div>
+  <div class="grid grid-3" id="defGrid"></div>
+</section>
+
+<!-- ============ NOTES ============ -->
+<section id="notes">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--neon-blue),#1f6fc9); --glow:#3ea6ff99;">📝</div>
+    <div><h2>Notes — विस्तार से समझें</h2><div class="sub en-tag">Detailed Concept Notes</div></div></div>
+  <div class="glass card" style="display:flex; flex-direction:column; gap:16px;">
+    <div class="rule-card" style="border-left-color:var(--cyan);">
+      <h4 style="color:var(--cyan);">1. वर्णमाला की ध्वनि (Alphabet Sounds)</h4>
+      <p>हर letter के दो पहलू होते हैं — उसका <b class="hi2">नाम</b> (जैसे 'B' को 'bee' कहते हैं) और उसकी असली <b class="hi">sound</b> जो शब्दों में सुनाई देती है (जैसे 'Ball' में 'b' की आवाज़)। सही बोलने के लिए letter का नाम नहीं, उसकी सही sound याद रखनी चाहिए।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--pink);">
+      <h4 style="color:var(--pink);">2. Vowels और Consonants</h4>
+      <p>अंग्रेज़ी के 26 letters में से 5 (A, E, I, O, U) <b class="hi3">Vowels</b> हैं, जो खुले मुँह से बोले जाते हैं। बाकी 21 <b class="hi3">Consonants</b> हैं, जो जीभ, दांत या होंठ की मदद से बोले जाते हैं और अक्सर किसी vowel के साथ मिलकर word बनाते हैं।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--green);">
+      <h4 style="color:var(--green);">3. Greetings का सही समय</h4>
+      <p>दिन के अलग-अलग समय पर अलग greeting बोली जाती है — Good Morning (रात 12 से दोपहर 12 तक), Good Afternoon (दोपहर 12 से शाम 4 तक), Good Evening (शाम 4 बजे के बाद), और Good Night सिर्फ़ सोने से पहले बोला जाता है।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--orange);">
+      <h4 style="color:var(--orange);">4. Formal और Informal Greetings</h4>
+      <p>Teacher या बड़ों से मिलते वक़्त <b class="hi2">Formal</b> greetings (जैसे "Good Morning, Sir") इस्तेमाल होती हैं, जबकि दोस्तों के साथ <b class="hi2">Informal</b> greetings (जैसे "Hi" या "Hey") चलती हैं। सही मौके पर सही greeting चुनना ज़रूरी है।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--purple);">
+      <h4 style="color:var(--purple);">5. Politeness Words का महत्व</h4>
+      <p>Please, Thank you, Sorry, Excuse me जैसे शब्द बातचीत को विनम्र और सम्मानजनक बनाते हैं। इनका रोज़ इस्तेमाल करने से अच्छी आदतें बनती हैं और लोग आपसे अच्छे से बात करते हैं।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--gold);">
+      <h4 style="color:var(--gold);">6. Self-Introduction की संरचना</h4>
+      <p>अपना परिचय देते वक़्त क्रम में जाना चाहिए — पहले <b class="hi">Greeting</b>, फिर नाम, उम्र, class, और अंत में Thank you। इस क्रम से सुनने वाले को पूरी जानकारी आसानी से समझ आती है।</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RULES SHEET ============ -->
+<section id="rules">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--purple),#7e4fd1); --glow:#b07dff99;">📋</div>
+    <div><h2>मुख्य नियम (Rules Sheet)</h2><div class="sub en-tag">Key Rules to Remember</div></div></div>
+  <div class="grid grid-3" id="rulesSheetGrid"></div>
+</section>
+
+<!-- ============ SOLVED EXAMPLES ============ -->
+<section id="examples">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--green),#1a9c70); --glow:#2ee6a699;">✍️</div>
+    <div><h2>हल किए गए उदाहरण (Solved Examples)</h2><div class="sub en-tag">Situation-Based Worked Examples</div></div></div>
+  <div id="examplesWrap"></div>
+</section>
+
+<!-- ============ 7. SOUND GROUPS GALLERY ============ -->
+<section id="s7">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--orange),#c9650c); --glow:#ff9f4399;">7</div>
+    <div><h2>अंग्रेज़ी की ध्वनियाँ</h2><div class="sub en-tag">Sound Groups in English</div></div></div>
+  <div class="grid grid-3">
+    <div class="glass diagram-card">
+      <svg viewBox="0 0 260 150"><rect x="20" y="20" width="220" height="30" fill="#33e0ff"/><rect x="20" y="50" width="220" height="30" fill="#3ea6ff"/><rect x="20" y="80" width="220" height="30" fill="#7ad6ff"/><rect x="20" y="110" width="220" height="20" fill="#a7e8ff"/></svg>
+      <div class="cap">Short Vowels</div><div class="cap2">A · E · I · O · U — Apple, Egg, Ink</div>
+    </div>
+    <div class="glass diagram-card">
+      <svg viewBox="0 0 260 150"><rect x="20" y="20" width="220" height="35" fill="#2ee6a6"/><rect x="20" y="55" width="220" height="35" fill="#1a9c70"/><rect x="20" y="90" width="220" height="35" fill="#0f6b4d"/></svg>
+      <div class="cap">Long Vowels</div><div class="cap2">EE · OO — Bee, Moon, Food</div>
+    </div>
+    <div class="glass diagram-card">
+      <svg viewBox="0 0 260 150"><rect x="20" y="20" width="220" height="35" fill="#ff4d8d"/><rect x="20" y="55" width="220" height="35" fill="#c9295f"/><rect x="20" y="90" width="220" height="35" fill="#921f45"/></svg>
+      <div class="cap">Consonant Blends</div><div class="cap2">TH · SH · CH — Think, Ship, Chair</div>
+    </div>
+  </div>
+
+  <div class="glass card" style="margin-top:20px;" id="s8">
+    <h4 style="color:var(--gold); margin-bottom:14px; font-weight:900;">एक Greeting की बनावट (Structure of a Greeting)</h4>
+    <svg viewBox="0 0 500 180" style="width:100%; max-width:520px; display:block; margin:0 auto;">
+      <rect x="60" y="20" width="380" height="40" fill="#3ea6ff"/>
+      <rect x="60" y="60" width="380" height="45" fill="#8b5cf6"/>
+      <rect x="60" y="105" width="380" height="55" fill="#2ee6a6"/>
+      <text x="250" y="45" text-anchor="middle" fill="#04050f" font-size="12" font-weight="800">Greeting Word — Hello / Hi</text>
+      <text x="250" y="87" text-anchor="middle" fill="#fff" font-size="12" font-weight="800">Time Phrase — Good Morning/Evening</text>
+      <text x="250" y="137" text-anchor="middle" fill="#04050f" font-size="12" font-weight="800">Question — How are you?</text>
+    </svg>
+    <div class="grid grid-3" style="margin-top:16px;">
+      <div class="glass def-card"><h4 style="color:var(--neon-blue);">👋 Greeting Word</h4><p>सबसे पहले बोला जाने वाला शब्द — Hello या Hi, जिससे बात शुरू होती है</p></div>
+      <div class="glass def-card"><h4 style="color:var(--purple);">🕐 Time Phrase</h4><p>दिन के समय के हिसाब से — Good Morning, Good Afternoon या Good Evening</p></div>
+      <div class="glass def-card"><h4 style="color:var(--green);">❓ Question</h4><p>हाल-चाल पूछने वाला वाक्य — How are you? — बात आगे बढ़ाने के लिए</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 9. SPEAKING RULES ============ -->
+<section id="s9">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--pink),#b8285f); --glow:#ff4d8d99;">9</div>
+    <div><h2>बोलते समय याद रखने के नियम</h2><div class="sub en-tag">Rules for Speaking Practice</div></div></div>
+  <div class="grid grid-2">
+    <div class="glass rule-card"><h4>नियम 1</h4><p><span class="eng-term">रोज़ Practice (Daily Practice)</span> confidence बढ़ाता है — जैसे पौधे को रोज़ पानी देने से वह बढ़ता है, वैसे ही रोज़ बोलने से English आती है।</p></div>
+    <div class="glass rule-card"><h4>नियम 2</h4><p>गलती करने से मत डरो — <b class="hi">गलती करके सुधारना</b> ही सीखने का सबसे आसान तरीका है।</p></div>
+  </div>
+  <div class="glass card" style="margin-top:16px; text-align:center;">
+    <svg viewBox="0 0 300 150" style="max-width:340px; width:100%;">
+      <rect x="20" y="100" width="260" height="30" fill="#3ea6ff33"/>
+      <path d="M 150 100 Q 150 60 150 45" stroke="#2ee6a6" stroke-width="4" fill="none"/>
+      <circle cx="150" cy="35" r="24" fill="#2ee6a6" class="glow-dot"/>
+      <text x="150" y="41" text-anchor="middle" font-size="16">💬</text>
+      <text x="150" y="140" text-anchor="middle" fill="#ffc233" font-size="12" font-weight="800">रोज़ बोलने से आत्मविश्वास बढ़ता है</text>
+    </svg>
+  </div>
+</section>
+
+<!-- ============ 10. PRACTICE PLACES GALLERY ============ -->
+<section id="s10">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--cyan),#0a85b8); --glow:#33e0ff99;">10</div>
+    <div><h2>Greetings कहाँ Practice करें?</h2><div class="sub en-tag">Where to Practice Greetings</div></div></div>
+  <div class="grid grid-4" id="rayGallery"></div>
+</section>
+
+<!-- ============ 11. TABLE ============ -->
+<section id="s11">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--purple),#7e4fd1); --glow:#b07dff99;">11</div>
+    <div><h2>Greetings तालिका</h2><div class="sub en-tag">Greetings Table — Category & Meaning</div></div></div>
+  <div class="glass card table-wrap">
+    <table>
+      <thead><tr><th>Category</th><th>English Phrase</th><th>Hindi Meaning</th></tr></thead>
+      <tbody>
+        <tr><td><span class="pill pill-inverted">Meeting</span></td><td>Hello / Hi</td><td>नमस्ते</td></tr>
+        <tr><td><span class="pill pill-inverted">Meeting</span></td><td>Good Morning</td><td>सुप्रभात</td></tr>
+        <tr><td><span class="pill pill-inverted">Meeting</span></td><td>How are you?</td><td>आप कैसे हैं?</td></tr>
+        <tr><td><span class="pill pill-virtual">Parting</span></td><td>Goodbye / Bye</td><td>अलविदा</td></tr>
+        <tr><td><span class="pill pill-virtual">Parting</span></td><td>Good night</td><td>शुभ रात्रि</td></tr>
+        <tr><td><span class="pill pill-virtual">Parting</span></td><td>Take care</td><td>अपना ध्यान रखना</td></tr>
+        <tr><td><span class="pill pill-erect">Politeness</span></td><td>Please</td><td>कृपया</td></tr>
+        <tr><td><span class="pill pill-erect">Politeness</span></td><td>Thank you</td><td>धन्यवाद</td></tr>
+        <tr><td><span class="pill pill-erect">Politeness</span></td><td>Sorry / Excuse me</td><td>माफ़ कीजिए</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ 12. COMPARISON ============ -->
+<section id="s12">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--green),#1a9c70); --glow:#2ee6a699;">12</div>
+    <div><h2>Formal बनाम Informal Greetings</h2><div class="sub en-tag">Formal vs Informal Comparison</div></div></div>
+  <div class="glass card table-wrap">
+    <table>
+      <thead><tr><th>स्थिति</th><th>Formal Example</th><th>Informal Example</th></tr></thead>
+      <tbody>
+        <tr><td>Teacher/बड़ों से मिलते वक़्त</td><td>Good Morning, Sir/Ma'am</td><td>Hi / Hey</td></tr>
+        <tr><td>दोस्त से मिलते वक़्त</td><td>Hello, how are you?</td><td>Hey, what's up?</td></tr>
+        <tr><td>जाते वक़्त</td><td>Goodbye, take care</td><td>Bye / See you</td></tr>
+        <tr><td>नए व्यक्ति से</td><td>Nice to meet you</td><td>Hi, I'm [नाम]</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ 13. APPLICATIONS ============ -->
+<section id="s13">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--orange),#c9650c); --glow:#ff9f4399;">13</div>
+    <div><h2>दैनिक जीवन में उपयोग</h2><div class="sub en-tag">Real-Life Uses</div></div></div>
+  <div class="grid grid-4" id="appGrid"></div>
+</section>
+
+<!-- ============ 14. FACTS WALL ============ -->
+<section id="s14">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--gold),#c9650c); --glow:#ffc23399;">14</div>
+    <div><h2>Important Facts Wall</h2><div class="sub en-tag">Quick Facts Together</div></div></div>
+  <div class="grid grid-3" id="formulaWall"></div>
+</section>
+
+<!-- ============ 15. TRICKS ============ -->
+<section id="s15">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--green),#1a9c70); --glow:#2ee6a699;">15</div>
+    <div><h2>याद रखने की तरकीबें</h2><div class="sub en-tag">Memory Tricks</div></div></div>
+  <div class="grid grid-2" id="tricksGrid"></div>
+</section>
+
+<!-- ============ 16. COMMON MISTAKES ============ -->
+<section id="s16">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--red),#a82424); --glow:#ff4f4f99;">16</div>
+    <div><h2>आम गलतियाँ</h2><div class="sub en-tag">Common Mistakes Students Make</div></div></div>
+  <div class="grid grid-2" id="mistakesGrid"></div>
+</section>
+
+<!-- ============ 17. QUESTION BANK ============ -->
+<section id="s17">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--purple),#7e4fd1); --glow:#b07dff99;">17</div>
+    <div><h2>महत्वपूर्ण प्रश्न</h2><div class="sub en-tag">Important Questions — All Types</div></div></div>
+  <div id="qBank"></div>
+</section>
+
+<!-- ============ 18. QUIZ ============ -->
+<section id="s18">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--cyan),#0a85b8); --glow:#33e0ff99;">18</div>
+    <div><h2>Practice Quiz</h2><div class="sub en-tag">तुरंत उत्तर व स्कोर</div></div></div>
+  <div class="glass card">
+    <div id="quizWrap"></div>
+    <div style="text-align:center; margin-top:16px;"><button class="btn-primary" onclick="checkQuiz()">Submit Quiz</button></div>
+    <div class="score-box" id="scoreBox" style="display:none;"><div class="num" id="scoreNum">0/0</div><div style="color:var(--dim); font-weight:700;">आपका स्कोर</div></div>
+  </div>
+</section>
+
+<!-- ============ HOMEWORK ============ -->
+<section id="homework">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--red),#a82424); --glow:#ff4f4f99;">🏠</div>
+    <div><h2>घर से करने के लिए Homework</h2><div class="sub en-tag">Notebook Exercise — Part 1A, 1B, 1C</div></div></div>
+  <div class="grid grid-3" id="homeworkGrid"></div>
+  <p style="color:var(--dim); font-size:12px; margin-top:14px; font-weight:600;">यह सभी काम अपनी English की notebook में लिखकर और ज़ोर से बोलकर practice करने हैं।</p>
+</section>
+
+<!-- ============ 19. CHEAT SHEET ============ -->
+<section id="s19">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--orange),#c9650c); --glow:#ff9f4399;">19</div>
+    <div><h2>Cheat Sheet — एक पेज में सब कुछ</h2><div class="sub en-tag">Summary Revision</div></div></div>
+  <div class="glass card">
+    <div class="grid grid-2">
+      <div>
+        <h4 style="color:var(--cyan); margin-bottom:8px; font-weight:900;">🔤 वर्णमाला (Alphabets)</h4>
+        <p style="font-size:12.5px; color:var(--dim); line-height:2; font-weight:600;">
+          ✅ 26 letters — 5 vowels (A E I O U) + 21 consonants<br>✅ TH, SH, CH — जीभ और होंठ सही जगह रखो<br>✅ R को हल्का rolled बोलना है<br>✅ रोज़ 4-5 letters याद करो, ज़्यादा नहीं<br>✅ ज़ोर से बोलना ज़रूरी है, सिर्फ पढ़ना नहीं
+        </p>
+      </div>
+      <div>
+        <h4 style="color:var(--pink); margin-bottom:8px; font-weight:900;">👋 Greetings</h4>
+        <p style="font-size:12.5px; color:var(--dim); line-height:2; font-weight:600;">
+          ✅ Meeting — Hello, Good Morning/Afternoon/Evening<br>✅ Parting — Goodbye, Good night, Take care<br>✅ Politeness — Please, Thank you, Sorry<br>✅ Good Night सिर्फ सोने से पहले बोलते हैं<br>✅ Self-introduction रोज़ mirror के सामने बोलो
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div style="font-size:20px;">✨</div>
+  <span class="name">PK STUDY</span> — Part 1 Complete · Revision Ready
+  <div class="badges">
+    <span class="badge">✅ सरल भाषा</span>
+    <span class="badge">✅ Alphabets + Greetings दोनों कवर</span>
+    <span class="badge">✅ मज़ेदार गतिविधियाँ</span>
+    <span class="badge">✅ कक्षा 6 के लिए उपयुक्त</span>
+  </div>
+  Made for Class 6 Students · Spoken English · Part 1: Foundation
+  <div class="copy">PK STUDY — All Copyright Reserved</div>
+</footer>
+
+<script>
+/* ================= THEME ================= */
+function toggleTheme(){
+  const html = document.documentElement;
+  const isLight = html.getAttribute('data-theme') === 'light';
+  html.setAttribute('data-theme', isLight ? '' : 'light');
+  document.getElementById('themeToggle').textContent = isLight ? '🌙' : '☀️';
+}
+
+/* ================= DATA ================= */
+const objectives = [
+  ["✅","26 letters की सही sound पहचानना"],["✅","Tricky sounds (TH, SH, CH, R) का सही उच्चारण सीखना"],
+  ["✅","मिलते वक़्त बोले जाने वाले greetings याद करना"],["✅","जाते वक़्त बोले जाने वाले greetings याद करना"],
+  ["✅","Politeness words का सही उपयोग सीखना"],["✅","अपना self-introduction देना सीखना"],
+  ["✅","रोज़ mirror के सामने practice करने की आदत बनाना"],["✅","English बोलने का confidence बढ़ाना"],
+  ["✅","14 दिन का daily practice plan पूरा करना"]
+];
+const timelineData = [
+  ["Day 1-4","Letters की sound सुनना और बोलना","A से Z तक हर letter की सही sound सुनते और ज़ोर से बोलते हैं, example words के साथ।"],
+  ["Day 5-7","Tricky sounds की practice और revision","TH, SH, CH, R जैसी मुश्किल sounds पर extra practice करते हैं और पूरे हफ्ते का revision करते हैं।"],
+  ["Day 8-9","मिलते वक़्त बोले जाने वाले greetings","Hello, Good Morning/Afternoon/Evening और How are you जैसे phrases सीखते हैं।"],
+  ["Day 10-11","जाते वक़्त बोले जाने वाले greetings","Goodbye, See you, Good night, Take care जैसे phrases सीखकर roleplay करते हैं।"],
+  ["Day 12-14","Politeness words और self-introduction","Please, Thank you, Sorry सीखते हैं, और Day 14 पर अपना self-introduction record करके बोलते हैं।"]
+];
+const definitions = [
+  {t:"Alphabet (वर्णमाला)", d:"अंग्रेज़ी में इस्तेमाल होने वाले 26 letters — A से Z तक।", c:"var(--cyan)"},
+  {t:"Vowel (स्वर)", d:"5 खास letters — A, E, I, O, U — जो खुले मुँह से बोले जाते हैं।", c:"var(--pink)"},
+  {t:"Consonant (व्यंजन)", d:"बाकी 21 letters जो vowels के साथ मिलकर words बनाते हैं।", c:"var(--green)"},
+  {t:"Phonics (ध्वनि विज्ञान)", d:"Letters की सही आवाज़ सीखने का तरीका।", c:"var(--orange)"},
+  {t:"Greeting (अभिवादन)", d:"किसी से मिलते या जाते वक़्त बोला जाने वाला शब्द, जैसे Hello, Goodbye।", c:"var(--purple)"},
+  {t:"Pronunciation (उच्चारण)", d:"किसी शब्द को सही तरीके से बोलना।", c:"var(--gold)"},
+  {t:"Politeness Words (शिष्टाचार शब्द)", d:"Please, Thank you, Sorry जैसे शब्द जो respect दिखाते हैं।", c:"var(--cyan)"},
+  {t:"Self-Introduction (आत्म-परिचय)", d:"अपने बारे में — नाम, उम्र, class — बताना।", c:"var(--pink)"},
+  {t:"Fluency (धाराप्रवाहिता)", d:"बिना रुके और confidently बोलने की क्षमता।", c:"var(--green)"},
+  {t:"Vocabulary (शब्द भंडार)", d:"किसी भाषा के शब्दों का भंडार जो हमें याद होता है।", c:"var(--orange)"},
+  {t:"Formal Greeting (औपचारिक अभिवादन)", d:"Teacher या बड़ों के साथ इस्तेमाल होने वाले सम्मानजनक greetings।", c:"var(--purple)"},
+  {t:"Informal Greeting (अनौपचारिक अभिवादन)", d:"दोस्तों के साथ इस्तेमाल होने वाले casual greetings।", c:"var(--gold)"}
+];
+const rayGalleryData = [
+  ["घर (Home)","Family को Good Morning बोलना","🏠"],["School","Teacher को Greeting देना","🏫"],
+  ["बाज़ार (Market)","दुकानदार से Please/Thank you बोलना","🛒"],["नए लोग (New People)","Nice to meet you बोलना","🧑‍🤝‍🧑"]
+];
+const appData = [
+  ["🌅","सुबह उठते ही","घर वालों को Good Morning बोलना"],["🏫","School पहुँचकर","Teacher को Greeting देना"],
+  ["📞","Phone पर बात करते वक़्त","Hello से शुरू करना"],["🛍️","दुकान में","Please और Thank you बोलना"],
+  ["🧑‍🤝‍🧑","नए दोस्त बनाते वक़्त","Hello, Nice to meet you बोलना"],["🌙","सोने से पहले","Family को Good Night बोलना"],
+  ["🙇","गलती होने पर","Sorry बोलना"],["👋","कहीं से जाते वक़्त","Goodbye, Take care बोलना"]
+];
+const formulaWallData = [
+  ["Total Letters","26 (A-Z)","var(--cyan)"],["Vowels","5 — A E I O U","var(--pink)"],
+  ["Consonants","21","var(--green)"],["Good Morning का समय","रात 12 - दोपहर 12","var(--orange)"],
+  ["How are you का जवाब","I am fine, thank you","var(--purple)"],["Please का मतलब","कृपया (magic word)","var(--gold)"],
+  ["Thank you का जवाब","You're welcome","var(--cyan)"],["Good Night कब बोलें","सिर्फ सोने से पहले","var(--pink)"]
+];
+const tricksData = [
+  ["🎯 Vowels याद रखने की trick","'A E I O U' को हमेशा एक साथ, इसी क्रम में रोज़ बोलो ताकि order याद रहे।"],
+  ["🎯 TH sound की trick","जीभ को ऊपर के दांतों के बीच हल्का सा रखो और हवा निकालो — जैसे 'Think' बोलते वक़्त।"],
+  ["🎯 Meeting vs Parting याद रखने की trick","'मिलना हो तो Hello बोलो, जाना हो तो Bye बोलो' — इस छोटी सी तुक से दोनों type याद रहेंगे।"],
+  ["🎯 Politeness words की trick","P-T-S = Please, Thank you, Sorry — तीन जादू के शब्द, रोज़ इस्तेमाल करो।"]
+];
+const mistakesData = [
+  ["गलती: Good Night को मिलते वक़्त बोलना","Good Night सिर्फ सोने से पहले बोला जाता है, मिलते वक़्त Good Morning/Afternoon/Evening बोलते हैं।"],
+  ["गलती: How are you का जवाब न देना","How are you? पूछने पर हमेशा जवाब देना चाहिए — 'I am fine, thank you' बोलना सही तरीका है।"],
+  ["गलती: V और W को same बोलना","V बोलते वक़्त ऊपर के दांत नीचे के होंठ को छूते हैं, W बोलते वक़्त होंठ गोल होते हैं — दोनों अलग हैं।"],
+  ["गलती: Please और Thank you भूल जाना","किसी चीज़ के लिए पूछते वक़्त Please और मिलने के बाद Thank you बोलना कभी मत भूलो।"]
+];
+const qBankData = [
+  {tag:"Objective", color:"var(--cyan)", q:"अंग्रेज़ी वर्णमाला में कुल कितने letters होते हैं?", a:"अंग्रेज़ी वर्णमाला में कुल 26 letters होते हैं — A से Z तक।"},
+  {tag:"Very Short", color:"var(--pink)", q:"Vowels कितने होते हैं और कौनसे?", a:"Vowels 5 होते हैं — A, E, I, O, U।"},
+  {tag:"Short", color:"var(--green)", q:"Meeting और Parting greetings में क्या अंतर है? एक-एक example दीजिए।", a:"Meeting greetings किसी से मिलते वक़्त बोले जाते हैं, जैसे 'Good Morning'। Parting greetings जाते वक़्त बोले जाते हैं, जैसे 'Goodbye'।"},
+  {tag:"Long", color:"var(--orange)", q:"Politeness words क्या होते हैं? इन शब्दों की सूची बनाइए और इनका महत्व बताइए।", a:"Politeness words वो शब्द हैं जो बात करते वक़्त respect दिखाते हैं — Please, Thank you, Sorry, Excuse me, You're welcome। इन शब्दों का इस्तेमाल करने से दूसरों के साथ अच्छे संबंध बनते हैं और हम एक शिष्ट (polite) व्यक्ति दिखते हैं।"},
+  {tag:"Counting", color:"var(--purple)", q:"अगर आपने 3 Meeting greetings और 2 Parting greetings याद कर लिए हैं, तो total कितने greetings याद किए?", a:"3 + 2 = 5 — कुल 5 greetings याद किए गए हैं।"},
+  {tag:"Assertion-Reason", color:"var(--gold)", q:"अभिकथन: रोज़ थोड़ा-थोड़ा practice करने से English बोलना आसान हो जाता है। कारण: रोज़ाना practice से दिमाग़ को नए शब्द याद रखना आसान लगता है।", a:"दोनों सही हैं और कारण अभिकथन की सही व्याख्या करता है — क्योंकि रोज़ थोड़ा-थोड़ा practice करने से दिमाग़ नए शब्दों को बेहतर तरीके से याद रखता है, इसलिए 14 दिन का plan छोटे-छोटे हिस्सों में बनाया गया है।"},
+  {tag:"Case Study", color:"var(--cyan)", q:"रिया अपनी teacher से सुबह school में मिलती है और शाम को घर जाते वक़्त neighbour से मिलती है। उसे क्या बोलना चाहिए?", a:"सुबह teacher से मिलते वक़्त रिया को 'Good Morning' बोलना चाहिए, और शाम को जाते वक़्त neighbour से 'Good Evening' या 'Goodbye' बोलना चाहिए।"},
+  {tag:"HOTS", color:"var(--pink)", q:"अगर आप सिर्फ एक ही दिन में सभी 26 letters और सभी greetings याद करने की कोशिश करें, तो क्या हो सकता है?", a:"इतनी सारी चीज़ें एक साथ याद करने से दिमाग़ confuse हो सकता है और भूल जाने का chance बढ़ जाता है, इसलिए थोड़ा-थोड़ा करके रोज़ाना याद करना ही सबसे बेहतर तरीका है।"}
+];
+const rulesSheetData = [
+  {t:"Good Morning", d:"रात 12 बजे से दोपहर 12 बजे तक बोला जाता है", c:"var(--cyan)"},
+  {t:"Good Afternoon", d:"दोपहर 12 बजे से शाम 4 बजे तक बोला जाता है", c:"var(--pink)"},
+  {t:"Good Evening", d:"शाम 4 बजे के बाद बोला जाता है", c:"var(--green)"},
+  {t:"Good Night", d:"सिर्फ़ सोने से पहले बोला जाता है, मिलते वक़्त नहीं", c:"var(--orange)"},
+  {t:"Vowels", d:"A, E, I, O, U — कुल 5, बाकी 21 letters Consonants हैं", c:"var(--purple)"},
+  {t:"TH Sound", d:"जीभ को ऊपर के दांतों के बीच हल्का सा रखकर बोलें", c:"var(--gold)"}
+];
+const examplesData = [
+  {q:"सुबह school पहुँचकर teacher से मिलने पर क्या कहना चाहिए?", s:"\"Good Morning, Ma'am/Sir. How are you?\" — यह एक Formal greeting है, इसमें समय के हिसाब से सही greeting (Good Morning) और respect दिखाने वाला सवाल शामिल है।"},
+  {q:"शाम को खेलते वक़्त दोस्त से मिलने पर और घर जाते वक़्त क्या बोलेंगे?", s:"मिलते वक़्त: \"Hi! What's up?\" — जाते वक़्त: \"Bye! See you tomorrow!\" — यह Informal greetings हैं, दोस्तों के साथ इस्तेमाल होती हैं।"},
+  {q:"अगर आप स्कूल के लिए लेट हो जाएँ, तो teacher से क्या कहेंगे?", s:"\"I am sorry, I am late.\" — Sorry एक politeness word है जो गलती होने पर इस्तेमाल होता है, और सुनने वाले को respect महसूस होता है।"}
+];
+const homeworkData = [
+  {part:"Part 1A", color:"var(--cyan)", qs:[
+    "A से Z तक सभी letters की sound ज़ोर से बोलकर practice करो और किसी बड़े से सुनवाओ।",
+    "TH, SH, CH sounds वाले 5-5 words ढूँढ कर notebook में लिखो।"
+  ]},
+  {part:"Part 1B", color:"var(--pink)", qs:[
+    "Meeting और Parting greetings की एक-एक list बनाओ (कम से कम 5-5 phrases)।",
+    "अपने परिवार के 3 लोगों को सुबह, दोपहर और शाम अलग-अलग greeting बोलकर दिखाओ।"
+  ]},
+  {part:"Part 1C", color:"var(--green)", qs:[
+    "अपना self-introduction 5 lines में लिखो (नाम, उम्र, class, घर, favourite subject)।",
+    "उस self-introduction को रोज़ mirror के सामने 5 बार बोलकर practice करो और record करो।"
+  ]}
+];
+const quizData = [
+  {q:"अंग्रेज़ी वर्णमाला में कुल कितने letters हैं?", opts:["24","26","28"], correct:1},
+  {q:"इनमें से कौनसा एक Vowel है?", opts:["B","E","T"], correct:1},
+  {q:"'Good Morning' कब बोलते हैं?", opts:["सोने से पहले","सुबह मिलते वक़्त","खाना खाते वक़्त"], correct:1},
+  {q:"'How are you?' का सही जवाब क्या है?", opts:["Goodbye","I am fine, thank you","Good night"], correct:1},
+  {q:"इनमें से कौनसा Politeness word है?", opts:["Please","Apple","Chair"], correct:0},
+  {q:"'Goodbye' किस category में आता है?", opts:["Meeting Greeting","Parting Greeting","Politeness Word"], correct:1}
+];
+
+/* ================= RENDER FUNCTIONS ================= */
+function el(tag, cls, html){ const d=document.createElement(tag); if(cls)d.className=cls; if(html!==undefined)d.innerHTML=html; return d; }
+
+function buildObjectives(){
+  const g = document.getElementById('objGrid');
+  objectives.forEach(o=>{ const d=el('div','glass obj-card',`<span class="ic">${o[0]}</span><span class="t">${o[1]}</span>`); g.appendChild(d); });
+}
+function buildTimeline(){
+  const wrap = document.getElementById('timelineList');
+  timelineData.forEach(t=>{
+    const d = el('div','t-item', `<span class="t-year">${t[0]}</span><h3>${t[1]}</h3><p>${t[2]}</p>`);
+    wrap.appendChild(d);
+  });
+}
+function buildDefs(){
+  const g = document.getElementById('defGrid');
+  definitions.forEach(def=>{
+    const d = el('div','glass def-card', `<h4 style="color:${def.c}">📌 ${def.t}</h4><p>${def.d}</p>`);
+    g.appendChild(d);
+  });
+}
+function buildRayGallery(){
+  const g = document.getElementById('rayGallery');
+  const colors=['#33e0ff','#ff4d8d','#2ee6a6','#ffc233'];
+  rayGalleryData.forEach((r,i)=>{
+    const svg = `<svg viewBox="0 0 200 130"><circle cx="100" cy="55" r="36" fill="${colors[i]}22" stroke="${colors[i]}" stroke-width="2.5" class="glow-dot"/>
+      <text x="100" y="65" text-anchor="middle" font-size="26">${r[2]}</text></svg>`;
+    const d = el('div','glass diagram-card', `${svg}<div class="cap">${r[0]}</div><div class="cap2">${r[1]}</div>`);
+    g.appendChild(d);
+  });
+}
+function buildApps(){
+  const g = document.getElementById('appGrid');
+  appData.forEach(a=>{ const d=el('div','glass app-card',`<div class="ic float-ic">${a[0]}</div><div class="t">${a[1]}</div><div class="d">${a[2]}</div>`); g.appendChild(d); });
+}
+function buildFormulaWall(){
+  const g = document.getElementById('formulaWall');
+  formulaWallData.forEach(f=>{ const d=el('div','glass formula-card',`<div class="name" style="color:${f[2]}">${f[0]}</div><div class="big">${f[1]}</div>`); g.appendChild(d); });
+}
+function buildRulesSheet(){
+  const g = document.getElementById('rulesSheetGrid');
+  rulesSheetData.forEach(r=>{ const d=el('div','glass def-card', `<h4 style="color:${r.c}">📋 ${r.t}</h4><p>${r.d}</p>`); g.appendChild(d); });
+}
+function buildExamples(){
+  const wrap = document.getElementById('examplesWrap');
+  examplesData.forEach((ex,i)=>{
+    const d = el('div','glass card example-card', `<div class="qlabel">स्थिति ${i+1}</div><div class="qtext">${ex.q}</div><div class="slabel">जवाब (Answer)</div><div class="stext">${ex.s}</div>`);
+    wrap.appendChild(d);
+  });
+}
+function buildHomework(){
+  const g = document.getElementById('homeworkGrid');
+  homeworkData.forEach(hw=>{
+    const items = hw.qs.map(q=>`<li>${q}</li>`).join('');
+    const d = el('div','glass hw-card', `<span class="t-year" style="background:${hw.color};">${hw.part}</span><ol>${items}</ol>`);
+    g.appendChild(d);
+  });
+}
+function buildTricks(){
+  const g = document.getElementById('tricksGrid');
+  tricksData.forEach(t=>{ const d=el('div','glass trick-card',`<b class="hi3">${t[0]}</b><p style="font-size:12.5px; color:var(--dim); margin-top:6px; line-height:1.7; font-weight:500;">${t[1]}</p>`); g.appendChild(d); });
+}
+function buildMistakes(){
+  const g = document.getElementById('mistakesGrid');
+  mistakesData.forEach(m=>{ const d=el('div','glass mistake-card',`<div class="wrong">⚠️ ${m[0]}</div><p style="font-size:12.5px; color:var(--dim); margin-top:8px; line-height:1.7; font-weight:500;">${m[1]}</p>`); g.appendChild(d); });
+}
+function buildQBank(){
+  const wrap = document.getElementById('qBank');
+  qBankData.forEach((q,i)=>{
+    const card = el('div','glass q-card');
+    card.innerHTML = `<div class="q-head" onclick="toggleQ(${i})"><span class="txt">${i+1}. ${q.q}</span>
+      <span style="display:flex; align-items:center; gap:8px;"><span class="tag" style="background:${q.color}">${q.tag}</span><span class="arrow" id="qarrow${i}">▾</span></span></div>
+      <div class="q-body" id="qbody${i}"><p>${q.a}</p></div>`;
+    wrap.appendChild(card);
+  });
+}
+function toggleQ(i){
+  document.getElementById('qbody'+i).classList.toggle('open');
+  document.getElementById('qarrow'+i).parentElement.parentElement.classList.toggle('open');
+}
+function buildQuiz(){
+  const wrap = document.getElementById('quizWrap');
+  quizData.forEach((q,i)=>{
+    const card = el('div','glass quiz-item');
+    let opts = q.opts.map((o,j)=>`<div class="quiz-opt" data-q="${i}" data-o="${j}" onclick="selectOpt(${i},${j},this)">${o}</div>`).join('');
+    card.innerHTML = `<div class="q">${i+1}. ${q.q}</div>${opts}`;
+    wrap.appendChild(card);
+  });
+}
+const userAnswers = {};
+function selectOpt(qi, oi, el){
+  document.querySelectorAll(`.quiz-opt[data-q="${qi}"]`).forEach(o=>o.classList.remove('selected'));
+  el.classList.add('selected');
+  userAnswers[qi] = oi;
+}
+function checkQuiz(){
+  let correct = 0;
+  quizData.forEach((q,i)=>{
+    document.querySelectorAll(`.quiz-opt[data-q="${i}"]`).forEach(o=>{
+      const oi = parseInt(o.dataset.o);
+      if(oi === q.correct) o.classList.add('correct-answer');
+      else if(userAnswers[i]===oi) o.classList.add('wrong-answer');
+    });
+    if(userAnswers[i] === q.correct) correct++;
+  });
+  document.getElementById('scoreBox').style.display='block';
+  document.getElementById('scoreNum').textContent = correct + '/' + quizData.length;
+  document.getElementById('scoreBox').scrollIntoView({behavior:'smooth'});
+}
+
+/* INIT */
+buildObjectives(); buildTimeline(); buildDefs(); buildRayGallery(); buildApps();
+buildFormulaWall(); buildTricks(); buildMistakes(); buildQBank(); buildQuiz();
+buildRulesSheet(); buildExamples(); buildHomework();
+</script>
+</body>
+</html>

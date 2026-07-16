@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PK STUDY | रोज़मर्रा की शब्दावली — Vocabulary Building</title>
+<style>
+:root{
+  --bg:#04050f; --glass:rgba(255,255,255,.045); --glass-strong:rgba(255,255,255,.08);
+  --border:rgba(255,255,255,.12); --text:#f2f6ff; --dim:#9fb0da; --heading:#ffffff;
+  --neon-blue:#3ea6ff; --cyan:#33e0ff; --purple:#b07dff; --gold:#ffc233;
+  --green:#2ee6a6; --orange:#ff9f43; --pink:#ff4d8d; --red:#ff4f4f;
+  --shadow:0 22px 46px -22px #000d; --hshadow:0 30px 56px -20px #000f;
+}
+[data-theme="light"]{
+  --bg:#f6f8fd; --glass:rgba(20,30,65,.045); --glass-strong:rgba(20,30,65,.08);
+  --border:rgba(20,30,65,.12); --text:#161c33; --dim:#535f82; --heading:#12172b;
+  --neon-blue:#2563eb; --cyan:#0891b2; --purple:#7c3aed; --gold:#b45309;
+  --green:#059669; --orange:#c2410c; --pink:#db2777; --red:#dc2626;
+  --shadow:0 18px 36px -20px rgba(30,40,80,.18); --hshadow:0 24px 44px -18px rgba(30,40,80,.24);
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Segoe UI','Noto Sans Devanagari',Arial,sans-serif; color:var(--text); min-height:100vh; overflow-x:hidden;
+  transition:background .4s, color .4s;
+  background:
+    radial-gradient(ellipse at 10% -10%, #1c3a9955, transparent 55%),
+    radial-gradient(ellipse at 95% 10%, #7a2ab866, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, #0a5a6e44, transparent 55%),
+    linear-gradient(180deg,#04050f,#020208 90%);
+}
+[data-theme="light"] body{
+  background:
+    radial-gradient(ellipse at 10% -10%, #dbe4ff99, transparent 55%),
+    radial-gradient(ellipse at 95% 10%, #ede0ff99, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, #d7f5f099, transparent 55%),
+    linear-gradient(180deg,#f8faff,#eef1f9 90%);
+}
+::-webkit-scrollbar{width:8px;} ::-webkit-scrollbar-thumb{background:var(--neon-blue); border-radius:6px;} ::-webkit-scrollbar-track{background:transparent;}
+
+.glass{background:var(--glass); border:1px solid var(--border); border-radius:18px; backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+  box-shadow:var(--shadow), inset 0 1px 0 #ffffff12; transition:transform .35s, box-shadow .35s, background .4s, border .4s;}
+.glass:hover{transform:translateY(-4px); box-shadow:var(--hshadow), inset 0 1px 0 #ffffff1e;}
+
+header{position:sticky; top:0; z-index:200; display:flex; align-items:center; justify-content:space-between; padding:14px 26px;
+  background:rgba(4,5,15,.75); backdrop-filter:blur(18px); border-bottom:1px solid var(--border); flex-wrap:wrap; gap:10px; transition:background .4s;}
+[data-theme="light"] header{background:rgba(255,255,255,.8);}
+.brand{display:flex; align-items:center; gap:12px;}
+.brand img{width:44px; height:44px; border-radius:10px; object-fit:cover; border:2px solid var(--neon-blue); box-shadow:0 0 18px #3ea6ff88;}
+.logo-fallback{width:44px; height:44px; border-radius:10px; display:flex; align-items:center; justify-content:center;
+  background:linear-gradient(135deg,var(--neon-blue),#1f3d8c); font-weight:900; font-size:12px; border:2px solid var(--cyan); color:#fff;}
+.brand-text .name{font-weight:900; font-size:18px; color:var(--cyan); letter-spacing:.5px;}
+.brand-text .tag{font-size:11px; color:var(--dim); font-weight:600;}
+nav{display:flex; gap:5px; overflow-x:auto; max-width:52vw;}
+nav::-webkit-scrollbar{height:4px;}
+nav a{color:var(--dim); text-decoration:none; font-size:11.5px; padding:6px 11px; border-radius:16px; border:1px solid transparent; transition:.2s; font-weight:700; white-space:nowrap;}
+nav a:hover{color:var(--heading); border-color:var(--neon-blue); background:#3ea6ff1a;}
+.theme-btn{flex-shrink:0; width:40px; height:40px; border-radius:12px; border:1px solid var(--border); background:var(--glass-strong);
+  color:var(--text); font-size:17px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:.25s;}
+.theme-btn:hover{border-color:var(--neon-blue); transform:translateY(-2px);}
+
+/* ===== HERO ===== */
+.hero{position:relative; padding:80px 6vw 60px; text-align:center; overflow:hidden;}
+.hero-bg{position:absolute; inset:0; z-index:0; opacity:.5;}
+.eyebrow{display:inline-block; padding:7px 22px; border-radius:30px; color:#04050f; font-size:12px; font-weight:900;
+  letter-spacing:2.5px; text-transform:uppercase; margin-bottom:20px; position:relative; z-index:2;
+  background:linear-gradient(120deg,var(--gold),var(--orange),var(--pink),var(--purple),var(--cyan)); background-size:400% 100%; animation:shim 8s linear infinite;
+  box-shadow:0 10px 26px -6px #000b;}
+@keyframes shim{0%{background-position:0% 0;}100%{background-position:400% 0;}}
+.hero h1{position:relative; z-index:2; font-size:clamp(28px,6vw,54px); font-weight:900; line-height:1.25;
+  background:linear-gradient(90deg,var(--neon-blue),var(--cyan) 35%,var(--purple) 65%,var(--pink)); -webkit-background-clip:text; background-clip:text; color:transparent;
+  text-shadow:0 0 60px #3ea6ff33; animation:hueGlow 6s ease-in-out infinite;}
+@keyframes hueGlow{0%,100%{filter:brightness(1);} 50%{filter:brightness(1.2);}}
+.hero .en{position:relative; z-index:2; font-size:16px; color:var(--dim); font-weight:700; margin-top:10px; letter-spacing:1px;}
+.hero p{position:relative; z-index:2; color:var(--dim); max-width:760px; margin:20px auto 0; font-size:14.5px; line-height:1.9; font-weight:500;}
+.pulse-line{position:relative; z-index:2; width:150px; height:4px; margin:28px auto 0; border-radius:4px;
+  background:linear-gradient(90deg,var(--neon-blue),var(--cyan),var(--purple),var(--gold)); background-size:300% 100%; animation:shim 4s linear infinite;
+  box-shadow:0 4px 20px -2px #3ea6ff88;}
+
+section{position:relative; z-index:1; padding:52px 6vw; max-width:1300px; margin:0 auto;}
+.sec-head{display:flex; align-items:center; gap:14px; margin-bottom:28px;}
+.sec-num{width:44px; height:44px; border-radius:14px; flex-shrink:0; display:flex; align-items:center; justify-content:center;
+  font-weight:900; font-size:16px; color:#04050f; box-shadow:0 8px 22px -6px var(--glow,#3ea6ff99); border:2px solid #ffffffaa;}
+.sec-head h2{font-size:clamp(19px,3vw,26px); font-weight:900; color:var(--heading);}
+.sec-head .sub{color:var(--dim); font-size:12.5px; font-weight:600; margin-top:2px;}
+.sec-head .en-tag{font-size:11px; color:var(--gold); font-weight:700; letter-spacing:.5px;}
+
+.card{padding:20px 22px;}
+.grid{display:grid; gap:16px;}
+.grid-2{grid-template-columns:1fr 1fr;} .grid-3{grid-template-columns:repeat(3,1fr);}
+.grid-4{grid-template-columns:repeat(4,1fr);} .grid-5{grid-template-columns:repeat(5,1fr);}
+@media(max-width:900px){.grid-3,.grid-4,.grid-5{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.grid-2,.grid-3,.grid-4,.grid-5{grid-template-columns:1fr;} nav{max-width:100%;}}
+
+b.hi{color:var(--pink); font-weight:900;} b.hi2{color:var(--green); font-weight:900;} b.hi3{color:var(--gold); font-weight:900;}
+.eng-term{color:var(--cyan); font-style:italic; font-weight:700;}
+
+.rule-card{padding:20px; border-left:5px solid var(--neon-blue);}
+.rule-card h4{font-size:15px; color:var(--cyan); font-weight:900; margin-bottom:8px;}
+.rule-card p{font-size:13px; color:var(--dim); line-height:1.8; font-weight:500;}
+.rule-card ul{margin:8px 0 8px 20px; font-size:13px; color:var(--dim); line-height:1.95; font-weight:600;}
+.rule-card ul li{margin-bottom:4px;}
+.rule-card ul li b{color:var(--heading); font-weight:900;}
+
+.example-card{padding:18px 20px;}
+.example-card .qlabel{font-size:11px; font-weight:900; color:var(--gold); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;}
+.example-card .qtext{font-size:13.5px; font-weight:700; color:var(--heading); margin-bottom:14px; line-height:1.7;}
+.example-card .slabel{font-size:11px; font-weight:900; color:var(--green); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;}
+.example-card .stext{font-size:13px; color:var(--dim); line-height:1.85; font-weight:500; background:var(--glass-strong); padding:12px 14px; border-radius:10px; white-space:pre-line;}
+.example-card{margin-bottom:14px;}
+.show-ans-btn{padding:9px 20px; border-radius:10px; border:1.5px solid var(--green); background:transparent; color:var(--green);
+  font-weight:800; font-size:12px; cursor:pointer; transition:.2s;}
+.show-ans-btn:hover{background:var(--green); color:#04050f;}
+.show-ans-btn.open{background:var(--green); color:#04050f;}
+.ans-wrap{margin-top:14px; display:none;}
+.ans-wrap.open{display:block;}
+
+.hw-card{padding:18px 20px;}
+.hw-card ol{margin:0; padding-left:20px; font-size:13px; color:var(--dim); line-height:2; font-weight:500;}
+.hw-card ol li{margin-bottom:8px;}
+.hw-card ol li::marker{color:var(--heading); font-weight:800;}
+
+.table-wrap{overflow-x:auto; margin-bottom:16px;}
+table{width:100%; border-collapse:collapse; min-width:600px;}
+thead th{text-align:center; padding:12px 14px; background:linear-gradient(120deg,var(--neon-blue),var(--purple)); color:#fff;
+  font-size:12px; text-transform:uppercase; letter-spacing:.5px; font-weight:900;}
+thead th:first-child{border-radius:10px 0 0 0;} thead th:last-child{border-radius:0 10px 0 0;}
+tbody td{padding:12px 14px; border-bottom:1px solid var(--border); color:var(--dim); font-size:12.5px; text-align:center; font-weight:600;}
+tbody tr:hover{background:#3ea6ff14;}
+.pill{display:inline-block; padding:4px 12px; border-radius:12px; font-size:10.5px; font-weight:900;}
+.pill-real{background:linear-gradient(120deg,var(--red),#a82424); color:#fff;}
+.pill-virtual{background:linear-gradient(120deg,var(--cyan),#0a85b8); color:#04050f;}
+.pill-erect{background:linear-gradient(120deg,var(--green),#1a9c70); color:#04050f;}
+.pill-inverted{background:linear-gradient(120deg,var(--orange),#c9650c); color:#04050f;}
+.pill-obj{background:linear-gradient(120deg,var(--cyan),#0a85b8); color:#04050f;}
+.pill-subj{background:linear-gradient(120deg,var(--purple),#7e4fd1); color:#fff;}
+
+footer{text-align:center; padding:50px 6vw 70px; color:var(--dim); font-size:12.5px; border-top:1px solid var(--border); margin-top:30px; font-weight:600;}
+footer .name{color:var(--cyan); font-weight:900; font-size:16px;}
+footer .badges{display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin:16px 0;}
+footer .badge{padding:6px 16px; border-radius:20px; font-size:11px; font-weight:800; background:var(--glass-strong); border:1px solid var(--border);}
+footer .copy{margin-top:18px; font-size:11px; color:var(--dim); opacity:.8;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <img src="images/1000043468.png" alt="PK STUDY" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="logo-fallback" style="display:none;">PK</div>
+    <div class="brand-text"><div class="name">PK STUDY</div><div class="tag">Class 6 • English • Part 2</div></div>
+  </div>
+  <nav>
+    <a href="#notes">नोट्स</a><a href="#tables">तालिकाएँ</a><a href="#questions">प्रश्न</a><a href="#homework">होमवर्क</a>
+  </nav>
+  <button class="theme-btn" id="themeToggle" onclick="toggleTheme()" title="Dark/Light Mode">🌙</button>
+</header>
+
+<!-- ============ HERO ============ -->
+<div class="hero">
+  <span class="eyebrow">कक्षा 6 · Spoken English · Part 2</span>
+  <h1>रोज़मर्रा की शब्दावली — Vocabulary Building</h1>
+  <div class="en">Everyday Vocabulary — Part 2</div>
+  <p>यह हमारे 8-भाग वाले <b class="hi">Spoken English Plan</b> का <b class="hi2">Part 2</b> है। Part 1 (Day 1-14) में हमने वर्णमाला और Greetings सीखी थी। अब Week 3-4 (लगभग Day 15-28) में हम रोज़मर्रा की बातचीत में सबसे ज़्यादा काम आने वाली <b class="hi3">Vocabulary</b> सीखेंगे — रंग (Colours), गिनती (Numbers), वार व महीने (Days & Months), परिवार के सदस्य (Family Members), घर व स्कूल की चीज़ें (Common Objects) और शरीर के अंग व क्रियाएँ (Body Parts & Action Verbs)। रोज़ 5-6 नए शब्द याद करके उन्हें एक-एक वाक्य में इस्तेमाल करने की आदत डालें।</p>
+  <div class="pulse-line"></div>
+</div>
+
+<!-- ============ NOTES ============ -->
+<section id="notes">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--neon-blue),#1f6fc9); --glow:#3ea6ff99;">📝</div>
+    <div><h2>Notes — छह मुख्य Vocabulary श्रेणियाँ</h2><div class="sub en-tag">Detailed Vocabulary Notes, Category-wise</div></div></div>
+  <div class="glass card" style="display:flex; flex-direction:column; gap:16px;">
+
+    <div class="rule-card" style="border-left-color:var(--cyan);">
+      <h4 style="color:var(--cyan);">1. रंग (Colours)</h4>
+      <p>रंगों के नाम रोज़ की बातचीत में सबसे ज़्यादा इस्तेमाल होते हैं — जैसे कपड़ों, चीज़ों या तस्वीरों के बारे में बताते वक़्त।</p>
+      <ul>
+        <li><b>Red</b> — लाल</li>
+        <li><b>Blue</b> — नीला</li>
+        <li><b>Green</b> — हरा</li>
+        <li><b>Yellow</b> — पीला</li>
+        <li><b>Black</b> — काला</li>
+        <li><b>White</b> — सफ़ेद</li>
+        <li><b>Orange</b> — नारंगी</li>
+        <li><b>Pink</b> — गुलाबी</li>
+      </ul>
+      <p><b class="hi3">वाक्य में उपयोग:</b> "My school bag is blue, my shoes are black, and the sun looks orange in the evening."</p>
+    </div>
+
+    <div class="rule-card" style="border-left-color:var(--pink);">
+      <h4 style="color:var(--pink);">2. गिनती (Numbers 1-20) और Ordinal Numbers</h4>
+      <p>1 से 20 तक की गिनती (One से Twenty) क्रम में याद करनी चाहिए। Ordinal Numbers किसी चीज़ का <b class="hi">क्रम</b> बताते हैं — इनमें ज़्यादातर के अंत में "-th" लगता है, पर First, Second, Third अलग होते हैं।</p>
+      <ul>
+        <li><b>One (1)</b> — एक</li>
+        <li><b>Five (5)</b> — पाँच</li>
+        <li><b>Ten (10)</b> — दस</li>
+        <li><b>Fifteen (15)</b> — पंद्रह</li>
+        <li><b>Twenty (20)</b> — बीस</li>
+        <li><b>First</b> — पहला</li>
+        <li><b>Second</b> — दूसरा</li>
+        <li><b>Third</b> — तीसरा</li>
+      </ul>
+      <p><b class="hi3">वाक्य में उपयोग:</b> "I have two elder brothers, and I am the third child in my family."</p>
+    </div>
+
+    <div class="rule-card" style="border-left-color:var(--green);">
+      <h4 style="color:var(--green);">3. वार एवं महीने (Days & Months)</h4>
+      <p>सप्ताह में 7 दिन (Days) और साल में 12 महीने (Months) होते हैं। रोज़मर्रा में बातचीत के लिए इनका सही क्रम याद रखना बहुत ज़रूरी है।</p>
+      <ul>
+        <li><b>Monday</b> — सोमवार</li>
+        <li><b>Tuesday</b> — मंगलवार</li>
+        <li><b>Sunday</b> — रविवार</li>
+        <li><b>Friday</b> — शुक्रवार</li>
+        <li><b>January</b> — जनवरी</li>
+        <li><b>June</b> — जून</li>
+        <li><b>August</b> — अगस्त</li>
+        <li><b>December</b> — दिसंबर</li>
+      </ul>
+      <p><b class="hi3">वाक्य में उपयोग:</b> "My birthday is in December, and school reopens on Monday after the winter holidays."</p>
+    </div>
+
+    <div class="rule-card" style="border-left-color:var(--orange);">
+      <h4 style="color:var(--orange);">4. परिवार के सदस्य (Family Members)</h4>
+      <p>अपने परिवार का परिचय देने के लिए इन शब्दों को अंग्रेज़ी में बोलना आना चाहिए।</p>
+      <ul>
+        <li><b>Father</b> — पिता</li>
+        <li><b>Mother</b> — माँ</li>
+        <li><b>Brother</b> — भाई</li>
+        <li><b>Sister</b> — बहन</li>
+        <li><b>Grandfather</b> — दादा / नाना</li>
+        <li><b>Grandmother</b> — दादी / नानी</li>
+        <li><b>Uncle</b> — चाचा / मामा</li>
+        <li><b>Aunt</b> — चाची / मामी</li>
+      </ul>
+      <p><b class="hi3">वाक्य में उपयोग:</b> "My grandfather tells me an interesting story every evening after dinner."</p>
+    </div>
+
+    <div class="rule-card" style="border-left-color:var(--purple);">
+      <h4 style="color:var(--purple);">5. घर व स्कूल की चीज़ें (Common Objects)</h4>
+      <p>ये शब्द घर और स्कूल दोनों जगहों पर रोज़ इस्तेमाल होने वाली चीज़ों के नाम बताते हैं।</p>
+      <ul>
+        <li><b>Book</b> — किताब</li>
+        <li><b>Pen</b> — पेन</li>
+        <li><b>Bag</b> — बैग</li>
+        <li><b>Chair</b> — कुर्सी</li>
+        <li><b>Table</b> — मेज़</li>
+        <li><b>Door</b> — दरवाज़ा</li>
+        <li><b>Window</b> — खिड़की</li>
+        <li><b>Blackboard</b> — श्यामपट (ब्लैकबोर्ड)</li>
+      </ul>
+      <p><b class="hi3">वाक्य में उपयोग:</b> "Please keep your book and pen inside your school bag before you sleep."</p>
+    </div>
+
+    <div class="rule-card" style="border-left-color:var(--gold);">
+      <h4 style="color:var(--gold);">6. शरीर के अंग एवं क्रियाएँ (Body Parts & Common Action Verbs)</h4>
+      <p>शरीर के अंगों के साथ-साथ रोज़ किए जाने वाले काम (Action Verbs) भी बातचीत के लिए ज़रूरी शब्द हैं।</p>
+      <ul>
+        <li><b>Head</b> — सिर</li>
+        <li><b>Eyes</b> — आँखें</li>
+        <li><b>Hand</b> — हाथ</li>
+        <li><b>Leg</b> — टांग / पैर</li>
+        <li><b>Run</b> — दौड़ना</li>
+        <li><b>Eat</b> — खाना</li>
+        <li><b>Write</b> — लिखना</li>
+        <li><b>Sleep</b> — सोना</li>
+      </ul>
+      <p><b class="hi3">वाक्य में उपयोग:</b> "I wash my hands before I eat food, and I sleep early at night."</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ REFERENCE TABLES ============ -->
+<section id="tables">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--purple),#7e4fd1); --glow:#b07dff99;">📊</div>
+    <div><h2>Reference Tables — महत्वपूर्ण शब्द तालिकाएँ</h2><div class="sub en-tag">Quick Reference for Revision</div></div></div>
+
+  <div class="glass card table-wrap">
+    <table>
+      <thead><tr><th>English Word</th><th>Hindi Meaning</th><th>Example Sentence</th></tr></thead>
+      <tbody>
+        <tr><td>Red</td><td>लाल</td><td>The apple is red.</td></tr>
+        <tr><td>Blue</td><td>नीला</td><td>The sky is blue and clear today.</td></tr>
+        <tr><td>Ten</td><td>दस</td><td>I have ten fingers on my two hands.</td></tr>
+        <tr><td>Third</td><td>तीसरा</td><td>March is the third month of the year.</td></tr>
+        <tr><td>Monday</td><td>सोमवार</td><td>Our school starts on Monday.</td></tr>
+        <tr><td>December</td><td>दिसंबर</td><td>We celebrate Christmas in December.</td></tr>
+        <tr><td>Father</td><td>पिता</td><td>My father goes to work every morning.</td></tr>
+        <tr><td>Sister</td><td>बहन</td><td>My sister helps me with my homework.</td></tr>
+        <tr><td>Book</td><td>किताब</td><td>I read my English book every day.</td></tr>
+        <tr><td>Chair</td><td>कुर्सी</td><td>Please sit on the chair quietly.</td></tr>
+        <tr><td>Head</td><td>सिर</td><td>Wear a helmet to protect your head.</td></tr>
+        <tr><td>Hand</td><td>हाथ</td><td>Always wash your hand before eating.</td></tr>
+        <tr><td>Run</td><td>दौड़ना</td><td>Children love to run in the playground.</td></tr>
+        <tr><td>Sleep</td><td>सोना</td><td>I sleep early and wake up early.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="glass card table-wrap">
+    <table>
+      <thead><tr><th>प्रकार</th><th>English</th><th>Hindi</th></tr></thead>
+      <tbody>
+        <tr><td><span class="pill pill-virtual">वार</span></td><td>Sunday</td><td>रविवार</td></tr>
+        <tr><td><span class="pill pill-virtual">वार</span></td><td>Monday</td><td>सोमवार</td></tr>
+        <tr><td><span class="pill pill-virtual">वार</span></td><td>Tuesday</td><td>मंगलवार</td></tr>
+        <tr><td><span class="pill pill-virtual">वार</span></td><td>Wednesday</td><td>बुधवार</td></tr>
+        <tr><td><span class="pill pill-virtual">वार</span></td><td>Thursday</td><td>गुरुवार</td></tr>
+        <tr><td><span class="pill pill-virtual">वार</span></td><td>Friday</td><td>शुक्रवार</td></tr>
+        <tr><td><span class="pill pill-virtual">वार</span></td><td>Saturday</td><td>शनिवार</td></tr>
+        <tr><td><span class="pill pill-erect">महीना</span></td><td>January</td><td>जनवरी</td></tr>
+        <tr><td><span class="pill pill-erect">महीना</span></td><td>February</td><td>फ़रवरी</td></tr>
+        <tr><td><span class="pill pill-erect">महीना</span></td><td>March</td><td>मार्च</td></tr>
+        <tr><td><span class="pill pill-erect">महीना</span></td><td>April</td><td>अप्रैल</td></tr>
+        <tr><td><span class="pill pill-erect">महीना</span></td><td>May</td><td>मई</td></tr>
+        <tr><td><span class="pill pill-erect">महीना</span></td><td>June</td><td>जून</td></tr>
+        <tr><td><span class="pill pill-erect">महीना</span></td><td>July</td><td>जुलाई</td></tr>
+        <tr><td><span class="pill pill-erect">महीना</span></td><td>August</td><td>अगस्त</td></tr>
+        <tr><td><span class="pill pill-erect">महीना</span></td><td>September</td><td>सितंबर</td></tr>
+        <tr><td><span class="pill pill-erect">महीना</span></td><td>October</td><td>अक्टूबर</td></tr>
+        <tr><td><span class="pill pill-erect">महीना</span></td><td>November</td><td>नवंबर</td></tr>
+        <tr><td><span class="pill pill-erect">महीना</span></td><td>December</td><td>दिसंबर</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ IMPORTANT QUESTIONS ============ -->
+<section id="questions">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--green),#1a9c70); --glow:#2ee6a699;">📘</div>
+    <div><h2>महत्वपूर्ण प्रश्न (Objective + Subjective)</h2><div class="sub en-tag">उत्तर देखने के लिए बटन दबाएँ</div></div></div>
+  <div id="qWrap"></div>
+</section>
+
+<!-- ============ HOMEWORK ============ -->
+<section id="homework">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--red),#a82424); --glow:#ff4f4f99;">🏠</div>
+    <div><h2>घर से करने के लिए Homework</h2><div class="sub en-tag">Notebook Exercise — बिना उत्तर देखे खुद हल करें</div></div></div>
+  <div class="glass card hw-card">
+    <ol id="homeworkList"></ol>
+  </div>
+  <p style="color:var(--dim); font-size:12px; margin-top:14px; font-weight:600;">यह सभी काम अपनी English की notebook में लिखकर और ज़ोर से बोलकर practice करने हैं।</p>
+</section>
+
+<footer>
+  <div style="font-size:20px;">✨</div>
+  <span class="name">PK STUDY</span> — Part 2 Complete · Revision Ready
+  <div class="badges">
+    <span class="badge">✅ सरल भाषा</span>
+    <span class="badge">✅ 6 Vocabulary श्रेणियाँ कवर</span>
+    <span class="badge">✅ Example Sentences सहित</span>
+    <span class="badge">✅ कक्षा 6 के लिए उपयुक्त</span>
+  </div>
+  Made for Class 6 Students · Spoken English · Part 2: Vocabulary Building
+  <div class="copy">PK STUDY — All Copyright Reserved</div>
+</footer>
+
+<script>
+function toggleTheme(){
+  const html = document.documentElement;
+  const isLight = html.getAttribute('data-theme') === 'light';
+  html.setAttribute('data-theme', isLight ? '' : 'light');
+  document.getElementById('themeToggle').textContent = isLight ? '🌙' : '☀️';
+}
+function el(tag, cls, html){ const d=document.createElement(tag); if(cls)d.className=cls; if(html!==undefined)d.innerHTML=html; return d; }
+
+const qData = [
+  {type:"obj", q:"\"Blue\" शब्द का हिंदी अर्थ क्या है?", a:"नीला।"},
+  {type:"obj", q:"\"Ten\" के बाद अगली गिनती (Number) अंग्रेज़ी में क्या होगी?", a:"Eleven (ग्यारह)।"},
+  {type:"obj", q:"सप्ताह के पहले दिन Sunday के लिए कौन-सा Ordinal Number प्रयोग होगा?", a:"First (पहला)।"},
+  {type:"obj", q:"\"Grandmother\" शब्द का हिंदी अर्थ लिखिए।", a:"दादी / नानी।"},
+  {type:"obj", q:"कक्षा में लिखने के लिए प्रयोग होने वाली वस्तु \"Blackboard\" को हिंदी में क्या कहते हैं?", a:"श्यामपट (ब्लैकबोर्ड)।"},
+  {type:"obj", q:"शरीर के जिस अंग से हम देखते हैं, उसका अंग्रेज़ी नाम लिखिए।", a:"Eyes (आँखें)।"},
+  {type:"subj", q:"अपने परिवार के 5 सदस्यों के नाम अंग्रेज़ी और हिंदी दोनों में लिखिए।", a:"Father (पिता), Mother (माँ), Brother (भाई), Sister (बहन), Grandfather (दादा)।"},
+  {type:"subj", q:"अपने घर से जुड़े 5 रंगों (Colours) के नाम अंग्रेज़ी में लिखते हुए एक-एक वाक्य बनाइए।", a:"1. My door is brown.\n2. My bag is blue.\n3. My shoes are black.\n4. My shirt is white.\n5. My flowers are pink."},
+  {type:"subj", q:"सप्ताह के सातों दिनों (Days of the Week) के नाम सही क्रम में अंग्रेज़ी में लिखिए।", a:"Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday."},
+  {type:"subj", q:"वर्ष के 12 महीनों (Months) के नाम सही क्रम में अंग्रेज़ी में लिखिए।", a:"January, February, March, April, May, June, July, August, September, October, November, December."},
+  {type:"subj", q:"\"Run\", \"Eat\", \"Sleep\", \"Write\" जैसी Action Verbs का उपयोग करते हुए अपने रोज़ के काम पर 4 वाक्य लिखिए।", a:"1. I run every morning in the park.\n2. I eat my breakfast at seven o'clock.\n3. I write my homework in the evening.\n4. I sleep at nine o'clock at night."},
+  {type:"subj", q:"घर और स्कूल में इस्तेमाल होने वाली 6 वस्तुओं (Common Objects) के नाम अंग्रेज़ी और हिंदी दोनों में लिखिए।", a:"Book (किताब), Pen (पेन), Bag (बैग), Chair (कुर्सी), Table (मेज़), Door (दरवाज़ा)।"}
+];
+
+const homeworkData = [
+  "अपने घर की 10 चीज़ों के नाम अंग्रेज़ी में लिखो और हर एक का हिंदी अर्थ भी लिखो।",
+  "इन रंगों को अंग्रेज़ी में लिखो — लाल, हरा, पीला, काला, सफ़ेद, नीला, गुलाबी, नारंगी।",
+  "1 से 20 तक की गिनती अंग्रेज़ी शब्दों में (One, Two, Three...) लिखो और ज़ोर से बोलकर याद करो।",
+  "अपने परिवार के 8 सदस्यों के नाम अंग्रेज़ी में लिखते हुए \"My Family\" नाम की एक छोटी सूची बनाओ।",
+  "शरीर के कम-से-कम 8 अंगों (Body Parts) के अंग्रेज़ी नाम और उनके हिंदी अर्थ लिखो।",
+  "\"Run\", \"Eat\", \"Sleep\", \"Play\", \"Write\", \"Read\" शब्दों का उपयोग करते हुए अपनी दिनचर्या (Daily Routine) पर 6 अंग्रेज़ी वाक्य लिखो।"
+];
+
+function buildQuestions(){
+  const wrap = document.getElementById('qWrap');
+  qData.forEach((item)=>{
+    const pillHtml = item.type === 'obj' ? '<span class="pill pill-obj">Objective</span>' : '<span class="pill pill-subj">Subjective</span>';
+    const d = el('div','glass example-card', `<div class="qlabel">प्रश्न ${pillHtml}</div><div class="qtext">${item.q}</div>
+      <button class="show-ans-btn" onclick="toggleAnswer(this)">उत्तर दिखाएँ (Show Answer)</button>
+      <div class="ans-wrap"><div class="slabel">उत्तर (Answer)</div><div class="stext">${item.a}</div></div>`);
+    wrap.appendChild(d);
+  });
+}
+function toggleAnswer(btn){
+  const wrap = btn.nextElementSibling;
+  const isOpen = wrap.classList.toggle('open');
+  btn.classList.toggle('open', isOpen);
+  btn.textContent = isOpen ? 'उत्तर छुपाएँ (Hide Answer)' : 'उत्तर दिखाएँ (Show Answer)';
+}
+function buildHomework(){
+  const g = document.getElementById('homeworkList');
+  homeworkData.forEach(q=>{ const li = document.createElement('li'); li.textContent = q; g.appendChild(li); });
+}
+
+buildQuestions();
+buildHomework();
+</script>
+</body>
+</html>

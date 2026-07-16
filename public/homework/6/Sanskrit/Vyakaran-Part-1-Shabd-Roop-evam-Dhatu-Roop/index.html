@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PK STUDY | शब्द रूप एवं धातु रूप का परिचय</title>
+<style>
+:root{
+  --bg:#04050f; --glass:rgba(255,255,255,.045); --glass-strong:rgba(255,255,255,.08);
+  --border:rgba(255,255,255,.12); --text:#f2f6ff; --dim:#9fb0da; --heading:#ffffff;
+  --neon-blue:#3ea6ff; --cyan:#33e0ff; --purple:#b07dff; --gold:#ffc233;
+  --green:#2ee6a6; --orange:#ff9f43; --pink:#ff4d8d; --red:#ff4f4f;
+  --shadow:0 22px 46px -22px #000d; --hshadow:0 30px 56px -20px #000f;
+}
+[data-theme="light"]{
+  --bg:#f6f8fd; --glass:rgba(20,30,65,.045); --glass-strong:rgba(20,30,65,.08);
+  --border:rgba(20,30,65,.12); --text:#161c33; --dim:#535f82; --heading:#12172b;
+  --neon-blue:#2563eb; --cyan:#0891b2; --purple:#7c3aed; --gold:#b45309;
+  --green:#059669; --orange:#c2410c; --pink:#db2777; --red:#dc2626;
+  --shadow:0 18px 36px -20px rgba(30,40,80,.18); --hshadow:0 24px 44px -18px rgba(30,40,80,.24);
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Segoe UI','Noto Sans Devanagari',Arial,sans-serif; color:var(--text); min-height:100vh; overflow-x:hidden;
+  transition:background .4s, color .4s;
+  background:
+    radial-gradient(ellipse at 10% -10%, #1c3a9955, transparent 55%),
+    radial-gradient(ellipse at 95% 10%, #7a2ab866, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, #0a5a6e44, transparent 55%),
+    linear-gradient(180deg,#04050f,#020208 90%);
+}
+[data-theme="light"] body{
+  background:
+    radial-gradient(ellipse at 10% -10%, #dbe4ff99, transparent 55%),
+    radial-gradient(ellipse at 95% 10%, #ede0ff99, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, #d7f5f099, transparent 55%),
+    linear-gradient(180deg,#f8faff,#eef1f9 90%);
+}
+::-webkit-scrollbar{width:8px;} ::-webkit-scrollbar-thumb{background:var(--neon-blue); border-radius:6px;} ::-webkit-scrollbar-track{background:transparent;}
+
+.glass{background:var(--glass); border:1px solid var(--border); border-radius:18px; backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+  box-shadow:var(--shadow), inset 0 1px 0 #ffffff12;}
+
+header{position:sticky; top:0; z-index:200; display:flex; align-items:center; justify-content:space-between; padding:14px 26px;
+  background:rgba(4,5,15,.75); backdrop-filter:blur(18px); border-bottom:1px solid var(--border); flex-wrap:wrap; gap:10px; transition:background .4s;}
+[data-theme="light"] header{background:rgba(255,255,255,.8);}
+.brand{display:flex; align-items:center; gap:12px;}
+.brand img{width:44px; height:44px; border-radius:10px; object-fit:cover; border:2px solid var(--neon-blue); box-shadow:0 0 18px #3ea6ff88;}
+.logo-fallback{width:44px; height:44px; border-radius:10px; display:flex; align-items:center; justify-content:center;
+  background:linear-gradient(135deg,var(--neon-blue),#1f3d8c); font-weight:900; font-size:12px; border:2px solid var(--cyan); color:#fff;}
+.brand-text .name{font-weight:900; font-size:18px; color:var(--cyan); letter-spacing:.5px;}
+.brand-text .tag{font-size:11px; color:var(--dim); font-weight:600;}
+nav{display:flex; gap:5px; overflow-x:auto; max-width:52vw;}
+nav::-webkit-scrollbar{height:4px;}
+nav a{color:var(--dim); text-decoration:none; font-size:11.5px; padding:6px 11px; border-radius:16px; border:1px solid transparent; transition:.2s; font-weight:700; white-space:nowrap;}
+nav a:hover{color:var(--heading); border-color:var(--neon-blue); background:#3ea6ff1a;}
+.theme-btn{flex-shrink:0; width:40px; height:40px; border-radius:12px; border:1px solid var(--border); background:var(--glass-strong);
+  color:var(--text); font-size:17px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:.25s;}
+.theme-btn:hover{border-color:var(--neon-blue); transform:translateY(-2px);}
+
+.hero{position:relative; padding:60px 6vw 40px; text-align:center;}
+.eyebrow{display:inline-block; padding:7px 22px; border-radius:30px; color:#04050f; font-size:12px; font-weight:900;
+  letter-spacing:2px; text-transform:uppercase; margin-bottom:20px;
+  background:linear-gradient(120deg,var(--gold),var(--orange),var(--pink),var(--purple),var(--cyan));
+  box-shadow:0 10px 26px -6px #000b;}
+.hero h1{font-size:clamp(26px,5.5vw,48px); font-weight:900; line-height:1.25;
+  background:linear-gradient(90deg,var(--neon-blue),var(--cyan) 35%,var(--purple) 65%,var(--pink)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+.hero .en{font-size:16px; color:var(--dim); font-weight:700; margin-top:10px;}
+.hero p{color:var(--dim); max-width:760px; margin:20px auto 0; font-size:14.5px; line-height:1.9; font-weight:500;}
+
+section{position:relative; padding:44px 6vw; max-width:1200px; margin:0 auto;}
+.sec-head{display:flex; align-items:center; gap:14px; margin-bottom:24px;}
+.sec-num{width:44px; height:44px; border-radius:14px; flex-shrink:0; display:flex; align-items:center; justify-content:center;
+  font-weight:900; font-size:16px; color:#04050f; box-shadow:0 8px 22px -6px var(--glow,#3ea6ff99); border:2px solid #ffffffaa;}
+.sec-head h2{font-size:clamp(19px,3vw,26px); font-weight:900; color:var(--heading);}
+.sec-head .sub{color:var(--dim); font-size:12.5px; font-weight:600; margin-top:2px;}
+.sec-head .en-tag{font-size:11px; color:var(--gold); font-weight:700; letter-spacing:.5px;}
+
+.card{padding:20px 22px;}
+.grid{display:grid; gap:16px;}
+.grid-2{grid-template-columns:1fr 1fr;} .grid-3{grid-template-columns:repeat(3,1fr);}
+@media(max-width:900px){.grid-3{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.grid-2,.grid-3{grid-template-columns:1fr;} nav{max-width:100%;}}
+
+b.hi{color:var(--pink); font-weight:900;} b.hi2{color:var(--green); font-weight:900;} b.hi3{color:var(--gold); font-weight:900;}
+
+.rule-card{padding:20px; border-left:5px solid var(--neon-blue);}
+.rule-card h4{font-size:15px; color:var(--cyan); font-weight:900; margin-bottom:10px;}
+.rule-card p{font-size:13px; color:var(--dim); line-height:1.85; font-weight:500; margin-bottom:8px;}
+.rule-card ul{margin:6px 0 6px 20px; font-size:13px; color:var(--dim); line-height:1.9; font-weight:500;}
+.rule-card ul li{margin-bottom:4px;}
+
+.example-card{padding:18px 20px; margin-bottom:14px;}
+.example-card .qlabel{font-size:11px; font-weight:900; color:var(--gold); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;}
+.example-card .qtext{font-size:13.5px; font-weight:700; color:var(--heading); margin-bottom:14px; line-height:1.7;}
+.example-card .slabel{font-size:11px; font-weight:900; color:var(--green); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;}
+.example-card .stext{font-size:13px; color:var(--dim); line-height:1.9; font-weight:500; background:var(--glass-strong); padding:12px 14px; border-radius:10px; white-space:pre-line;}
+.show-ans-btn{padding:9px 20px; border-radius:10px; border:1.5px solid var(--green); background:transparent; color:var(--green);
+  font-weight:800; font-size:12px; cursor:pointer; transition:.2s;}
+.show-ans-btn:hover{background:var(--green); color:#04050f;}
+.show-ans-btn.open{background:var(--green); color:#04050f;}
+.ans-wrap{margin-top:14px; display:none;}
+.ans-wrap.open{display:block;}
+.pill{display:inline-block; padding:3px 10px; border-radius:10px; font-size:10px; font-weight:900; margin-left:8px; vertical-align:middle;}
+.pill-obj{background:linear-gradient(120deg,var(--cyan),#0a85b8); color:#04050f;}
+.pill-subj{background:linear-gradient(120deg,var(--purple),#7e4fd1); color:#fff;}
+
+.hw-card{padding:18px 20px;}
+.hw-card ol{margin:0; padding-left:20px; font-size:13px; color:var(--dim); line-height:2; font-weight:500;}
+.hw-card ol li{margin-bottom:8px;}
+.hw-card ol li::marker{color:var(--heading); font-weight:800;}
+
+.table-wrap{overflow-x:auto; margin-bottom:16px;}
+table{width:100%; border-collapse:collapse; min-width:560px;}
+thead th{text-align:center; padding:12px 14px; background:linear-gradient(120deg,var(--neon-blue),var(--purple)); color:#fff;
+  font-size:12px; text-transform:uppercase; letter-spacing:.5px; font-weight:900;}
+thead th:first-child{border-radius:10px 0 0 0;} thead th:last-child{border-radius:0 10px 0 0;}
+tbody td{padding:12px 14px; border-bottom:1px solid var(--border); color:var(--dim); font-size:12.5px; text-align:center; font-weight:600;}
+tbody tr:hover{background:#3ea6ff14;}
+tbody td:first-child{color:var(--heading); font-weight:800; text-align:left;}
+
+.table-title{font-size:15px; font-weight:900; color:var(--heading); margin-bottom:12px; padding-left:2px;}
+.table-title span{color:var(--dim); font-size:11.5px; font-weight:600; margin-left:8px;}
+
+footer{text-align:center; padding:50px 6vw 70px; color:var(--dim); font-size:12.5px; border-top:1px solid var(--border); margin-top:30px; font-weight:600;}
+footer .name{color:var(--cyan); font-weight:900; font-size:16px;}
+footer .copy{margin-top:18px; font-size:11px; color:var(--dim); opacity:.8;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <img src="images/1000043468.png" alt="PK STUDY" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="logo-fallback" style="display:none;">PK</div>
+    <div class="brand-text"><div class="name">PK STUDY</div><div class="tag">Class 6-7 (Combined) • संस्कृत व्याकरण • Part 1</div></div>
+  </div>
+  <nav>
+    <a href="#notes">नोट्स</a><a href="#tables">रूप तालिकाएँ</a><a href="#questions">प्रश्न</a><a href="#homework">होमवर्क</a>
+  </nav>
+  <button class="theme-btn" id="themeToggle" onclick="toggleTheme()" title="Dark/Light Mode">🌙</button>
+</header>
+
+<!-- ============ HERO ============ -->
+<div class="hero">
+  <span class="eyebrow">कक्षा 6-7 (संयुक्त) · संस्कृत व्याकरण · Part 1</span>
+  <h1>शब्द रूप एवं धातु रूप का परिचय</h1>
+  <div class="en">Introduction to Noun Declension (Shabd Roop) and Verb Conjugation (Dhatu Roop)</div>
+  <p>संस्कृत भाषा में <b class="hi">शब्द रूप</b> का अर्थ है — किसी संज्ञा शब्द का कारक (विभक्ति) और वचन के अनुसार बदला हुआ रूप, और <b class="hi2">धातु रूप</b> का अर्थ है — किसी क्रिया के मूल रूप (धातु) का पुरुष और वचन के अनुसार बदला हुआ रूप। ये दोनों संस्कृत व्याकरण की नींव हैं — बिना इन्हें समझे न तो वाक्य सही ढंग से बनाए जा सकते हैं और न ही अनुवाद किया जा सकता है। इस पेज में वर्णमाला का संक्षिप्त परिचय, कारक व वचन की अवधारणा, राम/फल/लता शब्दों के पूर्ण रूप, पठ् धातु के लट् लकार रूप, महत्वपूर्ण प्रश्न (उत्तर सहित) और होमवर्क दिया गया है।</p>
+</div>
+
+<!-- ============ NOTES ============ -->
+<section id="notes">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--neon-blue),#1f6fc9); --glow:#3ea6ff99;">📝</div>
+    <div><h2>Notes — मुख्य अवधारणाएँ</h2><div class="sub en-tag">Concept Notes, Section-wise</div></div></div>
+  <div class="glass card" style="display:flex; flex-direction:column; gap:16px;">
+    <div class="rule-card" style="border-left-color:var(--cyan);">
+      <h4 style="color:var(--cyan);">1. वर्णमाला का संक्षिप्त परिचय (Sanskrit Alphabet — Brief)</h4>
+      <p>संस्कृत वर्णमाला में मुख्यतः दो प्रकार के वर्ण होते हैं — <b class="hi">स्वर</b> (जिनका उच्चारण बिना किसी अन्य वर्ण की सहायता के होता है) और <b class="hi2">व्यंजन</b> (जिनका उच्चारण स्वर की सहायता से होता है)।</p>
+      <p><b>स्वर (13) —</b> अ, आ, इ, ई, उ, ऊ, ऋ, ए, ऐ, ओ, औ, अं (अनुस्वार), अः (विसर्ग)।</p>
+      <p><b>व्यंजन (33+) —</b> क वर्ग से लेकर ह तक — क ख ग घ ङ · च छ ज झ ञ · ट ठ ड ढ ण · त थ द ध न · प फ ब भ म · य र ल व · श ष स ह, तथा संयुक्त व्यंजन क्ष, त्र, ज्ञ। (यह केवल संक्षिप्त परिचय है, विस्तृत उच्चारण-स्थान आगे की कक्षाओं में पढ़ाया जाएगा।)</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--pink);">
+      <h4 style="color:var(--pink);">2. कारक (सात विभक्तियाँ) का परिचय एवं हिंदी अर्थ</h4>
+      <p><b class="hi">कारक</b> — वाक्य में क्रिया के साथ संज्ञा या सर्वनाम शब्द का जो संबंध होता है, उसे कारक कहते हैं। संस्कृत में कारक के अनुसार शब्द के रूप में परिवर्तन होता है, जिसे <b class="hi3">विभक्ति</b> कहते हैं। कुल सात विभक्तियाँ होती हैं (संबोधन को मिलाकर आठवाँ रूप भी दिखाया जाता है):</p>
+      <ul>
+        <li><b class="hi2">प्रथमा विभक्ति</b> — कर्ता कारक (क्रिया करने वाला) — जैसे रामः पठति (राम पढ़ता है)</li>
+        <li><b class="hi2">द्वितीया विभक्ति</b> — कर्म कारक (जिस पर क्रिया का प्रभाव पड़े) — जैसे रामः फलम् खादति</li>
+        <li><b class="hi2">तृतीया विभक्ति</b> — करण कारक (क्रिया के साधन/माध्यम को बताता है) — जैसे रामेण</li>
+        <li><b class="hi2">चतुर्थी विभक्ति</b> — संप्रदान कारक (जिसे कुछ दिया जाए) — जैसे रामाय</li>
+        <li><b class="hi2">पंचमी विभक्ति</b> — अपादान कारक (जिससे कोई वस्तु अलग हो) — जैसे रामात्</li>
+        <li><b class="hi2">षष्ठी विभक्ति</b> — संबंध कारक (एक वस्तु का दूसरी वस्तु से संबंध) — जैसे रामस्य</li>
+        <li><b class="hi2">सप्तमी विभक्ति</b> — अधिकरण कारक (क्रिया के होने का स्थान/समय) — जैसे रामे</li>
+        <li><b class="hi2">संबोधन</b> — किसी को पुकारने/संबोधित करने के लिए — जैसे हे राम!</li>
+      </ul>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--green);">
+      <h4 style="color:var(--green);">3. वचन (एकवचन/द्विवचन/बहुवचन) का अर्थ</h4>
+      <p><b class="hi">वचन</b> — शब्द के जिस रूप से किसी वस्तु या व्यक्ति की संख्या का बोध होता है, उसे वचन कहते हैं। संस्कृत में हिंदी की तरह केवल दो नहीं, बल्कि <b class="hi3">तीन वचन</b> होते हैं:</p>
+      <ul>
+        <li><b class="hi2">एकवचन</b> — जब संख्या एक (1) हो — जैसे रामः (एक राम)</li>
+        <li><b class="hi2">द्विवचन</b> — जब संख्या दो (2) हो — जैसे रामौ (दो राम) — यह वचन केवल संस्कृत की विशेषता है, हिंदी/अंग्रेज़ी में नहीं होता</li>
+        <li><b class="hi2">बहुवचन</b> — जब संख्या दो से अधिक (3 या अधिक) हो — जैसे रामाः (कई राम)</li>
+      </ul>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--orange);">
+      <h4 style="color:var(--orange);">4. धातु किसे कहते हैं? लकार का परिचय</h4>
+      <p><b class="hi">धातु</b> — क्रिया के मूल रूप को धातु कहते हैं, जिससे विभिन्न पुरुष, वचन और काल में क्रिया-पद बनते हैं। जैसे — पठ् (पढ़ना), गम् (जाना), खाद् (खाना), लिख् (लिखना)। धातु रूप बनाते समय <b class="hi2">पुरुष</b> (प्रथम/मध्यम/उत्तम) और <b class="hi2">वचन</b> (एकवचन/द्विवचन/बहुवचन) दोनों का ध्यान रखा जाता है।</p>
+      <p><b>पुरुष के तीन भेद:</b></p>
+      <ul>
+        <li><b class="hi3">प्रथम पुरुष</b> — जिसके विषय में कुछ कहा जाए (सः, ते, ताः) — हिंदी के "वह/वे" के समान</li>
+        <li><b class="hi3">मध्यम पुरुष</b> — जिससे बात की जाए (त्वम्, युवाम्, यूयम्) — हिंदी के "तुम/तू" के समान</li>
+        <li><b class="hi3">उत्तम पुरुष</b> — जो बोलने वाला स्वयं हो (अहम्, आवाम्, वयम्) — हिंदी के "मैं/हम" के समान</li>
+      </ul>
+      <p><b class="hi">लकार</b> — काल (समय) और भाव को दर्शाने वाला व्याकरणिक चिह्न लकार कहलाता है। संस्कृत में मुख्य दस लकार होते हैं, जिनमें सबसे पहला और सबसे अधिक प्रयोग होने वाला है <b class="hi3">लट् लकार</b> — जो वर्तमान काल (present tense) को दर्शाता है, अर्थात् जो क्रिया अभी हो रही है। इसी पाठ में हम पठ् धातु के लट् लकार के रूप सीखेंगे।</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REFERENCE TABLES ============ -->
+<section id="tables">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--purple),#7e4fd1); --glow:#b07dff99;">📊</div>
+    <div><h2>शब्द रूप एवं धातु रूप — पूर्ण तालिकाएँ</h2><div class="sub en-tag">Complete Declension &amp; Conjugation Tables</div></div></div>
+
+  <div class="glass card table-wrap">
+    <div class="table-title">(क) राम शब्द <span>(अकारांत पुल्लिंग — जैसे बालक, छात्र, अश्व, ग्राम आदि सभी अकारांत पुल्लिंग शब्द)</span></div>
+    <table>
+      <thead><tr><th>विभक्ति</th><th>एकवचन</th><th>द्विवचन</th><th>बहुवचन</th></tr></thead>
+      <tbody>
+        <tr><td>प्रथमा</td><td>रामः</td><td>रामौ</td><td>रामाः</td></tr>
+        <tr><td>द्वितीया</td><td>रामम्</td><td>रामौ</td><td>रामान्</td></tr>
+        <tr><td>तृतीया</td><td>रामेण</td><td>रामाभ्याम्</td><td>रामैः</td></tr>
+        <tr><td>चतुर्थी</td><td>रामाय</td><td>रामाभ्याम्</td><td>रामेभ्यः</td></tr>
+        <tr><td>पंचमी</td><td>रामात्</td><td>रामाभ्याम्</td><td>रामेभ्यः</td></tr>
+        <tr><td>षष्ठी</td><td>रामस्य</td><td>रामयोः</td><td>रामाणाम्</td></tr>
+        <tr><td>सप्तमी</td><td>रामे</td><td>रामयोः</td><td>रामेषु</td></tr>
+        <tr><td>संबोधन</td><td>हे राम</td><td>हे रामौ</td><td>हे रामाः</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="glass card table-wrap">
+    <div class="table-title">(ख) फल शब्द <span>(अकारांत नपुंसकलिंग — जैसे वन, पुस्तक (नपुंसक अर्थ में), ज्ञान आदि)</span></div>
+    <table>
+      <thead><tr><th>विभक्ति</th><th>एकवचन</th><th>द्विवचन</th><th>बहुवचन</th></tr></thead>
+      <tbody>
+        <tr><td>प्रथमा</td><td>फलम्</td><td>फले</td><td>फलानि</td></tr>
+        <tr><td>द्वितीया</td><td>फलम्</td><td>फले</td><td>फलानि</td></tr>
+        <tr><td>तृतीया</td><td>फलेन</td><td>फलाभ्याम्</td><td>फलैः</td></tr>
+        <tr><td>चतुर्थी</td><td>फलाय</td><td>फलाभ्याम्</td><td>फलेभ्यः</td></tr>
+        <tr><td>पंचमी</td><td>फलात्</td><td>फलाभ्याम्</td><td>फलेभ्यः</td></tr>
+        <tr><td>षष्ठी</td><td>फलस्य</td><td>फलयोः</td><td>फलानाम्</td></tr>
+        <tr><td>सप्तमी</td><td>फले</td><td>फलयोः</td><td>फलेषु</td></tr>
+        <tr><td>संबोधन</td><td>हे फल</td><td>हे फले</td><td>हे फलानि</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="glass card table-wrap">
+    <div class="table-title">(ग) लता शब्द <span>(आकारांत स्त्रीलिंग — जैसे बालिका, रमा, सीता आदि सभी आकारांत स्त्रीलिंग शब्द)</span></div>
+    <table>
+      <thead><tr><th>विभक्ति</th><th>एकवचन</th><th>द्विवचन</th><th>बहुवचन</th></tr></thead>
+      <tbody>
+        <tr><td>प्रथमा</td><td>लता</td><td>लते</td><td>लताः</td></tr>
+        <tr><td>द्वितीया</td><td>लताम्</td><td>लते</td><td>लताः</td></tr>
+        <tr><td>तृतीया</td><td>लतया</td><td>लताभ्याम्</td><td>लताभिः</td></tr>
+        <tr><td>चतुर्थी</td><td>लतायै</td><td>लताभ्याम्</td><td>लताभ्यः</td></tr>
+        <tr><td>पंचमी</td><td>लतायाः</td><td>लताभ्याम्</td><td>लताभ्यः</td></tr>
+        <tr><td>षष्ठी</td><td>लतायाः</td><td>लतयोः</td><td>लतानाम्</td></tr>
+        <tr><td>सप्तमी</td><td>लतायाम्</td><td>लतयोः</td><td>लतासु</td></tr>
+        <tr><td>संबोधन</td><td>हे लते</td><td>हे लते</td><td>हे लताः</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="glass card table-wrap">
+    <div class="table-title">(घ) पठ् धातु — लट् लकार <span>(वर्तमान काल, परस्मैपदी — भ्वादिगण)</span></div>
+    <table>
+      <thead><tr><th>पुरुष</th><th>एकवचन</th><th>द्विवचन</th><th>बहुवचन</th></tr></thead>
+      <tbody>
+        <tr><td>प्रथम पुरुष</td><td>पठति</td><td>पठतः</td><td>पठन्ति</td></tr>
+        <tr><td>मध्यम पुरुष</td><td>पठसि</td><td>पठथः</td><td>पठथ</td></tr>
+        <tr><td>उत्तम पुरुष</td><td>पठामि</td><td>पठावः</td><td>पठामः</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ IMPORTANT QUESTIONS ============ -->
+<section id="questions">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--green),#1a9c70); --glow:#2ee6a699;">📘</div>
+    <div><h2>महत्वपूर्ण प्रश्न (Objective + Subjective)</h2><div class="sub en-tag">उत्तर देखने के लिए बटन दबाएँ</div></div></div>
+  <div id="qWrap"></div>
+</section>
+
+<!-- ============ HOMEWORK ============ -->
+<section id="homework">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--red),#a82424); --glow:#ff4f4f99;">🏠</div>
+    <div><h2>घर से करने के लिए Homework</h2><div class="sub en-tag">Notebook Exercise — बिना उत्तर देखे खुद हल करें</div></div></div>
+  <div class="glass card hw-card">
+    <ol id="homeworkList"></ol>
+  </div>
+  <p style="color:var(--dim); font-size:12px; margin-top:14px; font-weight:600;">यह सभी प्रश्न अपनी संस्कृत की notebook में हल करके अगली कक्षा में साथ लाइए। ऊपर दी गई तालिकाओं की सहायता से रूप याद करके स्वयं लिखने का प्रयास करें।</p>
+</section>
+
+<footer>
+  <span class="name">PK STUDY</span> — व्याकरण Part 1 पूर्ण
+  <div class="copy">Class 6-7 (Combined) · संस्कृत व्याकरण · शब्द रूप एवं धातु रूप का परिचय — PK STUDY, All Copyright Reserved</div>
+</footer>
+
+<script>
+function toggleTheme(){
+  const html = document.documentElement;
+  const isLight = html.getAttribute('data-theme') === 'light';
+  html.setAttribute('data-theme', isLight ? '' : 'light');
+  document.getElementById('themeToggle').textContent = isLight ? '🌙' : '☀️';
+}
+function el(tag, cls, html){ const d=document.createElement(tag); if(cls)d.className=cls; if(html!==undefined)d.innerHTML=html; return d; }
+
+const qData = [
+  {type:"obj", q:"राम शब्द का प्रथमा विभक्ति एकवचन रूप क्या है?", a:"रामः"},
+  {type:"obj", q:"राम शब्द का द्वितीया विभक्ति एकवचन रूप क्या है?", a:"रामम्"},
+  {type:"obj", q:"फल शब्द का प्रथमा विभक्ति बहुवचन रूप लिखिए।", a:"फलानि"},
+  {type:"obj", q:"लता शब्द का प्रथमा विभक्ति एकवचन रूप क्या है?", a:"लता"},
+  {type:"obj", q:"पठ् धातु का प्रथम पुरुष एकवचन रूप (लट् लकार में) क्या है?", a:"पठति"},
+  {type:"obj", q:"पठ् धातु का मध्यम पुरुष बहुवचन रूप लिखिए।", a:"पठथ"},
+  {type:"obj", q:"संस्कृत में कारक के कुल कितने भेद होते हैं? नाम भी लिखिए।", a:"सात भेद होते हैं — कर्ता (प्रथमा), कर्म (द्वितीया), करण (तृतीया), संप्रदान (चतुर्थी), अपादान (पंचमी), संबंध (षष्ठी), अधिकरण (सप्तमी)। इसके अतिरिक्त संबोधन का आठवाँ रूप भी प्रयोग होता है।"},
+  {type:"subj", q:"कारक किसे कहते हैं? इसके सात भेदों के नाम हिंदी अर्थ सहित लिखिए।", a:"वाक्य में क्रिया के साथ संज्ञा या सर्वनाम शब्द के संबंध को कारक कहते हैं। इसके अनुसार शब्द के रूप में जो परिवर्तन होता है उसे विभक्ति कहते हैं। सात भेद हैं — (1) प्रथमा — कर्ता कारक, (2) द्वितीया — कर्म कारक, (3) तृतीया — करण कारक, (4) चतुर्थी — संप्रदान कारक, (5) पंचमी — अपादान कारक, (6) षष्ठी — संबंध कारक, (7) सप्तमी — अधिकरण कारक। इनके अतिरिक्त संबोधन के लिए आठवाँ रूप भी प्रयोग होता है।"},
+  {type:"subj", q:"वचन किसे कहते हैं? तीनों वचनों को उदाहरण सहित समझाइए।", a:"शब्द के जिस रूप से किसी वस्तु या व्यक्ति की संख्या का बोध हो, उसे वचन कहते हैं। संस्कृत में तीन वचन होते हैं — (1) एकवचन: संख्या एक हो, जैसे रामः (एक राम), (2) द्विवचन: संख्या दो हो, जैसे रामौ (दो राम) — यह केवल संस्कृत की विशेषता है, (3) बहुवचन: संख्या दो से अधिक हो, जैसे रामाः (कई राम)।"},
+  {type:"subj", q:"धातु किसे कहते हैं? लकार से आप क्या समझते हैं? लट् लकार का प्रयोग किसमें होता है?", a:"क्रिया के मूल रूप को धातु कहते हैं, जैसे पठ् (पढ़ना), गम् (जाना)। धातु से पुरुष और वचन के अनुसार क्रिया-पद बनते हैं। काल और भाव को दर्शाने वाले व्याकरणिक चिह्न को लकार कहते हैं। लट् लकार का प्रयोग वर्तमान काल (present tense) में होता है, अर्थात् जो क्रिया अभी हो रही हो — जैसे रामः पठति (राम पढ़ता है)।"},
+  {type:"subj", q:"राम शब्द के सभी सात विभक्तियों के तीनों वचन के रूप लिखिए।", a:"प्रथमा — रामः, रामौ, रामाः। द्वितीया — रामम्, रामौ, रामान्। तृतीया — रामेण, रामाभ्याम्, रामैः। चतुर्थी — रामाय, रामाभ्याम्, रामेभ्यः। पंचमी — रामात्, रामाभ्याम्, रामेभ्यः। षष्ठी — रामस्य, रामयोः, रामाणाम्। सप्तमी — रामे, रामयोः, रामेषु।"},
+  {type:"subj", q:"फल शब्द और राम शब्द के रूपों में प्रथमा तथा द्वितीया विभक्ति के आधार पर क्या समानता एवं अंतर है, स्पष्ट कीजिए।", a:"राम (पुल्लिंग) शब्द में प्रथमा विभक्ति का रूप रामः, रामौ, रामाः होता है और द्वितीया विभक्ति का रूप इससे भिन्न होता है — रामम्, रामौ, रामान्। जबकि फल (नपुंसकलिंग) शब्द में प्रथमा और द्वितीया विभक्ति के रूप बिल्कुल समान होते हैं — फलम्, फले, फलानि। यह नपुंसकलिंग शब्दों की एक विशेष पहचान है कि उनमें प्रथमा और द्वितीया विभक्ति के तीनों वचन के रूप हमेशा एक जैसे होते हैं।"},
+  {type:"subj", q:"पठ् धातु के लट् लकार में सभी नौ रूप (तीनों पुरुष × तीनों वचन) लिखिए।", a:"प्रथम पुरुष — पठति, पठतः, पठन्ति। मध्यम पुरुष — पठसि, पठथः, पठथ। उत्तम पुरुष — पठामि, पठावः, पठामः।"},
+  {type:"subj", q:"संस्कृत वर्णमाला में स्वर एवं व्यंजन से आप क्या समझते हैं? स्वरों के नाम लिखिए।", a:"जिन वर्णों का उच्चारण बिना किसी अन्य वर्ण की सहायता के स्वतंत्र रूप से होता है, उन्हें स्वर कहते हैं। जिन वर्णों का उच्चारण स्वर की सहायता से होता है, उन्हें व्यंजन कहते हैं। संस्कृत में कुल 13 स्वर होते हैं — अ, आ, इ, ई, उ, ऊ, ऋ, ए, ऐ, ओ, औ, अं (अनुस्वार), अः (विसर्ग)।"}
+];
+
+const homeworkData = [
+  "फल शब्द के प्रथमा विभक्ति के तीनों वचन लिखिए।",
+  "लता शब्द के तृतीया विभक्ति के तीनों वचन लिखिए।",
+  "राम शब्द के सप्तमी विभक्ति के तीनों वचन लिखिए।",
+  "पठ् धातु के लट् लकार में उत्तम पुरुष के तीनों वचन लिखिए।",
+  "लता शब्द के षष्ठी विभक्ति के तीनों वचन लिखिए।",
+  "फल शब्द के चतुर्थी विभक्ति के तीनों वचन लिखिए।"
+];
+
+function buildQuestions(){
+  const wrap = document.getElementById('qWrap');
+  qData.forEach((item)=>{
+    const pillHtml = item.type === 'obj' ? '<span class="pill pill-obj">Objective</span>' : '<span class="pill pill-subj">Subjective</span>';
+    const d = el('div','glass example-card', `<div class="qlabel">प्रश्न ${pillHtml}</div><div class="qtext">${item.q}</div>
+      <button class="show-ans-btn" onclick="toggleAnswer(this)">उत्तर दिखाएँ (Show Answer)</button>
+      <div class="ans-wrap"><div class="slabel">उत्तर (Answer)</div><div class="stext">${item.a}</div></div>`);
+    wrap.appendChild(d);
+  });
+}
+function toggleAnswer(btn){
+  const wrap = btn.nextElementSibling;
+  const isOpen = wrap.classList.toggle('open');
+  btn.classList.toggle('open', isOpen);
+  btn.textContent = isOpen ? 'उत्तर छुपाएँ (Hide Answer)' : 'उत्तर दिखाएँ (Show Answer)';
+}
+function buildHomework(){
+  const g = document.getElementById('homeworkList');
+  homeworkData.forEach(q=>{ const li = document.createElement('li'); li.textContent = q; g.appendChild(li); });
+}
+
+buildQuestions();
+buildHomework();
+</script>
+</body>
+</html>

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PK STUDY | यूरोपीय शक्तियों का आगमन एवं फ्रांसीसी क्रांति</title>
+<style>
+:root{
+  --bg:#04050f; --glass:rgba(255,255,255,.045); --glass-strong:rgba(255,255,255,.08);
+  --border:rgba(255,255,255,.12); --text:#f2f6ff; --dim:#9fb0da; --heading:#ffffff;
+  --neon-blue:#3ea6ff; --cyan:#33e0ff; --purple:#b07dff; --gold:#ffc233;
+  --green:#2ee6a6; --orange:#ff9f43; --pink:#ff4d8d; --red:#ff4f4f;
+  --shadow:0 22px 46px -22px #000d; --hshadow:0 30px 56px -20px #000f;
+}
+[data-theme="light"]{
+  --bg:#f6f8fd; --glass:rgba(20,30,65,.045); --glass-strong:rgba(20,30,65,.08);
+  --border:rgba(20,30,65,.12); --text:#161c33; --dim:#535f82; --heading:#12172b;
+  --neon-blue:#2563eb; --cyan:#0891b2; --purple:#7c3aed; --gold:#b45309;
+  --green:#059669; --orange:#c2410c; --pink:#db2777; --red:#dc2626;
+  --shadow:0 18px 36px -20px rgba(30,40,80,.18); --hshadow:0 24px 44px -18px rgba(30,40,80,.24);
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Segoe UI','Noto Sans Devanagari',Arial,sans-serif; color:var(--text); min-height:100vh; overflow-x:hidden;
+  transition:background .4s, color .4s;
+  background:
+    radial-gradient(ellipse at 10% -10%, #1c3a9955, transparent 55%),
+    radial-gradient(ellipse at 95% 10%, #7a2ab866, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, #0a5a6e44, transparent 55%),
+    linear-gradient(180deg,#04050f,#020208 90%);
+}
+[data-theme="light"] body{
+  background:
+    radial-gradient(ellipse at 10% -10%, #dbe4ff99, transparent 55%),
+    radial-gradient(ellipse at 95% 10%, #ede0ff99, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, #d7f5f099, transparent 55%),
+    linear-gradient(180deg,#f8faff,#eef1f9 90%);
+}
+::-webkit-scrollbar{width:8px;} ::-webkit-scrollbar-thumb{background:var(--neon-blue); border-radius:6px;} ::-webkit-scrollbar-track{background:transparent;}
+
+.glass{background:var(--glass); border:1px solid var(--border); border-radius:18px; backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+  box-shadow:var(--shadow), inset 0 1px 0 #ffffff12;}
+
+header{position:sticky; top:0; z-index:200; display:flex; align-items:center; justify-content:space-between; padding:14px 26px;
+  background:rgba(4,5,15,.75); backdrop-filter:blur(18px); border-bottom:1px solid var(--border); flex-wrap:wrap; gap:10px; transition:background .4s;}
+[data-theme="light"] header{background:rgba(255,255,255,.8);}
+.brand{display:flex; align-items:center; gap:12px;}
+.brand img{width:44px; height:44px; border-radius:10px; object-fit:cover; border:2px solid var(--neon-blue); box-shadow:0 0 18px #3ea6ff88;}
+.logo-fallback{width:44px; height:44px; border-radius:10px; display:flex; align-items:center; justify-content:center;
+  background:linear-gradient(135deg,var(--neon-blue),#1f3d8c); font-weight:900; font-size:12px; border:2px solid var(--cyan); color:#fff;}
+.brand-text .name{font-weight:900; font-size:18px; color:var(--cyan); letter-spacing:.5px;}
+.brand-text .tag{font-size:11px; color:var(--dim); font-weight:600;}
+nav{display:flex; gap:5px; overflow-x:auto; max-width:52vw;}
+nav::-webkit-scrollbar{height:4px;}
+nav a{color:var(--dim); text-decoration:none; font-size:11.5px; padding:6px 11px; border-radius:16px; border:1px solid transparent; transition:.2s; font-weight:700; white-space:nowrap;}
+nav a:hover{color:var(--heading); border-color:var(--neon-blue); background:#3ea6ff1a;}
+.theme-btn{flex-shrink:0; width:40px; height:40px; border-radius:12px; border:1px solid var(--border); background:var(--glass-strong);
+  color:var(--text); font-size:17px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:.25s;}
+.theme-btn:hover{border-color:var(--neon-blue); transform:translateY(-2px);}
+
+.hero{position:relative; padding:60px 6vw 40px; text-align:center;}
+.eyebrow{display:inline-block; padding:7px 22px; border-radius:30px; color:#04050f; font-size:12px; font-weight:900;
+  letter-spacing:2px; text-transform:uppercase; margin-bottom:20px;
+  background:linear-gradient(120deg,var(--gold),var(--orange),var(--pink),var(--purple),var(--cyan));
+  box-shadow:0 10px 26px -6px #000b;}
+.hero h1{font-size:clamp(26px,5.5vw,48px); font-weight:900; line-height:1.25;
+  background:linear-gradient(90deg,var(--neon-blue),var(--cyan) 35%,var(--purple) 65%,var(--pink)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+.hero .en{font-size:16px; color:var(--dim); font-weight:700; margin-top:10px;}
+.hero p{color:var(--dim); max-width:760px; margin:20px auto 0; font-size:14.5px; line-height:1.9; font-weight:500;}
+
+section{position:relative; padding:44px 6vw; max-width:1200px; margin:0 auto;}
+.sec-head{display:flex; align-items:center; gap:14px; margin-bottom:24px;}
+.sec-num{width:44px; height:44px; border-radius:14px; flex-shrink:0; display:flex; align-items:center; justify-content:center;
+  font-weight:900; font-size:16px; color:#04050f; box-shadow:0 8px 22px -6px var(--glow,#3ea6ff99); border:2px solid #ffffffaa;}
+.sec-head h2{font-size:clamp(19px,3vw,26px); font-weight:900; color:var(--heading);}
+.sec-head .sub{color:var(--dim); font-size:12.5px; font-weight:600; margin-top:2px;}
+.sec-head .en-tag{font-size:11px; color:var(--gold); font-weight:700; letter-spacing:.5px;}
+
+.card{padding:20px 22px;}
+.grid{display:grid; gap:16px;}
+.grid-2{grid-template-columns:1fr 1fr;} .grid-3{grid-template-columns:repeat(3,1fr);}
+@media(max-width:900px){.grid-3{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.grid-2,.grid-3{grid-template-columns:1fr;} nav{max-width:100%;}}
+
+b.hi{color:var(--pink); font-weight:900;} b.hi2{color:var(--green); font-weight:900;} b.hi3{color:var(--gold); font-weight:900;}
+
+.rule-card{padding:20px; border-left:5px solid var(--neon-blue);}
+.rule-card h4{font-size:15px; color:var(--cyan); font-weight:900; margin-bottom:10px;}
+.rule-card p{font-size:13px; color:var(--dim); line-height:1.85; font-weight:500; margin-bottom:8px;}
+.rule-card ul{margin:6px 0 6px 20px; font-size:13px; color:var(--dim); line-height:1.9; font-weight:500;}
+.rule-card ul li{margin-bottom:4px;}
+
+.example-card{padding:18px 20px; margin-bottom:14px;}
+.example-card .qlabel{font-size:11px; font-weight:900; color:var(--gold); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;}
+.example-card .qtext{font-size:13.5px; font-weight:700; color:var(--heading); margin-bottom:14px; line-height:1.7;}
+.example-card .slabel{font-size:11px; font-weight:900; color:var(--green); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;}
+.example-card .stext{font-size:13px; color:var(--dim); line-height:1.9; font-weight:500; background:var(--glass-strong); padding:12px 14px; border-radius:10px; white-space:pre-line;}
+.show-ans-btn{padding:9px 20px; border-radius:10px; border:1.5px solid var(--green); background:transparent; color:var(--green);
+  font-weight:800; font-size:12px; cursor:pointer; transition:.2s;}
+.show-ans-btn:hover{background:var(--green); color:#04050f;}
+.show-ans-btn.open{background:var(--green); color:#04050f;}
+.ans-wrap{margin-top:14px; display:none;}
+.ans-wrap.open{display:block;}
+.pill{display:inline-block; padding:3px 10px; border-radius:10px; font-size:10px; font-weight:900; margin-left:8px; vertical-align:middle;}
+.pill-obj{background:linear-gradient(120deg,var(--cyan),#0a85b8); color:#04050f;}
+.pill-subj{background:linear-gradient(120deg,var(--purple),#7e4fd1); color:#fff;}
+
+.hw-card{padding:18px 20px;}
+.hw-card ol{margin:0; padding-left:20px; font-size:13px; color:var(--dim); line-height:2; font-weight:500;}
+.hw-card ol li{margin-bottom:8px;}
+.hw-card ol li::marker{color:var(--heading); font-weight:800;}
+
+.table-wrap{overflow-x:auto; margin-bottom:16px;}
+table{width:100%; border-collapse:collapse; min-width:560px;}
+thead th{text-align:center; padding:12px 14px; background:linear-gradient(120deg,var(--neon-blue),var(--purple)); color:#fff;
+  font-size:12px; text-transform:uppercase; letter-spacing:.5px; font-weight:900;}
+thead th:first-child{border-radius:10px 0 0 0;} thead th:last-child{border-radius:0 10px 0 0;}
+tbody td{padding:12px 14px; border-bottom:1px solid var(--border); color:var(--dim); font-size:12.5px; text-align:center; font-weight:600;}
+tbody tr:hover{background:#3ea6ff14;}
+
+footer{text-align:center; padding:50px 6vw 70px; color:var(--dim); font-size:12.5px; border-top:1px solid var(--border); margin-top:30px; font-weight:600;}
+footer .name{color:var(--cyan); font-weight:900; font-size:16px;}
+footer .copy{margin-top:18px; font-size:11px; color:var(--dim); opacity:.8;}
+
+.sub-title{margin:6px 0 4px; font-size:16px; font-weight:900; color:var(--heading); padding-top:6px;}
+.sub-title .en{display:block; font-size:11px; color:var(--dim); font-weight:700; margin-top:2px; letter-spacing:.3px;}
+.divider{height:1px; background:var(--border); margin:8px 0 4px;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <img src="images/1000043468.png" alt="PK STUDY" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="logo-fallback" style="display:none;">PK</div>
+    <div class="brand-text"><div class="name">PK STUDY</div><div class="tag">Class 8-9 (Combined) • Social Science (History) • Part 1</div></div>
+  </div>
+  <nav>
+    <a href="#notes">नोट्स</a><a href="#tables">महत्वपूर्ण तथ्य</a><a href="#questions">प्रश्न</a><a href="#homework">होमवर्क</a>
+  </nav>
+  <button class="theme-btn" id="themeToggle" onclick="toggleTheme()" title="Dark/Light Mode">🌙</button>
+</header>
+
+<!-- ============ HERO ============ -->
+<div class="hero">
+  <span class="eyebrow">कक्षा 8-9 (संयुक्त) · सामाजिक विज्ञान (इतिहास) · Part 1</span>
+  <h1>यूरोपीय शक्तियों का आगमन एवं फ्रांसीसी क्रांति</h1>
+  <div class="en">Arrival of European Powers &amp; The French Revolution</div>
+  <p>यह Part 1, कक्षा 8 और कक्षा 9 के दो अलग-अलग किंतु विषयगत रूप से जुड़े हुए अध्यायों को एक साथ जोड़कर बनाया गया है। <b class="hi">भाग 1A</b> में कक्षा 8 के अध्याय "यूरोपीय कंपनियों का भारत आगमन" को पढ़ेंगे, जिसमें पुर्तगाली, डच, अंग्रेज़ और फ्रांसीसी कंपनियों के भारत आने की कहानी है। <b class="hi">भाग 1B</b> में कक्षा 9 के अध्याय "फ्रांसीसी क्रांति" को पढ़ेंगे। दोनों अध्याय 18वीं सदी के यूरोप में हुई बड़ी राजनीतिक व आर्थिक उथल-पुथल और उसके वैश्विक प्रभाव से जुड़े हैं — इसलिए दोनों को एक संयुक्त Part 1 के रूप में प्रस्तुत किया गया है।</p>
+</div>
+
+<!-- ============ NOTES ============ -->
+<section id="notes">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--neon-blue),#1f6fc9); --glow:#3ea6ff99;">📝</div>
+    <div><h2>Notes — दोनों भागों के मुख्य बिंदु</h2><div class="sub en-tag">Concept Notes, Section-wise</div></div></div>
+
+  <div class="glass card" style="margin-bottom:18px;">
+    <div class="sub-title">भाग 1A: यूरोपीय कंपनियों का आगमन (कक्षा 8)<span class="en">Arrival of European Companies in India — Class 8</span></div>
+  </div>
+
+  <div class="glass card" style="display:flex; flex-direction:column; gap:16px; margin-bottom:26px;">
+    <div class="rule-card" style="border-left-color:var(--cyan);">
+      <h4 style="color:var(--cyan);">1A(क). पुर्तगाली-डच-अंग्रेज़-फ्रांसीसी कंपनियों का क्रमिक आगमन</h4>
+      <p>15वीं-16वीं सदी में यूरोप में <b class="hi">पुनर्जागरण (Renaissance)</b> के बाद व्यापार और नए समुद्री मार्गों की खोज में तेज़ी आई। भारत के मसालों, सूती वस्त्रों और रेशम की माँग यूरोप में बहुत अधिक थी, जिसके कारण एक-एक कर यूरोपीय शक्तियाँ भारत पहुँचीं।</p>
+      <ul>
+        <li><b class="hi2">पुर्तगाली</b> — सबसे पहले भारत पहुँचने वाली यूरोपीय शक्ति। वास्को-द-गामा 1498 ई. में समुद्री रास्ते से कालीकट (केरल) पहुँचा। पुर्तगालियों ने गोवा, दमन, दीव और कोचीन में अपने व्यापारिक केंद्र बनाए।</li>
+        <li><b class="hi2">डच (Dutch)</b> — 1602 ई. में <b class="hi3">डच ईस्ट इंडिया कंपनी (VOC)</b> की स्थापना हुई। भारत में डच लोगों की पहली फैक्ट्री <b class="hi3">मछलीपट्टनम (मसुलीपट्टम)</b> में 1605 ई. के आसपास स्थापित हुई। डच व्यापार का मुख्य केंद्र बाद में इंडोनेशिया (जावा-सुमात्रा) के मसाला द्वीप बन गया।</li>
+        <li><b class="hi2">अंग्रेज़ (English)</b> — 31 दिसंबर 1600 ई. को इंग्लैंड की महारानी एलिज़ाबेथ प्रथम ने <b class="hi3">ईस्ट इंडिया कंपनी</b> को व्यापार का अधिकार-पत्र (चार्टर) दिया। 1613 ई. में मुग़ल बादशाह जहाँगीर से अनुमति लेकर सूरत में अंग्रेज़ों की पहली फैक्ट्री स्थापित हुई।</li>
+        <li><b class="hi2">फ्रांसीसी (French)</b> — 1664 ई. में फ्रांसीसी ईस्ट इंडिया कंपनी की स्थापना हुई। 1668 ई. में सूरत में और 1673 ई. में पांडिचेरी (पुडुचेरी) में फ्रांसीसी फैक्ट्री बनी, जो आगे चलकर फ्रांसीसियों की मुख्य बस्ती बनी।</li>
+      </ul>
+      <p>इस प्रकार आगमन का क्रम रहा — <b class="hi">पुर्तगाली (1498) → डच (1602) → अंग्रेज़ (1600/1613) → फ्रांसीसी (1664/1668)</b>।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--pink);">
+      <h4 style="color:var(--pink);">1A(ख). व्यापारिक कोठियाँ एवं मुख्य व्यापारिक वस्तुएँ</h4>
+      <p><b class="hi">व्यापारिक कोठी (Factory)</b> — यूरोपीय कंपनियों द्वारा भारत के तटीय व्यापारिक शहरों में बनाए गए गोदाम व कार्यालय, जहाँ माल इकट्ठा किया जाता था, तौला-जाँचा जाता था और जहाज़ों पर लादा जाता था। इनकी सुरक्षा के लिए कोठियों के चारों ओर किलेबंदी भी की जाती थी।</p>
+      <p><b>प्रमुख कोठियाँ:</b> सूरत, मछलीपट्टनम, मद्रास (चेन्नई), बंबई (मुंबई), कलकत्ता (कोलकाता) — अंग्रेज़ों की; पांडिचेरी, चंद्रनगर — फ्रांसीसियों की; गोवा, दमन, दीव — पुर्तगालियों की।</p>
+      <p><b>मुख्य व्यापारिक वस्तुएँ:</b> भारत से — बारीक सूती व रेशमी वस्त्र, नील (इंडिगो), शोरा (साल्टपीटर), काली मिर्च, इलायची, दालचीनी जैसे मसाले; यूरोप से — सोना-चाँदी (बुलियन), ऊनी वस्त्र, कुछ धातुएँ भारत लाई जाती थीं।</p>
+      <p>व्यापार के लिए कई व्यक्ति मिलकर पूँजी लगाते थे और लाभ अपने हिस्से के अनुसार बाँटते थे — इसी व्यवस्था को <b class="hi3">संयुक्त पूँजी व्यापारिक कंपनी (Joint Stock Company)</b> कहा गया।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--green);">
+      <h4 style="color:var(--green);">1A(ग). मुग़ल साम्राज्य के पतन का यूरोपीय शक्तियों को लाभ</h4>
+      <p><b>मुग़ल साम्राज्य के पतन के कारण:</b> औरंगज़ेब के बाद कमज़ोर उत्तराधिकारी, दरबार में आपसी षड्यंत्र व सत्ता-संघर्ष, प्रांतीय सूबेदारों (जैसे बंगाल, अवध, हैदराबाद के नवाबों) का स्वतंत्र होना, नादिरशाह (1739) व अहमदशाह अब्दाली के आक्रमण, मराठों व अन्य क्षेत्रीय शक्तियों का उदय, तथा केंद्रीय प्रशासन व अर्थव्यवस्था का कमज़ोर पड़ना।</p>
+      <p><b class="hi2">यूरोपीय शक्तियों को मिला मौका:</b> मुग़ल केंद्रीय सत्ता कमज़ोर होने से भारत अनेक छोटे-छोटे स्वतंत्र व अर्ध-स्वतंत्र राज्यों में बँट गया। इन क्षेत्रीय शासकों के आपसी संघर्षों का लाभ उठाकर यूरोपीय कंपनियों (विशेषकर अंग्रेज़ों व फ्रांसीसियों) ने न केवल व्यापारिक सुविधाएँ बढ़ाईं, बल्कि सैन्य व राजनीतिक हस्तक्षेप भी शुरू कर दिया, जिससे आगे चलकर भारत में यूरोपीय औपनिवेशिक सत्ता की नींव पड़ी।</p>
+      <p>इसी राजनीतिक अस्थिरता के दौर में अंग्रेज़ों और फ्रांसीसियों के बीच दक्षिण भारत में प्रभुत्व के लिए <b class="hi3">कर्नाटक युद्ध</b> जैसी लड़ाइयाँ भी लड़ी गईं, जिसमें अंततः अंग्रेज़ों की स्थिति मज़बूत हुई।</p>
+    </div>
+  </div>
+
+  <div class="glass card" style="margin-bottom:18px;">
+    <div class="sub-title">भाग 1B: फ्रांसीसी क्रांति (कक्षा 9)<span class="en">The French Revolution — Class 9</span></div>
+  </div>
+
+  <div class="glass card" style="display:flex; flex-direction:column; gap:16px;">
+    <div class="rule-card" style="border-left-color:var(--orange);">
+      <h4 style="color:var(--orange);">1B(क). क्रांति के सामाजिक व आर्थिक कारण — तीन एस्टेट व्यवस्था</h4>
+      <p>18वीं सदी में फ्रांस का समाज तीन वर्गों (<b class="hi">एस्टेट्स</b>) में बँटा हुआ था — <b class="hi3">प्रथम एस्टेट</b> (पादरी वर्ग/चर्च), <b class="hi3">द्वितीय एस्टेट</b> (कुलीन वर्ग/सामंत) और <b class="hi3">तृतीय एस्टेट</b> (व्यापारी, किसान, मजदूर, आम जनता)। जनसंख्या का लगभग 90-97% भाग तृतीय एस्टेट में आता था।</p>
+      <p><b class="hi2">सामाजिक असमानता:</b> प्रथम और द्वितीय एस्टेट को अनेक विशेषाधिकार प्राप्त थे और वे लगभग कोई कर नहीं देते थे, जबकि तृतीय एस्टेट को सारे कर (टाइल, टाइद आदि) चुकाने पड़ते थे और उन्हें कोई राजनीतिक अधिकार प्राप्त नहीं था।</p>
+      <p><b class="hi2">आर्थिक संकट:</b> लंबे युद्धों (जैसे अमेरिकी स्वतंत्रता संग्राम में फ्रांस की सहायता), राजदरबार के अत्यधिक खर्च तथा कर वसूली की अक्षम व्यवस्था के कारण फ्रांस भारी ऋण (लगभग 2 अरब लिव्र से अधिक) में डूब गया। बुरी फसल के कारण रोटी व अनाज की कीमतें बहुत बढ़ गईं, जिससे आम जनता का जीना कठिन हो गया।</p>
+      <p><b class="hi2">निरंकुश राजतंत्र:</b> राजा लुई सोलहवें के पास असीमित शक्तियाँ थीं, वह मनमाने ढंग से शासन चलाता था और जनता की समस्याओं पर ध्यान नहीं देता था। इसके साथ ही ज्ञानोदय (Enlightenment) के विचारकों (रूसो, वॉल्टेयर, मॉन्टेस्क्यू) के स्वतंत्रता व समानता संबंधी विचारों ने जनता को राजतंत्र के विरुद्ध सोचने को प्रेरित किया।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--purple);">
+      <h4 style="color:var(--purple);">1B(ख). बास्तील के पतन की घटना — 14 जुलाई 1789</h4>
+      <p><b class="hi">बास्तील</b> पेरिस शहर का एक विशाल किला-कारागार था, जो राजा की निरंकुश सत्ता का प्रतीक माना जाता था। यहाँ राजा के आदेश पर बिना मुक़दमा चलाए लोगों को बंदी बनाकर रखा जाता था।</p>
+      <p>14 जुलाई 1789 ई. को पेरिस की भड़की हुई जनता (क्रांतिकारी भीड़) ने बास्तील के किले पर धावा बोल दिया, किलेदार को मार डाला और वहाँ बंद कैदियों को रिहा कर दिया।</p>
+      <p>इस घटना को <b class="hi3">फ्रांसीसी क्रांति की औपचारिक शुरुआत</b> माना जाता है, और आज भी <b class="hi3">14 जुलाई</b> को फ्रांस में राष्ट्रीय दिवस (बास्तील दिवस) के रूप में मनाया जाता है।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--red);">
+      <h4 style="color:var(--red);">1B(ग). क्रांति के विचार एवं दुनिया पर प्रभाव</h4>
+      <p>फ्रांसीसी क्रांति का मूल नारा था — <b class="hi">"स्वतंत्रता, समानता और बंधुत्व" (Liberty, Equality, Fraternity)</b>। इसने जन्म, धर्म या वर्ग के आधार पर मिलने वाले विशेषाधिकारों को अस्वीकार करते हुए सभी नागरिकों के समान अधिकारों की बात कही।</p>
+      <p><b class="hi2">फ्रांस पर प्रभाव:</b> राजतंत्र समाप्त हुआ, सामंती व्यवस्था और एस्टेट-आधारित विशेषाधिकार ख़त्म हुए, "मानव एवं नागरिक अधिकारों की घोषणा" जैसे दस्तावेज़ बने, और आगे चलकर गणतंत्र की स्थापना हुई।</p>
+      <p><b class="hi2">विश्व पर प्रभाव:</b> इस क्रांति के विचारों ने यूरोप तथा विश्व के अन्य भागों (जिसमें भारत के राष्ट्रवादी आंदोलन भी शामिल हैं) में लोकतंत्र, राष्ट्रवाद, मानवाधिकार व साम्राज्यवाद-विरोधी विचारों को प्रेरित किया। इसे आधुनिक विश्व इतिहास की सबसे महत्वपूर्ण घटनाओं में से एक माना जाता है।</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ IMPORTANT FACTS / TABLES ============ -->
+<section id="tables">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--purple),#7e4fd1); --glow:#b07dff99;">📊</div>
+    <div><h2>महत्वपूर्ण तथ्य तालिकाएँ</h2><div class="sub en-tag">Key Reference Tables</div></div></div>
+
+  <div class="glass card table-wrap">
+    <table>
+      <thead><tr><th>यूरोपीय कंपनी</th><th>स्थापना वर्ष / देश</th><th>भारत में पहली गतिविधि</th></tr></thead>
+      <tbody>
+        <tr><td>पुर्तगाली</td><td>1498 ई. (वास्को-द-गामा का आगमन)</td><td>कालीकट में उतरे; गोवा को मुख्य व्यापार-केंद्र बनाया</td></tr>
+        <tr><td>डच ईस्ट इंडिया कंपनी (VOC)</td><td>1602 ई., हॉलैंड</td><td>मछलीपट्टनम में पहली फैक्ट्री (लगभग 1605 ई.)</td></tr>
+        <tr><td>अंग्रेज़ ईस्ट इंडिया कंपनी</td><td>1600 ई., इंग्लैंड</td><td>1613 ई. में सूरत में पहली फैक्ट्री</td></tr>
+        <tr><td>फ्रांसीसी ईस्ट इंडिया कंपनी</td><td>1664 ई., फ्रांस</td><td>1668 ई. सूरत में, 1673 ई. में पांडिचेरी में फैक्ट्री</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="glass card table-wrap">
+    <table>
+      <thead><tr><th>एस्टेट</th><th>वर्ग</th><th>अधिकार / कर की स्थिति</th></tr></thead>
+      <tbody>
+        <tr><td>प्रथम एस्टेट</td><td>पादरी वर्ग (चर्च)</td><td>अनेक विशेषाधिकार प्राप्त; कर से लगभग मुक्त</td></tr>
+        <tr><td>द्वितीय एस्टेट</td><td>कुलीन वर्ग (सामंत/रईस)</td><td>भूमि व सुविधाओं पर अधिकार; कर से लगभग मुक्त</td></tr>
+        <tr><td>तृतीय एस्टेट</td><td>व्यापारी, किसान, मजदूर, आम जनता (~90-97% जनसंख्या)</td><td>कोई राजनीतिक अधिकार नहीं; सारे प्रत्यक्ष-अप्रत्यक्ष कर वहन करते थे</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ IMPORTANT QUESTIONS ============ -->
+<section id="questions">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--green),#1a9c70); --glow:#2ee6a699;">📘</div>
+    <div><h2>महत्वपूर्ण प्रश्न (Objective + Subjective)</h2><div class="sub en-tag">उत्तर देखने के लिए बटन दबाएँ</div></div></div>
+  <div id="qWrap"></div>
+</section>
+
+<!-- ============ HOMEWORK ============ -->
+<section id="homework">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--red),#a82424); --glow:#ff4f4f99;">🏠</div>
+    <div><h2>घर से करने के लिए Homework</h2><div class="sub en-tag">Notebook Exercise — बिना उत्तर देखे खुद हल करें</div></div></div>
+  <div class="glass card hw-card">
+    <ol id="homeworkList"></ol>
+  </div>
+  <p style="color:var(--dim); font-size:12px; margin-top:14px; font-weight:600;">यह सभी प्रश्न अपनी Social Science की notebook में हल करके अगली कक्षा में साथ लाइए।</p>
+</section>
+
+<footer>
+  <span class="name">PK STUDY</span> — Part 1 पूर्ण
+  <div class="copy">Class 8-9 (Combined) · सामाजिक विज्ञान (इतिहास) · यूरोपीय शक्तियों का आगमन एवं फ्रांसीसी क्रांति — PK STUDY, All Copyright Reserved</div>
+</footer>
+
+<script>
+function toggleTheme(){
+  const html = document.documentElement;
+  const isLight = html.getAttribute('data-theme') === 'light';
+  html.setAttribute('data-theme', isLight ? '' : 'light');
+  document.getElementById('themeToggle').textContent = isLight ? '🌙' : '☀️';
+}
+function el(tag, cls, html){ const d=document.createElement(tag); if(cls)d.className=cls; if(html!==undefined)d.innerHTML=html; return d; }
+
+const qData = [
+  {type:"obj", q:"भारत आने वाली सबसे पहली यूरोपीय शक्ति कौन-सी थी?", a:"पुर्तगाली — वास्को-द-गामा 1498 ई. में समुद्री रास्ते से कालीकट पहुँचा था।"},
+  {type:"obj", q:"डच ईस्ट इंडिया कंपनी (VOC) की स्थापना कब हुई थी?", a:"1602 ई. में हॉलैंड (नीदरलैंड) में डच ईस्ट इंडिया कंपनी की स्थापना हुई।"},
+  {type:"obj", q:"अंग्रेज़ ईस्ट इंडिया कंपनी को व्यापार का अधिकार-पत्र किसने और कब दिया था?", a:"इंग्लैंड की महारानी एलिज़ाबेथ प्रथम ने 31 दिसंबर 1600 ई. को यह अधिकार-पत्र (चार्टर) दिया था।"},
+  {type:"obj", q:"अंग्रेज़ों की भारत में पहली फैक्ट्री किस शहर में और किस वर्ष स्थापित हुई?", a:"1613 ई. में सूरत में, मुग़ल बादशाह जहाँगीर से अनुमति लेकर।"},
+  {type:"obj", q:"मुग़ल साम्राज्य पर सबसे विनाशकारी विदेशी आक्रमण कब और किसने किया था?", a:"1739 ई. में नादिरशाह ने दिल्ली पर आक्रमण किया, जिससे मुग़ल सत्ता बहुत कमज़ोर हो गई।"},
+  {type:"obj", q:"फ्रांसीसी क्रांति कब आरंभ हुई मानी जाती है?", a:"1789 ई. में — विशेषतः 14 जुलाई 1789 को बास्तील के पतन के साथ इसकी औपचारिक शुरुआत मानी जाती है।"},
+  {type:"obj", q:"बास्तील का पतन किस तारीख़ को हुआ था और आज यह दिन फ्रांस में क्या कहलाता है?", a:"14 जुलाई 1789 को; आज यह दिन फ्रांस में 'बास्तील दिवस' के नाम से राष्ट्रीय दिवस के रूप में मनाया जाता है।"},
+  {type:"obj", q:"फ्रांसीसी क्रांति का मूल नारा क्या था?", a:"स्वतंत्रता, समानता और बंधुत्व (Liberty, Equality, Fraternity)।"},
+  {type:"obj", q:"फ्रांस के समाज में तीसरा एस्टेट किन वर्गों से मिलकर बना था?", a:"व्यापारी, किसान, मजदूर और आम जनता — जो फ्रांस की कुल जनसंख्या का लगभग 90-97% भाग थे।"},
+  {type:"subj", q:"पुर्तगाली, डच, अंग्रेज़ और फ्रांसीसी कंपनियों के भारत आगमन का क्रम बताते हुए संक्षेप में वर्णन कीजिए।", a:"भारत में यूरोपीय शक्तियों का आगमन इस क्रम में हुआ — सबसे पहले पुर्तगाली, जिनके प्रतिनिधि वास्को-द-गामा ने 1498 ई. में कालीकट में कदम रखा और गोवा को अपना मुख्य केंद्र बनाया। इसके बाद 1602 ई. में डच ईस्ट इंडिया कंपनी (VOC) की स्थापना हुई और उन्होंने मछलीपट्टनम में अपनी पहली फैक्ट्री बनाई। इसी दौर में 1600 ई. में अंग्रेज़ ईस्ट इंडिया कंपनी बनी और 1613 ई. में सूरत में उनकी पहली फैक्ट्री स्थापित हुई। सबसे बाद में फ्रांसीसी आए — 1664 ई. में फ्रांसीसी ईस्ट इंडिया कंपनी बनी और 1668-1673 ई. के बीच सूरत तथा पांडिचेरी में उनकी फैक्ट्रियाँ स्थापित हुईं। शुरुआत में सभी कंपनियाँ व्यापार के लिए आई थीं, लेकिन बाद में इनमें आपसी प्रतिस्पर्धा और राजनीतिक हस्तक्षेप भी बढ़ गया।"},
+  {type:"subj", q:"व्यापारिक कोठियों का क्या महत्व था और भारत से मुख्यतः कौन-सी वस्तुएँ यूरोप भेजी जाती थीं?", a:"व्यापारिक कोठियाँ (Factories) यूरोपीय कंपनियों के व्यापार की रीढ़ थीं — यहाँ माल इकट्ठा किया जाता था, उसकी जाँच व तौल होती थी और फिर जहाज़ों के ज़रिए यूरोप भेजा जाता था। इनकी सुरक्षा के लिए किलेबंदी भी की जाती थी। भारत से मुख्यतः बारीक सूती व रेशमी वस्त्र, नील (इंडिगो), शोरा (साल्टपीटर), काली मिर्च, इलायची, दालचीनी जैसे मसाले यूरोप भेजे जाते थे, जिनकी वहाँ भारी माँग थी। इसके बदले यूरोप से सोना-चाँदी और कुछ ऊनी वस्त्र भारत लाए जाते थे।"},
+  {type:"subj", q:"मुग़ल साम्राज्य के पतन के प्रमुख कारण बताइए और इससे यूरोपीय शक्तियों को क्या लाभ मिला?", a:"मुग़ल साम्राज्य के पतन के प्रमुख कारण थे — औरंगज़ेब के बाद कमज़ोर व अयोग्य उत्तराधिकारी, दरबार में आपसी षड्यंत्र व सत्ता-संघर्ष, प्रांतीय सूबेदारों का स्वतंत्र होना (जैसे बंगाल, अवध, हैदराबाद), नादिरशाह (1739) और अहमदशाह अब्दाली के आक्रमण, तथा मराठों जैसी क्षेत्रीय शक्तियों का उदय। इससे केंद्रीय मुग़ल सत्ता बहुत कमज़ोर पड़ गई और भारत छोटे-छोटे स्वतंत्र राज्यों में बँट गया। इस राजनीतिक अस्थिरता व आपसी संघर्ष का लाभ उठाकर यूरोपीय कंपनियों (विशेषकर अंग्रेज़ों व फ्रांसीसियों) ने व्यापारिक सुविधाओं के साथ-साथ सैन्य व राजनीतिक हस्तक्षेप भी शुरू कर दिया, जिससे आगे चलकर भारत में उनकी औपनिवेशिक सत्ता की नींव पड़ी।"},
+  {type:"subj", q:"फ्रांसीसी क्रांति के सामाजिक और आर्थिक कारणों की विस्तार से व्याख्या कीजिए।", a:"सामाजिक कारण — फ्रांस का समाज तीन एस्टेट्स में बँटा था। प्रथम (पादरी) और द्वितीय (कुलीन) एस्टेट को अनेक विशेषाधिकार प्राप्त थे और वे लगभग कर-मुक्त थे, जबकि तृतीय एस्टेट (आम जनता, किसान, मजदूर, व्यापारी — लगभग 90-97% जनसंख्या) को सारे कर चुकाने पड़ते थे और उन्हें कोई राजनीतिक अधिकार नहीं था। यह गहरी सामाजिक असमानता जनता में असंतोष का बड़ा कारण बनी। आर्थिक कारण — लंबे युद्धों (जैसे अमेरिकी स्वतंत्रता संग्राम में फ्रांस की सहायता) और राजदरबार के फ़िज़ूलखर्ची के कारण फ्रांस भारी कर्ज़ में डूब गया। कर वसूली की अक्षम व्यवस्था तथा बुरी फसल के कारण अनाज की कीमतें बहुत बढ़ गईं, जिससे आम जनता के लिए जीवन कठिन हो गया। इन सामाजिक व आर्थिक कारणों ने मिलकर क्रांति की ज़मीन तैयार की।"},
+  {type:"subj", q:"बास्तील के पतन की घटना का वर्णन कीजिए और यह फ्रांसीसी क्रांति में एक महत्वपूर्ण मोड़ क्यों माना जाता है?", a:"बास्तील पेरिस का एक विशाल किला-कारागार था, जो राजा की निरंकुश और मनमानी सत्ता का प्रतीक माना जाता था — यहाँ राजा के आदेश पर बिना मुक़दमा चलाए लोगों को बंदी बनाकर रखा जाता था। 14 जुलाई 1789 ई. को पेरिस की भड़की हुई जनता ने बास्तील पर धावा बोल दिया, किलेदार को मार डाला और वहाँ बंद कैदियों को रिहा कर दिया। यह घटना फ्रांसीसी क्रांति में इसलिए महत्वपूर्ण मोड़ मानी जाती है क्योंकि इसने पहली बार दिखाया कि आम जनता संगठित होकर राजतंत्र की सत्ता को चुनौती दे सकती है। इसी कारण इसे क्रांति की औपचारिक शुरुआत माना जाता है, और आज भी 14 जुलाई को फ्रांस में राष्ट्रीय दिवस के रूप में मनाया जाता है।"},
+  {type:"subj", q:"फ्रांसीसी क्रांति के विचारों का फ्रांस तथा विश्व पर क्या प्रभाव पड़ा?", a:"फ्रांसीसी क्रांति ने 'स्वतंत्रता, समानता और बंधुत्व' का नारा दिया, जिसने जन्म, धर्म या वर्ग के आधार पर मिलने वाले विशेषाधिकारों को अस्वीकार किया। फ्रांस में इसके परिणामस्वरूप राजतंत्र समाप्त हुआ, सामंती व्यवस्था और एस्टेट-आधारित विशेषाधिकार ख़त्म हुए, 'मानव एवं नागरिक अधिकारों की घोषणा' जैसे महत्वपूर्ण दस्तावेज़ बने, और आगे चलकर गणतंत्र की स्थापना हुई। विश्व स्तर पर इन विचारों ने यूरोप के अन्य देशों तथा एशिया-अफ्रीका सहित विश्व के अनेक भागों (जिसमें भारत का राष्ट्रवादी आंदोलन भी शामिल है) में लोकतंत्र, राष्ट्रवाद, मानवाधिकार और साम्राज्यवाद-विरोधी सोच को प्रेरित किया। इसीलिए फ्रांसीसी क्रांति को आधुनिक विश्व इतिहास की सबसे प्रभावशाली घटनाओं में गिना जाता है।"},
+  {type:"subj", q:"संयुक्त पूँजी व्यापारिक कंपनी (Joint Stock Company) की व्यवस्था को समझाइए। इसका यूरोपीय व्यापार में क्या महत्व था?", a:"संयुक्त पूँजी व्यापारिक कंपनी की व्यवस्था में कई व्यापारी/निवेशक मिलकर एक कंपनी बनाते थे, जिसमें हर शेयरधारक अपनी पूँजी लगाता था और व्यापार से होने वाला लाभ (या हानि) अपनी लगाई गई पूँजी के अनुपात में बाँटता था। इस व्यवस्था से बड़ी पूँजी इकट्ठा करना आसान हो गया, जिससे लंबी और जोखिम भरी समुद्री यात्राओं तथा बड़े व्यापारिक अभियानों को वित्तपोषित किया जा सका। डच, अंग्रेज़ और फ्रांसीसी — सभी की ईस्ट इंडिया कंपनियाँ इसी सिद्धांत पर आधारित थीं, और यही व्यवस्था आगे चलकर इन कंपनियों की आर्थिक व राजनीतिक ताक़त का आधार बनी।"}
+];
+
+const homeworkData = [
+  "पुर्तगाली, डच, अंग्रेज़ और फ्रांसीसी कंपनियों के भारत आगमन का एक तुलनात्मक तालिका (वर्ष, स्थान) अपनी नोटबुक में बनाइए।",
+  "व्यापारिक कोठी (Factory) और उपनिवेश (Colony) में क्या अंतर है? अपने शब्दों में लिखिए।",
+  "मुग़ल साम्राज्य के पतन के किन्हीं पाँच कारणों को विस्तार से समझाइए।",
+  "फ्रांस में तीन एस्टेट व्यवस्था क्या थी? प्रत्येक एस्टेट के अधिकार व कर्तव्यों को स्पष्ट कीजिए।",
+  "फ्रांसीसी क्रांति के किन्हीं तीन आर्थिक कारणों की व्याख्या कीजिए।",
+  "बास्तील के पतन की घटना को अपने शब्दों में एक अनुच्छेद में लिखिए।",
+  "'स्वतंत्रता, समानता, बंधुत्व' के विचार का भारत के स्वतंत्रता आंदोलन पर क्या प्रभाव पड़ा होगा, इस पर अपने विचार लिखिए। (Practical Activity)"
+];
+
+function buildQuestions(){
+  const wrap = document.getElementById('qWrap');
+  qData.forEach((item)=>{
+    const pillHtml = item.type === 'obj' ? '<span class="pill pill-obj">Objective</span>' : '<span class="pill pill-subj">Subjective</span>';
+    const d = el('div','glass example-card', `<div class="qlabel">प्रश्न ${pillHtml}</div><div class="qtext">${item.q}</div>
+      <button class="show-ans-btn" onclick="toggleAnswer(this)">उत्तर दिखाएँ (Show Answer)</button>
+      <div class="ans-wrap"><div class="slabel">उत्तर (Answer)</div><div class="stext">${item.a}</div></div>`);
+    wrap.appendChild(d);
+  });
+}
+function toggleAnswer(btn){
+  const wrap = btn.nextElementSibling;
+  const isOpen = wrap.classList.toggle('open');
+  btn.classList.toggle('open', isOpen);
+  btn.textContent = isOpen ? 'उत्तर छुपाएँ (Hide Answer)' : 'उत्तर दिखाएँ (Show Answer)';
+}
+function buildHomework(){
+  const g = document.getElementById('homeworkList');
+  homeworkData.forEach(q=>{ const li = document.createElement('li'); li.textContent = q; g.appendChild(li); });
+}
+
+buildQuestions();
+buildHomework();
+</script>
+</body>
+</html>

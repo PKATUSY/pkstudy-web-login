@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PK STUDY | हमारा अतीत — इतिहास जानने के स्रोत</title>
+<style>
+:root{
+  --bg:#04050f; --glass:rgba(255,255,255,.045); --glass-strong:rgba(255,255,255,.08);
+  --border:rgba(255,255,255,.12); --text:#f2f6ff; --dim:#9fb0da; --heading:#ffffff;
+  --neon-blue:#3ea6ff; --cyan:#33e0ff; --purple:#b07dff; --gold:#ffc233;
+  --green:#2ee6a6; --orange:#ff9f43; --pink:#ff4d8d; --red:#ff4f4f;
+  --shadow:0 22px 46px -22px #000d; --hshadow:0 30px 56px -20px #000f;
+}
+[data-theme="light"]{
+  --bg:#f6f8fd; --glass:rgba(20,30,65,.045); --glass-strong:rgba(20,30,65,.08);
+  --border:rgba(20,30,65,.12); --text:#161c33; --dim:#535f82; --heading:#12172b;
+  --neon-blue:#2563eb; --cyan:#0891b2; --purple:#7c3aed; --gold:#b45309;
+  --green:#059669; --orange:#c2410c; --pink:#db2777; --red:#dc2626;
+  --shadow:0 18px 36px -20px rgba(30,40,80,.18); --hshadow:0 24px 44px -18px rgba(30,40,80,.24);
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Segoe UI','Noto Sans Devanagari',Arial,sans-serif; color:var(--text); min-height:100vh; overflow-x:hidden;
+  transition:background .4s, color .4s;
+  background:
+    radial-gradient(ellipse at 10% -10%, #1c3a9955, transparent 55%),
+    radial-gradient(ellipse at 95% 10%, #7a2ab866, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, #0a5a6e44, transparent 55%),
+    linear-gradient(180deg,#04050f,#020208 90%);
+}
+[data-theme="light"] body{
+  background:
+    radial-gradient(ellipse at 10% -10%, #dbe4ff99, transparent 55%),
+    radial-gradient(ellipse at 95% 10%, #ede0ff99, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, #d7f5f099, transparent 55%),
+    linear-gradient(180deg,#f8faff,#eef1f9 90%);
+}
+::-webkit-scrollbar{width:8px;} ::-webkit-scrollbar-thumb{background:var(--neon-blue); border-radius:6px;} ::-webkit-scrollbar-track{background:transparent;}
+
+.glass{background:var(--glass); border:1px solid var(--border); border-radius:18px; backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+  box-shadow:var(--shadow), inset 0 1px 0 #ffffff12;}
+
+header{position:sticky; top:0; z-index:200; display:flex; align-items:center; justify-content:space-between; padding:14px 26px;
+  background:rgba(4,5,15,.75); backdrop-filter:blur(18px); border-bottom:1px solid var(--border); flex-wrap:wrap; gap:10px; transition:background .4s;}
+[data-theme="light"] header{background:rgba(255,255,255,.8);}
+.brand{display:flex; align-items:center; gap:12px;}
+.brand img{width:44px; height:44px; border-radius:10px; object-fit:cover; border:2px solid var(--neon-blue); box-shadow:0 0 18px #3ea6ff88;}
+.logo-fallback{width:44px; height:44px; border-radius:10px; display:flex; align-items:center; justify-content:center;
+  background:linear-gradient(135deg,var(--neon-blue),#1f3d8c); font-weight:900; font-size:12px; border:2px solid var(--cyan); color:#fff;}
+.brand-text .name{font-weight:900; font-size:18px; color:var(--cyan); letter-spacing:.5px;}
+.brand-text .tag{font-size:11px; color:var(--dim); font-weight:600;}
+nav{display:flex; gap:5px; overflow-x:auto; max-width:52vw;}
+nav::-webkit-scrollbar{height:4px;}
+nav a{color:var(--dim); text-decoration:none; font-size:11.5px; padding:6px 11px; border-radius:16px; border:1px solid transparent; transition:.2s; font-weight:700; white-space:nowrap;}
+nav a:hover{color:var(--heading); border-color:var(--neon-blue); background:#3ea6ff1a;}
+.theme-btn{flex-shrink:0; width:40px; height:40px; border-radius:12px; border:1px solid var(--border); background:var(--glass-strong);
+  color:var(--text); font-size:17px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:.25s;}
+.theme-btn:hover{border-color:var(--neon-blue); transform:translateY(-2px);}
+
+.hero{position:relative; padding:60px 6vw 40px; text-align:center;}
+.eyebrow{display:inline-block; padding:7px 22px; border-radius:30px; color:#04050f; font-size:12px; font-weight:900;
+  letter-spacing:2px; text-transform:uppercase; margin-bottom:20px;
+  background:linear-gradient(120deg,var(--gold),var(--orange),var(--pink),var(--purple),var(--cyan));
+  box-shadow:0 10px 26px -6px #000b;}
+.hero h1{font-size:clamp(26px,5.5vw,48px); font-weight:900; line-height:1.25;
+  background:linear-gradient(90deg,var(--neon-blue),var(--cyan) 35%,var(--purple) 65%,var(--pink)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+.hero .en{font-size:16px; color:var(--dim); font-weight:700; margin-top:10px;}
+.hero p{color:var(--dim); max-width:760px; margin:20px auto 0; font-size:14.5px; line-height:1.9; font-weight:500;}
+
+section{position:relative; padding:44px 6vw; max-width:1200px; margin:0 auto;}
+.sec-head{display:flex; align-items:center; gap:14px; margin-bottom:24px;}
+.sec-num{width:44px; height:44px; border-radius:14px; flex-shrink:0; display:flex; align-items:center; justify-content:center;
+  font-weight:900; font-size:16px; color:#04050f; box-shadow:0 8px 22px -6px var(--glow,#3ea6ff99); border:2px solid #ffffffaa;}
+.sec-head h2{font-size:clamp(19px,3vw,26px); font-weight:900; color:var(--heading);}
+.sec-head .sub{color:var(--dim); font-size:12.5px; font-weight:600; margin-top:2px;}
+.sec-head .en-tag{font-size:11px; color:var(--gold); font-weight:700; letter-spacing:.5px;}
+
+.card{padding:20px 22px;}
+.grid{display:grid; gap:16px;}
+.grid-2{grid-template-columns:1fr 1fr;} .grid-3{grid-template-columns:repeat(3,1fr);}
+@media(max-width:900px){.grid-3{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.grid-2,.grid-3{grid-template-columns:1fr;} nav{max-width:100%;}}
+
+b.hi{color:var(--pink); font-weight:900;} b.hi2{color:var(--green); font-weight:900;} b.hi3{color:var(--gold); font-weight:900;}
+
+.rule-card{padding:20px; border-left:5px solid var(--neon-blue);}
+.rule-card h4{font-size:15px; color:var(--cyan); font-weight:900; margin-bottom:10px;}
+.rule-card p{font-size:13px; color:var(--dim); line-height:1.85; font-weight:500; margin-bottom:8px;}
+.rule-card ul{margin:6px 0 6px 20px; font-size:13px; color:var(--dim); line-height:1.9; font-weight:500;}
+.rule-card ul li{margin-bottom:4px;}
+
+.example-card{padding:18px 20px; margin-bottom:14px;}
+.example-card .qlabel{font-size:11px; font-weight:900; color:var(--gold); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;}
+.example-card .qtext{font-size:13.5px; font-weight:700; color:var(--heading); margin-bottom:14px; line-height:1.7;}
+.example-card .slabel{font-size:11px; font-weight:900; color:var(--green); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;}
+.example-card .stext{font-size:13px; color:var(--dim); line-height:1.9; font-weight:500; background:var(--glass-strong); padding:12px 14px; border-radius:10px; white-space:pre-line;}
+.show-ans-btn{padding:9px 20px; border-radius:10px; border:1.5px solid var(--green); background:transparent; color:var(--green);
+  font-weight:800; font-size:12px; cursor:pointer; transition:.2s;}
+.show-ans-btn:hover{background:var(--green); color:#04050f;}
+.show-ans-btn.open{background:var(--green); color:#04050f;}
+.ans-wrap{margin-top:14px; display:none;}
+.ans-wrap.open{display:block;}
+.pill{display:inline-block; padding:3px 10px; border-radius:10px; font-size:10px; font-weight:900; margin-left:8px; vertical-align:middle;}
+.pill-obj{background:linear-gradient(120deg,var(--cyan),#0a85b8); color:#04050f;}
+.pill-subj{background:linear-gradient(120deg,var(--purple),#7e4fd1); color:#fff;}
+
+.hw-card{padding:18px 20px;}
+.hw-card ol{margin:0; padding-left:20px; font-size:13px; color:var(--dim); line-height:2; font-weight:500;}
+.hw-card ol li{margin-bottom:8px;}
+.hw-card ol li::marker{color:var(--heading); font-weight:800;}
+
+.table-wrap{overflow-x:auto; margin-bottom:16px;}
+table{width:100%; border-collapse:collapse; min-width:560px;}
+thead th{text-align:center; padding:12px 14px; background:linear-gradient(120deg,var(--neon-blue),var(--purple)); color:#fff;
+  font-size:12px; text-transform:uppercase; letter-spacing:.5px; font-weight:900;}
+thead th:first-child{border-radius:10px 0 0 0;} thead th:last-child{border-radius:0 10px 0 0;}
+tbody td{padding:12px 14px; border-bottom:1px solid var(--border); color:var(--dim); font-size:12.5px; text-align:center; font-weight:600;}
+tbody tr:hover{background:#3ea6ff14;}
+
+footer{text-align:center; padding:50px 6vw 70px; color:var(--dim); font-size:12.5px; border-top:1px solid var(--border); margin-top:30px; font-weight:600;}
+footer .name{color:var(--cyan); font-weight:900; font-size:16px;}
+footer .copy{margin-top:18px; font-size:11px; color:var(--dim); opacity:.8;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <img src="images/1000043468.png" alt="PK STUDY" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="logo-fallback" style="display:none;">PK</div>
+    <div class="brand-text"><div class="name">PK STUDY</div><div class="tag">Class 6-7 (Combined) • Social Science (History) • Part 1</div></div>
+  </div>
+  <nav>
+    <a href="#notes">नोट्स</a><a href="#tables">महत्वपूर्ण तथ्य</a><a href="#questions">प्रश्न</a><a href="#homework">होमवर्क</a>
+  </nav>
+  <button class="theme-btn" id="themeToggle" onclick="toggleTheme()" title="Dark/Light Mode">🌙</button>
+</header>
+
+<!-- ============ HERO ============ -->
+<div class="hero">
+  <span class="eyebrow">कक्षा 6-7 (संयुक्त) · सामाजिक विज्ञान (इतिहास) · Part 1</span>
+  <h1>हमारा अतीत — इतिहास जानने के स्रोत</h1>
+  <div class="en">Our Past — Sources of History</div>
+  <p>यह Part 1 कक्षा 6 के अध्याय "हमारा अतीत" और कक्षा 7 के अध्याय "कहाँ, कब और कैसे?" को मिलाकर तैयार किया गया है। इसमें हम पढ़ेंगे कि इतिहास किसे कहते हैं, ऐतिहासिक और प्रागैतिहासिक काल में क्या अंतर है, इतिहासकारों को प्राचीन तथा मध्यकालीन भारत के बारे में जानकारी किन-किन स्रोतों से मिलती है, और वे घटनाओं की तिथि कैसे तय करते हैं। इस पेज में Notes, महत्वपूर्ण तथ्य-तालिकाएँ, Objective व Subjective महत्वपूर्ण प्रश्न (उत्तर सहित), और Homework दिया गया है।</p>
+</div>
+
+<!-- ============ NOTES ============ -->
+<section id="notes">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--neon-blue),#1f6fc9); --glow:#3ea6ff99;">📝</div>
+    <div><h2>Notes — अध्याय के मुख्य भाग</h2><div class="sub en-tag">Concept Notes, Section-wise</div></div></div>
+  <div class="glass card" style="display:flex; flex-direction:column; gap:16px;">
+    <div class="rule-card" style="border-left-color:var(--cyan);">
+      <h4 style="color:var(--cyan);">1(क). इतिहास की परिभाषा एवं शब्द की उत्पत्ति</h4>
+      <p><b class="hi">इतिहास</b> शब्द अंग्रेज़ी के 'History' शब्द का हिन्दी रूपांतरण है, जो ग्रीक (यूनानी) भाषा के शब्द 'Historia' से बना है, जिसका अर्थ होता है <b class="hi3">'खोज' या 'जाँच-पड़ताल'</b>।</p>
+      <p>संस्कृत में <b class="hi">इतिहास</b> शब्द तीन शब्दों से मिलकर बना है — <b>इति + ह + आस</b>, जिसका अर्थ है <b class="hi3">"ऐसा ही हुआ था"</b>।</p>
+      <p>सरल शब्दों में, <b class="hi2">इतिहास मानव समाज के अतीत की घटनाओं का क्रमबद्ध, तथ्यपूर्ण एवं व्यवस्थित अध्ययन है।</b> यह केवल राजाओं-रानियों और युद्धों की कहानी नहीं है, बल्कि सामान्य लोगों के जीवन, समाज, संस्कृति, खान-पान, वेशभूषा और अर्थव्यवस्था का भी अध्ययन है।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--pink);">
+      <h4 style="color:var(--pink);">1(ख). ऐतिहासिक एवं प्रागैतिहासिक काल में अंतर</h4>
+      <p><b class="hi">प्रागैतिहासिक काल (Prehistoric Period)</b> — वह काल जिसके बारे में कोई लिखित प्रमाण उपलब्ध नहीं है। इस काल की जानकारी केवल पुरातात्विक अवशेषों जैसे पत्थर के औज़ार, हड्डियाँ और गुफा-चित्रों से मिलती है।</p>
+      <p><b class="hi2">ऐतिहासिक काल (Historic Period)</b> — वह काल जिसके बारे में लिखित प्रमाण (अभिलेख, पांडुलिपियाँ, ग्रंथ) उपलब्ध हैं। इस काल की घटनाओं को हम तिथिवार जान सकते हैं।</p>
+      <p><b class="hi3">आद्य-ऐतिहासिक काल (Proto-historic Period)</b> — वह काल जहाँ लिपि तो मिलती है, परंतु उसे अभी तक पूरी तरह पढ़ा नहीं जा सका है — जैसे सिंधु घाटी सभ्यता की लिपि।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--green);">
+      <h4 style="color:var(--green);">1(ग). इतिहास जानने के स्रोत</h4>
+      <p>इतिहासकार अतीत की जानकारी अनेक प्रकार के स्रोतों से प्राप्त करते हैं —</p>
+      <ul>
+        <li><b class="hi">पुरातात्विक अवशेष</b> — खुदाई से प्राप्त भवनों के खंडहर, मृदभांड (मिट्टी के बर्तन), औज़ार, आभूषण, मूर्तियाँ आदि, जो प्राचीन जीवन-शैली की जानकारी देते हैं।</li>
+        <li><b class="hi2">अभिलेख (Inscriptions)</b> — पत्थर, धातु की पट्टिकाओं, स्तंभों व गुफाओं की दीवारों पर खुदे हुए लेख, जैसे अशोक के शिलालेख। अभिलेखों के अध्ययन को <b class="hi3">पुरालेखशास्त्र (Epigraphy)</b> कहते हैं।</li>
+        <li><b class="hi2">सिक्के (Coins)</b> — सिक्कों के अध्ययन को <b class="hi3">मुद्राशास्त्र (Numismatics)</b> कहते हैं; ये तत्कालीन शासकों, व्यापार और अर्थव्यवस्था की जानकारी देते हैं।</li>
+        <li><b class="hi2">पांडुलिपियाँ (Manuscripts)</b> — हाथ से लिखी प्राचीन पुस्तकें, जो ताड़पत्रों व भोजपत्रों पर लिखी जाती थीं — जैसे धार्मिक ग्रंथ और साहित्यिक रचनाएँ।</li>
+      </ul>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--orange);">
+      <h4 style="color:var(--orange);">1(घ). मध्यकालीन भारत के इतिहास के स्रोत</h4>
+      <p>मध्यकालीन भारत (लगभग 700 ई. से 1750 ई. तक) के इतिहास को जानने के लिए इतिहासकार निम्नलिखित स्रोतों का उपयोग करते हैं —</p>
+      <ul>
+        <li><b class="hi">चरित ग्रंथ (Biographies)</b> — शासकों के जीवन पर लिखे गए ग्रंथ, जैसे बाणभट्ट द्वारा रचित <i>हर्षचरित</i>।</li>
+        <li><b class="hi2">आत्मकथाएँ (Autobiographies)</b> — बाबर की <i>तुज़ुक-ए-बाबरी</i> (बाबरनामा) और जहाँगीर की <i>तुज़ुक-ए-जहाँगीरी</i>, जिनमें शासक स्वयं अपने जीवन की घटनाएँ लिखते थे।</li>
+        <li><b class="hi2">प्रशासनिक दस्तावेज़</b> — शासकों द्वारा जारी फ़रमान, राजस्व के अभिलेख (जैसे <i>ऐन-ए-अकबरी</i>) और पत्र-व्यवहार, जो प्रशासन व राज्य-व्यवस्था की जानकारी देते हैं।</li>
+        <li><b class="hi3">सिक्के, स्थापत्य एवं विदेशी यात्रियों के वृत्तांत</b> — मध्यकालीन इमारतें, किले, मस्जिदें, मंदिर तथा इब्नबतूता व अलबरूनी जैसे विदेशी यात्रियों के लेखे भी महत्वपूर्ण जानकारी देते हैं।</li>
+      </ul>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--purple);">
+      <h4 style="color:var(--purple);">1(ङ). इतिहासकार घटनाओं की तिथि कैसे तय करते हैं</h4>
+      <ul>
+        <li>अभिलेखों और सिक्कों पर अंकित <b class="hi">संवत् (तिथियों)</b> के आधार पर।</li>
+        <li>पुरातात्विक अवशेषों की आयु ज्ञात करने के लिए वैज्ञानिक विधि <b class="hi2">कार्बन डेटिंग (Carbon Dating)</b> का उपयोग करके।</li>
+        <li>ग्रंथों में वर्णित राजाओं के शासनकाल, वंशावली और घटनाओं का तुलनात्मक अध्ययन करके।</li>
+        <li>विभिन्न कैलेंडर प्रणालियों — जैसे <b class="hi3">विक्रम संवत्, शक संवत् और हिजरी संवत्</b> — को ईस्वी सन् (AD) में परिवर्तित करके।</li>
+      </ul>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--gold);">
+      <h4 style="color:var(--gold);">1(च). इतिहास पढ़ने का महत्व</h4>
+      <ul>
+        <li>अपनी सभ्यता, संस्कृति एवं परंपराओं को समझने में सहायक।</li>
+        <li>वर्तमान समस्याओं को समझने और भविष्य की सही योजना बनाने में मददगार।</li>
+        <li>राष्ट्रीय गौरव, एकता और अपनी जड़ों से जुड़ाव की भावना विकसित करता है।</li>
+        <li>अतीत की गलतियों से सीखकर बेहतर निर्णय लेने की क्षमता देता है।</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ IMPORTANT FACTS / TABLES ============ -->
+<section id="tables">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--purple),#7e4fd1); --glow:#b07dff99;">📊</div>
+    <div><h2>महत्वपूर्ण तथ्य तालिकाएँ</h2><div class="sub en-tag">Key Reference Tables</div></div></div>
+
+  <div class="glass card table-wrap">
+    <table>
+      <thead><tr><th>स्रोत का प्रकार</th><th>उदाहरण</th></tr></thead>
+      <tbody>
+        <tr><td>पुरातात्विक अवशेष</td><td>मृदभांड, औज़ार, आभूषण, भवनों के खंडहर</td></tr>
+        <tr><td>अभिलेख (Inscriptions)</td><td>अशोक के शिलालेख, स्तंभ लेख</td></tr>
+        <tr><td>सिक्के (Coins)</td><td>गुप्तकालीन स्वर्ण सिक्के, कुषाण सिक्के</td></tr>
+        <tr><td>पांडुलिपियाँ (Manuscripts)</td><td>वेद, पुराण, ताड़पत्र ग्रंथ</td></tr>
+        <tr><td>चरित ग्रंथ</td><td>हर्षचरित (बाणभट्ट)</td></tr>
+        <tr><td>आत्मकथाएँ</td><td>बाबरनामा (तुज़ुक-ए-बाबरी), तुज़ुक-ए-जहाँगीरी</td></tr>
+        <tr><td>विदेशी यात्रियों के विवरण</td><td>इब्नबतूता, अलबरूनी, फाह्यान, ह्वेनसांग</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="glass card table-wrap">
+    <table>
+      <thead><tr><th>काल</th><th>विशेषता</th></tr></thead>
+      <tbody>
+        <tr><td>प्रागैतिहासिक काल</td><td>कोई लिखित प्रमाण नहीं; जानकारी पुरातात्विक अवशेषों से</td></tr>
+        <tr><td>आद्य-ऐतिहासिक काल</td><td>लिपि उपलब्ध, पर अभी तक पूरी तरह पढ़ी नहीं जा सकी (जैसे सिंधु लिपि)</td></tr>
+        <tr><td>ऐतिहासिक काल</td><td>लिखित प्रमाण (अभिलेख, ग्रंथ, पांडुलिपियाँ) उपलब्ध</td></tr>
+        <tr><td>प्राचीन काल</td><td>प्रारंभिक सभ्यताओं से लगभग 700 ई. तक</td></tr>
+        <tr><td>मध्यकाल</td><td>लगभग 700 ई. से 1750 ई. तक</td></tr>
+        <tr><td>आधुनिक काल</td><td>1750 ई. के बाद से वर्तमान तक</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ IMPORTANT QUESTIONS ============ -->
+<section id="questions">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--green),#1a9c70); --glow:#2ee6a699;">📘</div>
+    <div><h2>महत्वपूर्ण प्रश्न (Objective + Subjective)</h2><div class="sub en-tag">उत्तर देखने के लिए बटन दबाएँ</div></div></div>
+  <div id="qWrap"></div>
+</section>
+
+<!-- ============ HOMEWORK ============ -->
+<section id="homework">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--red),#a82424); --glow:#ff4f4f99;">🏠</div>
+    <div><h2>घर से करने के लिए Homework</h2><div class="sub en-tag">Notebook Exercise — बिना उत्तर देखे खुद हल करें</div></div></div>
+  <div class="glass card hw-card">
+    <ol id="homeworkList"></ol>
+  </div>
+  <p style="color:var(--dim); font-size:12px; margin-top:14px; font-weight:600;">यह सभी प्रश्न अपनी Social Science की notebook में हल करके अगली कक्षा में साथ लाइए।</p>
+</section>
+
+<footer>
+  <span class="name">PK STUDY</span> — Part 1 पूर्ण
+  <div class="copy">Class 6-7 (Combined) · सामाजिक विज्ञान (इतिहास) · हमारा अतीत — इतिहास जानने के स्रोत — PK STUDY, All Copyright Reserved</div>
+</footer>
+
+<script>
+function toggleTheme(){
+  const html = document.documentElement;
+  const isLight = html.getAttribute('data-theme') === 'light';
+  html.setAttribute('data-theme', isLight ? '' : 'light');
+  document.getElementById('themeToggle').textContent = isLight ? '🌙' : '☀️';
+}
+function el(tag, cls, html){ const d=document.createElement(tag); if(cls)d.className=cls; if(html!==undefined)d.innerHTML=html; return d; }
+
+const qData = [
+  {type:"obj", q:"'इतिहास' शब्द किस भाषा के शब्द से बना है?", a:"'इतिहास' शब्द ग्रीक (यूनानी) भाषा के शब्द 'Historia' से बना है, जिसका अर्थ है 'खोज' या 'जाँच-पड़ताल'।"},
+  {type:"obj", q:"प्रागैतिहासिक काल किसे कहते हैं?", a:"वह काल जिसके बारे में कोई लिखित प्रमाण उपलब्ध नहीं है, उसे प्रागैतिहासिक काल कहते हैं। इस काल की जानकारी केवल पुरातात्विक अवशेषों (औज़ार, हड्डियाँ, गुफा-चित्र) से मिलती है।"},
+  {type:"obj", q:"सिक्कों के अध्ययन को क्या कहा जाता है?", a:"सिक्कों के अध्ययन को मुद्राशास्त्र (Numismatics) कहा जाता है।"},
+  {type:"obj", q:"अभिलेखों के अध्ययन को क्या कहते हैं?", a:"अभिलेखों के अध्ययन को पुरालेखशास्त्र (Epigraphy) कहते हैं।"},
+  {type:"obj", q:"बाबर की आत्मकथा का क्या नाम है?", a:"बाबर की आत्मकथा का नाम तुज़ुक-ए-बाबरी है, जिसे बाबरनामा भी कहा जाता है।"},
+  {type:"obj", q:"सिंधु घाटी सभ्यता के काल को किस श्रेणी में रखा जाता है?", a:"सिंधु घाटी सभ्यता के काल को आद्य-ऐतिहासिक काल में रखा जाता है, क्योंकि इसकी लिपि प्राप्त हुई है, परंतु अभी तक उसे पूरी तरह पढ़ा नहीं जा सका है।"},
+  {type:"obj", q:"प्राचीन अवशेषों की आयु ज्ञात करने की वैज्ञानिक पद्धति कौन-सी है?", a:"कार्बन डेटिंग (Carbon Dating) पद्धति — इससे पुरातात्विक अवशेषों की सही आयु का पता लगाया जाता है।"},
+  {type:"subj", q:"इतिहास किसे कहते हैं? स्पष्ट कीजिए।", a:"इतिहास मानव समाज के अतीत की घटनाओं का क्रमबद्ध, तथ्यपूर्ण एवं व्यवस्थित अध्ययन है। यह शब्द ग्रीक भाषा के 'Historia' से बना है, जिसका अर्थ है 'खोज' या 'जाँच-पड़ताल'। संस्कृत में यह 'इति + ह + आस' से मिलकर बना है, जिसका अर्थ है 'ऐसा ही हुआ था'। इतिहास केवल राजाओं-रानियों और युद्धों की कहानी नहीं है, बल्कि सामान्य लोगों के जीवन, समाज, संस्कृति और अर्थव्यवस्था का भी अध्ययन है।"},
+  {type:"subj", q:"ऐतिहासिक और प्रागैतिहासिक काल में अंतर स्पष्ट कीजिए।", a:"प्रागैतिहासिक काल वह है जिसके बारे में कोई लिखित प्रमाण उपलब्ध नहीं है — इसकी जानकारी केवल पुरातात्विक अवशेषों (पत्थर के औज़ार, हड्डियाँ, गुफा-चित्र) से मिलती है। ऐतिहासिक काल वह है जिसके बारे में लिखित प्रमाण, जैसे अभिलेख, पांडुलिपियाँ और ग्रंथ उपलब्ध हैं, जिनकी सहायता से घटनाओं को तिथिवार जाना जा सकता है। इन दोनों के बीच आद्य-ऐतिहासिक काल भी होता है, जहाँ लिपि तो मिलती है पर उसे अभी पढ़ा नहीं जा सका।"},
+  {type:"subj", q:"इतिहास जानने के प्रमुख स्रोत कौन-कौन से हैं? विस्तार से लिखिए।", a:"इतिहास जानने के प्रमुख स्रोत हैं — (1) पुरातात्विक अवशेष, जैसे भवनों के खंडहर, मृदभांड, औज़ार और आभूषण, जो खुदाई से प्राप्त होते हैं। (2) अभिलेख, जो पत्थर या धातु की पट्टिकाओं पर खुदे मिलते हैं, जैसे अशोक के शिलालेख; इनके अध्ययन को पुरालेखशास्त्र कहते हैं। (3) सिक्के, जिनके अध्ययन को मुद्राशास्त्र कहते हैं और जो तत्कालीन शासन-व्यवस्था व अर्थव्यवस्था की जानकारी देते हैं। (4) पांडुलिपियाँ, जो हाथ से लिखी प्राचीन पुस्तकें हैं, जैसे वेद, पुराण और ताड़पत्र ग्रंथ।"},
+  {type:"subj", q:"मध्यकालीन भारत के इतिहास के स्रोतों का वर्णन कीजिए।", a:"मध्यकालीन भारत के इतिहास को जानने के प्रमुख स्रोत हैं — (1) चरित ग्रंथ, जैसे बाणभट्ट का हर्षचरित, जो शासकों के जीवन पर लिखे गए। (2) आत्मकथाएँ, जैसे बाबर की तुज़ुक-ए-बाबरी और जहाँगीर की तुज़ुक-ए-जहाँगीरी, जिनमें शासक स्वयं अपने जीवन की घटनाएँ लिखते थे। (3) प्रशासनिक दस्तावेज़, जैसे फ़रमान और राजस्व अभिलेख (ऐन-ए-अकबरी), जो प्रशासन व राज्य-व्यवस्था की जानकारी देते हैं। (4) सिक्के, स्थापत्य कला (किले, मस्जिदें, मंदिर) और इब्नबतूता व अलबरूनी जैसे विदेशी यात्रियों के वृत्तांत भी महत्वपूर्ण जानकारी देते हैं।"},
+  {type:"subj", q:"इतिहासकार घटनाओं की तिथि किस प्रकार निर्धारित करते हैं?", a:"इतिहासकार घटनाओं की तिथि कई तरीकों से निर्धारित करते हैं — अभिलेखों और सिक्कों पर अंकित संवत् के आधार पर, पुरातात्विक अवशेषों की आयु जानने के लिए कार्बन डेटिंग जैसी वैज्ञानिक विधि का उपयोग करके, ग्रंथों में वर्णित राजाओं के शासनकाल व वंशावली का तुलनात्मक अध्ययन करके, और विभिन्न कैलेंडर प्रणालियों जैसे विक्रम संवत्, शक संवत् व हिजरी संवत् को ईस्वी सन् में बदलकर।"},
+  {type:"subj", q:"पुरातात्विक अवशेष और अभिलेख में क्या अंतर है? उदाहरण सहित समझाइए।", a:"पुरातात्विक अवशेष वे वस्तुएँ हैं जो खुदाई से प्राप्त होती हैं और प्राचीन जीवन-शैली की जानकारी देती हैं, जैसे मृदभांड, औज़ार, आभूषण और भवनों के खंडहर — इनमें आवश्यक नहीं कि कोई लिखावट हो। अभिलेख वे लेख हैं जो पत्थर, धातु की पट्टिकाओं, स्तंभों या गुफाओं की दीवारों पर विशेष रूप से खुदे हुए मिलते हैं, जैसे अशोक के शिलालेख — इनमें निश्चित रूप से लिखावट होती है और ये शासकों के आदेश, घोषणाएँ व घटनाओं का सीधा विवरण देते हैं।"},
+  {type:"subj", q:"इतिहास पढ़ने का हमारे जीवन में क्या महत्व है?", a:"इतिहास पढ़ने से हमें अपनी सभ्यता, संस्कृति और परंपराओं को समझने में मदद मिलती है। यह वर्तमान की समस्याओं को समझने और भविष्य की सही योजना बनाने में सहायक है। इतिहास पढ़ने से राष्ट्रीय गौरव, एकता और अपनी जड़ों से जुड़ाव की भावना विकसित होती है। साथ ही, अतीत की घटनाओं और गलतियों से सीखकर हम वर्तमान में बेहतर निर्णय ले पाते हैं।"}
+];
+
+const homeworkData = [
+  "'प्रागैतिहासिक' और 'आद्य-ऐतिहासिक' काल में क्या अंतर है? उदाहरण सहित लिखिए।",
+  "मुद्राशास्त्र और पुरालेखशास्त्र में क्या अंतर है?",
+  "जहाँगीर की आत्मकथा का नाम क्या है? इससे हमें किस प्रकार की जानकारी मिलती है?",
+  "भारत आने वाले किन्हीं तीन विदेशी यात्रियों के नाम लिखिए, जिनके विवरण से हमें इतिहास की जानकारी मिलती है।",
+  "संस्कृत में 'इतिहास' शब्द किन तीन शब्दों से मिलकर बना है? इसकी व्युत्पत्ति समझाते हुए लिखिए।",
+  "अपने घर या मोहल्ले में मौजूद किसी पुरानी वस्तु (सिक्का, बर्तन, पुरानी किताब आदि) के बारे में अपने बड़ों से पूछकर लिखिए कि वह कितनी पुरानी है और उससे हमें क्या जानकारी मिलती है। (Practical Activity)"
+];
+
+function buildQuestions(){
+  const wrap = document.getElementById('qWrap');
+  qData.forEach((item)=>{
+    const pillHtml = item.type === 'obj' ? '<span class="pill pill-obj">Objective</span>' : '<span class="pill pill-subj">Subjective</span>';
+    const d = el('div','glass example-card', `<div class="qlabel">प्रश्न ${pillHtml}</div><div class="qtext">${item.q}</div>
+      <button class="show-ans-btn" onclick="toggleAnswer(this)">उत्तर दिखाएँ (Show Answer)</button>
+      <div class="ans-wrap"><div class="slabel">उत्तर (Answer)</div><div class="stext">${item.a}</div></div>`);
+    wrap.appendChild(d);
+  });
+}
+function toggleAnswer(btn){
+  const wrap = btn.nextElementSibling;
+  const isOpen = wrap.classList.toggle('open');
+  btn.classList.toggle('open', isOpen);
+  btn.textContent = isOpen ? 'उत्तर छुपाएँ (Hide Answer)' : 'उत्तर दिखाएँ (Show Answer)';
+}
+function buildHomework(){
+  const g = document.getElementById('homeworkList');
+  homeworkData.forEach(q=>{ const li = document.createElement('li'); li.textContent = q; g.appendChild(li); });
+}
+
+buildQuestions();
+buildHomework();
+</script>
+</body>
+</html>

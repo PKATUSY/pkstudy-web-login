@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PK STUDY | अम्ल, क्षारक एवं लवण — Acids, Bases and Salts</title>
+<style>
+:root{
+  --bg:#04050f; --glass:rgba(255,255,255,.045); --glass-strong:rgba(255,255,255,.08);
+  --border:rgba(255,255,255,.12); --text:#f2f6ff; --dim:#a9b9de; --heading:#ffffff;
+  --neon-blue:#3ea6ff; --cyan:#33e0ff; --purple:#b07dff; --gold:#ffc233;
+  --green:#2ee6a6; --orange:#ff9f43; --pink:#ff4d8d; --red:#ff4f4f;
+  --shadow:0 22px 46px -22px #000d; --hshadow:0 30px 56px -20px #000f;
+}
+[data-theme="light"]{
+  --bg:#f6f8fd; --glass:rgba(20,30,65,.045); --glass-strong:rgba(20,30,65,.08);
+  --border:rgba(20,30,65,.12); --text:#1c2340; --dim:#3f4a70; --heading:#12172b;
+  --neon-blue:#2563eb; --cyan:#0891b2; --purple:#7c3aed; --gold:#b45309;
+  --green:#059669; --orange:#c2410c; --pink:#db2777; --red:#dc2626;
+  --shadow:0 18px 36px -20px rgba(30,40,80,.18); --hshadow:0 24px 44px -18px rgba(30,40,80,.24);
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Segoe UI','Noto Sans Devanagari',Arial,sans-serif; color:var(--text); min-height:100vh; overflow-x:hidden;
+  transition:background .4s, color .4s;
+  background:
+    radial-gradient(ellipse at 10% -10%, #1c3a9955, transparent 55%),
+    radial-gradient(ellipse at 95% 10%, #7a2ab866, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, #0a5a6e44, transparent 55%),
+    linear-gradient(180deg,#04050f,#020208 90%);
+}
+[data-theme="light"] body{
+  background:
+    radial-gradient(ellipse at 10% -10%, #dbe4ff99, transparent 55%),
+    radial-gradient(ellipse at 95% 10%, #ede0ff99, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, #d7f5f099, transparent 55%),
+    linear-gradient(180deg,#f8faff,#eef1f9 90%);
+}
+::-webkit-scrollbar{width:8px;} ::-webkit-scrollbar-thumb{background:var(--neon-blue); border-radius:6px;} ::-webkit-scrollbar-track{background:transparent;}
+
+.glass{background:var(--glass); border:1px solid var(--border); border-radius:18px; backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+  box-shadow:var(--shadow), inset 0 1px 0 #ffffff12; transition:transform .35s, box-shadow .35s, background .4s, border .4s;}
+
+header{position:sticky; top:0; z-index:200; display:flex; align-items:center; justify-content:space-between; padding:14px 26px;
+  background:rgba(4,5,15,.75); backdrop-filter:blur(18px); border-bottom:1px solid var(--border); flex-wrap:wrap; gap:10px; transition:background .4s;}
+[data-theme="light"] header{background:rgba(255,255,255,.8);}
+.brand{display:flex; align-items:center; gap:12px;}
+.brand img{width:44px; height:44px; border-radius:10px; object-fit:cover; border:2px solid var(--neon-blue); box-shadow:0 0 18px #3ea6ff88;}
+.logo-fallback{width:44px; height:44px; border-radius:10px; display:flex; align-items:center; justify-content:center;
+  background:linear-gradient(135deg,var(--neon-blue),#1f3d8c); font-weight:900; font-size:12px; border:2px solid var(--cyan); color:#fff;}
+.brand-text .name{font-weight:900; font-size:19px; color:var(--cyan); letter-spacing:.5px;}
+.brand-text .tag{font-size:12px; color:var(--dim); font-weight:700;}
+nav{display:flex; gap:5px; overflow-x:auto; max-width:52vw;}
+nav::-webkit-scrollbar{height:4px;}
+nav a{color:var(--dim); text-decoration:none; font-size:12.5px; padding:7px 12px; border-radius:16px; border:1px solid transparent; transition:.2s; font-weight:800; white-space:nowrap;}
+nav a:hover{color:var(--heading); border-color:var(--neon-blue); background:#3ea6ff1a;}
+.theme-btn{flex-shrink:0; width:42px; height:42px; border-radius:12px; border:1px solid var(--border); background:var(--glass-strong);
+  color:var(--text); font-size:18px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:.25s;}
+.theme-btn:hover{border-color:var(--neon-blue); transform:translateY(-2px);}
+
+.hero{position:relative; padding:64px 6vw 44px; text-align:center;}
+.eyebrow{display:inline-block; padding:8px 24px; border-radius:30px; color:#04050f; font-size:13px; font-weight:900;
+  letter-spacing:2px; text-transform:uppercase; margin-bottom:22px;
+  background:linear-gradient(120deg,var(--gold),var(--orange),var(--pink),var(--purple),var(--cyan));
+  box-shadow:0 10px 26px -6px #000b;}
+.hero h1{font-size:clamp(30px,6.5vw,56px); font-weight:900; line-height:1.25;
+  background:linear-gradient(90deg,var(--neon-blue),var(--cyan) 35%,var(--purple) 65%,var(--pink)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+.hero .en{font-size:18px; color:var(--dim); font-weight:800; margin-top:12px;}
+.hero p{color:var(--dim); max-width:820px; margin:22px auto 0; font-size:16.5px; line-height:2; font-weight:700;}
+
+section{position:relative; padding:48px 6vw; max-width:1240px; margin:0 auto;}
+.sec-head{display:flex; align-items:center; gap:14px; margin-bottom:26px;}
+.sec-num{width:48px; height:48px; border-radius:14px; flex-shrink:0; display:flex; align-items:center; justify-content:center;
+  font-weight:900; font-size:18px; color:#04050f; box-shadow:0 8px 22px -6px var(--glow,#3ea6ff99); border:2px solid #ffffffaa;}
+.sec-head h2{font-size:clamp(21px,3.4vw,29px); font-weight:900; color:var(--heading);}
+.sec-head .sub{color:var(--dim); font-size:13.5px; font-weight:700; margin-top:3px;}
+.sec-head .en-tag{font-size:12px; color:var(--gold); font-weight:800; letter-spacing:.5px;}
+
+.card{padding:22px 24px;}
+.grid{display:grid; gap:18px;}
+.grid-2{grid-template-columns:1fr 1fr;} .grid-3{grid-template-columns:repeat(3,1fr);}
+@media(max-width:900px){.grid-3{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.grid-2,.grid-3{grid-template-columns:1fr;} nav{max-width:100%;}}
+
+b.hi{color:var(--pink); font-weight:900;} b.hi2{color:var(--green); font-weight:900;} b.hi3{color:var(--gold); font-weight:900;}
+.eng-term{color:var(--cyan); font-style:italic; font-weight:800;}
+
+.rule-card{padding:26px; border-left:6px solid var(--neon-blue);}
+.rule-card h4{font-size:19px; color:var(--cyan); font-weight:900; margin-bottom:12px; line-height:1.4;}
+.rule-card p{font-size:16px; color:var(--dim); line-height:2; font-weight:700;}
+
+.def-card{padding:20px 22px; border-radius:16px;}
+.def-card h4{font-size:16.5px; margin-bottom:10px; display:flex; align-items:center; gap:8px; font-weight:900;}
+.def-card p{font-size:14.5px; color:var(--dim); line-height:1.9; font-weight:700;}
+
+.example-card{padding:20px 22px; margin-bottom:16px;}
+.example-card .qlabel{font-size:12.5px; font-weight:900; color:var(--gold); text-transform:uppercase; letter-spacing:1px; margin-bottom:8px;}
+.example-card .qtext{font-size:16.5px; font-weight:800; color:var(--heading); margin-bottom:16px; line-height:1.8;}
+.example-card .slabel{font-size:12.5px; font-weight:900; color:var(--green); text-transform:uppercase; letter-spacing:1px; margin-bottom:8px;}
+.example-card .stext{font-size:16px; color:var(--dim); line-height:2.1; font-weight:700; background:var(--glass-strong); padding:14px 16px; border-radius:10px; white-space:pre-line;}
+.show-ans-btn{padding:11px 24px; border-radius:10px; border:2px solid var(--green); background:transparent; color:var(--green);
+  font-weight:900; font-size:14px; cursor:pointer; transition:.2s;}
+.show-ans-btn:hover{background:var(--green); color:#04050f;}
+.show-ans-btn.open{background:var(--green); color:#04050f;}
+.ans-wrap{margin-top:16px; display:none;}
+.ans-wrap.open{display:block;}
+.pill{display:inline-block; padding:4px 12px; border-radius:10px; font-size:11.5px; font-weight:900; margin-left:8px; vertical-align:middle;}
+.pill-obj{background:linear-gradient(120deg,var(--cyan),#0a85b8); color:#04050f;}
+.pill-subj{background:linear-gradient(120deg,var(--purple),#7e4fd1); color:#fff;}
+
+.hw-card{padding:20px 22px;}
+.hw-card ol{margin:0; padding-left:22px; font-size:15.5px; color:var(--dim); line-height:2.2; font-weight:700;}
+.hw-card ol li{margin-bottom:10px;}
+.hw-card ol li::marker{color:var(--heading); font-weight:900;}
+
+.table-wrap{overflow-x:auto; margin-bottom:18px;}
+table{width:100%; border-collapse:collapse; min-width:640px;}
+thead th{text-align:center; padding:14px 16px; background:linear-gradient(120deg,var(--neon-blue),var(--purple)); color:#fff;
+  font-size:13.5px; text-transform:uppercase; letter-spacing:.5px; font-weight:900;}
+thead th:first-child{border-radius:10px 0 0 0;} thead th:last-child{border-radius:0 10px 0 0;}
+tbody td{padding:14px 16px; border-bottom:1px solid var(--border); color:var(--dim); font-size:14.5px; text-align:center; font-weight:700;}
+tbody tr:hover{background:#3ea6ff14;}
+
+.diagram-card{padding:26px 20px; text-align:center; border-radius:18px;}
+.diagram-card .cap{font-weight:900; font-size:16px; color:var(--heading); margin-top:16px;}
+.diagram-card .cap2{font-size:13.5px; color:var(--dim); margin-top:8px; font-weight:700; line-height:1.9;}
+.flow-col{display:flex; flex-direction:column; align-items:center; gap:8px;}
+.flow-box{padding:16px 20px; border-radius:14px; font-weight:900; font-size:15px; color:#fff; text-align:center; min-width:150px; box-shadow:0 8px 20px -6px #0009;}
+.flow-box small{display:block; font-weight:700; font-size:12px; margin-top:5px; opacity:.9;}
+.flow-arrow{font-size:22px; color:var(--cyan); font-weight:900;}
+.bulb{width:56px; height:56px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:26px; margin:0 auto;}
+
+footer{text-align:center; padding:56px 6vw 76px; color:var(--dim); font-size:14px; border-top:1px solid var(--border); margin-top:34px; font-weight:700;}
+footer .name{color:var(--cyan); font-weight:900; font-size:18px;}
+footer .copy{margin-top:20px; font-size:12.5px; color:var(--dim); opacity:.85;}
+@media(max-width:480px){
+  .rule-card p, .example-card .stext, .def-card p{font-size:17px;}
+  .rule-card h4{font-size:20px;}
+  .example-card .qtext{font-size:17.5px;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <img src="images/1000043468.png" alt="PK STUDY" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="logo-fallback" style="display:none;">PK</div>
+    <div class="brand-text"><div class="name">PK STUDY</div><div class="tag">Class 10 • Science • Chapter 2</div></div>
+  </div>
+  <nav>
+    <a href="#notes">नोट्स</a><a href="#activities">प्रयोग सारणी</a><a href="#formulas">सूत्र</a>
+    <a href="#solved">महत्वपूर्ण प्रश्न</a><a href="#extra">अतिरिक्त प्रश्न</a><a href="#homework">होमवर्क</a>
+  </nav>
+  <button class="theme-btn" id="themeToggle" onclick="toggleTheme()" title="Dark/Light Mode">🌙</button>
+</header>
+
+<!-- ============ HERO ============ -->
+<div class="hero">
+  <span class="eyebrow">कक्षा 10 · अध्याय 2 · रसायन विज्ञान · बिहार बोर्ड</span>
+  <h1>अम्ल, क्षारक एवं लवण</h1>
+  <div class="en">Acids, Bases and Salts</div>
+  <p>इस अध्याय में अम्ल-क्षारक की पहचान (संकेतक), उनके सामान्य गुण, जल में आयनन व विद्युत चालकता, अम्ल पतला करने के सुरक्षा नियम, pH स्केल एवं दैनिक जीवन में इसका महत्व, तथा महत्वपूर्ण लवण — सामान्य नमक, विरंजक चूर्ण, बेकिंग सोडा, धोवन सोडा, प्लास्टर ऑफ पेरिस — एवं क्रिस्टलन के जल के बारे में पूरे विस्तार से पढ़ेंगे। इस पेज में पूर्ण Notes, सभी NCERT प्रयोगों की सारणी, ज़रूरी सूत्र, आवश्यक चित्र, हल सहित महत्वपूर्ण प्रश्न, अतिरिक्त प्रश्न और Homework दिया गया है।</p>
+</div>
+
+<!-- ============ NOTES ============ -->
+<section id="notes">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--neon-blue),#1f6fc9); --glow:#3ea6ff99;">📝</div>
+    <div><h2>Notes — विस्तार से समझें</h2><div class="sub en-tag">Detailed Concept Notes with Worked Examples</div></div></div>
+  <div style="display:flex; flex-direction:column; gap:18px;">
+
+    <div class="rule-card" style="border-left-color:var(--cyan);">
+      <h4 style="color:var(--cyan);">1. अम्ल, क्षारक एवं संकेतक (Acids, Bases and Indicators)</h4>
+      <p><b class="hi">अम्ल (Acid)</b> — ऐसे पदार्थ जो जल में घुलकर <b class="hi2">हाइड्रोजन आयन (H⁺, वास्तव में हाइड्रोनियम आयन H₃O⁺)</b> देते हैं — जैसे HCl, H₂SO₄, HNO₃, ऐसिटिक अम्ल। <b class="hi">क्षारक (Base)</b> — ऐसे पदार्थ जो जल में घुलकर <b class="hi2">हाइड्रॉक्साइड आयन (OH⁻)</b> देते हैं — जैसे NaOH, KOH, Ca(OH)₂। जल में घुलनशील क्षारक को <b class="hi3">क्षार (Alkali)</b> कहते हैं।<br><br>
+      <b class="hi3">संकेतक (Indicators):</b> लाल लिटमस अम्ल में लाल ही रहता है, नीला लिटमस क्षारक में नीला ही रहता है — पर अम्ल नीले लिटमस को लाल कर देता है और क्षारक लाल लिटमस को नीला कर देता है। <b>मेथिल ऑरेंज</b> — अम्ल में लाल/गुलाबी, क्षारक में पीला। <b>फीनॉल्फ़्थैलीन</b> — अम्ल में रंगहीन, क्षारक में गुलाबी। <b class="hi2">गंधीय संकेतक (Olfactory Indicators)</b> — प्याज़, वैनिला एसेंस, लौंग का तेल — इनकी गंध अम्ल में बनी रहती है परंतु क्षारक में गायब हो जाती है। <b class="hi3">सार्वत्रिक संकेतक (Universal Indicator)</b> — कई संकेतकों का मिश्रण, जो pH 1 से 14 तक अलग-अलग रंग देकर सटीक pH मान बताता है।</p>
+    </div>
+
+    <div class="rule-card" style="border-left-color:var(--pink);">
+      <h4 style="color:var(--pink);">2. अम्लों के सामान्य गुण (General Properties of Acids)</h4>
+      <p>• <b class="hi">धातु के साथ:</b> अम्ल + धातु → लवण + हाइड्रोजन गैस↑<br>
+      <b class="hi3">Zn(s) + H₂SO₄(aq) → ZnSO₄(aq) + H₂(g)↑</b> — गैस को साबुन के घोल में प्रवाहित कर जलती तीली से "पॉप" ध्वनि से पहचाना जाता है (प्रयोग 2.3)।<br><br>
+      • <b class="hi">धातु कार्बोनेट/बाइकार्बोनेट के साथ:</b> → लवण + CO₂↑ + H₂O<br>
+      <b class="hi3">Na₂CO₃(s) + 2HCl(aq) → 2NaCl(aq) + H₂O(l) + CO₂(g)↑</b> — यह गैस चूने के पानी को दूधिया कर देती है: CO₂ + Ca(OH)₂ → CaCO₃(अवक्षेप) + H₂O (प्रयोग 2.5)।<br><br>
+      • <b class="hi">क्षारक के साथ (उदासीनीकरण):</b> अम्ल + क्षारक → लवण + जल + ऊष्मा<br>
+      <b class="hi3">NaOH(aq) + HCl(aq) → NaCl(aq) + H₂O(l) + ऊष्मा</b> (प्रयोग 2.6, ऊष्माक्षेपी)।<br><br>
+      • <b class="hi">धात्विक ऑक्साइड के साथ:</b> धात्विक ऑक्साइड + अम्ल → लवण + जल<br>
+      <b class="hi3">CuO(s) + 2HCl(aq) → CuCl₂(aq) + H₂O(l)</b> (काला CuO घुलकर नीला-हरा घोल बनाता है, प्रयोग 2.7) — इसी से सिद्ध होता है कि <b class="hi2">धात्विक ऑक्साइड क्षारकीय प्रकृति के होते हैं।</b></p>
+    </div>
+
+    <div class="rule-card" style="border-left-color:var(--green);">
+      <h4 style="color:var(--green);">3. क्षारकों के सामान्य गुण (General Properties of Bases)</h4>
+      <p>• <b class="hi">अम्ल के साथ:</b> उदासीनीकरण अभिक्रिया (ऊपर देखें)।<br><br>
+      • <b class="hi">कुछ धातुओं के साथ (उभयधर्मी धातु):</b> जिंक व एल्युमिनियम जैसी धातुएँ अम्ल और क्षारक — दोनों से अभिक्रिया करके हाइड्रोजन गैस देती हैं, इन्हें <b class="hi3">उभयधर्मी (Amphoteric) धातु</b> कहते हैं।<br>
+      <b class="hi3">Zn(s) + 2NaOH(aq) → Na₂ZnO₂(aq) (सोडियम ज़िंकेट) + H₂(g)↑</b><br><br>
+      • <b class="hi">अधात्विक ऑक्साइड के साथ:</b> क्षारक + अधात्विक ऑक्साइड → लवण + जल<br>
+      <b class="hi3">Ca(OH)₂(aq) + CO₂(g) → CaCO₃(s) + H₂O(l)</b> (प्रयोग 2.8) — इसी से सिद्ध होता है कि <b class="hi2">अधात्विक ऑक्साइड अम्लीय प्रकृति के होते हैं।</b></p>
+    </div>
+
+    <div class="rule-card" style="border-left-color:var(--orange);">
+      <h4 style="color:var(--orange);">4. अम्ल-क्षारक का जल में आयनन एवं विद्युत चालकता</h4>
+      <p>तनु HCl में डूबे दो इलेक्ट्रोड, बैटरी व बल्ब वाले परिपथ में <b class="hi">बल्ब जलता है</b> — क्योंकि अम्ल जल में आयनित होकर मुक्त आयन (H⁺, ऋणायन) बनाता है, जो विद्युत धारा प्रवाहित करते हैं। वहीं <b class="hi2">ग्लूकोज़ व ऐल्कोहॉल के घोल में बल्ब नहीं जलता</b>, क्योंकि ये सहसंयोजी यौगिक जल में आयनित नहीं होते (प्रयोग 2.9)।<br><br>
+      <b class="hi3">शुष्क HCl गैस</b> शुष्क लिटमस पेपर का रंग नहीं बदलती (कोई आयन नहीं बनते), परंतु <b class="hi3">जल में घुला HCl</b> लिटमस का रंग बदल देता है और विद्युत का सुचालक भी होता है — इससे सिद्ध होता है कि <b class="hi">अम्लीय गुण केवल जल की उपस्थिति में H⁺ आयन बनने से आता है।</b> हाइड्रोजन आयन अकेले नहीं रह सकता, यह जल-अणु से जुड़कर <b class="hi2">हाइड्रोनियम आयन (H₃O⁺)</b> बनाता है: H⁺ + H₂O → H₃O⁺</p>
+    </div>
+
+    <div class="rule-card" style="border-left-color:var(--purple);">
+      <h4 style="color:var(--purple);">5. सांद्र अम्ल को पतला करना — सुरक्षा नियम</h4>
+      <p>जल में सांद्र अम्ल (जैसे H₂SO₄) घोलना अत्यधिक <b class="hi">ऊष्माक्षेपी प्रक्रिया</b> है (प्रयोग 2.10)। इसलिए <b class="hi2">सांद्र अम्ल को हमेशा धीरे-धीरे, लगातार हिलाते हुए जल में मिलाया जाता है, कभी भी जल को अम्ल में नहीं डाला जाता।</b> ऐसा इसलिए क्योंकि सांद्र अम्ल में सीधे जल मिलाने पर स्थानीय रूप से इतनी अधिक ऊष्मा उत्पन्न होती है कि मिश्रण उबलकर बाहर छिटक सकता है और जलने का खतरा रहता है।</p>
+    </div>
+
+    <div class="rule-card" style="border-left-color:var(--red);">
+      <h4 style="color:var(--red);">6. pH स्केल एवं दैनिक जीवन में महत्व</h4>
+      <p><b class="hi">pH स्केल</b> 0 से 14 तक होता है — pH 7 उदासीन (जैसे शुद्ध जल), pH 7 से कम अम्लीय, pH 7 से अधिक क्षारीय होता है। pH जितना कम, अम्ल उतना प्रबल; pH जितना अधिक, क्षारक उतना प्रबल।<br><br>
+      <b class="hi3">दैनिक जीवन में उदाहरण:</b><br>
+      • <b class="hi">पाचन:</b> पेट में HCl बनता है जो भोजन पचाने व बैक्टीरिया मारने में मदद करता है; अपच होने पर अतिरिक्त अम्ल से दर्द होता है, जिसे <b class="hi2">एंटासिड (जैसे मिल्क ऑफ मैग्नीशिया — Mg(OH)₂, या बेकिंग सोडा)</b> जैसे मृदु क्षारक से उदासीन किया जाता है।<br>
+      • <b class="hi">दाँतों की सड़न:</b> मुँह का pH <b class="hi3">5.5 से नीचे</b> जाने पर दाँतों की इनैमल परत (कैल्सियम फॉस्फेट) क्षय होने लगती है — बैक्टीरिया भोजन के अवशेष से अम्ल बनाते हैं; क्षारकीय टूथपेस्ट इस अतिरिक्त अम्ल को उदासीन करता है।<br>
+      • <b class="hi">पौधे एवं जलीय जीव:</b> पौधों के लिए उपयुक्त मृदा pH लगभग <b class="hi2">6 से 7.5</b> होता है; जलीय जीव भी एक निश्चित pH सीमा में ही जीवित रह पाते हैं (अम्ल वर्षा से नदी/तालाब का pH घटने पर जलीय जीवन को खतरा)।<br>
+      • <b class="hi">प्राकृतिक रक्षा तंत्र:</b> मधुमक्खी के डंक में अम्लीय पदार्थ होता है — <b class="hi2">बेकिंग सोडा (मृदु क्षारक)</b> लगाने से राहत मिलती है। चींटी/बिच्छू बूटी (nettle) के डंक में <b class="hi3">मेथैनोइक (फॉर्मिक) अम्ल</b> होता है — इसका पारंपरिक उपचार डॉक पौधे (dock plant) की पत्ती रगड़ना है।</p>
+    </div>
+
+    <div class="rule-card" style="border-left-color:var(--gold);">
+      <h4 style="color:var(--gold);">7. महत्वपूर्ण लवण — सामान्य नमक एवं क्लोर-क्षार प्रक्रम</h4>
+      <p><b class="hi">सामान्य नमक (NaCl)</b> उदासीनीकरण से बनता है: NaOH + HCl → NaCl + H₂O; यह समुद्री जल व चट्टानी नमक भंडार से प्राप्त होता है और अनेक रसायनों (NaOH, बेकिंग सोडा, धोवन सोडा, विरंजक चूर्ण) का मूल कच्चा माल है।<br><br>
+      <b class="hi3">क्लोर-क्षार प्रक्रम (Chlor-Alkali Process):</b> सांद्र (संतृप्त) NaCl विलयन (ब्राइन) के वैद्युत अपघटन से —<br>
+      <b class="hi3">2NaCl(aq) + 2H₂O(l) →(विद्युत अपघटन) 2NaOH(aq) + Cl₂(g)↑ + H₂(g)↑</b><br>
+      एनोड पर Cl₂, कैथोड पर H₂ तथा NaOH विलयन कैथोड के पास बनता है। "क्लोर" = क्लोरीन, "क्षार" = NaOH (एक क्षार)।<br>
+      <b class="hi2">उपयोग:</b> NaOH — साबुन-अपमार्जक, कागज़ व रेयॉन उद्योग; Cl₂ — विरंजक चूर्ण बनाने, जल कीटाणुशोधन, PVC उद्योग में; H₂ — ईंधन, वनस्पति घी बनाने, अमोनिया (उर्वरक) उद्योग में।</p>
+    </div>
+
+    <div class="rule-card" style="border-left-color:var(--cyan);">
+      <h4 style="color:var(--cyan);">8. विरंजक चूर्ण एवं बेकिंग सोडा</h4>
+      <p><b class="hi">विरंजक चूर्ण (Bleaching Powder, CaOCl₂):</b> शुष्क बुझे चूने पर क्लोरीन गैस प्रवाहित करके बनाया जाता है —<br>
+      <b class="hi3">Ca(OH)₂ + Cl₂ → CaOCl₂ + H₂O</b><br>
+      <b class="hi2">उपयोग:</b> कपड़ा उद्योग में विरंजन, कागज़ उद्योग में लुगदी विरंजन, पेयजल कीटाणुशोधन, ऑक्सीकारक के रूप में।<br><br>
+      <b class="hi">बेकिंग सोडा (NaHCO₃, सोडियम हाइड्रोजन कार्बोनेट):</b> गर्म करने पर विघटित होकर CO₂ छोड़ता है —<br>
+      <b class="hi3">2NaHCO₃ →(Δ) Na₂CO₃ + H₂O + CO₂↑</b><br>
+      <b class="hi2">उपयोग:</b> बेकिंग पाउडर (टार्टरिक अम्ल के साथ मिलाकर) में — केक/ब्रेड को फुलाने हेतु; एंटासिड के रूप में पेट के अतिरिक्त अम्ल को उदासीन करने में; सोडा-अम्ल अग्निशामक में; साबुन उद्योग में मृदु क्षार के रूप में।</p>
+    </div>
+
+    <div class="rule-card" style="border-left-color:var(--purple);">
+      <h4 style="color:var(--purple);">9. धोवन सोडा एवं प्लास्टर ऑफ पेरिस</h4>
+      <p><b class="hi">धोवन सोडा (Washing Soda, Na₂CO₃·10H₂O):</b> बेकिंग सोडा को तेज़ गर्म करने पर बनने वाले Na₂CO₃ को पुनः क्रिस्टलीकृत करने से बनता है —<br>
+      <b class="hi3">Na₂CO₃ + 10H₂O → Na₂CO₃·10H₂O</b><br>
+      <b class="hi2">उपयोग:</b> काँच, साबुन व कागज़ उद्योग में, बोरेक्स जैसे सोडियम यौगिक बनाने में, घरेलू सफाई व जल की स्थायी कठोरता दूर करने में।<br><br>
+      <b class="hi">प्लास्टर ऑफ पेरिस (CaSO₄·½H₂O):</b> जिप्सम (CaSO₄·2H₂O) को <b class="hi3">373 K (100°C)</b> पर सीमित ताप पर गर्म करने से बनता है —<br>
+      <b class="hi3">2(CaSO₄·2H₂O) →(373K) 2(CaSO₄·½H₂O) + 3H₂O</b><br>
+      जल मिलाने पर यह पुनः जिप्सम में बदलकर सख्त हो जाता है: CaSO₄·½H₂O + 1½H₂O → CaSO₄·2H₂O।<br>
+      <b class="hi2">उपयोग:</b> टूटी हड्डी पर प्लास्टर चढ़ाने, मूर्तियाँ व सजावटी वस्तुएँ बनाने, खिलौने व चॉक बनाने में। इसे <b class="hi">वायुरोधी डिब्बे में रखा जाता है</b> क्योंकि यह नमी सोखकर पहले से ही सख्त हो सकता है।</p>
+    </div>
+
+    <div class="rule-card" style="border-left-color:var(--green);">
+      <h4 style="color:var(--green);">10. क्रिस्टलन का जल (Water of Crystallisation)</h4>
+      <p>किसी लवण के एक सूत्र-मात्रक में रासायनिक रूप से बँधे जल के निश्चित अणुओं को <b class="hi">क्रिस्टलन का जल</b> कहते हैं — यह लवण के क्रिस्टल के आकार व अक्सर उसके रंग के लिए उत्तरदायी होता है।<br><br>
+      <b class="hi3">उदाहरण (प्रयोग 2.15):</b> नीले CuSO₄·5H₂O क्रिस्टल को गर्म करने पर सफेद हो जाते हैं (जल निकल जाता है); जल डालने पर पुनः नीले हो जाते हैं।<br>
+      <b class="hi2">महत्वपूर्ण सूत्र:</b> जिप्सम — CaSO₄·2H₂O; प्लास्टर ऑफ पेरिस — CaSO₄·½H₂O; धोवन सोडा — Na₂CO₃·10H₂O।<br>
+      <b class="hi">ध्यान दें:</b> सामान्य नमक (NaCl) व बेकिंग सोडा (NaHCO₃) में क्रिस्टलन का जल <b class="hi3">नहीं</b> होता — यह परीक्षा में अक्सर पूछा जाने वाला अंतर है।</p>
+    </div>
+  </div>
+
+  <div class="glass card" style="margin-top:22px;">
+    <h3 style="color:var(--gold); font-size:19px; margin-bottom:18px;">विद्युत चालकता परीक्षण — चित्र सहित</h3>
+    <div class="diagram-card glass">
+      <div style="display:flex; justify-content:center; align-items:center; gap:36px; flex-wrap:wrap;">
+        <div class="flow-col">
+          <div class="bulb" style="background:radial-gradient(circle,#fff8c9,var(--gold));">💡</div>
+          <div class="flow-box" style="background:linear-gradient(120deg,var(--green),#1a9c70);">तनु HCl / H₂SO₄<small>बल्ब जलता है</small></div>
+        </div>
+        <div class="flow-arrow">बनाम</div>
+        <div class="flow-col">
+          <div class="bulb" style="background:#3339; opacity:.55;">⚫</div>
+          <div class="flow-box" style="background:linear-gradient(120deg,var(--red),#a82424);">ग्लूकोज़ / ऐल्कोहॉल<small>बल्ब नहीं जलता</small></div>
+        </div>
+      </div>
+      <div class="cap">अम्ल जल में आयनित होकर विद्युत का सुचालक बनता है (प्रयोग 2.9)</div>
+      <div class="cap2">अम्ल → मुक्त आयन (H⁺ व ऋणायन) बनते हैं, धारा प्रवाहित होती है। ग्लूकोज़/ऐल्कोहॉल सहसंयोजी यौगिक हैं — आयनित नहीं होते, इसलिए धारा प्रवाहित नहीं होती।</div>
+    </div>
+  </div>
+
+  <div class="glass card" style="margin-top:22px;">
+    <h3 style="color:var(--gold); font-size:19px; margin-bottom:18px;">pH स्केल — चित्र सहित</h3>
+    <div class="diagram-card glass">
+      <div style="display:flex; height:44px; border-radius:12px; overflow:hidden; box-shadow:0 8px 20px -6px #0009;">
+        <div style="flex:1; background:#ff2d2d;"></div>
+        <div style="flex:1; background:#ff7a2d;"></div>
+        <div style="flex:1; background:#ffc233;"></div>
+        <div style="flex:1; background:#c8e62e;"></div>
+        <div style="flex:1; background:#2ee6a6;"></div>
+        <div style="flex:1; background:#33c6e0;"></div>
+        <div style="flex:1; background:#3ea6ff;"></div>
+        <div style="flex:1; background:#7a6bff;"></div>
+        <div style="flex:1; background:#b07dff;"></div>
+        <div style="flex:1; background:#e05de0;"></div>
+      </div>
+      <div style="display:flex; justify-content:space-between; font-weight:900; font-size:13px; color:var(--dim); margin-top:8px;">
+        <span>0 (प्रबल अम्ल)</span><span>7 (उदासीन)</span><span>14 (प्रबल क्षारक)</span>
+      </div>
+      <div class="cap">pH स्केल: 0–14</div>
+      <div class="cap2">pH 7 से कम = अम्लीय (जितना कम उतना प्रबल अम्ल); pH = 7 = उदासीन (शुद्ध जल); pH 7 से अधिक = क्षारीय (जितना अधिक उतना प्रबल क्षारक)।</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ACTIVITIES TABLE ============ -->
+<section id="activities">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--gold),#b8860b); --glow:#ffc23399;">🧪</div>
+    <div><h2>सभी प्रयोगों (NCERT Activities) की सारणी</h2><div class="sub en-tag">त्वरित पुनरावृत्ति</div></div></div>
+  <div class="table-wrap" style="margin-bottom:0;">
+    <table>
+      <thead><tr><th>प्रयोग</th><th>क्या किया गया</th><th>अवलोकन</th><th>निष्कर्ष</th></tr></thead>
+      <tbody id="activityTableBody"></tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ FORMULA / RULES SHEET ============ -->
+<section id="formulas">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--purple),#7e4fd1); --glow:#b07dff99;">🧮</div>
+    <div><h2>सूत्र एवं नियम (Formula / Rules Sheet)</h2><div class="sub en-tag">Quick Revision Formulas</div></div></div>
+  <div class="grid grid-3" id="formulaSheetGrid"></div>
+</section>
+
+<!-- ============ SOLVED QUESTIONS ============ -->
+<section id="solved">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--green),#1a9c70); --glow:#2ee6a699;">📘</div>
+    <div><h2>महत्वपूर्ण प्रश्न (हल सहित)</h2><div class="sub en-tag">Objective + Subjective — उत्तर देखने के लिए बटन दबाएँ</div></div></div>
+  <div id="solvedWrap"></div>
+</section>
+
+<!-- ============ ADDITIONAL IMPORTANT QUESTIONS ============ -->
+<section id="extra">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--orange),#c9650c); --glow:#ff9f4399;">⭐</div>
+    <div><h2>अतिरिक्त महत्वपूर्ण प्रश्न</h2><div class="sub en-tag">Additional BSEB Exam-Relevant Questions</div></div></div>
+  <div id="extraWrap"></div>
+</section>
+
+<!-- ============ HOMEWORK ============ -->
+<section id="homework">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--red),#a82424); --glow:#ff4f4f99;">🏠</div>
+    <div><h2>घर से करने के लिए Homework</h2><div class="sub en-tag">बिना उत्तर देखे खुद हल करें</div></div></div>
+  <div class="glass card hw-card">
+    <ol id="homeworkList"></ol>
+  </div>
+  <p style="color:var(--dim); font-size:13.5px; margin-top:16px; font-weight:700;">सभी समीकरणों को संतुलित करते हुए भौतिक अवस्था (s, l, g, aq) लिखना न भूलें। यह प्रश्न अपनी Science की notebook में हल करके अगली कक्षा में साथ लाइए।</p>
+</section>
+
+<footer>
+  <span class="name">PK STUDY</span> — अध्याय 2 पूर्ण
+  <div class="copy">Class 10 · Science · अम्ल, क्षारक एवं लवण — PK STUDY, All Copyright Reserved</div>
+</footer>
+
+<script>
+function toggleTheme(){
+  const html = document.documentElement;
+  const isLight = html.getAttribute('data-theme') === 'light';
+  html.setAttribute('data-theme', isLight ? '' : 'light');
+  document.getElementById('themeToggle').textContent = isLight ? '🌙' : '☀️';
+}
+function el(tag, cls, html){ const d=document.createElement(tag); if(cls)d.className=cls; if(html!==undefined)d.innerHTML=html; return d; }
+
+const activityData = [
+  {no:"2.1", w:"HCl, H₂SO₄, ऐसिटिक अम्ल तथा NaOH, Ca(OH)₂ आदि को लिटमस/मेथिल ऑरेंज/फीनॉल्फ़्थैलीन से जाँचना", o:"अम्ल: नीला लिटमस→लाल; क्षारक: लाल लिटमस→नीला", c:"संकेतक अम्ल-क्षारक की पहचान कराते हैं"},
+  {no:"2.2", w:"प्याज़, वैनिला, लौंग तेल को अम्ल व क्षारक में जाँचना (गंधीय संकेतक)", o:"गंध अम्ल में बनी रहती है, क्षारक में गायब हो जाती है", c:"गंध भी संकेतक का कार्य कर सकती है"},
+  {no:"2.3", w:"जिंक कणों में तनु H₂SO₄ मिलाना, गैस को साबुन के घोल में प्रवाहित करना", o:"बुलबुले बनते हैं, जलती तीली से 'पॉप' ध्वनि", c:"Zn+H₂SO₄→ZnSO₄+H₂ — अम्ल+धातु→लवण+H₂"},
+  {no:"2.5", w:"Na₂CO₃ व NaHCO₃ में तनु HCl मिलाकर गैस को चूने के पानी में प्रवाहित करना", o:"तेज़ बुलबुले बनते हैं, चूने का पानी दूधिया होता है", c:"कार्बोनेट+अम्ल→लवण+CO₂+H₂O"},
+  {no:"2.6", w:"तनु NaOH में फीनॉल्फ़्थैलीन डालकर तनु HCl मिलाना (उदासीनीकरण)", o:"गुलाबी रंग रंगहीन होता है, नली गर्म हो जाती है", c:"अम्ल+क्षारक→लवण+जल+ऊष्मा (ऊष्माक्षेपी)"},
+  {no:"2.7", w:"काले CuO में तनु HCl मिलाकर हल्का गर्म करना", o:"घोल नीला-हरा हो जाता है, काला CuO घुल जाता है", c:"CuO+2HCl→CuCl₂+H₂O — धात्विक ऑक्साइड क्षारकीय है"},
+  {no:"2.8", w:"CO₂ गैस को चूने के पानी में प्रवाहित करना", o:"चूने का पानी दूधिया हो जाता है", c:"CO₂+Ca(OH)₂→CaCO₃+H₂O — अधात्विक ऑक्साइड अम्लीय है"},
+  {no:"2.9", w:"तनु HCl में बल्ब-बैटरी परिपथ जोड़ना, फिर ग्लूकोज़/ऐल्कोहॉल से तुलना करना", o:"अम्ल में बल्ब जलता है; ग्लूकोज़/ऐल्कोहॉल में नहीं जलता", c:"अम्ल जल में आयनित होकर विद्युत का सुचालक बनता है"},
+  {no:"2.10", w:"जल में सांद्र H₂SO₄ को धीरे-धीरे मिलाना, नली को छूकर देखना", o:"नली बहुत गर्म हो जाती है", c:"अम्ल को जल में घोलना अत्यधिक ऊष्माक्षेपी है"},
+  {no:"2.11", w:"विभिन्न विलयनों (नींबू रस, HCl, NaOH आदि) को pH पेपर से जाँचना", o:"अलग-अलग रंग — pH चार्ट से तुलना", c:"pH मान अम्ल/क्षारक की प्रबलता बताता है"},
+  {no:"2.12", w:"मृदा के नमूने को जल में घोलकर छानकर pH जाँचना", o:"मृदा अनुसार अलग-अलग pH मान", c:"मृदा का pH फ़सल की उपयुक्तता तय करता है"},
+  {no:"2.13", w:"NaCl, CuSO₄, Na₂CO₃ आदि लवणों का pH जाँचना", o:"NaCl उदासीन, CuSO₄ अम्लीय, Na₂CO₃ क्षारीय", c:"लवण का pH उसके जनक अम्ल-क्षारक की प्रबलता पर निर्भर करता है"},
+  {no:"2.15", w:"नीले CuSO₄·5H₂O क्रिस्टल को गर्म करना, फिर जल डालना", o:"नीला रंग सफेद होता है; जल डालने पर पुनः नीला", c:"क्रिस्टलन का जल क्रिस्टल के रंग व आकार के लिए उत्तरदायी है"}
+];
+
+const formulaSheetData = [
+  {t:"अम्ल+धातु", d:"Acid + Metal → Salt + H₂↑", c:"var(--cyan)"},
+  {t:"अम्ल+कार्बोनेट", d:"Acid + Metal Carbonate → Salt + CO₂↑ + H₂O", c:"var(--pink)"},
+  {t:"उदासीनीकरण", d:"Acid + Base → Salt + H₂O + ऊष्मा", c:"var(--green)"},
+  {t:"धात्विक ऑक्साइड", d:"Metal Oxide + Acid → Salt + H₂O (क्षारकीय स्वभाव)", c:"var(--orange)"},
+  {t:"अधात्विक ऑक्साइड", d:"Base + Non-metal Oxide → Salt + H₂O (अम्लीय स्वभाव)", c:"var(--purple)"},
+  {t:"क्लोर-क्षार प्रक्रम", d:"2NaCl + 2H₂O →(विद्युत) 2NaOH + Cl₂↑ + H₂↑", c:"var(--gold)"},
+  {t:"विरंजक चूर्ण", d:"Ca(OH)₂ + Cl₂ → CaOCl₂ + H₂O", c:"var(--red)"},
+  {t:"बेकिंग सोडा विघटन", d:"2NaHCO₃ →(Δ) Na₂CO₃ + H₂O + CO₂↑", c:"var(--cyan)"},
+  {t:"प्लास्टर ऑफ पेरिस", d:"2(CaSO₄·2H₂O) →(373K) 2(CaSO₄·½H₂O) + 3H₂O", c:"var(--pink)"},
+  {t:"क्रिस्टलन के जल के सूत्र", d:"जिप्सम CaSO₄·2H₂O; धोवन सोडा Na₂CO₃·10H₂O; नीला थोथा CuSO₄·5H₂O", c:"var(--green)"},
+  {t:"pH स्केल", d:"0–14; <7 अम्लीय, =7 उदासीन, >7 क्षारीय", c:"var(--orange)"},
+  {t:"हाइड्रोनियम आयन", d:"H⁺ + H₂O → H₃O⁺", c:"var(--purple)"}
+];
+
+const solvedData = [
+  {type:"obj", q:"1. अम्ल एवं क्षारक की परिभाषा दीजिए।", a:"अम्ल वे पदार्थ हैं जो जल में घुलकर हाइड्रोजन आयन (H⁺/H₃O⁺) देते हैं। क्षारक वे पदार्थ हैं जो जल में घुलकर हाइड्रॉक्साइड आयन (OH⁻) देते हैं।"},
+  {type:"obj", q:"2. गंधीय संकेतक (Olfactory Indicator) किसे कहते हैं? दो उदाहरण दीजिए।", a:"जिन पदार्थों की गंध अम्लीय या क्षारकीय माध्यम में बदल जाती है, उन्हें गंधीय संकेतक कहते हैं। उदाहरण: प्याज़, वैनिला एसेंस — इनकी गंध क्षारक में गायब हो जाती है।"},
+  {type:"subj", q:"3. जिंक की तनु सल्फ्यूरिक अम्ल से अभिक्रिया का समीकरण लिखिए तथा बताइए कि बनने वाली गैस की पहचान कैसे होती है।", a:"Zn(s) + H₂SO₄(aq) → ZnSO₄(aq) + H₂(g)↑\nबनने वाली गैस हाइड्रोजन है, जिसकी पहचान इसे साबुन के घोल में प्रवाहित कर जलती तीली पास लाने पर होती है — बुलबुले 'पॉप' ध्वनि के साथ फटते हैं।"},
+  {type:"subj", q:"4. सोडियम कार्बोनेट व सोडियम बाइकार्बोनेट की HCl से अभिक्रिया के समीकरण लिखिए।", a:"Na₂CO₃(s) + 2HCl(aq) → 2NaCl(aq) + H₂O(l) + CO₂(g)↑\nNaHCO₃(s) + HCl(aq) → NaCl(aq) + H₂O(l) + CO₂(g)↑\nदोनों में बनने वाली CO₂ गैस चूने के पानी को दूधिया कर देती है।"},
+  {type:"obj", q:"5. उदासीनीकरण अभिक्रिया किसे कहते हैं? एक समीकरण दीजिए।", a:"जब अम्ल व क्षारक आपस में क्रिया कर लवण व जल बनाते हैं, तथा ऊष्मा मुक्त होती है, उसे उदासीनीकरण अभिक्रिया कहते हैं। NaOH(aq) + HCl(aq) → NaCl(aq) + H₂O(l) + ऊष्मा"},
+  {type:"subj", q:"6. एक प्रयोग द्वारा दिखाइए कि धात्विक ऑक्साइड प्रकृति में क्षारकीय होते हैं।", a:"काले CuO चूर्ण में तनु HCl मिलाकर हल्का गर्म करने पर घोल नीला-हरा हो जाता है और काला ऑक्साइड घुल जाता है:\nCuO(s) + 2HCl(aq) → CuCl₂(aq) + H₂O(l)\nचूँकि CuO, अम्ल के साथ क्षारक की तरह अभिक्रिया करके लवण व जल बनाता है, इसलिए यह सिद्ध होता है कि धात्विक ऑक्साइड क्षारकीय प्रकृति के होते हैं।"},
+  {type:"subj", q:"7. उभयधर्मी (Amphoteric) धातु किसे कहते हैं? उदाहरण सहित समझाइए।", a:"जो धातु अम्ल तथा क्षारक — दोनों के साथ अभिक्रिया करके हाइड्रोजन गैस देती है, उसे उभयधर्मी धातु कहते हैं। उदाहरण — जिंक:\nZn + 2HCl → ZnCl₂ + H₂↑ (अम्ल के साथ)\nZn + 2NaOH → Na₂ZnO₂ + H₂↑ (क्षारक के साथ)\nएल्युमिनियम भी एक उभयधर्मी धातु है।"},
+  {type:"obj", q:"8. दो अधात्विक ऑक्साइडों के नाम लिखिए जो क्षारक से अभिक्रिया कर लवण व जल बनाते हैं।", a:"कार्बन डाइऑक्साइड (CO₂) और सल्फर डाइऑक्साइड (SO₂)।"},
+  {type:"subj", q:"9. एक प्रयोग द्वारा सिद्ध कीजिए कि अम्ल जल में आयन बनाते हैं जो विद्युत का चालन करते हैं।", a:"तनु HCl में डूबे दो इलेक्ट्रोड को बैटरी व बल्ब से जोड़ने पर बल्ब जलता है, क्योंकि अम्ल जल में आयनित होकर मुक्त आयन बनाता है, जो धारा प्रवाहित करते हैं। वहीं ग्लूकोज़ या ऐल्कोहॉल के घोल में बल्ब नहीं जलता, क्योंकि ये सहसंयोजी यौगिक हैं और जल में आयनित नहीं होते। इससे सिद्ध होता है कि अम्ल की चालकता उसके जल में बने आयनों के कारण है।"},
+  {type:"obj", q:"10. शुष्क HCl गैस लिटमस पेपर का रंग क्यों नहीं बदलती?", a:"क्योंकि जल की अनुपस्थिति में HCl आयनित नहीं होती, अतः कोई H⁺ आयन नहीं बनते और अम्लीय गुण प्रदर्शित नहीं होता।"},
+  {type:"obj", q:"11. हाइड्रोनियम आयन किसे कहते हैं?", a:"जल में उत्पन्न हाइड्रोजन आयन (H⁺) जल के अणु से जुड़कर H₃O⁺ (हाइड्रोनियम आयन) बनाता है, क्योंकि H⁺ आयन अकेला स्थिर नहीं रह सकता। H⁺ + H₂O → H₃O⁺"},
+  {type:"subj", q:"12. सांद्र अम्ल को पतला करते समय जल को अम्ल में क्यों नहीं मिलाया जाता?", a:"अम्ल को जल में घोलना अत्यधिक ऊष्माक्षेपी प्रक्रिया है। यदि जल को सांद्र अम्ल में मिलाया जाए, तो स्थानीय रूप से इतनी अधिक ऊष्मा उत्पन्न होती है कि मिश्रण उबलकर तेज़ी से बाहर छिटक सकता है, जिससे जलने का खतरा रहता है। इसलिए हमेशा अम्ल को धीरे-धीरे हिलाते हुए जल में मिलाया जाता है।"},
+  {type:"obj", q:"13. pH स्केल क्या दर्शाता है? इसका परास क्या है?", a:"pH स्केल किसी विलयन में हाइड्रोजन आयन की सांद्रता को दर्शाता है, जिससे उसकी अम्लीयता या क्षारीयता मापी जाती है। इसका परास 0 से 14 तक होता है।"},
+  {type:"subj", q:"14. दाँतों में सड़न (Tooth Decay) क्यों होती है? इसे रोकने का उपाय बताइए।", a:"मुँह में उपस्थित बैक्टीरिया भोजन के अवशेषों (शर्करा) को तोड़कर अम्ल बनाते हैं। जब मुँह का pH 5.5 से नीचे चला जाता है, तो दाँतों की इनैमल परत (कैल्सियम फॉस्फेट) क्षय होने लगती है। इसे रोकने के लिए क्षारकीय टूथपेस्ट से ब्रश करना चाहिए, जो अतिरिक्त अम्ल को उदासीन कर देता है।"},
+  {type:"obj", q:"15. मधुमक्खी के डंक पर बेकिंग सोडा क्यों लगाया जाता है?", a:"मधुमक्खी के डंक में अम्लीय पदार्थ होता है। बेकिंग सोडा एक मृदु क्षारक है, जो इस अम्ल को उदासीन करके जलन व दर्द से राहत देता है।"},
+  {type:"subj", q:"16. क्लोर-क्षार प्रक्रम (Chlor-Alkali Process) का समीकरण लिखिए तथा इसके तीनों उत्पादों के एक-एक उपयोग बताइए।", a:"2NaCl(aq) + 2H₂O(l) →(विद्युत अपघटन) 2NaOH(aq) + Cl₂(g)↑ + H₂(g)↑\nNaOH — साबुन व अपमार्जक बनाने में; Cl₂ — विरंजक चूर्ण व जल कीटाणुशोधन में; H₂ — ईंधन व वनस्पति घी बनाने में।"},
+  {type:"obj", q:"17. विरंजक चूर्ण का रासायनिक सूत्र व निर्माण समीकरण लिखिए।", a:"रासायनिक सूत्र: CaOCl₂। निर्माण: Ca(OH)₂ + Cl₂ → CaOCl₂ + H₂O (शुष्क बुझे चूने पर क्लोरीन गैस प्रवाहित करके)।"},
+  {type:"subj", q:"18. बेकिंग सोडा का रासायनिक नाम व सूत्र लिखिए तथा इसके दो उपयोग बताइए।", a:"रासायनिक नाम: सोडियम हाइड्रोजन कार्बोनेट, सूत्र: NaHCO₃।\nउपयोग: (1) बेकिंग पाउडर बनाने में, जो केक/ब्रेड को फुलाता है; (2) पेट के अतिरिक्त अम्ल को उदासीन करने वाले एंटासिड के रूप में।"},
+  {type:"obj", q:"19. धोवन सोडा का सूत्र लिखिए तथा यह किससे बनाया जाता है?", a:"सूत्र: Na₂CO₃·10H₂O। यह बेकिंग सोडा को तेज़ गर्म कर बने Na₂CO₃ को पुनः क्रिस्टलीकृत करके बनाया जाता है।"},
+  {type:"subj", q:"20. प्लास्टर ऑफ पेरिस कैसे बनाया जाता है? इसे वायुरोधी डिब्बे में क्यों रखा जाता है?", a:"जिप्सम (CaSO₄·2H₂O) को 373 K पर सीमित ताप पर गर्म करने से प्लास्टर ऑफ पेरिस (CaSO₄·½H₂O) बनता है:\n2(CaSO₄·2H₂O) →(373K) 2(CaSO₄·½H₂O) + 3H₂O\nयह अत्यधिक आर्द्रताग्राही (hygroscopic) होता है, इसलिए इसे वायुरोधी डिब्बे में रखा जाता है, अन्यथा यह वायु की नमी सोखकर समय से पहले ही सख्त होकर बेकार हो जाता है।"},
+  {type:"obj", q:"21. क्रिस्टलन का जल किसे कहते हैं?", a:"किसी लवण के एक सूत्र-मात्रक में रासायनिक रूप से बँधे जल के निश्चित अणुओं को क्रिस्टलन का जल कहते हैं — जैसे CuSO₄·5H₂O में 5 जल-अणु।"},
+  {type:"subj", q:"22. निम्नलिखित में से किसमें क्रिस्टलन का जल नहीं होता — जिप्सम, धोवन सोडा, सामान्य नमक, नीला थोथा? कारण सहित बताइए।", a:"सामान्य नमक (NaCl) में क्रिस्टलन का जल नहीं होता, जबकि जिप्सम (CaSO₄·2H₂O), धोवन सोडा (Na₂CO₃·10H₂O) व नीला थोथा (CuSO₄·5H₂O) — तीनों में क्रिस्टलन का जल उपस्थित होता है। यह इसलिए महत्वपूर्ण है क्योंकि सामान्य नमक व बेकिंग सोडा (NaHCO₃) दोनों बिना क्रिस्टलन के जल के होते हैं, जबकि बाकी उपरोक्त तीनों में होता है।"},
+  {type:"obj", q:"23. सोडा-अम्ल अग्निशामक (Soda-Acid Fire Extinguisher) में कौन-सी अभिक्रिया होती है?", a:"2NaHCO₃ + H₂SO₄ → Na₂SO₄ + 2H₂O + 2CO₂↑\nबनने वाली CO₂ गैस दबाव से झाग/द्रव को बाहर निकालती है और आग के चारों ओर एक परत बनाकर ऑक्सीजन की आपूर्ति रोक देती है, जिससे आग बुझ जाती है।"},
+  {type:"subj", q:"24. समान लंबाई के मैग्नीशियम रिबन को दो नलियों में लिया गया — नली A में HCl तथा नली B में ऐसिटिक अम्ल डाला गया। किस नली में बुलबुले अधिक तेज़ी से बनेंगे और क्यों?", a:"नली A (HCl) में बुलबुले अधिक तेज़ी से बनेंगे, क्योंकि HCl एक प्रबल अम्ल है जो जल में लगभग पूर्ण रूप से आयनित होकर अधिक H⁺ आयन देता है, जबकि ऐसिटिक अम्ल एक दुर्बल अम्ल है जो आंशिक रूप से ही आयनित होता है, इसलिए इसकी अभिक्रिया धीमी होती है।"}
+];
+
+const extraData = [
+  {type:"obj", q:"1. मिल्क ऑफ मैग्नीशिया का रासायनिक सूत्र क्या है तथा इसका उपयोग क्या है?", a:"सूत्र: Mg(OH)₂। यह एक मृदु क्षारक है, जिसका उपयोग एंटासिड के रूप में पेट के अतिरिक्त अम्ल को उदासीन करने में होता है।"},
+  {type:"subj", q:"2. दूध से दही बनने पर वह अधिक अम्लीय क्यों हो जाता है?", a:"दूध में उपस्थित लैक्टोबैसिलस जीवाणु दूध की शर्करा (लैक्टोज़) को किण्वित कर लैक्टिक अम्ल में बदल देते हैं, जिससे दही का pH दूध की तुलना में कम (अधिक अम्लीय) हो जाता है।"},
+  {type:"subj", q:"3. सामान्य नमक (NaCl) के कोई तीन उपयोग बताइए।", a:"(1) भोजन में स्वाद व परिरक्षक के रूप में, (2) NaOH बनाने के कच्चे माल के रूप में (क्लोर-क्षार प्रक्रम), (3) बेकिंग सोडा, धोवन सोडा व विरंजक चूर्ण जैसे रसायन बनाने के मूल स्रोत के रूप में।"},
+  {type:"obj", q:"4. अम्ल वर्षा (Acid Rain) जलीय जीवन को कैसे प्रभावित करती है?", a:"अम्ल वर्षा से नदी/तालाब के जल का pH घट जाता है, जिससे जलीय जीव जीवित नहीं रह पाते, क्योंकि वे केवल एक निश्चित pH सीमा में ही जीवित रह सकते हैं।"},
+  {type:"subj", q:"5. मृदा के pH परीक्षण का महत्व बताइए।", a:"अलग-अलग फ़सलों के लिए मृदा का उपयुक्त pH अलग-अलग होता है (सामान्यतः 6 से 7.5)। मृदा का pH जाँचकर यह तय किया जा सकता है कि किसी विशेष फ़सल के लिए वह मृदा उपयुक्त है या नहीं, तथा आवश्यकता अनुसार चूना या अन्य पदार्थ मिलाकर उसे सुधारा जा सकता है।"},
+  {type:"obj", q:"6. बेकिंग सोडा व धोवन सोडा में कोई एक अंतर बताइए।", a:"बेकिंग सोडा (NaHCO₃) एक मृदु क्षारक है जिसमें क्रिस्टलन का जल नहीं होता और यह एंटासिड/बेकिंग में उपयोग होता है, जबकि धोवन सोडा (Na₂CO₃·10H₂O) में क्रिस्टलन का जल होता है और यह सफाई व काँच-साबुन उद्योग में उपयोग होता है।"}
+];
+
+const homeworkData = [
+  "जिंक की तनु HCl से अभिक्रिया का संतुलित समीकरण लिखिए तथा बताइए यह किस प्रकार की अभिक्रिया है।",
+  "सोडियम बाइकार्बोनेट की सल्फ्यूरिक अम्ल से अभिक्रिया का समीकरण लिखिए।",
+  "अपने घर में उपयोग होने वाले तीन ऐसे पदार्थों के नाम लिखिए जिनका pH आप जानते हैं, तथा बताइए वे अम्लीय हैं या क्षारीय।",
+  "क्लोर-क्षार प्रक्रम में बनने वाले तीनों उत्पादों के नाम व एक-एक उपयोग लिखिए।",
+  "प्लास्टर ऑफ पेरिस व जिप्सम के बीच होने वाली अभिक्रिया को समीकरण सहित लिखिए।",
+  "उदासीनीकरण अभिक्रिया किसे कहते हैं? एक उदाहरण अपने आसपास से खोजकर लिखिए।",
+  "बेकिंग सोडा तथा विरंजक चूर्ण के रासायनिक सूत्र व एक-एक उपयोग लिखिए।",
+  "यदि किसी मृदा का pH 4.5 पाया जाए, तो फ़सल उगाने हेतु उसमें क्या मिलाया जाना चाहिए और क्यों? अपने विचार लिखिए।"
+];
+
+function buildActivityTable(){
+  const tb = document.getElementById('activityTableBody');
+  activityData.forEach(a=>{
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td style="font-weight:900; color:var(--cyan);">प्रयोग ${a.no}</td><td>${a.w}</td><td>${a.o}</td><td>${a.c}</td>`;
+    tb.appendChild(tr);
+  });
+}
+function buildFormulaSheet(){
+  const g = document.getElementById('formulaSheetGrid');
+  formulaSheetData.forEach(f=>{ const d=el('div','glass def-card', `<h4 style="color:${f.c}">🧮 ${f.t}</h4><p>${f.d}</p>`); g.appendChild(d); });
+}
+function buildQA(containerId, data){
+  const wrap = document.getElementById(containerId);
+  data.forEach((item)=>{
+    const pillHtml = item.type === 'obj' ? '<span class="pill pill-obj">Objective</span>' : '<span class="pill pill-subj">Subjective</span>';
+    const d = el('div','glass example-card', `<div class="qlabel">प्रश्न ${pillHtml}</div><div class="qtext">${item.q}</div>
+      <button class="show-ans-btn" onclick="toggleAnswer(this)">उत्तर दिखाएँ (Show Answer)</button>
+      <div class="ans-wrap"><div class="slabel">उत्तर (Answer)</div><div class="stext">${item.a}</div></div>`);
+    wrap.appendChild(d);
+  });
+}
+function toggleAnswer(btn){
+  const wrap = btn.nextElementSibling;
+  const isOpen = wrap.classList.toggle('open');
+  btn.classList.toggle('open', isOpen);
+  btn.textContent = isOpen ? 'उत्तर छुपाएँ (Hide Answer)' : 'उत्तर दिखाएँ (Show Answer)';
+}
+function buildHomework(){
+  const g = document.getElementById('homeworkList');
+  homeworkData.forEach(q=>{ const li = document.createElement('li'); li.textContent = q; g.appendChild(li); });
+}
+
+buildActivityTable();
+buildFormulaSheet();
+buildQA('solvedWrap', solvedData);
+buildQA('extraWrap', extraData);
+buildHomework();
+</script>
+</body>
+</html>

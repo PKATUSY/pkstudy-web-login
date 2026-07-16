@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PK STUDY | ऊँचाई और दूरी — Height and Distance</title>
+<style>
+:root{
+  --bg:#04050f; --glass:rgba(255,255,255,.045); --glass-strong:rgba(255,255,255,.08);
+  --border:rgba(255,255,255,.12); --text:#f2f6ff; --dim:#9fb0da; --heading:#ffffff;
+  --neon-blue:#3ea6ff; --cyan:#33e0ff; --purple:#b07dff; --gold:#ffc233;
+  --green:#2ee6a6; --orange:#ff9f43; --pink:#ff4d8d; --red:#ff4f4f;
+  --shadow:0 22px 46px -22px #000d; --hshadow:0 30px 56px -20px #000f;
+}
+[data-theme="light"]{
+  --bg:#f6f8fd; --glass:rgba(20,30,65,.045); --glass-strong:rgba(20,30,65,.08);
+  --border:rgba(20,30,65,.12); --text:#161c33; --dim:#535f82; --heading:#12172b;
+  --neon-blue:#2563eb; --cyan:#0891b2; --purple:#7c3aed; --gold:#b45309;
+  --green:#059669; --orange:#c2410c; --pink:#db2777; --red:#dc2626;
+  --shadow:0 18px 36px -20px rgba(30,40,80,.18); --hshadow:0 24px 44px -18px rgba(30,40,80,.24);
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Segoe UI','Noto Sans Devanagari',Arial,sans-serif; color:var(--text); min-height:100vh; overflow-x:hidden;
+  transition:background .4s, color .4s;
+  background:
+    radial-gradient(ellipse at 10% -10%, #1c3a9955, transparent 55%),
+    radial-gradient(ellipse at 95% 10%, #7a2ab866, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, #0a5a6e44, transparent 55%),
+    linear-gradient(180deg,#04050f,#020208 90%);
+}
+[data-theme="light"] body{
+  background:
+    radial-gradient(ellipse at 10% -10%, #dbe4ff99, transparent 55%),
+    radial-gradient(ellipse at 95% 10%, #ede0ff99, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, #d7f5f099, transparent 55%),
+    linear-gradient(180deg,#f8faff,#eef1f9 90%);
+}
+::-webkit-scrollbar{width:8px;} ::-webkit-scrollbar-thumb{background:var(--neon-blue); border-radius:6px;} ::-webkit-scrollbar-track{background:transparent;}
+
+.glass{background:var(--glass); border:1px solid var(--border); border-radius:18px; backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+  box-shadow:var(--shadow), inset 0 1px 0 #ffffff12; transition:transform .35s, box-shadow .35s, background .4s, border .4s;}
+
+header{position:sticky; top:0; z-index:200; display:flex; align-items:center; justify-content:space-between; padding:14px 26px;
+  background:rgba(4,5,15,.75); backdrop-filter:blur(18px); border-bottom:1px solid var(--border); flex-wrap:wrap; gap:10px; transition:background .4s;}
+[data-theme="light"] header{background:rgba(255,255,255,.8);}
+.brand{display:flex; align-items:center; gap:12px;}
+.brand img{width:44px; height:44px; border-radius:10px; object-fit:cover; border:2px solid var(--neon-blue); box-shadow:0 0 18px #3ea6ff88;}
+.logo-fallback{width:44px; height:44px; border-radius:10px; display:flex; align-items:center; justify-content:center;
+  background:linear-gradient(135deg,var(--neon-blue),#1f3d8c); font-weight:900; font-size:12px; border:2px solid var(--cyan); color:#fff;}
+.brand-text .name{font-weight:900; font-size:18px; color:var(--cyan); letter-spacing:.5px;}
+.brand-text .tag{font-size:11px; color:var(--dim); font-weight:600;}
+nav{display:flex; gap:5px; overflow-x:auto; max-width:52vw;}
+nav::-webkit-scrollbar{height:4px;}
+nav a{color:var(--dim); text-decoration:none; font-size:11.5px; padding:6px 11px; border-radius:16px; border:1px solid transparent; transition:.2s; font-weight:700; white-space:nowrap;}
+nav a:hover{color:var(--heading); border-color:var(--neon-blue); background:#3ea6ff1a;}
+.theme-btn{flex-shrink:0; width:40px; height:40px; border-radius:12px; border:1px solid var(--border); background:var(--glass-strong);
+  color:var(--text); font-size:17px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:.25s;}
+.theme-btn:hover{border-color:var(--neon-blue); transform:translateY(-2px);}
+
+.hero{position:relative; padding:60px 6vw 40px; text-align:center;}
+.eyebrow{display:inline-block; padding:7px 22px; border-radius:30px; color:#04050f; font-size:12px; font-weight:900;
+  letter-spacing:2px; text-transform:uppercase; margin-bottom:20px;
+  background:linear-gradient(120deg,var(--gold),var(--orange),var(--pink),var(--purple),var(--cyan));
+  box-shadow:0 10px 26px -6px #000b;}
+.hero h1{font-size:clamp(26px,5.5vw,48px); font-weight:900; line-height:1.25;
+  background:linear-gradient(90deg,var(--neon-blue),var(--cyan) 35%,var(--purple) 65%,var(--pink)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+.hero .en{font-size:16px; color:var(--dim); font-weight:700; margin-top:10px;}
+.hero p{color:var(--dim); max-width:760px; margin:20px auto 0; font-size:14.5px; line-height:1.9; font-weight:500;}
+
+section{position:relative; padding:44px 6vw; max-width:1200px; margin:0 auto;}
+.sec-head{display:flex; align-items:center; gap:14px; margin-bottom:24px;}
+.sec-num{width:44px; height:44px; border-radius:14px; flex-shrink:0; display:flex; align-items:center; justify-content:center;
+  font-weight:900; font-size:16px; color:#04050f; box-shadow:0 8px 22px -6px var(--glow,#3ea6ff99); border:2px solid #ffffffaa;}
+.sec-head h2{font-size:clamp(19px,3vw,26px); font-weight:900; color:var(--heading);}
+.sec-head .sub{color:var(--dim); font-size:12.5px; font-weight:600; margin-top:2px;}
+.sec-head .en-tag{font-size:11px; color:var(--gold); font-weight:700; letter-spacing:.5px;}
+
+.card{padding:20px 22px;}
+.grid{display:grid; gap:16px;}
+.grid-2{grid-template-columns:1fr 1fr;} .grid-3{grid-template-columns:repeat(3,1fr);}
+@media(max-width:900px){.grid-3{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.grid-2,.grid-3{grid-template-columns:1fr;} nav{max-width:100%;}}
+
+b.hi{color:var(--pink); font-weight:900;} b.hi2{color:var(--green); font-weight:900;} b.hi3{color:var(--gold); font-weight:900;}
+.eng-term{color:var(--cyan); font-style:italic; font-weight:700;}
+
+.rule-card{padding:20px; border-left:5px solid var(--neon-blue);}
+.rule-card h4{font-size:15px; color:var(--cyan); font-weight:900; margin-bottom:8px;}
+.rule-card p{font-size:13px; color:var(--dim); line-height:1.8; font-weight:500;}
+
+.def-card{padding:18px 20px; border-radius:16px;}
+.def-card h4{font-size:14.5px; margin-bottom:8px; display:flex; align-items:center; gap:8px; font-weight:900;}
+.def-card p{font-size:12.5px; color:var(--dim); line-height:1.75; font-weight:500;}
+
+.example-card{padding:18px 20px; margin-bottom:14px;}
+.example-card .qlabel{font-size:11px; font-weight:900; color:var(--gold); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;}
+.example-card .qtext{font-size:13.5px; font-weight:700; color:var(--heading); margin-bottom:14px; line-height:1.7;}
+.example-card .slabel{font-size:11px; font-weight:900; color:var(--green); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;}
+.example-card .stext{font-size:13px; color:var(--dim); line-height:1.9; font-weight:500; background:var(--glass-strong); padding:12px 14px; border-radius:10px; white-space:pre-line;}
+.show-ans-btn{padding:9px 20px; border-radius:10px; border:1.5px solid var(--green); background:transparent; color:var(--green);
+  font-weight:800; font-size:12px; cursor:pointer; transition:.2s;}
+.show-ans-btn:hover{background:var(--green); color:#04050f;}
+.show-ans-btn.open{background:var(--green); color:#04050f;}
+.ans-wrap{margin-top:14px; display:none;}
+.ans-wrap.open{display:block;}
+
+.hw-card{padding:18px 20px;}
+.hw-card ol{margin:0; padding-left:20px; font-size:13px; color:var(--dim); line-height:2; font-weight:500;}
+.hw-card ol li{margin-bottom:8px;}
+.hw-card ol li::marker{color:var(--heading); font-weight:800;}
+
+.table-wrap{overflow-x:auto;}
+table{width:100%; border-collapse:collapse; min-width:500px;}
+thead th{text-align:center; padding:12px 14px; background:linear-gradient(120deg,var(--neon-blue),var(--purple)); color:#fff;
+  font-size:12px; text-transform:uppercase; letter-spacing:.5px; font-weight:900;}
+thead th:first-child{border-radius:10px 0 0 0;} thead th:last-child{border-radius:0 10px 0 0;}
+tbody td{padding:12px 14px; border-bottom:1px solid var(--border); color:var(--dim); font-size:12.5px; text-align:center; font-weight:600;}
+tbody tr:hover{background:#3ea6ff14;}
+
+footer{text-align:center; padding:50px 6vw 70px; color:var(--dim); font-size:12.5px; border-top:1px solid var(--border); margin-top:30px; font-weight:600;}
+footer .name{color:var(--cyan); font-weight:900; font-size:16px;}
+footer .copy{margin-top:18px; font-size:11px; color:var(--dim); opacity:.8;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <img src="images/1000043468.png" alt="PK STUDY" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="logo-fallback" style="display:none;">PK</div>
+    <div class="brand-text"><div class="name">PK STUDY</div><div class="tag">Class 10 • Maths • Chapter 9</div></div>
+  </div>
+  <nav>
+    <a href="#notes">नोट्स</a><a href="#formulas">सूत्र</a><a href="#ncert">NCERT प्रश्न</a>
+    <a href="#extra">अतिरिक्त प्रश्न</a><a href="#homework">होमवर्क</a>
+  </nav>
+  <button class="theme-btn" id="themeToggle" onclick="toggleTheme()" title="Dark/Light Mode">🌙</button>
+</header>
+
+<!-- ============ HERO ============ -->
+<div class="hero">
+  <span class="eyebrow">कक्षा 10 · अध्याय 9 · त्रिकोणमिति के अनुप्रयोग</span>
+  <h1>ऊँचाई और दूरी</h1>
+  <div class="en">Height and Distance — Some Applications of Trigonometry</div>
+  <p>इस अध्याय में त्रिकोणमितीय अनुपातों (sin, cos, tan) का इस्तेमाल करके किसी मीनार, इमारत, पेड़ या पहाड़ की ऊँचाई और उससे दूरी निकाली जाती है। इस पेज में Notes, ज़रूरी Formula, NCERT Exercise 9.1 के सभी 16 प्रश्न हल सहित, कुछ अतिरिक्त महत्वपूर्ण प्रश्न, और Homework दिया गया है।</p>
+</div>
+
+<!-- ============ NOTES ============ -->
+<section id="notes">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--neon-blue),#1f6fc9); --glow:#3ea6ff99;">📝</div>
+    <div><h2>Notes — कैसे हल करें</h2><div class="sub en-tag">Concept Notes with Examples</div></div></div>
+  <div class="glass card" style="display:flex; flex-direction:column; gap:16px;">
+    <div class="rule-card" style="border-left-color:var(--cyan);">
+      <h4 style="color:var(--cyan);">1. Line of Sight और Angle of Elevation</h4>
+      <p>प्रेक्षक की आँख से वस्तु तक की रेखा <b class="hi">Line of Sight</b> कहलाती है। जब वस्तु ऊपर हो और प्रेक्षक नीचे हो, तो Horizontal Line से ऊपर बना कोण <b class="hi">Angle of Elevation</b> कहलाता है।<br><br>
+      <b>उदाहरण:</b> अगर कोई व्यक्ति ज़मीन पर खड़ा होकर 30 m दूर एक मीनार के शिखर को 30° के कोण पर देखता है, तो यह 30° Angle of Elevation है, और मीनार की ऊँचाई = 30 × tan 30° = 30/√3 = <b class="hi3">10√3 m</b> होगी।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--pink);">
+      <h4 style="color:var(--pink);">2. Angle of Depression</h4>
+      <p>जब प्रेक्षक ऊँचाई पर हो (जैसे छत पर) और वस्तु नीचे हो, तो Horizontal Line से नीचे बना कोण <b class="hi">Angle of Depression</b> कहलाता है। एक ज़रूरी नियम — अगर दो जगहों से एक-दूसरे को देखा जाए, तो दोनों के angles बराबर होते हैं (alternate angles, क्योंकि horizontal lines parallel होती हैं)।<br><br>
+      <b>उदाहरण:</b> 20 m ऊँची छत से अगर एक कार का Angle of Depression 45° है, तो कार की दूरी = 20/tan 45° = <b class="hi3">20 m</b> होगी (क्योंकि tan 45° = 1)।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--green);">
+      <h4 style="color:var(--green);">3. Right Triangle और सही Ratio चुनना</h4>
+      <p>Height, Distance और Line of Sight से हमेशा एक Right Triangle बनता है। अगर सिर्फ़ Height और Distance से मतलब है, तो <b class="hi2">tan θ = Height/Distance</b> इस्तेमाल करो। अगर Line of Sight (hypotenuse) भी दिया हो, तो Height के लिए <b class="hi2">sin θ</b> और Distance के लिए <b class="hi2">cos θ</b> इस्तेमाल करो।<br><br>
+      <b>उदाहरण:</b> अगर पतंग की डोर (hypotenuse) 100 m है और कोण 60° है, तो पतंग की ऊँचाई = 100 × sin 60° = 100 × √3/2 = <b class="hi3">50√3 m</b>।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--orange);">
+      <h4 style="color:var(--orange);">4. Standard Angles के मान याद रखना</h4>
+      <p>0°, 30°, 45°, 60°, 90° के sin, cos, tan के मान बार-बार इस्तेमाल होते हैं (नीचे Formula Sheet में तालिका देखें) — इन्हें ज़ुबानी याद रखे बिना कोई भी प्रश्न हल नहीं हो सकता।<br><br>
+      <b>उदाहरण:</b> tan 60° = √3 है, इसलिए अगर distance 10 m और angle 60° हो, तो height = 10 × √3 = <b class="hi3">10√3 m</b>।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--purple);">
+      <h4 style="color:var(--purple);">5. Two-Point Problems हल करने का तरीका</h4>
+      <p>जब दो अलग-अलग स्थानों या स्थितियों से angle दिया गया हो (जैसे मीनार की ओर आगे बढ़ने पर कोण बदलना, या दो जगहों से दो अलग building देखना), तो हर स्थिति के लिए अलग समीकरण बनाओ जिसमें Height (या कोई और unknown) common हो, फिर दोनों समीकरणों को एक साथ हल करो।<br><br>
+      <b>उदाहरण:</b> अगर मीनार से x दूरी पर कोण 60° है और (x+20) दूरी पर कोण 30° है, तो h = x·tan60° और h = (x+20)·tan30° — इन दोनों को बराबर रखकर x और h दोनों निकाले जा सकते हैं।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--gold);">
+      <h4 style="color:var(--gold);">6. Diagram बनाना क्यों ज़रूरी है</h4>
+      <p>हर प्रश्न शुरू करने से पहले एक साफ़-सुथरा diagram बनाओ, जिसमें Height, Distance, Angle और सारी दी गई जानकारी सही जगह लिखी हो — इससे सही Right Triangle और सही Ratio चुनना आसान हो जाता है, और calculation में गलती की संभावना कम हो जाती है, खासकर उन प्रश्नों में जहाँ building और tower दोनों साथ हों (जैसे नीचे NCERT प्रश्न 7, 8, 12)।</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FORMULA SHEET ============ -->
+<section id="formulas">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--purple),#7e4fd1); --glow:#b07dff99;">🧮</div>
+    <div><h2>ज़रूरी सूत्र (Important Formulas)</h2><div class="sub en-tag">Key Formulas to Remember</div></div></div>
+  <div class="grid grid-3" id="formulaSheetGrid" style="margin-bottom:20px;"></div>
+  <div class="glass card table-wrap">
+    <table>
+      <thead><tr><th>θ</th><th>0°</th><th>30°</th><th>45°</th><th>60°</th><th>90°</th></tr></thead>
+      <tbody>
+        <tr><td>sin θ</td><td>0</td><td>1/2</td><td>1/√2</td><td>√3/2</td><td>1</td></tr>
+        <tr><td>cos θ</td><td>1</td><td>√3/2</td><td>1/√2</td><td>1/2</td><td>0</td></tr>
+        <tr><td>tan θ</td><td>0</td><td>1/√3</td><td>1</td><td>√3</td><td>अपरिभाषित</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ NCERT QUESTIONS ============ -->
+<section id="ncert">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--green),#1a9c70); --glow:#2ee6a699;">📘</div>
+    <div><h2>NCERT Exercise 9.1 — सभी 16 प्रश्न (हल सहित)</h2><div class="sub en-tag">Complete NCERT Exercise with Full Solutions</div></div></div>
+  <div id="ncertWrap"></div>
+</section>
+
+<!-- ============ ADDITIONAL IMPORTANT QUESTIONS ============ -->
+<section id="extra">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--orange),#c9650c); --glow:#ff9f4399;">⭐</div>
+    <div><h2>अतिरिक्त महत्वपूर्ण प्रश्न</h2><div class="sub en-tag">Additional Important Questions (Beyond NCERT)</div></div></div>
+  <div id="extraWrap"></div>
+</section>
+
+<!-- ============ HOMEWORK ============ -->
+<section id="homework">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--red),#a82424); --glow:#ff4f4f99;">🏠</div>
+    <div><h2>घर से करने के लिए Homework</h2><div class="sub en-tag">Notebook Exercise — बिना हल देखे खुद हल करें</div></div></div>
+  <div class="glass card hw-card">
+    <ol id="homeworkList"></ol>
+  </div>
+  <p style="color:var(--dim); font-size:12px; margin-top:14px; font-weight:600;">हर प्रश्न का diagram बनाकर अपनी Maths की notebook में हल कीजिए और अगली कक्षा में साथ लाइए।</p>
+</section>
+
+<footer>
+  <span class="name">PK STUDY</span> — Chapter 9 Complete
+  <div class="copy">Class 10 · Maths · Height and Distance — PK STUDY, All Copyright Reserved</div>
+</footer>
+
+<script>
+function toggleTheme(){
+  const html = document.documentElement;
+  const isLight = html.getAttribute('data-theme') === 'light';
+  html.setAttribute('data-theme', isLight ? '' : 'light');
+  document.getElementById('themeToggle').textContent = isLight ? '🌙' : '☀️';
+}
+function el(tag, cls, html){ const d=document.createElement(tag); if(cls)d.className=cls; if(html!==undefined)d.innerHTML=html; return d; }
+
+const formulaSheetData = [
+  {t:"tan θ", d:"= Height / Distance (लंबवत/आधार)", c:"var(--cyan)"},
+  {t:"sin θ", d:"= Height / Hypotenuse (लंबवत/कर्ण)", c:"var(--pink)"},
+  {t:"cos θ", d:"= Distance / Hypotenuse (आधार/कर्ण)", c:"var(--green)"},
+  {t:"Elevation = Depression", d:"जब दोनों lines parallel हों, alternate angles के कारण", c:"var(--orange)"},
+  {t:"Pythagoras Theorem", d:"Hypotenuse² = Height² + Distance²", c:"var(--purple)"},
+  {t:"तय क्रम", d:"हमेशा diagram बनाओ → Right Triangle पहचानो → सही ratio चुनो → हल करो", c:"var(--gold)"}
+];
+
+const ncertData = [
+  {q:"1. एक सर्कस कलाकार 20 m लंबी रस्सी पर चढ़ रहा है, जो एक ऊर्ध्वाधर खंभे के शीर्ष से ज़मीन तक तनी हुई बँधी है। यदि रस्सी ज़मीन के साथ 30° का कोण बनाती है, तो खंभे की ऊँचाई ज्ञात कीजिए।",
+   s:"रस्सी = कर्ण (Hypotenuse) = 20 m, कोण = 30°\nsin 30° = ऊँचाई / 20\n1/2 = h / 20\nh = 10 m\n\nउत्तर: खंभे की ऊँचाई 10 m है।"},
+  {q:"2. तूफ़ान के कारण एक पेड़ इस तरह टूटा कि टूटा हुआ भाग मुड़कर पेड़ का शीर्ष ज़मीन को 30° का कोण बनाते हुए छूता है। पेड़ के आधार से उस बिंदु की दूरी जहाँ शीर्ष ज़मीन को छूता है, 8 m है। पेड़ की ऊँचाई ज्ञात कीजिए।",
+   s:"शेष खड़ा भाग AB, टूटा हुआ भाग BC (कर्ण), आधार से दूरी AC = 8 m, कोण = 30°\ntan 30° = AB/8 → AB = 8/√3 = 8√3/3 m\ncos 30° = 8/BC → BC = 8/(√3/2) = 16/√3 = 16√3/3 m\nकुल ऊँचाई = AB + BC = 8√3/3 + 16√3/3 = 24√3/3 = 8√3 m\n\nउत्तर: पेड़ की मूल ऊँचाई 8√3 m (लगभग 13.86 m) थी।"},
+  {q:"3. एक ठेकेदार पार्क में दो फिसल-पट्टियाँ (slides) लगाना चाहता है। 5 वर्ष से छोटे बच्चों के लिए 1.5 m ऊँची और ज़मीन से 30° झुकी स्लाइड, और बड़े बच्चों के लिए 3 m ऊँची और 60° झुकी स्लाइड। दोनों स्लाइड की लंबाई ज्ञात कीजिए।",
+   s:"स्लाइड 1: sin 30° = 1.5/L₁ → L₁ = 1.5 ÷ (1/2) = 3 m\nस्लाइड 2: sin 60° = 3/L₂ → L₂ = 3 ÷ (√3/2) = 6/√3 = 2√3 m\n\nउत्तर: पहली स्लाइड की लंबाई 3 m और दूसरी की 2√3 m (लगभग 3.46 m) है।"},
+  {q:"4. ज़मीन पर एक बिंदु से, जो मीनार के आधार से 30 m दूर है, मीनार के शिखर का उन्नयन कोण 30° है। मीनार की ऊँचाई ज्ञात कीजिए।",
+   s:"tan 30° = h/30\n1/√3 = h/30\nh = 30/√3 = 10√3 m\n\nउत्तर: मीनार की ऊँचाई 10√3 m (लगभग 17.3 m) है।"},
+  {q:"5. एक पतंग ज़मीन से 60 m की ऊँचाई पर उड़ रही है। पतंग से बँधी डोर ज़मीन से 60° का कोण बनाती है। डोर की लंबाई ज्ञात कीजिए (डोर में कोई ढील नहीं है)।",
+   s:"sin 60° = 60/L\n√3/2 = 60/L\nL = 120/√3 = 40√3 m\n\nउत्तर: डोर की लंबाई 40√3 m (लगभग 69.3 m) है।"},
+  {q:"6. 1.5 m लंबा एक लड़का 30 m ऊँची इमारत से कुछ दूरी पर खड़ा है। इमारत की ओर चलने पर उसकी आँखों से इमारत के शिखर का उन्नयन कोण 30° से बढ़कर 60° हो जाता है। उसके द्वारा तय की गई दूरी ज्ञात कीजिए।",
+   s:"आँख के स्तर से प्रभावी ऊँचाई = 30 − 1.5 = 28.5 m\nदूर बिंदु (30°): tan 30° = 28.5/d₁ → d₁ = 28.5√3\nपास बिंदु (60°): tan 60° = 28.5/d₂ → d₂ = 28.5/√3 = 9.5√3\nतय की गई दूरी = d₁ − d₂ = 28.5√3 − 9.5√3 = 19√3 m\n\nउत्तर: लड़के ने 19√3 m (लगभग 32.9 m) दूरी तय की।"},
+  {q:"7. ज़मीन के एक बिंदु से, एक 20 m ऊँची इमारत पर लगे transmission tower के आधार और शिखर के उन्नयन कोण क्रमशः 45° और 60° हैं। Tower की ऊँचाई ज्ञात कीजिए।",
+   s:"बिंदु से दूरी: tan 45° = 20/d → d = 20 m\nइमारत+tower की कुल ऊँचाई: tan 60° = (20+h)/20\n√3 = (20+h)/20 → 20+h = 20√3 → h = 20√3 − 20 = 20(√3−1) m\n\nउत्तर: Tower की ऊँचाई 20(√3−1) m (लगभग 14.64 m) है।"},
+  {q:"8. एक 1.6 m ऊँची मूर्ति एक चबूतरे (pedestal) पर खड़ी है। ज़मीन के एक बिंदु से मूर्ति के शिखर का उन्नयन कोण 60° है और उसी बिंदु से चबूतरे के शिखर का उन्नयन कोण 45° है। चबूतरे की ऊँचाई ज्ञात कीजिए।",
+   s:"माना चबूतरे की ऊँचाई p, दूरी d\ntan 45° = p/d → d = p\ntan 60° = (p+1.6)/d = (p+1.6)/p = √3\np+1.6 = √3p → 1.6 = p(√3−1)\np = 1.6/(√3−1) = 0.8(√3+1) m\n\nउत्तर: चबूतरे की ऊँचाई 0.8(√3+1) m (लगभग 2.19 m) है।"},
+  {q:"9. एक मीनार के आधार से एक इमारत के शिखर का उन्नयन कोण 30° है, और इमारत के आधार से मीनार के शिखर का उन्नयन कोण 60° है। यदि मीनार 50 m ऊँची है, तो इमारत की ऊँचाई ज्ञात कीजिए।",
+   s:"दूरी: tan 60° = 50/d → d = 50/√3\nइमारत की ऊँचाई: tan 30° = b/d\nb = d × tan 30° = (50/√3) × (1/√3) = 50/3 m\n\nउत्तर: इमारत की ऊँचाई 50/3 m (लगभग 16.67 m) है।"},
+  {q:"10. एक 80 m चौड़ी सड़क के आमने-सामने बराबर ऊँचाई के दो खंभे खड़े हैं। सड़क के बीच के एक बिंदु से दोनों खंभों के शिखर के उन्नयन कोण क्रमशः 60° और 30° हैं। खंभों की ऊँचाई और बिंदु की खंभों से दूरी ज्ञात कीजिए।",
+   s:"माना बिंदु एक खंभे से x दूर है, दूसरे से (80−x)\ntan 60° = h/x → h = x√3\ntan 30° = h/(80−x) → h = (80−x)/√3\nx√3 = (80−x)/√3 → 3x = 80−x → 4x = 80 → x = 20\nh = 20√3 m\n\nउत्तर: खंभों की ऊँचाई 20√3 m (लगभग 34.6 m) है, बिंदु की दूरी 20 m और 60 m है।"},
+  {q:"11. एक नहर के किनारे एक TV tower खड़ा है। दूसरे किनारे के ठीक सामने वाले बिंदु से tower के शिखर का उन्नयन कोण 60° है। इसी रेखा में tower से 20 m और दूर एक बिंदु से उन्नयन कोण 30° है। Tower की ऊँचाई और नहर की चौड़ाई ज्ञात कीजिए।",
+   s:"माना नहर की चौड़ाई d, ऊँचाई h\ntan 60° = h/d → h = d√3\ntan 30° = h/(d+20) → h = (d+20)/√3\nd√3 = (d+20)/√3 → 3d = d+20 → 2d = 20 → d = 10\nh = 10√3 m\n\nउत्तर: Tower की ऊँचाई 10√3 m (लगभग 17.3 m) और नहर की चौड़ाई 10 m है।"},
+  {q:"12. एक 7 m ऊँची इमारत के शिखर से, एक cable tower के शिखर का उन्नयन कोण 60° है और उसके आधार का अवनमन कोण 45° है। Tower की ऊँचाई ज्ञात कीजिए।",
+   s:"दूरी: tan 45° = 7/d → d = 7 m\nTower के शिखर की ऊँचाई (H, ज़मीन से): tan 60° = (H−7)/7\n√3 = (H−7)/7 → H−7 = 7√3 → H = 7+7√3 = 7(1+√3) m\n\nउत्तर: Cable tower की ऊँचाई 7(1+√3) m (लगभग 19.12 m) है।"},
+  {q:"13. समुद्र-तल से 75 m ऊँचे एक lighthouse से देखने पर दो जहाज़ों के अवनमन कोण 30° और 45° हैं। यदि एक जहाज़ ठीक दूसरे के पीछे लाइटहाउस की एक ही दिशा में हो, तो दोनों जहाज़ों के बीच की दूरी ज्ञात कीजिए।",
+   s:"पास वाला जहाज़ (45°): tan 45° = 75/d₁ → d₁ = 75 m\nदूर वाला जहाज़ (30°): tan 30° = 75/d₂ → d₂ = 75√3 m\nदोनों के बीच दूरी = d₂ − d₁ = 75√3 − 75 = 75(√3−1) m\n\nउत्तर: जहाज़ों के बीच की दूरी 75(√3−1) m (लगभग 54.9 m) है।"},
+  {q:"14. 1.2 m लंबी एक लड़की ज़मीन से 88.2 m ऊँचाई पर क्षैतिज रेखा में उड़ते एक गुब्बारे को देखती है। किसी क्षण उन्नयन कोण 60° है, कुछ समय बाद यह घटकर 30° हो जाता है। इस दौरान गुब्बारे द्वारा तय की गई दूरी ज्ञात कीजिए।",
+   s:"आँख के स्तर से प्रभावी ऊँचाई = 88.2 − 1.2 = 87 m\n60° पर दूरी: d₁ = 87/√3 = 29√3\n30° पर दूरी: d₂ = 87√3\nतय की गई दूरी = d₂ − d₁ = 87√3 − 29√3 = 58√3 m\n\nउत्तर: गुब्बारे ने 58√3 m (लगभग 100.5 m) दूरी तय की।"},
+  {q:"15. एक सीधा राजमार्ग एक मीनार के आधार तक जाता है। मीनार के शिखर पर खड़ा एक व्यक्ति एक कार को 30° के अवनमन कोण पर देखता है, जो एकसमान चाल से मीनार की ओर आ रही है। 6 सेकंड बाद अवनमन कोण 60° हो जाता है। इस बिंदु से कार को मीनार के आधार तक पहुँचने में लगा समय ज्ञात कीजिए।",
+   s:"माना मीनार की ऊँचाई h\n30° पर दूरी: d₁ = h√3\n60° पर दूरी: d₂ = h/√3\n6 सेकंड में तय दूरी = d₁ − d₂ = h√3 − h/√3 = 2h/√3\nचाल = (2h/√3) ÷ 6 = h/(3√3)\nशेष दूरी d₂ तय करने में समय = d₂ ÷ चाल = (h/√3) ÷ (h/3√3) = 3 सेकंड\n\nउत्तर: कार को आधार तक पहुँचने में 3 सेकंड और लगेंगे।"},
+  {q:"16. एक मीनार के आधार से एक ही सरल रेखा में स्थित दो बिंदुओं, जो आधार से क्रमशः 4 m और 9 m दूर हैं, से मीनार के शिखर के उन्नयन कोण परस्पर पूरक (complementary) हैं। सिद्ध कीजिए कि मीनार की ऊँचाई 6 m है।",
+   s:"माना ऊँचाई h, पास बिंदु (4 m) पर कोण θ, तो tan θ = h/4\nदूर बिंदु (9 m) पर कोण (90°−θ), तो tan(90°−θ) = cot θ = h/9\ncot θ = 1/tan θ = 4/h\nइसलिए 4/h = h/9 → h² = 36 → h = 6 m\n\nसिद्ध: मीनार की ऊँचाई 6 m है। ✔"}
+];
+
+const extraData = [
+  {q:"1. एक मीनार की छाया ज़मीन पर पड़ती है। जब सूर्य का उन्नयन कोण 60° से घटकर 30° हो जाता है, तो छाया 40 m लंबी हो जाती है। मीनार की ऊँचाई ज्ञात कीजिए।",
+   s:"माना ऊँचाई h, 60° पर छाया की लंबाई x\ntan 60° = h/x → h = x√3\ntan 30° = h/(x+40) → h = (x+40)/√3\nx√3 = (x+40)/√3 → 3x = x+40 → x = 20\nh = 20√3 m\n\nउत्तर: मीनार की ऊँचाई 20√3 m (लगभग 34.6 m) है।"},
+  {q:"2. एक 15 m लंबी सीढ़ी दीवार के साथ 60° का कोण बनाती है। सीढ़ी दीवार पर कितनी ऊँचाई तक पहुँचती है?",
+   s:"यहाँ कोण दीवार (लंबवत भुजा) से मापा गया है, इसलिए ऊँचाई = कर्ण × cos 60°\nऊँचाई = 15 × (1/2) = 7.5 m\n\nउत्तर: सीढ़ी दीवार पर 7.5 m की ऊँचाई तक पहुँचती है।"},
+  {q:"3. एक पहाड़ की चोटी से पूर्व दिशा में लगातार दो किलोमीटर-पत्थरों के अवनमन कोण 30° और 45° पाए जाते हैं। पहाड़ की ऊँचाई ज्ञात कीजिए।",
+   s:"माना ऊँचाई h km, पास वाला पत्थर d km दूर\ntan 45° = h/d → d = h\nदूर वाला पत्थर (d+1) km दूर: tan 30° = h/(d+1)\nh√3 = d+1 = h+1 → h(√3−1) = 1 → h = 1/(√3−1) = (√3+1)/2 km\n\nउत्तर: पहाड़ की ऊँचाई (√3+1)/2 km (लगभग 1.37 km) है।"},
+  {q:"4. एक 1.5 m लंबी प्रेक्षक 28.5 m दूर खड़ी होकर एक चिमनी के शिखर को 45° के उन्नयन कोण पर देखती है। चिमनी की ऊँचाई ज्ञात कीजिए।",
+   s:"आँख के स्तर से ऊपर की ऊँचाई: tan 45° = h'/28.5 → h' = 28.5 m (चूँकि tan 45° = 1)\nकुल ऊँचाई = h' + 1.5 = 28.5 + 1.5 = 30 m\n\nउत्तर: चिमनी की ऊँचाई 30 m है।"},
+  {q:"5. एक 75 m ऊँची इमारत से 30 m दूर सड़क के दोनों तरफ़ दो व्यक्ति खड़े हैं और इमारत के शिखर का उन्नयन कोण क्रमशः 30° और 60° है (दोनों इमारत के विपरीत दिशा में)। दोनों व्यक्तियों के बीच की दूरी ज्ञात कीजिए।",
+   s:"पहला व्यक्ति (30°): tan 30° = 75/d₁ → d₁ = 75√3\nदूसरा व्यक्ति (60°): tan 60° = 75/d₂ → d₂ = 75/√3 = 25√3\nदोनों विपरीत दिशा में हैं, इसलिए दूरी = d₁ + d₂ = 75√3 + 25√3 = 100√3 m\n\nउत्तर: दोनों व्यक्तियों के बीच की दूरी 100√3 m (लगभग 173.2 m) है।"},
+  {q:"6. एक 100 m ऊँची मीनार के शिखर से एक व्यक्ति मीनार की एक ही दिशा में दो कारों को क्रमशः 45° और 30° के अवनमन कोण पर देखता है। दोनों कारों के बीच की दूरी ज्ञात कीजिए।",
+   s:"पास वाली कार (45°): tan 45° = 100/d₁ → d₁ = 100 m\nदूर वाली कार (30°): tan 30° = 100/d₂ → d₂ = 100√3 m\nदोनों के बीच दूरी = d₂ − d₁ = 100√3 − 100 = 100(√3−1) m\n\nउत्तर: दोनों कारों के बीच की दूरी 100(√3−1) m (लगभग 73.2 m) है।"}
+];
+
+const homeworkData = [
+  "एक मीनार से 50 m दूर खड़े व्यक्ति को मीनार के शिखर का उन्नयन कोण 60° है। मीनार की ऊँचाई ज्ञात कीजिए।",
+  "एक 18 m ऊँची छत से एक साइकिल का अवनमन कोण 30° है। साइकिल छत के आधार से कितनी दूर है?",
+  "एक पतंग की डोर ज़मीन से 45° का कोण बनाती है और उसकी लंबाई 40√2 m है। पतंग की ऊँचाई ज्ञात कीजिए।",
+  "एक व्यक्ति 45 m ऊँची चट्टान पर खड़ा होकर समुद्र में एक जहाज़ को 30° के अवनमन कोण पर देखता है। जहाज़ की चट्टान के आधार से दूरी ज्ञात कीजिए।",
+  "एक मीनार के आधार से एक बिंदु पर उन्नयन कोण 45° है। मीनार की ओर 10 m आगे बढ़ने पर उन्नयन कोण 60° हो जाता है। मीनार की ऊँचाई ज्ञात कीजिए।",
+  "दो बराबर ऊँचाई की इमारतें एक 60 m चौड़ी सड़क के आमने-सामने हैं। सड़क के बीच के एक बिंदु से दोनों इमारतों के शिखर के उन्नयन कोण 30° और 60° हैं। इमारतों की ऊँचाई और बिंदु की दोनों इमारतों से दूरी ज्ञात कीजिए।",
+  "अपने घर के पास किसी खंभे या पेड़ से एक निश्चित दूरी पर खड़े होकर protractor से उसका उन्नयन कोण नापिए, फिर trigonometry से उसकी ऊँचाई निकालिए। संभव हो तो मापने वाले टेप से असली ऊँचाई नापकर दोनों values compare कीजिए। (Practical Activity)"
+];
+
+function buildFormulaSheet(){
+  const g = document.getElementById('formulaSheetGrid');
+  formulaSheetData.forEach(f=>{ const d=el('div','glass def-card', `<h4 style="color:${f.c}">🧮 ${f.t}</h4><p>${f.d}</p>`); g.appendChild(d); });
+}
+function buildQA(containerId, data, labelPrefix){
+  const wrap = document.getElementById(containerId);
+  data.forEach((item)=>{
+    const d = el('div','glass example-card', `<div class="qlabel">${labelPrefix}</div><div class="qtext">${item.q}</div>
+      <button class="show-ans-btn" onclick="toggleAnswer(this)">उत्तर दिखाएँ (Show Answer)</button>
+      <div class="ans-wrap"><div class="slabel">हल (Solution)</div><div class="stext">${item.s}</div></div>`);
+    wrap.appendChild(d);
+  });
+}
+function toggleAnswer(btn){
+  const wrap = btn.nextElementSibling;
+  const isOpen = wrap.classList.toggle('open');
+  btn.classList.toggle('open', isOpen);
+  btn.textContent = isOpen ? 'उत्तर छुपाएँ (Hide Answer)' : 'उत्तर दिखाएँ (Show Answer)';
+}
+function buildHomework(){
+  const g = document.getElementById('homeworkList');
+  homeworkData.forEach(q=>{ const li = document.createElement('li'); li.textContent = q; g.appendChild(li); });
+}
+
+buildFormulaSheet();
+buildQA('ncertWrap', ncertData, 'NCERT प्रश्न');
+buildQA('extraWrap', extraData, 'अतिरिक्त प्रश्न');
+buildHomework();
+</script>
+</body>
+</html>

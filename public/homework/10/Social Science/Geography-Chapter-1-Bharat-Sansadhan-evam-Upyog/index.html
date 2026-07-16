@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PK STUDY | भारत: संसाधन एवं उपयोग</title>
+<style>
+:root{
+  --bg:#04050f; --glass:rgba(255,255,255,.045); --glass-strong:rgba(255,255,255,.08);
+  --border:rgba(255,255,255,.12); --text:#f2f6ff; --dim:#9fb0da; --heading:#ffffff;
+  --neon-blue:#3ea6ff; --cyan:#33e0ff; --purple:#b07dff; --gold:#ffc233;
+  --green:#2ee6a6; --orange:#ff9f43; --pink:#ff4d8d; --red:#ff4f4f;
+  --shadow:0 22px 46px -22px #000d; --hshadow:0 30px 56px -20px #000f;
+}
+[data-theme="light"]{
+  --bg:#f6f8fd; --glass:rgba(20,30,65,.045); --glass-strong:rgba(20,30,65,.08);
+  --border:rgba(20,30,65,.12); --text:#161c33; --dim:#535f82; --heading:#12172b;
+  --neon-blue:#2563eb; --cyan:#0891b2; --purple:#7c3aed; --gold:#b45309;
+  --green:#059669; --orange:#c2410c; --pink:#db2777; --red:#dc2626;
+  --shadow:0 18px 36px -20px rgba(30,40,80,.18); --hshadow:0 24px 44px -18px rgba(30,40,80,.24);
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Segoe UI','Noto Sans Devanagari',Arial,sans-serif; color:var(--text); min-height:100vh; overflow-x:hidden;
+  transition:background .4s, color .4s;
+  background:
+    radial-gradient(ellipse at 10% -10%, #1c3a9955, transparent 55%),
+    radial-gradient(ellipse at 95% 10%, #7a2ab866, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, #0a5a6e44, transparent 55%),
+    linear-gradient(180deg,#04050f,#020208 90%);
+}
+[data-theme="light"] body{
+  background:
+    radial-gradient(ellipse at 10% -10%, #dbe4ff99, transparent 55%),
+    radial-gradient(ellipse at 95% 10%, #ede0ff99, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, #d7f5f099, transparent 55%),
+    linear-gradient(180deg,#f8faff,#eef1f9 90%);
+}
+::-webkit-scrollbar{width:8px;} ::-webkit-scrollbar-thumb{background:var(--neon-blue); border-radius:6px;} ::-webkit-scrollbar-track{background:transparent;}
+
+.glass{background:var(--glass); border:1px solid var(--border); border-radius:18px; backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+  box-shadow:var(--shadow), inset 0 1px 0 #ffffff12;}
+
+header{position:sticky; top:0; z-index:200; display:flex; align-items:center; justify-content:space-between; padding:14px 26px;
+  background:rgba(4,5,15,.75); backdrop-filter:blur(18px); border-bottom:1px solid var(--border); flex-wrap:wrap; gap:10px; transition:background .4s;}
+[data-theme="light"] header{background:rgba(255,255,255,.8);}
+.brand{display:flex; align-items:center; gap:12px;}
+.brand img{width:44px; height:44px; border-radius:10px; object-fit:cover; border:2px solid var(--neon-blue); box-shadow:0 0 18px #3ea6ff88;}
+.logo-fallback{width:44px; height:44px; border-radius:10px; display:flex; align-items:center; justify-content:center;
+  background:linear-gradient(135deg,var(--neon-blue),#1f3d8c); font-weight:900; font-size:12px; border:2px solid var(--cyan); color:#fff;}
+.brand-text .name{font-weight:900; font-size:18px; color:var(--cyan); letter-spacing:.5px;}
+.brand-text .tag{font-size:11px; color:var(--dim); font-weight:600;}
+nav{display:flex; gap:5px; overflow-x:auto; max-width:52vw;}
+nav::-webkit-scrollbar{height:4px;}
+nav a{color:var(--dim); text-decoration:none; font-size:11.5px; padding:6px 11px; border-radius:16px; border:1px solid transparent; transition:.2s; font-weight:700; white-space:nowrap;}
+nav a:hover{color:var(--heading); border-color:var(--neon-blue); background:#3ea6ff1a;}
+.theme-btn{flex-shrink:0; width:40px; height:40px; border-radius:12px; border:1px solid var(--border); background:var(--glass-strong);
+  color:var(--text); font-size:17px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:.25s;}
+.theme-btn:hover{border-color:var(--neon-blue); transform:translateY(-2px);}
+
+.hero{position:relative; padding:60px 6vw 40px; text-align:center;}
+.eyebrow{display:inline-block; padding:7px 22px; border-radius:30px; color:#04050f; font-size:12px; font-weight:900;
+  letter-spacing:2px; text-transform:uppercase; margin-bottom:20px;
+  background:linear-gradient(120deg,var(--gold),var(--orange),var(--pink),var(--purple),var(--cyan));
+  box-shadow:0 10px 26px -6px #000b;}
+.hero h1{font-size:clamp(26px,5.5vw,48px); font-weight:900; line-height:1.25;
+  background:linear-gradient(90deg,var(--neon-blue),var(--cyan) 35%,var(--purple) 65%,var(--pink)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+.hero .en{font-size:16px; color:var(--dim); font-weight:700; margin-top:10px;}
+.hero p{color:var(--dim); max-width:760px; margin:20px auto 0; font-size:14.5px; line-height:1.9; font-weight:500;}
+
+section{position:relative; padding:44px 6vw; max-width:1200px; margin:0 auto;}
+.sec-head{display:flex; align-items:center; gap:14px; margin-bottom:24px;}
+.sec-num{width:44px; height:44px; border-radius:14px; flex-shrink:0; display:flex; align-items:center; justify-content:center;
+  font-weight:900; font-size:16px; color:#04050f; box-shadow:0 8px 22px -6px var(--glow,#3ea6ff99); border:2px solid #ffffffaa;}
+.sec-head h2{font-size:clamp(19px,3vw,26px); font-weight:900; color:var(--heading);}
+.sec-head .sub{color:var(--dim); font-size:12.5px; font-weight:600; margin-top:2px;}
+.sec-head .en-tag{font-size:11px; color:var(--gold); font-weight:700; letter-spacing:.5px;}
+
+.card{padding:20px 22px;}
+.grid{display:grid; gap:16px;}
+.grid-2{grid-template-columns:1fr 1fr;} .grid-3{grid-template-columns:repeat(3,1fr);}
+@media(max-width:900px){.grid-3{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.grid-2,.grid-3{grid-template-columns:1fr;} nav{max-width:100%;}}
+
+b.hi{color:var(--pink); font-weight:900;} b.hi2{color:var(--green); font-weight:900;} b.hi3{color:var(--gold); font-weight:900;}
+
+.rule-card{padding:20px; border-left:5px solid var(--neon-blue);}
+.rule-card h4{font-size:15px; color:var(--cyan); font-weight:900; margin-bottom:10px;}
+.rule-card p{font-size:13px; color:var(--dim); line-height:1.85; font-weight:500; margin-bottom:8px;}
+.rule-card ul{margin:6px 0 6px 20px; font-size:13px; color:var(--dim); line-height:1.9; font-weight:500;}
+.rule-card ul li{margin-bottom:4px;}
+
+.example-card{padding:18px 20px; margin-bottom:14px;}
+.example-card .qlabel{font-size:11px; font-weight:900; color:var(--gold); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;}
+.example-card .qtext{font-size:13.5px; font-weight:700; color:var(--heading); margin-bottom:14px; line-height:1.7;}
+.example-card .slabel{font-size:11px; font-weight:900; color:var(--green); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;}
+.example-card .stext{font-size:13px; color:var(--dim); line-height:1.9; font-weight:500; background:var(--glass-strong); padding:12px 14px; border-radius:10px; white-space:pre-line;}
+.show-ans-btn{padding:9px 20px; border-radius:10px; border:1.5px solid var(--green); background:transparent; color:var(--green);
+  font-weight:800; font-size:12px; cursor:pointer; transition:.2s;}
+.show-ans-btn:hover{background:var(--green); color:#04050f;}
+.show-ans-btn.open{background:var(--green); color:#04050f;}
+.ans-wrap{margin-top:14px; display:none;}
+.ans-wrap.open{display:block;}
+.pill{display:inline-block; padding:3px 10px; border-radius:10px; font-size:10px; font-weight:900; margin-left:8px; vertical-align:middle;}
+.pill-obj{background:linear-gradient(120deg,var(--cyan),#0a85b8); color:#04050f;}
+.pill-subj{background:linear-gradient(120deg,var(--purple),#7e4fd1); color:#fff;}
+
+.hw-card{padding:18px 20px;}
+.hw-card ol{margin:0; padding-left:20px; font-size:13px; color:var(--dim); line-height:2; font-weight:500;}
+.hw-card ol li{margin-bottom:8px;}
+.hw-card ol li::marker{color:var(--heading); font-weight:800;}
+
+.table-wrap{overflow-x:auto; margin-bottom:16px;}
+table{width:100%; border-collapse:collapse; min-width:560px;}
+thead th{text-align:center; padding:12px 14px; background:linear-gradient(120deg,var(--neon-blue),var(--purple)); color:#fff;
+  font-size:12px; text-transform:uppercase; letter-spacing:.5px; font-weight:900;}
+thead th:first-child{border-radius:10px 0 0 0;} thead th:last-child{border-radius:0 10px 0 0;}
+tbody td{padding:12px 14px; border-bottom:1px solid var(--border); color:var(--dim); font-size:12.5px; text-align:center; font-weight:600;}
+tbody tr:hover{background:#3ea6ff14;}
+
+footer{text-align:center; padding:50px 6vw 70px; color:var(--dim); font-size:12.5px; border-top:1px solid var(--border); margin-top:30px; font-weight:600;}
+footer .name{color:var(--cyan); font-weight:900; font-size:16px;}
+footer .copy{margin-top:18px; font-size:11px; color:var(--dim); opacity:.8;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <img src="images/1000043468.png" alt="PK STUDY" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="logo-fallback" style="display:none;">PK</div>
+    <div class="brand-text"><div class="name">PK STUDY</div><div class="tag">Class 10 • भूगोल • अध्याय 1</div></div>
+  </div>
+  <nav>
+    <a href="#notes">नोट्स</a><a href="#tables">महत्वपूर्ण तथ्य</a><a href="#questions">प्रश्न</a><a href="#homework">होमवर्क</a>
+  </nav>
+  <button class="theme-btn" id="themeToggle" onclick="toggleTheme()" title="Dark/Light Mode">🌙</button>
+</header>
+
+<!-- ============ HERO ============ -->
+<div class="hero">
+  <span class="eyebrow">कक्षा 10 · भूगोल · अध्याय 1 · बिहार बोर्ड</span>
+  <h1>भारत: संसाधन एवं उपयोग</h1>
+  <div class="en">India: Resources and Their Utilization</div>
+  <p>इस अध्याय में संसाधनों के प्रकार, भूमि एवं मृदा संसाधन, जल संसाधन, खनिज संसाधन और शक्ति (ऊर्जा) संसाधन के बारे में पढ़ेंगे। इस पेज में Notes, महत्वपूर्ण तथ्य-तालिकाएँ, Objective व Subjective महत्वपूर्ण प्रश्न (उत्तर सहित), और Homework दिया गया है।</p>
+</div>
+
+<!-- ============ NOTES ============ -->
+<section id="notes">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--neon-blue),#1f6fc9); --glow:#3ea6ff99;">📝</div>
+    <div><h2>Notes — अध्याय के मुख्य भाग</h2><div class="sub en-tag">Concept Notes, Section-wise</div></div></div>
+  <div class="glass card" style="display:flex; flex-direction:column; gap:16px;">
+    <div class="rule-card" style="border-left-color:var(--cyan);">
+      <h4 style="color:var(--cyan);">1(क). प्राकृतिक संसाधन (Natural Resources)</h4>
+      <p><b class="hi">संसाधन</b> — प्रकृति द्वारा प्रदत्त वे सभी वस्तुएँ जिनका उपयोग मनुष्य अपनी आवश्यकताओं की पूर्ति के लिए करता है, संसाधन कहलाती हैं — जैसे भूमि, मृदा, जल, वायु, खनिज, वनस्पति।</p>
+      <p><b>वर्गीकरण:</b></p>
+      <ul>
+        <li><b class="hi2">उत्पत्ति के आधार पर</b> — जैव संसाधन (मनुष्य, वनस्पति, मत्स्य, पशुधन) और अजैव संसाधन (चट्टानें, धातु, खनिज)</li>
+        <li><b class="hi2">समाप्यता के आधार पर</b> — नवीकरणीय (सौर ऊर्जा, पवन ऊर्जा, जल-विद्युत, वन) और अनवीकरणीय (कोयला, पेट्रोलियम)</li>
+        <li><b class="hi2">स्वामित्व के आधार पर</b> — व्यक्तिगत (भूखंड, घर), सामुदायिक (पार्क, तालाब), राष्ट्रीय (देश की सीमा के भीतर के संसाधन), अंतर्राष्ट्रीय (200 समुद्री मील से आगे का सागरीय क्षेत्र)</li>
+        <li><b class="hi2">विकास के स्तर के आधार पर</b> — संभावी संसाधन (अभी उपयोग में न लाए गए), विकसित संसाधन (सर्वेक्षण हो चुका), संचित कोष (तकनीक उपलब्ध पर अनुपयोगित), भंडार (तकनीकी सीमा के कारण अभी उपयोग संभव नहीं)</li>
+      </ul>
+      <p>संसाधनों का अविवेकपूर्ण उपयोग सामाजिक, आर्थिक व पर्यावरणीय समस्याएँ पैदा करता है, इसलिए <b class="hi3">संसाधन संरक्षण और सतत विकास</b> ज़रूरी है।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--pink);">
+      <h4 style="color:var(--pink);">1(ख). भूमि एवं मृदा संसाधन (Land and Soil Resources)</h4>
+      <p>भू-उपयोग को प्रभावित करने वाले कारक — <b class="hi">भौतिक कारक</b> (भू-आकृति, मृदा, जलवायु) और <b class="hi">मानवीय कारक</b> (जनसंख्या घनत्व, तकनीकी क्षमता, संस्कृति एवं परंपराएँ)।</p>
+      <p><b>भारत की छह प्रमुख मृदाएँ:</b> जलोढ़ मृदा, काली मृदा, लाल-पीली मृदा, लैटेराइट मृदा, मरुस्थलीय मृदा, पर्वतीय मृदा (पूरी तालिका नीचे देखें)।</p>
+      <p><b>मृदा अपरदन के कारण:</b> वनोन्मूलन, अतिपशुचारण, खनन, रसायनों का अत्यधिक उपयोग, जलाक्रांतता।</p>
+      <p><b>मृदा संरक्षण के उपाय:</b> वृक्षारोपण, फसल-चक्रण, समोच्च कृषि (Contour Ploughing), पट्टिका कृषि (Strip Cropping), जैविक खाद का उपयोग।</p>
+      <p><b class="hi3">फसल चक्रण</b> — दो धान्य फसलों के बीच एक दलहन फसल उगाना; दलहनी पौधों की जड़ों में नाइट्रोजन-स्थिरीकरण करने वाले जीवाणु होते हैं, जिससे मृदा की उर्वरता बनी रहती है।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--green);">
+      <h4 style="color:var(--green);">1(ग). जल संसाधन (Water Resources)</h4>
+      <p><b>स्रोत:</b> वर्षा, नदियाँ, भूमिगत जल, हिमनद।</p>
+      <p><b>उपयोगिता:</b> पेयजल, सिंचाई, उद्योग, जल-विद्युत उत्पादन, परिवहन।</p>
+      <p><b>जल संकट के कारण:</b> बढ़ती जनसंख्या, अत्यधिक दोहन, प्रदूषण, असमान वितरण।</p>
+      <p><b class="hi2">जल संरक्षण के उपाय:</b> वर्षा जल संग्रहण (Rainwater Harvesting), जल का पुनर्चक्रण, बाँधों का निर्माण, जल का विवेकपूर्ण उपयोग।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--orange);">
+      <h4 style="color:var(--orange);">1(घ). खनिज संसाधन (Mineral Resources)</h4>
+      <p><b class="hi">खनिज</b> — निश्चित रासायनिक संघटन वाले प्राकृतिक, समांगी, अकार्बनिक पदार्थ खनिज कहलाते हैं।</p>
+      <p><b>वर्गीकरण:</b> धात्विक खनिज — शुद्ध कर पिघलाकर नया रूप दिया जा सकता है (लोहा, सोना, चाँदी, बॉक्साइट, ताँबा); अधात्विक खनिज — चमक और कठोरता नहीं होती (चूना पत्थर, अभ्रक, पोटाश, डोलोमाइट)।</p>
+      <p><b>वितरण (पूरी तालिका नीचे):</b> लौह अयस्क — झारखंड, ओडिशा; बॉक्साइट — ओडिशा, गुजरात, झारखंड; अभ्रक — बिहार-झारखंड (भारत का लगभग 80% उत्पादन, गया-नवादा ज़िले)।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--purple);">
+      <h4 style="color:var(--purple);">1(ङ). शक्ति (ऊर्जा) संसाधन (Power/Energy Resources)</h4>
+      <p><b class="hi">परंपरागत ऊर्जा स्रोत</b> — कोयला, पेट्रोलियम, प्राकृतिक गैस — सीमित मात्रा में उपलब्ध, धीरे-धीरे समाप्त हो रहे हैं।</p>
+      <p><b class="hi2">गैर-परंपरागत ऊर्जा स्रोत</b> — सौर ऊर्जा, पवन ऊर्जा, भू-तापीय ऊर्जा, ज्वारीय व तरंग ऊर्जा, बायोगैस, जैव ऊर्जा — पर्यावरण के अनुकूल और नवीकरणीय।</p>
+      <p>सौर ऊर्जा कम लागत, पर्यावरण के अनुकूल और बनाने में आसान होने के कारण अन्य स्रोतों से ज़्यादा लाभदायक मानी जाती है।</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ IMPORTANT FACTS / TABLES ============ -->
+<section id="tables">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--purple),#7e4fd1); --glow:#b07dff99;">📊</div>
+    <div><h2>महत्वपूर्ण तथ्य तालिकाएँ</h2><div class="sub en-tag">Key Reference Tables</div></div></div>
+
+  <div class="glass card table-wrap">
+    <table>
+      <thead><tr><th>मृदा का प्रकार</th><th>मुख्य क्षेत्र</th><th>विशेषता / उपयोग</th></tr></thead>
+      <tbody>
+        <tr><td>जलोढ़ मृदा</td><td>गंगा का मैदान</td><td>नदियों द्वारा लाई गई, सबसे उपजाऊ</td></tr>
+        <tr><td>काली मृदा</td><td>दक्कन का पठार (महाराष्ट्र, मध्य प्रदेश)</td><td>कपास की खेती के लिए उपयुक्त</td></tr>
+        <tr><td>लाल-पीली मृदा</td><td>तमिलनाडु, कर्नाटक, ओडिशा</td><td>लोहे के ऑक्साइड के कारण लाल रंग</td></tr>
+        <tr><td>लैटेराइट मृदा</td><td>भारी वर्षा वाले क्षेत्र</td><td>चाय-कॉफी की खेती के लिए उपयुक्त</td></tr>
+        <tr><td>मरुस्थलीय मृदा</td><td>राजस्थान</td><td>रेतीली, कम उपजाऊ</td></tr>
+        <tr><td>पर्वतीय मृदा</td><td>पहाड़ी क्षेत्र (हिमालय)</td><td>पतली परत, कम उपजाऊ</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="glass card table-wrap">
+    <table>
+      <thead><tr><th>खनिज</th><th>प्रमुख उत्पादक राज्य</th><th>मुख्य उपयोग</th></tr></thead>
+      <tbody>
+        <tr><td>लौह अयस्क</td><td>झारखंड, ओडिशा</td><td>लोहा-इस्पात उद्योग</td></tr>
+        <tr><td>बॉक्साइट</td><td>ओडिशा, गुजरात, झारखंड, महाराष्ट्र, छत्तीसगढ़</td><td>एल्युमिनियम बनाने में</td></tr>
+        <tr><td>अभ्रक</td><td>बिहार-झारखंड (गया, नवादा) — भारत का ~80%</td><td>बिजली उपकरण उद्योग</td></tr>
+        <tr><td>चूना पत्थर</td><td>मध्य प्रदेश, छत्तीसगढ़, राजस्थान, बिहार</td><td>सीमेंट, लोहा-इस्पात, रसायन उद्योग</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="glass card table-wrap">
+    <table>
+      <thead><tr><th>परंपरागत ऊर्जा स्रोत</th><th>गैर-परंपरागत ऊर्जा स्रोत</th></tr></thead>
+      <tbody>
+        <tr><td>कोयला</td><td>सौर ऊर्जा</td></tr>
+        <tr><td>पेट्रोलियम</td><td>पवन ऊर्जा</td></tr>
+        <tr><td>प्राकृतिक गैस</td><td>भू-तापीय, ज्वारीय-तरंग, बायोगैस, जैव ऊर्जा</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ IMPORTANT QUESTIONS ============ -->
+<section id="questions">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--green),#1a9c70); --glow:#2ee6a699;">📘</div>
+    <div><h2>महत्वपूर्ण प्रश्न (Objective + Subjective)</h2><div class="sub en-tag">उत्तर देखने के लिए बटन दबाएँ</div></div></div>
+  <div id="qWrap"></div>
+</section>
+
+<!-- ============ HOMEWORK ============ -->
+<section id="homework">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--red),#a82424); --glow:#ff4f4f99;">🏠</div>
+    <div><h2>घर से करने के लिए Homework</h2><div class="sub en-tag">Notebook Exercise — बिना उत्तर देखे खुद हल करें</div></div></div>
+  <div class="glass card hw-card">
+    <ol id="homeworkList"></ol>
+  </div>
+  <p style="color:var(--dim); font-size:12px; margin-top:14px; font-weight:600;">यह सभी प्रश्न अपनी Social Science की notebook में हल करके अगली कक्षा में साथ लाइए।</p>
+</section>
+
+<footer>
+  <span class="name">PK STUDY</span> — अध्याय 1 पूर्ण
+  <div class="copy">Class 10 · भूगोल · भारत: संसाधन एवं उपयोग — PK STUDY, All Copyright Reserved</div>
+</footer>
+
+<script>
+function toggleTheme(){
+  const html = document.documentElement;
+  const isLight = html.getAttribute('data-theme') === 'light';
+  html.setAttribute('data-theme', isLight ? '' : 'light');
+  document.getElementById('themeToggle').textContent = isLight ? '🌙' : '☀️';
+}
+function el(tag, cls, html){ const d=document.createElement(tag); if(cls)d.className=cls; if(html!==undefined)d.innerHTML=html; return d; }
+
+const qData = [
+  {type:"obj", q:"कोयला किस प्रकार का संसाधन है?", a:"अनवीकरणीय (अपूर्तिशील) संसाधन — क्योंकि इसे उपयोग के बाद पुनः प्राप्त नहीं किया जा सकता।"},
+  {type:"obj", q:"सौर ऊर्जा किस प्रकार का संसाधन है?", a:"नवीकरणीय संसाधन (गैर-परंपरागत ऊर्जा स्रोत)।"},
+  {type:"obj", q:"संसार का सबसे कीमती संसाधन किसे माना जाता है?", a:"खनिज (Minerals) को संसार का सबसे कीमती संसाधन माना जाता है।"},
+  {type:"obj", q:"भारत का लगभग कितना प्रतिशत अभ्रक बिहार-झारखंड से प्राप्त होता है?", a:"लगभग 80 प्रतिशत — मुख्यतः गया और नवादा ज़िलों से।"},
+  {type:"obj", q:"भारत की सबसे उपजाऊ मृदा कौन-सी है?", a:"जलोढ़ मृदा — जो नदियों द्वारा बहाकर लाई जाती है, यह गंगा के मैदान में पाई जाती है।"},
+  {type:"obj", q:"कपास की खेती के लिए कौन-सी मृदा सबसे उपयुक्त है?", a:"काली मृदा — जो मुख्यतः दक्कन के पठार (महाराष्ट्र, मध्य प्रदेश) में पाई जाती है।"},
+  {type:"obj", q:"लौह अयस्क मुख्यतः किन राज्यों में पाया जाता है?", a:"झारखंड और ओडिशा में।"},
+  {type:"subj", q:"संसाधन किसे कहते हैं? इसके प्रमुख प्रकार बताइए।", a:"प्रकृति द्वारा प्रदत्त वे सभी वस्तुएँ जिनका उपयोग मनुष्य अपनी आवश्यकताओं की पूर्ति के लिए करता है, संसाधन कहलाती हैं — जैसे भूमि, मृदा, जल, वायु, खनिज, वनस्पति। इन्हें चार आधारों पर वर्गीकृत किया जाता है — (1) उत्पत्ति के आधार पर: जैव और अजैव संसाधन, (2) समाप्यता के आधार पर: नवीकरणीय और अनवीकरणीय संसाधन, (3) स्वामित्व के आधार पर: व्यक्तिगत, सामुदायिक, राष्ट्रीय और अंतर्राष्ट्रीय संसाधन, (4) विकास के स्तर के आधार पर: संभावी संसाधन, विकसित संसाधन, संचित कोष और भंडार।"},
+  {type:"subj", q:"नवीकरणीय और अनवीकरणीय संसाधनों में अंतर स्पष्ट कीजिए, उदाहरण सहित।", a:"नवीकरणीय संसाधन वे हैं जिन्हें भौतिक, रासायनिक या यांत्रिक प्रक्रिया द्वारा पुनः प्राप्त किया जा सकता है — जैसे सौर ऊर्जा, पवन ऊर्जा, जल-विद्युत, वन एवं वन्य प्राणी। इनका उपयोग बार-बार किया जा सकता है। अनवीकरणीय संसाधन वे हैं जिन्हें एक बार उपयोग करने के बाद पुनः प्राप्त नहीं किया जा सकता — जैसे कोयला, पेट्रोलियम। इनकी मात्रा सीमित होती है और ये धीरे-धीरे समाप्त होते जा रहे हैं, इसलिए इनका सोच-समझकर उपयोग ज़रूरी है।"},
+  {type:"subj", q:"मृदा संरक्षण के कोई चार उपाय लिखिए।", a:"(1) वृक्षारोपण — पेड़ों की जड़ें मिट्टी को बहने से रोकती हैं। (2) फसल-चक्रण — दो धान्य फसलों के बीच दलहन फसल उगाने से मिट्टी की उर्वरता बनी रहती है। (3) समोच्च कृषि (Contour Ploughing) — ढलान वाली भूमि पर समोच्च रेखाओं की दिशा में जुताई करने से मिट्टी का बहाव रुकता है। (4) पट्टिका कृषि (Strip Cropping) — खेतों को पट्टियों में बाँटकर अलग-अलग फसलें उगाने से हवा और पानी द्वारा होने वाला कटाव कम होता है।"},
+  {type:"subj", q:"परंपरागत और गैर-परंपरागत ऊर्जा स्रोतों में अंतर बताइए।", a:"परंपरागत ऊर्जा स्रोत (कोयला, पेट्रोलियम, प्राकृतिक गैस) सीमित मात्रा में उपलब्ध हैं, इनके बनने में लाखों वर्ष लगते हैं और ये प्रदूषण भी फैलाते हैं। गैर-परंपरागत ऊर्जा स्रोत (सौर, पवन, भू-तापीय, ज्वारीय-तरंग, बायोगैस, जैव ऊर्जा) नवीकरणीय हैं, पर्यावरण के अनुकूल हैं और बार-बार इस्तेमाल किए जा सकते हैं, इसलिए भविष्य के लिए इन्हें बढ़ावा दिया जा रहा है।"},
+  {type:"subj", q:"संसाधन संरक्षण (संसाधन नियोजन) क्यों आवश्यक है?", a:"संसाधनों का असंतुलित और अविवेकपूर्ण उपयोग सामाजिक, आर्थिक, सांस्कृतिक और पर्यावरणीय समस्याएँ पैदा करता है — जैसे संसाधनों की कमी, प्रदूषण और असमानता। इसलिए संसाधनों का सोच-समझकर, सीमित और सतत (Sustainable) तरीके से उपयोग करना ज़रूरी है, ताकि आने वाली पीढ़ियों के लिए भी संसाधन बचे रहें।"},
+  {type:"subj", q:"भारत में पाई जाने वाली छह प्रमुख मृदाओं के नाम लिखिए और किन्हीं दो का संक्षिप्त वर्णन कीजिए।", a:"भारत की छह प्रमुख मृदाएँ हैं — जलोढ़ मृदा, काली मृदा, लाल-पीली मृदा, लैटेराइट मृदा, मरुस्थलीय मृदा और पर्वतीय मृदा। जलोढ़ मृदा नदियों द्वारा बहाकर लाई जाती है, यह भारत की सबसे उपजाऊ मृदा है और गंगा के मैदान में पाई जाती है, यह गेहूँ-चावल जैसी फसलों के लिए उपयुक्त है। काली मृदा दक्कन के पठार में पाई जाती है, इसमें नमी बनाए रखने की क्षमता अधिक होती है, और यह कपास की खेती के लिए सबसे उपयुक्त मानी जाती है।"},
+  {type:"subj", q:"धात्विक एवं अधात्विक खनिजों में अंतर स्पष्ट कीजिए।", a:"धात्विक खनिज वे हैं जिन्हें शुद्ध करने के बाद पिघलाकर नया रूप दिया जा सकता है — जैसे लोहा, सोना, चाँदी, बॉक्साइट, ताँबा। इनमें चमक होती है और ये तार के रूप में खींचे जा सकते हैं। अधात्विक खनिजों में चमक और कठोरता नहीं होती, ये पिघलाए नहीं जा सकते — जैसे चूना पत्थर, अभ्रक, पोटाश, डोलोमाइट। इनका उपयोग सीमेंट, रसायन और खाद उद्योग में होता है।"},
+  {type:"subj", q:"जल संकट के कारण और उसके समाधान के उपाय बताइए।", a:"जल संकट के मुख्य कारण हैं — बढ़ती जनसंख्या, कृषि व उद्योगों में जल का अत्यधिक दोहन, जल प्रदूषण और जल के असमान वितरण। इसके समाधान के लिए वर्षा जल संग्रहण (Rainwater Harvesting), उपयोग किए गए जल का पुनर्चक्रण, बाँधों व तालाबों का निर्माण, और जल का विवेकपूर्ण/सीमित उपयोग जैसे उपाय अपनाने चाहिए।"}
+];
+
+const homeworkData = [
+  "संसाधन के स्वामित्व के आधार पर होने वाले वर्गीकरण को उदाहरण सहित समझाइए।",
+  "संभावी संसाधन और विकसित संसाधन में क्या अंतर है?",
+  "भारत के किन्हीं तीन राज्यों के नाम लिखिए जहाँ बॉक्साइट पाया जाता है।",
+  "समोच्च कृषि और पट्टिका कृषि से आप क्या समझते हैं?",
+  "सौर ऊर्जा को गैर-परंपरागत ऊर्जा स्रोतों में सबसे लाभदायक क्यों माना जाता है?",
+  "जलाक्रांतता मृदा को किस प्रकार प्रभावित करती है?",
+  "अपने आस-पास इस्तेमाल होने वाले किन्हीं 5 संसाधनों की सूची बनाइए और उन्हें नवीकरणीय/अनवीकरणीय में वर्गीकृत कीजिए। (Practical Activity)",
+  "भारत के मानचित्र में उन राज्यों को चिन्हित कीजिए जहाँ लौह अयस्क और अभ्रक पाया जाता है। (Map Activity)"
+];
+
+function buildQuestions(){
+  const wrap = document.getElementById('qWrap');
+  qData.forEach((item)=>{
+    const pillHtml = item.type === 'obj' ? '<span class="pill pill-obj">Objective</span>' : '<span class="pill pill-subj">Subjective</span>';
+    const d = el('div','glass example-card', `<div class="qlabel">प्रश्न ${pillHtml}</div><div class="qtext">${item.q}</div>
+      <button class="show-ans-btn" onclick="toggleAnswer(this)">उत्तर दिखाएँ (Show Answer)</button>
+      <div class="ans-wrap"><div class="slabel">उत्तर (Answer)</div><div class="stext">${item.a}</div></div>`);
+    wrap.appendChild(d);
+  });
+}
+function toggleAnswer(btn){
+  const wrap = btn.nextElementSibling;
+  const isOpen = wrap.classList.toggle('open');
+  btn.classList.toggle('open', isOpen);
+  btn.textContent = isOpen ? 'उत्तर छुपाएँ (Hide Answer)' : 'उत्तर दिखाएँ (Show Answer)';
+}
+function buildHomework(){
+  const g = document.getElementById('homeworkList');
+  homeworkData.forEach(q=>{ const li = document.createElement('li'); li.textContent = q; g.appendChild(li); });
+}
+
+buildQuestions();
+buildHomework();
+</script>
+</body>
+</html>

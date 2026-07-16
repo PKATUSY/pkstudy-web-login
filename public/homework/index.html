@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PK STUDY | होमवर्क — सभी कक्षाएँ एवं विषय</title>
+<style>
+:root{
+  --bg:#04050f; --glass:rgba(255,255,255,.045); --glass-strong:rgba(255,255,255,.08);
+  --border:rgba(255,255,255,.12); --text:#f2f6ff; --dim:#9fb0da; --heading:#ffffff;
+  --neon-blue:#3ea6ff; --cyan:#33e0ff; --purple:#b07dff; --gold:#ffc233;
+  --green:#2ee6a6; --orange:#ff9f43; --pink:#ff4d8d; --red:#ff4f4f;
+  --shadow:0 22px 46px -22px #000d; --hshadow:0 30px 56px -20px #000f;
+}
+[data-theme="light"]{
+  --bg:#f6f8fd; --glass:rgba(20,30,65,.045); --glass-strong:rgba(20,30,65,.08);
+  --border:rgba(20,30,65,.12); --text:#161c33; --dim:#535f82; --heading:#12172b;
+  --neon-blue:#2563eb; --cyan:#0891b2; --purple:#7c3aed; --gold:#b45309;
+  --green:#059669; --orange:#c2410c; --pink:#db2777; --red:#dc2626;
+  --shadow:0 18px 36px -20px rgba(30,40,80,.18); --hshadow:0 24px 44px -18px rgba(30,40,80,.24);
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Segoe UI','Noto Sans Devanagari',Arial,sans-serif; color:var(--text); min-height:100vh; overflow-x:hidden;
+  transition:background .4s, color .4s;
+  background:
+    radial-gradient(ellipse at 10% -10%, #1c3a9955, transparent 55%),
+    radial-gradient(ellipse at 95% 10%, #7a2ab866, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, #0a5a6e44, transparent 55%),
+    linear-gradient(180deg,#04050f,#020208 90%);
+}
+[data-theme="light"] body{
+  background:
+    radial-gradient(ellipse at 10% -10%, #dbe4ff99, transparent 55%),
+    radial-gradient(ellipse at 95% 10%, #ede0ff99, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, #d7f5f099, transparent 55%),
+    linear-gradient(180deg,#f8faff,#eef1f9 90%);
+}
+::-webkit-scrollbar{width:8px;} ::-webkit-scrollbar-thumb{background:var(--neon-blue); border-radius:6px;} ::-webkit-scrollbar-track{background:transparent;}
+
+.glass{background:var(--glass); border:1px solid var(--border); border-radius:18px; backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+  box-shadow:var(--shadow), inset 0 1px 0 #ffffff12; transition:transform .3s, box-shadow .3s, background .4s, border .4s;}
+
+header{position:sticky; top:0; z-index:200; display:flex; align-items:center; justify-content:space-between; padding:14px 26px;
+  background:rgba(4,5,15,.75); backdrop-filter:blur(18px); border-bottom:1px solid var(--border); flex-wrap:wrap; gap:10px; transition:background .4s;}
+[data-theme="light"] header{background:rgba(255,255,255,.8);}
+.brand{display:flex; align-items:center; gap:12px;}
+.brand img{width:44px; height:44px; border-radius:10px; object-fit:cover; border:2px solid var(--neon-blue); box-shadow:0 0 18px #3ea6ff88;}
+.logo-fallback{width:44px; height:44px; border-radius:10px; display:flex; align-items:center; justify-content:center;
+  background:linear-gradient(135deg,var(--neon-blue),#1f3d8c); font-weight:900; font-size:12px; border:2px solid var(--cyan); color:#fff;}
+.brand-text .name{font-weight:900; font-size:18px; color:var(--cyan); letter-spacing:.5px;}
+.brand-text .tag{font-size:11px; color:var(--dim); font-weight:600;}
+.theme-btn{flex-shrink:0; width:40px; height:40px; border-radius:12px; border:1px solid var(--border); background:var(--glass-strong);
+  color:var(--text); font-size:17px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:.25s;}
+.theme-btn:hover{border-color:var(--neon-blue); transform:translateY(-2px);}
+.back-link{color:var(--dim); text-decoration:none; font-size:12.5px; font-weight:700; padding:8px 14px; border-radius:14px; border:1px solid var(--border); transition:.2s;}
+.back-link:hover{color:var(--heading); border-color:var(--neon-blue);}
+
+.hero{position:relative; padding:56px 6vw 36px; text-align:center;}
+.eyebrow{display:inline-block; padding:7px 22px; border-radius:30px; color:#04050f; font-size:12px; font-weight:900;
+  letter-spacing:2px; text-transform:uppercase; margin-bottom:18px;
+  background:linear-gradient(120deg,var(--gold),var(--orange),var(--pink),var(--purple),var(--cyan));
+  box-shadow:0 10px 26px -6px #000b;}
+.hero h1{font-size:clamp(28px,6vw,50px); font-weight:900; line-height:1.25;
+  background:linear-gradient(90deg,var(--neon-blue),var(--cyan) 35%,var(--purple) 65%,var(--pink)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+.hero p{color:var(--dim); max-width:720px; margin:18px auto 0; font-size:14.5px; line-height:1.9; font-weight:600;}
+
+.class-section{max-width:1200px; margin:0 auto; padding:0 6vw 50px;}
+.class-head{display:flex; align-items:center; gap:14px; margin:44px 0 22px;}
+.class-badge{width:56px; height:56px; border-radius:16px; flex-shrink:0; display:flex; align-items:center; justify-content:center;
+  font-weight:900; font-size:20px; color:#04050f; box-shadow:0 8px 22px -6px var(--glow,#3ea6ff99); border:2px solid #ffffffaa;}
+.class-head h2{font-size:clamp(19px,3vw,25px); font-weight:900; color:var(--heading);}
+.class-head .sub{color:var(--dim); font-size:12.5px; font-weight:700; margin-top:2px;}
+
+.subject-block{margin-bottom:22px;}
+.subject-title{font-size:14.5px; font-weight:900; color:var(--gold); text-transform:uppercase; letter-spacing:.5px; margin-bottom:10px; padding-left:2px;}
+.chapter-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:12px;}
+.chapter-card{display:block; padding:16px 18px; text-decoration:none; color:inherit; border-radius:14px; transition:transform .25s, box-shadow .25s;}
+.chapter-card:hover{transform:translateY(-3px);}
+.chapter-card .ct{font-weight:800; font-size:13.5px; color:var(--heading); line-height:1.6;}
+.chapter-card .cd{font-size:11px; color:var(--cyan); font-weight:700; margin-top:6px;}
+
+footer{text-align:center; padding:50px 6vw 70px; color:var(--dim); font-size:12.5px; border-top:1px solid var(--border); margin-top:20px; font-weight:600;}
+footer .name{color:var(--cyan); font-weight:900; font-size:16px;}
+footer .copy{margin-top:18px; font-size:11px; color:var(--dim); opacity:.8;}
+@media(max-width:600px){.chapter-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <img src="/favicon.ico" alt="PK STUDY" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="logo-fallback" style="display:none;">PK</div>
+    <div class="brand-text"><div class="name">PK STUDY</div><div class="tag">होमवर्क — सभी कक्षाएँ</div></div>
+  </div>
+  <a class="back-link" href="/home">← मुख्य पेज पर वापस जाएँ</a>
+  <button class="theme-btn" id="themeToggle" onclick="toggleTheme()" title="Dark/Light Mode">🌙</button>
+</header>
+
+<div class="hero">
+  <span class="eyebrow">PK STUDY · Bihar Board Homework Library</span>
+  <h1>होमवर्क — सभी कक्षाएँ एवं विषय</h1>
+  <p>नीचे अपनी कक्षा और विषय चुनकर सीधे उस अध्याय के Notes, फॉर्मूला, हल किए गए प्रश्न और Homework पर जाएँ। कक्षा 6-7 और 8-9 का syllabus संयुक्त (combined) है, इसलिए दोनों कक्षाओं के छात्र एक ही पेज से पढ़ सकते हैं।</p>
+</div>
+
+<div class="class-section">
+
+  <div class="class-head">
+    <div class="class-badge" style="background:linear-gradient(160deg,var(--cyan),#0a85b8); --glow:#33e0ff99;">6-7</div>
+    <div><h2>कक्षा 6-7 (संयुक्त पाठ्यक्रम)</h2><div class="sub">Combined Syllabus — Science, Social Science, Maths, English, Sanskrit</div></div>
+  </div>
+
+  <div class="subject-block">
+    <div class="subject-title">🔬 विज्ञान (Science)</div>
+    <div class="chapter-grid">
+      <a class="chapter-card glass" href="6/Science/Part-1-Bhojan-ke-Srot-evam-Padapon-me-Poshan/"><div class="ct">भोजन के स्रोत एवं पादपों में पोषण</div><div class="cd">Part 1</div></a>
+    </div>
+  </div>
+
+  <div class="subject-block">
+    <div class="subject-title">🌍 सामाजिक विज्ञान (Social Science)</div>
+    <div class="chapter-grid">
+      <a class="chapter-card glass" href="6/Social%20Science/Part-1-Hamara-Atit/"><div class="ct">हमारा अतीत — इतिहास जानने के स्रोत</div><div class="cd">Part 1</div></a>
+    </div>
+  </div>
+
+  <div class="subject-block">
+    <div class="subject-title">🧮 गणित (Maths)</div>
+    <div class="chapter-grid">
+      <a class="chapter-card glass" href="6/Maths/Part-1-Knowing-Our-Numbers/"><div class="ct">संख्याओं को जानना — Knowing Our Numbers</div><div class="cd">Part 1</div></a>
+      <a class="chapter-card glass" href="6/Maths/Part-2-Whole-Numbers/"><div class="ct">पूर्ण संख्याएँ — Whole Numbers</div><div class="cd">Part 2</div></a>
+    </div>
+  </div>
+
+  <div class="subject-block">
+    <div class="subject-title">🔤 अंग्रेज़ी (English)</div>
+    <div class="chapter-grid">
+      <a class="chapter-card glass" href="6/English/Part-1-Foundation/"><div class="ct">अंग्रेज़ी की नींव — वर्णमाला और अभिवादन</div><div class="cd">Part 1</div></a>
+      <a class="chapter-card glass" href="6/English/Part-2-Vocabulary-Building/"><div class="ct">रोज़मर्रा की शब्दावली — Vocabulary Building</div><div class="cd">Part 2</div></a>
+    </div>
+  </div>
+
+  <div class="subject-block">
+    <div class="subject-title">📜 संस्कृत (Sanskrit)</div>
+    <div class="chapter-grid">
+      <a class="chapter-card glass" href="6/Sanskrit/Vyakaran-Part-1-Shabd-Roop-evam-Dhatu-Roop/"><div class="ct">शब्द रूप एवं धातु रूप का परिचय (व्याकरण)</div><div class="cd">Part 1</div></a>
+    </div>
+  </div>
+
+  <div class="class-head">
+    <div class="class-badge" style="background:linear-gradient(160deg,var(--pink),#b8215f); --glow:#ff4d8d99;">8-9</div>
+    <div><h2>कक्षा 8-9 (संयुक्त पाठ्यक्रम)</h2><div class="sub">Combined Syllabus — Science, Social Science, Maths, English, Sanskrit</div></div>
+  </div>
+
+  <div class="subject-block">
+    <div class="subject-title">🔬 विज्ञान (Science)</div>
+    <div class="chapter-grid">
+      <a class="chapter-card glass" href="8/Science/Part-1-Fasal-Utpadan-evam-Padarth-ki-Avasthaen/"><div class="ct">फसल उत्पादन एवं द्रव्य की अवस्थाएँ</div><div class="cd">Part 1</div></a>
+    </div>
+  </div>
+
+  <div class="subject-block">
+    <div class="subject-title">🌍 सामाजिक विज्ञान (Social Science)</div>
+    <div class="chapter-grid">
+      <a class="chapter-card glass" href="8/Social%20Science/Part-1-European-Company-evam-French-Kranti/"><div class="ct">यूरोपीय शक्तियों का आगमन एवं फ्रांसीसी क्रांति</div><div class="cd">Part 1</div></a>
+    </div>
+  </div>
+
+  <div class="subject-block">
+    <div class="subject-title">🧮 गणित (Maths)</div>
+    <div class="chapter-grid">
+      <a class="chapter-card glass" href="8/Maths/Part-1-Rational-Numbers-and-Number-Systems/"><div class="ct">परिमेय संख्याएँ और संख्या पद्धति</div><div class="cd">Part 1</div></a>
+      <a class="chapter-card glass" href="8/Maths/Part-2-Linear-Equations/"><div class="ct">रैखिक समीकरण — Linear Equations</div><div class="cd">Part 2</div></a>
+    </div>
+  </div>
+
+  <div class="subject-block">
+    <div class="subject-title">🔤 अंग्रेज़ी (English)</div>
+    <div class="chapter-grid">
+      <a class="chapter-card glass" href="8/English/Part-1-Sentence-Building/"><div class="ct">अंग्रेज़ी वाक्य निर्माण — Sentence Building</div><div class="cd">Part 1</div></a>
+      <a class="chapter-card glass" href="8/English/Part-2-Tenses-and-Paragraph-Writing/"><div class="ct">Tenses और Paragraph Writing</div><div class="cd">Part 2</div></a>
+      <a class="chapter-card glass" href="8/English/Grammar-Simple-Present-Tense/"><div class="ct">Simple Present Tense — पूर्ण विस्तृत अध्ययन</div><div class="cd">Grammar Special</div></a>
+    </div>
+  </div>
+
+  <div class="subject-block">
+    <div class="subject-title">📜 संस्कृत (Sanskrit)</div>
+    <div class="chapter-grid">
+      <a class="chapter-card glass" href="8/Sanskrit/Vyakaran-Part-1-Karak-evam-Vibhakti/"><div class="ct">कारक एवं विभक्ति (व्याकरण)</div><div class="cd">Part 1</div></a>
+    </div>
+  </div>
+
+  <div class="class-head">
+    <div class="class-badge" style="background:linear-gradient(160deg,var(--green),#1a9c70); --glow:#2ee6a699;">10</div>
+    <div><h2>कक्षा 10</h2><div class="sub">Class 10 — Maths, Science, Social Science, English, Sanskrit</div></div>
+  </div>
+
+  <div class="subject-block">
+    <div class="subject-title">🧮 गणित (Maths)</div>
+    <div class="chapter-grid">
+      <a class="chapter-card glass" href="10/Maths/Chapter-1-Real-Numbers/"><div class="ct">वास्तविक संख्याएँ — Real Numbers</div><div class="cd">अध्याय 1</div></a>
+      <a class="chapter-card glass" href="10/Maths/Chapter-9-Height-and-Distance/"><div class="ct">ऊँचाई और दूरी — Height and Distance</div><div class="cd">अध्याय 9</div></a>
+      <a class="chapter-card glass" href="10/Maths/Important/"><div class="ct">100 Important Objective Questions</div><div class="cd">परीक्षा विशेष</div></a>
+    </div>
+  </div>
+
+  <div class="subject-block">
+    <div class="subject-title">🔬 विज्ञान (Science)</div>
+    <div class="chapter-grid">
+      <a class="chapter-card glass" href="10/Science/Chapter-1-Rasayanik-Abhikriya-evam-Samikaran/"><div class="ct">रासायनिक अभिक्रियाएँ एवं समीकरण</div><div class="cd">अध्याय 1</div></a>
+      <a class="chapter-card glass" href="10/Science/Chapter-2-Amla-Kshaarak-evam-Lavan/"><div class="ct">अम्ल, क्षारक एवं लवण</div><div class="cd">अध्याय 2</div></a>
+    </div>
+  </div>
+
+  <div class="subject-block">
+    <div class="subject-title">🌍 सामाजिक विज्ञान — भूगोल (Geography)</div>
+    <div class="chapter-grid">
+      <a class="chapter-card glass" href="10/Social%20Science/Geography-Chapter-1-Bharat-Sansadhan-evam-Upyog/"><div class="ct">भारत: संसाधन एवं उपयोग</div><div class="cd">अध्याय 1</div></a>
+      <a class="chapter-card glass" href="10/Social%20Science/Geography-Chapter-2-Krishi/"><div class="ct">कृषि</div><div class="cd">अध्याय 2</div></a>
+    </div>
+  </div>
+
+  <div class="subject-block">
+    <div class="subject-title">🔤 अंग्रेज़ी (English)</div>
+    <div class="chapter-grid">
+      <a class="chapter-card glass" href="10/English/Chapter-1-The-Pace-For-Living/"><div class="ct">The Pace For Living</div><div class="cd">Chapter 1</div></a>
+    </div>
+  </div>
+
+  <div class="subject-block">
+    <div class="subject-title">📜 संस्कृत (Sanskrit)</div>
+    <div class="chapter-grid">
+      <a class="chapter-card glass" href="10/Sanskrit/Vyakaran-Chapter-1-Samas/"><div class="ct">समास — Samas (Compound Words)</div><div class="cd">अध्याय 1</div></a>
+    </div>
+  </div>
+
+  <div class="class-head">
+    <div class="class-badge" style="background:linear-gradient(160deg,var(--purple),#7e4fd1); --glow:#b07dff99;">12</div>
+    <div><h2>कक्षा 12</h2><div class="sub">Class 12 — Hindi, Home Science (Arts)</div></div>
+  </div>
+
+  <div class="subject-block">
+    <div class="subject-title">📖 हिंदी (Hindi)</div>
+    <div class="chapter-grid">
+      <a class="chapter-card glass" href="12/Hindi/Chapter-2-Usne-Kaha-Tha/"><div class="ct">उसने कहा था — चंद्रधर शर्मा गुलेरी</div><div class="cd">पाठ 2</div></a>
+    </div>
+  </div>
+
+  <div class="subject-block">
+    <div class="subject-title">🏠 गृह विज्ञान (Home Science — Arts)</div>
+    <div class="chapter-grid">
+      <a class="chapter-card glass" href="12/Arts/Home-Science/Chapter-1-Sharir-Kriya-Vigyan/"><div class="ct">शरीर क्रिया विज्ञान — अंतःस्रावी ग्रंथियाँ एवं जनन तंत्र</div><div class="cd">अध्याय 1</div></a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <span class="name">PK STUDY</span> — होमवर्क लाइब्रेरी
+  <div class="copy">PK STUDY — All Copyright Reserved</div>
+</footer>
+
+<script>
+function toggleTheme(){
+  const html = document.documentElement;
+  const isLight = html.getAttribute('data-theme') === 'light';
+  html.setAttribute('data-theme', isLight ? '' : 'light');
+  document.getElementById('themeToggle').textContent = isLight ? '🌙' : '☀️';
+}
+</script>
+</body>
+</html>

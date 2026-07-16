@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PK STUDY | वास्तविक संख्याएँ — Real Numbers</title>
+<style>
+:root{
+  --bg:#04050f; --glass:rgba(255,255,255,.045); --glass-strong:rgba(255,255,255,.08);
+  --border:rgba(255,255,255,.12); --text:#f2f6ff; --dim:#9fb0da; --heading:#ffffff;
+  --neon-blue:#3ea6ff; --cyan:#33e0ff; --purple:#b07dff; --gold:#ffc233;
+  --green:#2ee6a6; --orange:#ff9f43; --pink:#ff4d8d; --red:#ff4f4f;
+  --shadow:0 22px 46px -22px #000d; --hshadow:0 30px 56px -20px #000f;
+}
+[data-theme="light"]{
+  --bg:#f6f8fd; --glass:rgba(20,30,65,.045); --glass-strong:rgba(20,30,65,.08);
+  --border:rgba(20,30,65,.12); --text:#161c33; --dim:#535f82; --heading:#12172b;
+  --neon-blue:#2563eb; --cyan:#0891b2; --purple:#7c3aed; --gold:#b45309;
+  --green:#059669; --orange:#c2410c; --pink:#db2777; --red:#dc2626;
+  --shadow:0 18px 36px -20px rgba(30,40,80,.18); --hshadow:0 24px 44px -18px rgba(30,40,80,.24);
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Segoe UI','Noto Sans Devanagari',Arial,sans-serif; color:var(--text); min-height:100vh; overflow-x:hidden;
+  transition:background .4s, color .4s;
+  background:
+    radial-gradient(ellipse at 10% -10%, #1c3a9955, transparent 55%),
+    radial-gradient(ellipse at 95% 10%, #7a2ab866, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, #0a5a6e44, transparent 55%),
+    linear-gradient(180deg,#04050f,#020208 90%);
+}
+[data-theme="light"] body{
+  background:
+    radial-gradient(ellipse at 10% -10%, #dbe4ff99, transparent 55%),
+    radial-gradient(ellipse at 95% 10%, #ede0ff99, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, #d7f5f099, transparent 55%),
+    linear-gradient(180deg,#f8faff,#eef1f9 90%);
+}
+::-webkit-scrollbar{width:8px;} ::-webkit-scrollbar-thumb{background:var(--neon-blue); border-radius:6px;} ::-webkit-scrollbar-track{background:transparent;}
+
+.glass{background:var(--glass); border:1px solid var(--border); border-radius:18px; backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+  box-shadow:var(--shadow), inset 0 1px 0 #ffffff12; transition:transform .35s, box-shadow .35s, background .4s, border .4s;}
+
+header{position:sticky; top:0; z-index:200; display:flex; align-items:center; justify-content:space-between; padding:14px 26px;
+  background:rgba(4,5,15,.75); backdrop-filter:blur(18px); border-bottom:1px solid var(--border); flex-wrap:wrap; gap:10px; transition:background .4s;}
+[data-theme="light"] header{background:rgba(255,255,255,.8);}
+.brand{display:flex; align-items:center; gap:12px;}
+.brand img{width:44px; height:44px; border-radius:10px; object-fit:cover; border:2px solid var(--neon-blue); box-shadow:0 0 18px #3ea6ff88;}
+.logo-fallback{width:44px; height:44px; border-radius:10px; display:flex; align-items:center; justify-content:center;
+  background:linear-gradient(135deg,var(--neon-blue),#1f3d8c); font-weight:900; font-size:12px; border:2px solid var(--cyan); color:#fff;}
+.brand-text .name{font-weight:900; font-size:18px; color:var(--cyan); letter-spacing:.5px;}
+.brand-text .tag{font-size:11px; color:var(--dim); font-weight:600;}
+nav{display:flex; gap:5px; overflow-x:auto; max-width:52vw;}
+nav::-webkit-scrollbar{height:4px;}
+nav a{color:var(--dim); text-decoration:none; font-size:11.5px; padding:6px 11px; border-radius:16px; border:1px solid transparent; transition:.2s; font-weight:700; white-space:nowrap;}
+nav a:hover{color:var(--heading); border-color:var(--neon-blue); background:#3ea6ff1a;}
+.theme-btn{flex-shrink:0; width:40px; height:40px; border-radius:12px; border:1px solid var(--border); background:var(--glass-strong);
+  color:var(--text); font-size:17px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:.25s;}
+.theme-btn:hover{border-color:var(--neon-blue); transform:translateY(-2px);}
+
+.hero{position:relative; padding:60px 6vw 40px; text-align:center;}
+.eyebrow{display:inline-block; padding:7px 22px; border-radius:30px; color:#04050f; font-size:12px; font-weight:900;
+  letter-spacing:2px; text-transform:uppercase; margin-bottom:20px;
+  background:linear-gradient(120deg,var(--gold),var(--orange),var(--pink),var(--purple),var(--cyan));
+  box-shadow:0 10px 26px -6px #000b;}
+.hero h1{font-size:clamp(26px,5.5vw,48px); font-weight:900; line-height:1.25;
+  background:linear-gradient(90deg,var(--neon-blue),var(--cyan) 35%,var(--purple) 65%,var(--pink)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+.hero .en{font-size:16px; color:var(--dim); font-weight:700; margin-top:10px;}
+.hero p{color:var(--dim); max-width:760px; margin:20px auto 0; font-size:14.5px; line-height:1.9; font-weight:500;}
+
+section{position:relative; padding:44px 6vw; max-width:1200px; margin:0 auto;}
+.sec-head{display:flex; align-items:center; gap:14px; margin-bottom:24px;}
+.sec-num{width:44px; height:44px; border-radius:14px; flex-shrink:0; display:flex; align-items:center; justify-content:center;
+  font-weight:900; font-size:16px; color:#04050f; box-shadow:0 8px 22px -6px var(--glow,#3ea6ff99); border:2px solid #ffffffaa;}
+.sec-head h2{font-size:clamp(19px,3vw,26px); font-weight:900; color:var(--heading);}
+.sec-head .sub{color:var(--dim); font-size:12.5px; font-weight:600; margin-top:2px;}
+.sec-head .en-tag{font-size:11px; color:var(--gold); font-weight:700; letter-spacing:.5px;}
+
+.card{padding:20px 22px;}
+.grid{display:grid; gap:16px;}
+.grid-2{grid-template-columns:1fr 1fr;} .grid-3{grid-template-columns:repeat(3,1fr);}
+@media(max-width:900px){.grid-3{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.grid-2,.grid-3{grid-template-columns:1fr;} nav{max-width:100%;}}
+
+b.hi{color:var(--pink); font-weight:900;} b.hi2{color:var(--green); font-weight:900;} b.hi3{color:var(--gold); font-weight:900;}
+.eng-term{color:var(--cyan); font-style:italic; font-weight:700;}
+
+.rule-card{padding:20px; border-left:5px solid var(--neon-blue);}
+.rule-card h4{font-size:15px; color:var(--cyan); font-weight:900; margin-bottom:8px;}
+.rule-card p{font-size:13px; color:var(--dim); line-height:1.8; font-weight:500;}
+
+.def-card{padding:18px 20px; border-radius:16px;}
+.def-card h4{font-size:14.5px; margin-bottom:8px; display:flex; align-items:center; gap:8px; font-weight:900;}
+.def-card p{font-size:12.5px; color:var(--dim); line-height:1.75; font-weight:500;}
+
+.example-card{padding:18px 20px; margin-bottom:14px;}
+.example-card .qlabel{font-size:11px; font-weight:900; color:var(--gold); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;}
+.example-card .qtext{font-size:13.5px; font-weight:700; color:var(--heading); margin-bottom:14px; line-height:1.7;}
+.example-card .slabel{font-size:11px; font-weight:900; color:var(--green); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;}
+.example-card .stext{font-size:13px; color:var(--dim); line-height:1.9; font-weight:500; background:var(--glass-strong); padding:12px 14px; border-radius:10px; white-space:pre-line;}
+.show-ans-btn{padding:9px 20px; border-radius:10px; border:1.5px solid var(--green); background:transparent; color:var(--green);
+  font-weight:800; font-size:12px; cursor:pointer; transition:.2s;}
+.show-ans-btn:hover{background:var(--green); color:#04050f;}
+.show-ans-btn.open{background:var(--green); color:#04050f;}
+.ans-wrap{margin-top:14px; display:none;}
+.ans-wrap.open{display:block;}
+.pill{display:inline-block; padding:3px 10px; border-radius:10px; font-size:10px; font-weight:900; margin-left:8px; vertical-align:middle;}
+.pill-obj{background:linear-gradient(120deg,var(--cyan),#0a85b8); color:#04050f;}
+.pill-subj{background:linear-gradient(120deg,var(--purple),#7e4fd1); color:#fff;}
+
+.hw-card{padding:18px 20px;}
+.hw-card ol{margin:0; padding-left:20px; font-size:13px; color:var(--dim); line-height:2; font-weight:500;}
+.hw-card ol li{margin-bottom:8px;}
+.hw-card ol li::marker{color:var(--heading); font-weight:800;}
+
+.table-wrap{overflow-x:auto;}
+table{width:100%; border-collapse:collapse; min-width:500px;}
+thead th{text-align:center; padding:12px 14px; background:linear-gradient(120deg,var(--neon-blue),var(--purple)); color:#fff;
+  font-size:12px; text-transform:uppercase; letter-spacing:.5px; font-weight:900;}
+thead th:first-child{border-radius:10px 0 0 0;} thead th:last-child{border-radius:0 10px 0 0;}
+tbody td{padding:12px 14px; border-bottom:1px solid var(--border); color:var(--dim); font-size:12.5px; text-align:center; font-weight:600;}
+tbody tr:hover{background:#3ea6ff14;}
+
+footer{text-align:center; padding:50px 6vw 70px; color:var(--dim); font-size:12.5px; border-top:1px solid var(--border); margin-top:30px; font-weight:600;}
+footer .name{color:var(--cyan); font-weight:900; font-size:16px;}
+footer .copy{margin-top:18px; font-size:11px; color:var(--dim); opacity:.8;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <img src="images/1000043468.png" alt="PK STUDY" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="logo-fallback" style="display:none;">PK</div>
+    <div class="brand-text"><div class="name">PK STUDY</div><div class="tag">Class 10 • Maths • Chapter 1</div></div>
+  </div>
+  <nav>
+    <a href="#notes">नोट्स</a><a href="#formulas">सूत्र</a><a href="#ncert">हल प्रश्न</a>
+    <a href="#extra">अतिरिक्त प्रश्न</a><a href="#homework">होमवर्क</a>
+  </nav>
+  <button class="theme-btn" id="themeToggle" onclick="toggleTheme()" title="Dark/Light Mode">🌙</button>
+</header>
+
+<!-- ============ HERO ============ -->
+<div class="hero">
+  <span class="eyebrow">कक्षा 10 · अध्याय 1 · बिहार बोर्ड</span>
+  <h1>वास्तविक संख्याएँ</h1>
+  <div class="en">Real Numbers</div>
+  <p>इस अध्याय में यूक्लिड विभाजन एल्गोरिथ्म से HCF निकालना, अंकगणित की आधारभूत प्रमेय से अभाज्य गुणनखंडन तथा HCF-LCM निकालना, √2, √3, √5 जैसी संख्याओं को अपरिमेय सिद्ध करना, और किसी परिमेय संख्या का दशमलव प्रसार सांत होगा या असांत आवर्ती — यह पढ़ेंगे। इस पेज में Notes, ज़रूरी सूत्र, हल सहित महत्वपूर्ण प्रश्न, अतिरिक्त महत्वपूर्ण प्रश्न, और Homework दिया गया है।</p>
+</div>
+
+<!-- ============ NOTES ============ -->
+<section id="notes">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--neon-blue),#1f6fc9); --glow:#3ea6ff99;">📝</div>
+    <div><h2>Notes — मुख्य अवधारणाएँ</h2><div class="sub en-tag">Concept Notes with Examples</div></div></div>
+  <div class="glass card" style="display:flex; flex-direction:column; gap:16px;">
+    <div class="rule-card" style="border-left-color:var(--cyan);">
+      <h4 style="color:var(--cyan);">1. यूक्लिड विभाजन एल्गोरिथ्म (Euclid's Division Algorithm)</h4>
+      <p><b class="hi">यूक्लिड विभाजन प्रमेयिका (Euclid's Division Lemma)</b> — किन्हीं भी दो धनात्मक पूर्णांकों a और b के लिए, पूर्णांक q और r इस प्रकार विद्यमान होते हैं कि <b class="hi3">a = bq + r</b>, जहाँ <b class="hi3">0 ≤ r &lt; b</b> होता है। यहाँ a को भाज्य (Dividend), b को भाजक (Divisor), q को भागफल (Quotient) और r को शेषफल (Remainder) कहते हैं।<br><br>
+      इसी प्रमेयिका को बार-बार प्रयोग करके दो धनात्मक पूर्णांकों का <b class="hi2">HCF (महत्तम समापवर्तक)</b> निकालने की विधि को यूक्लिड विभाजन एल्गोरिथ्म कहते हैं — बड़ी संख्या को छोटी संख्या से भाग दो, फिर भाजक को भाज्य मानकर पहले प्राप्त शेषफल से भाग दो, यह क्रम तब तक दोहराओ जब तक शेषफल शून्य न हो जाए। जिस चरण में शेषफल शून्य आता है, उस चरण का भाजक ही अभीष्ट HCF होता है।<br><br>
+      <b>उदाहरण:</b> 135 और 225 का HCF ज्ञात करें।<br>
+      225 = 135 × 1 + 90<br>
+      135 = 90 × 1 + 45<br>
+      90 = 45 × 2 + 0<br>
+      शेषफल शून्य होने पर अंतिम भाजक = <b class="hi3">45</b>, अतः HCF(135, 225) = 45।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--pink);">
+      <h4 style="color:var(--pink);">2. अंकगणित की आधारभूत प्रमेय (Fundamental Theorem of Arithmetic)</h4>
+      <p>प्रत्येक <b class="hi">भाज्य संख्या (Composite Number)</b> को अभाज्य संख्याओं (Prime Numbers) के गुणनफल के रूप में लिखा जा सकता है, और यह गुणनखंडन (Factorisation) — गुणनखंडों के क्रम को छोड़कर — <b class="hi3">अद्वितीय (Unique)</b> होता है। जैसे 140 = 2 × 2 × 5 × 7 = 2² × 5 × 7, चाहे किसी भी क्रम में गुणा करें, अभाज्य गुणनखंड यही रहेंगे।<br><br>
+      इस प्रमेय के आधार पर दो या अधिक संख्याओं का HCF और LCM, बिना यूक्लिड एल्गोरिथ्म के, अभाज्य गुणनखंडन विधि से भी निकाला जा सकता है — <b class="hi2">HCF</b> = उभयनिष्ठ (common) अभाज्य गुणनखंडों की न्यूनतम घातों का गुणनफल, और <b class="hi2">LCM</b> = सभी अभाज्य गुणनखंडों (उभयनिष्ठ व असामान्य दोनों) की अधिकतम घातों का गुणनफल।<br><br>
+      <b>उदाहरण:</b> 12 और 18 का HCF व LCM ज्ञात करें।<br>
+      12 = 2² × 3, 18 = 2 × 3²<br>
+      HCF = 2¹ × 3¹ = 6, LCM = 2² × 3² = 36<br>
+      जाँच: HCF × LCM = 6 × 36 = 216, और 12 × 18 = 216 — दोनों बराबर हैं, अतः उत्तर सही है।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--green);">
+      <h4 style="color:var(--green);">3. अपरिमेय संख्याओं की सिद्धि (Proving Irrationality)</h4>
+      <p>जिस संख्या को p/q (जहाँ p, q पूर्णांक हैं, q ≠ 0) के रूप में नहीं लिखा जा सकता, वह <b class="hi">अपरिमेय संख्या (Irrational Number)</b> कहलाती है। √2, √3, √5 जैसी संख्याओं को अपरिमेय सिद्ध करने के लिए <b class="hi3">विरोधाभास विधि (Proof by Contradiction)</b> प्रयोग होती है — पहले यह मान लिया जाता है कि दी गई संख्या परिमेय है, फिर तर्क द्वारा एक विरोधाभास उत्पन्न किया जाता है, जिससे यह सिद्ध होता है कि मूल मान्यता गलत थी।<br><br>
+      <b>उदाहरण (रूपरेखा):</b> सिद्ध करें कि √2 अपरिमेय है।<br>
+      मान लें √2 परिमेय है, तो √2 = a/b, जहाँ a, b सह-अभाज्य पूर्णांक (HCF(a,b)=1) हैं और b ≠ 0।<br>
+      दोनों ओर वर्ग करने पर: 2 = a²/b² ⟹ a² = 2b² ... (i)<br>
+      अतः a² सम (even) है, इसलिए a भी सम है — मान लें a = 2c।<br>
+      (i) में रखने पर: 4c² = 2b² ⟹ b² = 2c², अतः b² भी सम है, इसलिए b भी सम है।<br>
+      इस तरह a और b दोनों सम निकले, अर्थात दोनों में 2 उभयनिष्ठ गुणनखंड है — यह HCF(a,b)=1 की मान्यता के <b class="hi3">विरोधाभासी</b> है। अतः हमारी मूल मान्यता गलत थी और √2 <b class="hi2">अपरिमेय संख्या</b> है। इसी विधि से √3, √5, √7 आदि किसी भी अभाज्य संख्या का वर्गमूल अपरिमेय सिद्ध किया जा सकता है।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--orange);">
+      <h4 style="color:var(--orange);">4. परिमेय संख्या का दशमलव प्रसार — सांत या असांत आवर्ती</h4>
+      <p>किसी परिमेय संख्या p/q (जहाँ यह सरलतम रूप में है, अर्थात HCF(p,q)=1) का दशमलव प्रसार दो प्रकार का हो सकता है — <b class="hi">सांत (Terminating)</b> या <b class="hi">असांत आवर्ती (Non-Terminating Repeating)</b>। यह हर q के अभाज्य गुणनखंडों पर निर्भर करता है —<br>
+      • यदि q = 2<sup>m</sup> × 5<sup>n</sup> (जहाँ m, n ऋणेतर पूर्णांक हैं, अर्थात q में केवल 2 और/या 5 के गुणनखंड हों) — तो दशमलव प्रसार <b class="hi2">सांत</b> होगा।<br>
+      • यदि q के अभाज्य गुणनखंडों में 2 और 5 के अलावा कोई और अभाज्य संख्या (जैसे 3, 7, 11...) भी हो — तो दशमलव प्रसार <b class="hi3">असांत आवर्ती</b> होगा।<br><br>
+      <b>उदाहरण:</b> 7/8 का दशमलव प्रसार सांत होगा या नहीं?<br>
+      8 = 2³ (केवल 2 का गुणनखंड है) ⟹ दशमलव प्रसार सांत होगा।<br>
+      वास्तव में 7/8 = 0.875 — जो 3 दशमलव स्थानों पर सांत हो जाता है (क्योंकि q में 2 की घात 3 है)।<br><br>
+      इसके विपरीत, 7/6 में 6 = 2 × 3 है — यहाँ 3 का गुणनखंड होने के कारण 7/6 का दशमलव प्रसार <b class="hi3">असांत आवर्ती</b> होगा (7/6 = 1.1666... = 1.16̄)।</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FORMULA SHEET ============ -->
+<section id="formulas">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--purple),#7e4fd1); --glow:#b07dff99;">🧮</div>
+    <div><h2>ज़रूरी सूत्र एवं नियम (Important Formulas &amp; Rules)</h2><div class="sub en-tag">Key Formulas to Remember</div></div></div>
+  <div class="grid grid-3" id="formulaSheetGrid"></div>
+</section>
+
+<!-- ============ SOLVED QUESTIONS ============ -->
+<section id="ncert">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--green),#1a9c70); --glow:#2ee6a699;">📘</div>
+    <div><h2>हल सहित महत्वपूर्ण प्रश्न (NCERT आधारित)</h2><div class="sub en-tag">Solved Questions — All 4 Sections, Show/Hide Answer</div></div></div>
+  <div id="ncertWrap"></div>
+</section>
+
+<!-- ============ ADDITIONAL IMPORTANT QUESTIONS ============ -->
+<section id="extra">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--orange),#c9650c); --glow:#ff9f4399;">⭐</div>
+    <div><h2>अतिरिक्त महत्वपूर्ण प्रश्न</h2><div class="sub en-tag">Additional Important Questions (BSEB Exam Pattern)</div></div></div>
+  <div id="extraWrap"></div>
+</section>
+
+<!-- ============ HOMEWORK ============ -->
+<section id="homework">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--red),#a82424); --glow:#ff4f4f99;">🏠</div>
+    <div><h2>घर से करने के लिए Homework</h2><div class="sub en-tag">Notebook Exercise — बिना हल देखे खुद हल करें</div></div></div>
+  <div class="glass card hw-card">
+    <ol id="homeworkList"></ol>
+  </div>
+  <p style="color:var(--dim); font-size:12px; margin-top:14px; font-weight:600;">इन सभी प्रश्नों को अपनी Maths की notebook में पूरे चरणों सहित हल कीजिए और अगली कक्षा में साथ लाइए।</p>
+</section>
+
+<footer>
+  <span class="name">PK STUDY</span> — Chapter 1 Complete
+  <div class="copy">Class 10 · Maths · Real Numbers — PK STUDY, All Copyright Reserved</div>
+</footer>
+
+<script>
+function toggleTheme(){
+  const html = document.documentElement;
+  const isLight = html.getAttribute('data-theme') === 'light';
+  html.setAttribute('data-theme', isLight ? '' : 'light');
+  document.getElementById('themeToggle').textContent = isLight ? '🌙' : '☀️';
+}
+function el(tag, cls, html){ const d=document.createElement(tag); if(cls)d.className=cls; if(html!==undefined)d.innerHTML=html; return d; }
+
+const formulaSheetData = [
+  {t:"यूक्लिड विभाजन प्रमेयिका", d:"a = bq + r, जहाँ 0 ≤ r &lt; b (a, b धनात्मक पूर्णांक)", c:"var(--cyan)"},
+  {t:"HCF × LCM नियम", d:"दो धनात्मक पूर्णांकों a, b के लिए — HCF(a,b) × LCM(a,b) = a × b", c:"var(--pink)"},
+  {t:"अभाज्य गुणनखंडन से HCF", d:"उभयनिष्ठ (Common) अभाज्य गुणनखंडों की न्यूनतम घातों का गुणनफल", c:"var(--green)"},
+  {t:"अभाज्य गुणनखंडन से LCM", d:"सभी अभाज्य गुणनखंडों (उभयनिष्ठ + असामान्य) की अधिकतम घातों का गुणनफल", c:"var(--orange)"},
+  {t:"दशमलव प्रसार का नियम", d:"p/q (सरलतम रूप में) सांत होगा यदि q = 2ᵐ × 5ⁿ; अन्यथा असांत आवर्ती होगा", c:"var(--gold)"},
+  {t:"अपरिमेयता सिद्ध करने की विधि", d:"विरोधाभास विधि — पहले संख्या को a/b (HCF(a,b)=1) परिमेय मानो, फिर विरोधाभास दिखाओ", c:"var(--purple)"}
+];
+
+const ncertData = [
+  {type:"subj", q:"1. यूक्लिड विभाजन एल्गोरिथ्म का प्रयोग करके 135 और 225 का HCF ज्ञात कीजिए।",
+   s:"225 = 135 × 1 + 90\n135 = 90 × 1 + 45\n90 = 45 × 2 + 0\n\nशेषफल शून्य होने पर अंतिम भाजक = 45\n\nउत्तर: HCF(135, 225) = 45"},
+  {type:"subj", q:"2. यूक्लिड विभाजन एल्गोरिथ्म का प्रयोग करके 196 और 38220 का HCF ज्ञात कीजिए।",
+   s:"38220 = 196 × 195 + 0\n\nचूँकि पहले ही चरण में शेषफल शून्य आ गया, अतः भाजक 196 ही HCF है।\n\nउत्तर: HCF(196, 38220) = 196"},
+  {type:"subj", q:"3. यूक्लिड विभाजन एल्गोरिथ्म का प्रयोग करके 867 और 255 का HCF ज्ञात कीजिए।",
+   s:"867 = 255 × 3 + 102\n255 = 102 × 2 + 51\n102 = 51 × 2 + 0\n\nशेषफल शून्य होने पर अंतिम भाजक = 51\n\nउत्तर: HCF(867, 255) = 51"},
+  {type:"subj", q:"4. दिखाइए कि कोई भी धनात्मक विषम पूर्णांक 6q+1, 6q+3 अथवा 6q+5 के रूप का होता है, जहाँ q कोई पूर्णांक है।",
+   s:"माना a कोई धनात्मक पूर्णांक है और b = 6। यूक्लिड विभाजन प्रमेयिका से,\na = 6q + r, जहाँ 0 ≤ r &lt; 6, अर्थात r = 0, 1, 2, 3, 4 या 5\n\nअतः a का मान 6q, 6q+1, 6q+2, 6q+3, 6q+4 अथवा 6q+5 हो सकता है।\n6q, 6q+2, 6q+4 सभी सम (2 से विभाज्य) हैं, इसलिए ये विषम पूर्णांक नहीं हो सकते।\n\nअतः कोई भी धनात्मक विषम पूर्णांक केवल 6q+1, 6q+3 अथवा 6q+5 के रूप का ही हो सकता है। (सिद्ध)"},
+  {type:"subj", q:"5. अभाज्य गुणनखंडन विधि से 96 और 404 का HCF और LCM ज्ञात कीजिए तथा सत्यापित कीजिए कि HCF × LCM = दोनों संख्याओं का गुणनफल।",
+   s:"96 = 2⁵ × 3\n404 = 2² × 101\n\nHCF = 2² = 4 (उभयनिष्ठ अभाज्य गुणनखंड की न्यूनतम घात)\nLCM = 2⁵ × 3 × 101 = 9696\n\nसत्यापन: HCF × LCM = 4 × 9696 = 38784\n96 × 404 = 38784\n\nदोनों बराबर हैं, अतः उत्तर सही है। HCF = 4, LCM = 9696"},
+  {type:"subj", q:"6. अभाज्य गुणनखंडन विधि से 6 और 20 का LCM और HCF ज्ञात कीजिए तथा सत्यापित कीजिए कि LCM × HCF = दोनों संख्याओं का गुणनफल।",
+   s:"6 = 2 × 3\n20 = 2² × 5\n\nHCF = 2¹ = 2\nLCM = 2² × 3 × 5 = 60\n\nसत्यापन: LCM × HCF = 60 × 2 = 120\n6 × 20 = 120\n\nदोनों बराबर हैं। उत्तर: HCF = 2, LCM = 60"},
+  {type:"obj", q:"7. बताइए कि क्या संख्याएँ (7 × 11 × 13 + 13) और (7 × 6 × 5 × 4 × 3 × 2 × 1 + 5) भाज्य (Composite) हैं या अभाज्य।",
+   s:"(i) 7 × 11 × 13 + 13 = 13 × (7 × 11 + 1) = 13 × 78 = 1014\nयह 13 और 78 दोनों से विभाज्य है, अतः इसके एक से अधिक गुणनखंड हैं ⟹ भाज्य संख्या है।\n\n(ii) 7 × 6 × 5 × 4 × 3 × 2 × 1 + 5 = 5 × (7 × 6 × 4 × 3 × 2 × 1 + 1) = 5 × 1009 = 5045\nयह 5 और 1009 दोनों से विभाज्य है, अतः इसके भी एक से अधिक गुणनखंड हैं ⟹ भाज्य संख्या है।\n\nउत्तर: दोनों संख्याएँ भाज्य (Composite) हैं।"},
+  {type:"subj", q:"8. एक विद्यालय की प्रातःकालीन सभा में कक्षा-X के 616 विद्यार्थी और शिक्षकों के 32 सदस्य इस प्रकार पंक्तियों में मार्च करते हैं कि प्रत्येक पंक्ति में स्तंभों (columns) की संख्या समान हो। पंक्तियों की अधिकतम संख्या ज्ञात कीजिए।",
+   s:"पंक्तियों की अधिकतम संख्या = HCF(616, 32)\n\n616 = 2³ × 7 × 11\n32 = 2⁵\n\nHCF = 2³ = 8 (उभयनिष्ठ गुणनखंड की न्यूनतम घात)\n\nउत्तर: अधिकतम 8 पंक्तियाँ बनाई जा सकती हैं।"},
+  {type:"subj", q:"9. सिद्ध कीजिए कि √5 एक अपरिमेय संख्या है।",
+   s:"मान लें कि √5 परिमेय संख्या है।\nतो √5 = a/b, जहाँ a, b सह-अभाज्य पूर्णांक (HCF(a,b) = 1) हैं और b ≠ 0।\n\nदोनों ओर वर्ग करने पर: 5 = a²/b² ⟹ a² = 5b² ... (i)\n\nअतः 5, a² को विभाजित करता है। चूँकि 5 अभाज्य है, इसलिए 5, a को भी विभाजित करेगा।\nमान लें a = 5c, जहाँ c कोई पूर्णांक है।\n\n(i) में रखने पर: (5c)² = 5b² ⟹ 25c² = 5b² ⟹ b² = 5c²\nअतः 5, b² को भी विभाजित करता है, इसलिए 5, b को भी विभाजित करेगा।\n\nइस तरह a और b दोनों में 5 उभयनिष्ठ गुणनखंड निकला, जो HCF(a,b) = 1 की मान्यता के विरुद्ध है — यह विरोधाभास है।\n\nअतः हमारी मूल मान्यता गलत थी और √5 अपरिमेय संख्या है। (सिद्ध)"},
+  {type:"subj", q:"10. सिद्ध कीजिए कि 3 + 2√5 एक अपरिमेय संख्या है।",
+   s:"मान लें कि 3 + 2√5 परिमेय संख्या है।\nतो 3 + 2√5 = a/b, जहाँ a, b पूर्णांक हैं और b ≠ 0।\n\n⟹ 2√5 = a/b − 3 = (a − 3b)/b\n⟹ √5 = (a − 3b)/2b\n\nचूँकि a, b पूर्णांक हैं, इसलिए (a − 3b)/2b एक परिमेय संख्या है।\nतो इस समीकरण के अनुसार √5 भी परिमेय होना चाहिए।\n\nपरंतु हम पहले ही सिद्ध कर चुके हैं कि √5 अपरिमेय है — यह विरोधाभास है।\n\nअतः हमारी मूल मान्यता गलत थी और 3 + 2√5 अपरिमेय संख्या है। (सिद्ध)"},
+  {type:"subj", q:"11. सिद्ध कीजिए कि 7√5 एक अपरिमेय संख्या है।",
+   s:"मान लें कि 7√5 परिमेय संख्या है।\nतो 7√5 = a/b, जहाँ a, b सह-अभाज्य पूर्णांक हैं और b ≠ 0।\n\n⟹ √5 = a/(7b)\n\nचूँकि a, b पूर्णांक हैं और 7b ≠ 0, इसलिए a/(7b) एक परिमेय संख्या है। अतः √5 भी परिमेय होना चाहिए।\n\nपरंतु √5 अपरिमेय है (पहले सिद्ध किया जा चुका है) — यह विरोधाभास है।\n\nअतः हमारी मूल मान्यता गलत थी और 7√5 अपरिमेय संख्या है। (सिद्ध)"},
+  {type:"subj", q:"12. सिद्ध कीजिए कि 6 + √2 एक अपरिमेय संख्या है।",
+   s:"मान लें कि 6 + √2 परिमेय संख्या है।\nतो 6 + √2 = a/b, जहाँ a, b पूर्णांक हैं और b ≠ 0।\n\n⟹ √2 = a/b − 6 = (a − 6b)/b\n\nचूँकि a, b पूर्णांक हैं, अतः (a − 6b)/b परिमेय संख्या है, इसलिए इस समीकरण के अनुसार √2 भी परिमेय होना चाहिए।\n\nपरंतु √2 अपरिमेय है (मानक प्रमेय) — यह विरोधाभास है।\n\nअतः हमारी मूल मान्यता गलत थी और 6 + √2 अपरिमेय संख्या है। (सिद्ध)"},
+  {type:"obj", q:"13. बिना वास्तविक भाग किए बताइए कि 13/3125 का दशमलव प्रसार सांत है या असांत आवर्ती। यदि सांत है, तो यह कितने दशमलव स्थानों के बाद समाप्त होगा?",
+   s:"3125 = 5⁵ (केवल 5 का गुणनखंड है, 2 का कोई गुणनखंड नहीं) ⟹ दशमलव प्रसार सांत होगा।\n\n13/3125 = 13/5⁵ = (13 × 2⁵)/(5⁵ × 2⁵) = (13 × 32)/10⁵ = 416/100000 = 0.00416\n\nचूँकि हर में 2 और 5 की अधिकतम घात 5 है, अतः यह 5 दशमलव स्थानों के बाद समाप्त होता है।\n\nउत्तर: सांत, 5 दशमलव स्थानों के बाद (13/3125 = 0.00416)"},
+  {type:"obj", q:"14. बिना वास्तविक भाग किए बताइए कि 64/455 का दशमलव प्रसार सांत है या असांत आवर्ती।",
+   s:"455 = 5 × 91 = 5 × 7 × 13\n\nहर के अभाज्य गुणनखंडों में 5 के अलावा 7 और 13 भी हैं, जो 2 अथवा 5 नहीं हैं।\n\nअतः q = 2ᵐ × 5ⁿ के रूप का नहीं है, इसलिए दशमलव प्रसार असांत आवर्ती (Non-Terminating Repeating) होगा।\n\nउत्तर: असांत आवर्ती"},
+  {type:"obj", q:"15. बिना वास्तविक भाग किए बताइए कि 15/1600 का दशमलव प्रसार सांत है या असांत आवर्ती। यदि सांत है, तो कितने दशमलव स्थानों के बाद समाप्त होगा?",
+   s:"1600 = 2⁶ × 5² (केवल 2 और 5 के गुणनखंड हैं) ⟹ दशमलव प्रसार सांत होगा।\n\n15/1600 = (15 × 5⁴)/(2⁶ × 5² × 5⁴) = (15 × 625)/2⁶ × 5⁶ = 9375/10⁶ = 0.009375\n\nहर में 2 और 5 की अधिकतम घात 6 है (2⁶), अतः यह 6 दशमलव स्थानों के बाद समाप्त होता है।\n\nउत्तर: सांत, 6 दशमलव स्थानों के बाद (15/1600 = 0.009375)"},
+  {type:"obj", q:"16. बिना वास्तविक भाग किए, कारण सहित बताइए कि 129/(2² × 5⁷ × 7⁵) का दशमलव प्रसार सांत है या असांत आवर्ती।",
+   s:"हर = 2² × 5⁷ × 7⁵\n\nयहाँ 2 और 5 के अलावा 7⁵ का गुणनखंड भी उपस्थित है, जो 2 अथवा 5 नहीं है।\n\nअतः q, केवल 2ᵐ × 5ⁿ के रूप का नहीं है, इसलिए दशमलव प्रसार असांत आवर्ती (Non-Terminating Repeating) होगा।\n\nउत्तर: असांत आवर्ती"}
+];
+
+const extraData = [
+  {type:"subj", q:"1. अभाज्य गुणनखंडन विधि से 12, 15 और 21 का HCF तथा LCM ज्ञात कीजिए।",
+   s:"12 = 2² × 3\n15 = 3 × 5\n21 = 3 × 7\n\nHCF = 3 (तीनों में केवल 3 उभयनिष्ठ है, न्यूनतम घात 3¹)\nLCM = 2² × 3 × 5 × 7 = 420 (सभी अभाज्य गुणनखंडों की अधिकतम घातों का गुणनफल)\n\nउत्तर: HCF = 3, LCM = 420"},
+  {type:"subj", q:"2. यूक्लिड विभाजन एल्गोरिथ्म का प्रयोग करके 405 और 2520 का HCF ज्ञात कीजिए।",
+   s:"2520 = 405 × 6 + 90\n405 = 90 × 4 + 45\n90 = 45 × 2 + 0\n\nशेषफल शून्य होने पर अंतिम भाजक = 45\n\nउत्तर: HCF(405, 2520) = 45"},
+  {type:"subj", q:"3. सिद्ध कीजिए कि √7 एक अपरिमेय संख्या है।",
+   s:"मान लें कि √7 परिमेय संख्या है।\nतो √7 = a/b, जहाँ a, b सह-अभाज्य पूर्णांक (HCF(a,b) = 1) हैं और b ≠ 0।\n\nदोनों ओर वर्ग करने पर: 7 = a²/b² ⟹ a² = 7b² ... (i)\n\nअतः 7, a² को विभाजित करता है। चूँकि 7 अभाज्य है, इसलिए 7, a को भी विभाजित करेगा।\nमान लें a = 7c।\n\n(i) में रखने पर: 49c² = 7b² ⟹ b² = 7c²\nअतः 7, b² को भी विभाजित करता है, इसलिए 7, b को भी विभाजित करेगा।\n\nइस तरह a और b दोनों में 7 उभयनिष्ठ गुणनखंड निकला, जो HCF(a,b) = 1 के विरुद्ध है — यह विरोधाभास है।\n\nअतः √7 अपरिमेय संख्या है। (सिद्ध)"},
+  {type:"subj", q:"4. दिखाइए कि किसी भी प्राकृत संख्या n के लिए, 12ⁿ अंक 0 पर समाप्त नहीं हो सकता।",
+   s:"यदि किसी संख्या का अंत अंक 0 पर होता है, तो वह संख्या 10 से विभाज्य होनी चाहिए, अर्थात उसके अभाज्य गुणनखंडों में 2 और 5 दोनों होने चाहिए (क्योंकि 10 = 2 × 5)।\n\n12ⁿ = (2² × 3)ⁿ = 2²ⁿ × 3ⁿ\n\nअंकगणित की आधारभूत प्रमेय के अनुसार, किसी संख्या के अभाज्य गुणनखंड अद्वितीय होते हैं। 12ⁿ के अभाज्य गुणनखंडों में केवल 2 और 3 हैं, 5 बिल्कुल भी नहीं है।\n\nचूँकि 12ⁿ के गुणनखंडों में 5 उपस्थित नहीं है, इसलिए 12ⁿ कभी भी 10 से विभाज्य नहीं हो सकता।\n\nअतः किसी भी n के लिए 12ⁿ अंक 0 पर समाप्त नहीं हो सकता। (सिद्ध)"},
+  {type:"subj", q:"5. दिखाइए कि किसी भी धनात्मक विषम पूर्णांक का वर्ग 8m + 1 के रूप का होता है, जहाँ m कोई पूर्णांक है।",
+   s:"माना a कोई धनात्मक विषम पूर्णांक है। यूक्लिड विभाजन प्रमेयिका से, a को 4 से भाग देने पर,\na = 4q + r, जहाँ 0 ≤ r &lt; 4, अर्थात r = 0, 1, 2 अथवा 3\n\nअतः a = 4q, 4q+1, 4q+2 अथवा 4q+3 हो सकता है। इनमें से 4q और 4q+2 सम हैं, इसलिए विषम पूर्णांक केवल 4q+1 अथवा 4q+3 के रूप का ही हो सकता है।\n\nस्थिति (i): a = 4q + 1\na² = 16q² + 8q + 1 = 8(2q² + q) + 1 = 8m + 1, जहाँ m = 2q² + q\n\nस्थिति (ii): a = 4q + 3\na² = 16q² + 24q + 9 = 8(2q² + 3q + 1) + 1 = 8m + 1, जहाँ m = 2q² + 3q + 1\n\nदोनों स्थितियों में a² = 8m + 1 का रूप प्राप्त होता है।\n\nअतः किसी भी धनात्मक विषम पूर्णांक का वर्ग सदैव 8m + 1 के रूप का होता है। (सिद्ध)"},
+  {type:"obj", q:"6. 35/50 का दशमलव प्रसार सांत है या असांत आवर्ती? सरलतम रूप में लाकर बताइए।",
+   s:"पहले 35/50 को सरलतम रूप में लाना ज़रूरी है (क्योंकि नियम सरलतम रूप के हर पर लागू होता है)।\n\n35/50 = 7/10 (5 से भाग देने पर)\n\n10 = 2 × 5 (केवल 2 और 5 के गुणनखंड हैं) ⟹ दशमलव प्रसार सांत होगा।\n\n7/10 = 0.7\n\nउत्तर: सांत, 1 दशमलव स्थान के बाद (35/50 = 0.7)। ध्यान दें — यदि सरलतम रूप में न लाकर सीधे हर 50 = 2 × 5² देखा जाए तो भी यह केवल 2 और 5 के गुणनखंडों वाला ही है, इसलिए उत्तर सांत ही रहेगा।"}
+];
+
+const homeworkData = [
+  "यूक्लिड विभाजन एल्गोरिथ्म का प्रयोग करके 4052 और 12576 का HCF ज्ञात कीजिए।",
+  "अभाज्य गुणनखंडन विधि से 26 और 91 का HCF तथा LCM ज्ञात कीजिए और सत्यापित कीजिए कि HCF × LCM = दोनों संख्याओं का गुणनफल।",
+  "सिद्ध कीजिए कि √11 एक अपरिमेय संख्या है।",
+  "सिद्ध कीजिए कि 2 − 3√5 एक अपरिमेय संख्या है (दिया गया है कि √5 अपरिमेय है)।",
+  "बिना वास्तविक भाग किए बताइए कि 6/15 का दशमलव प्रसार (सरलतम रूप में लाकर) सांत होगा या असांत आवर्ती, कारण सहित स्पष्ट कीजिए।",
+  "एक बर्तन में 105 लीटर तेल और 45 लीटर घी है। इन दोनों को समान धारिता वाले पात्रों में इस प्रकार भरना है कि किसी भी पात्र में तेल और घी मिश्रित न हों। प्रत्येक पात्र की अधिकतम धारिता ज्ञात कीजिए।",
+  "दिखाइए कि किसी भी विषम धनात्मक पूर्णांक n के लिए, n² − 1, संख्या 8 से विभाज्य होता है।"
+];
+
+function buildFormulaSheet(){
+  const g = document.getElementById('formulaSheetGrid');
+  formulaSheetData.forEach(f=>{ const d=el('div','glass def-card', `<h4 style="color:${f.c}">🧮 ${f.t}</h4><p>${f.d}</p>`); g.appendChild(d); });
+}
+function buildQA(containerId, data, labelPrefix){
+  const wrap = document.getElementById(containerId);
+  data.forEach((item)=>{
+    const pillHtml = item.type === 'obj' ? '<span class="pill pill-obj">Objective</span>' : '<span class="pill pill-subj">Subjective</span>';
+    const d = el('div','glass example-card', `<div class="qlabel">${labelPrefix} ${pillHtml}</div><div class="qtext">${item.q}</div>
+      <button class="show-ans-btn" onclick="toggleAnswer(this)">उत्तर दिखाएँ (Show Answer)</button>
+      <div class="ans-wrap"><div class="slabel">हल (Solution)</div><div class="stext">${item.s}</div></div>`);
+    wrap.appendChild(d);
+  });
+}
+function toggleAnswer(btn){
+  const wrap = btn.nextElementSibling;
+  const isOpen = wrap.classList.toggle('open');
+  btn.classList.toggle('open', isOpen);
+  btn.textContent = isOpen ? 'उत्तर छुपाएँ (Hide Answer)' : 'उत्तर दिखाएँ (Show Answer)';
+}
+function buildHomework(){
+  const g = document.getElementById('homeworkList');
+  homeworkData.forEach(q=>{ const li = document.createElement('li'); li.textContent = q; g.appendChild(li); });
+}
+
+buildFormulaSheet();
+buildQA('ncertWrap', ncertData, 'प्रश्न');
+buildQA('extraWrap', extraData, 'प्रश्न');
+buildHomework();
+</script>
+</body>
+</html>

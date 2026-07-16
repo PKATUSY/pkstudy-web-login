@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PK STUDY | Simple Present Tense — पूर्ण विस्तृत अध्ययन</title>
+<style>
+:root{
+  --bg:#04050f; --glass:rgba(255,255,255,.045); --glass-strong:rgba(255,255,255,.08);
+  --border:rgba(255,255,255,.12); --text:#f2f6ff; --dim:#9fb0da; --heading:#ffffff;
+  --neon-blue:#3ea6ff; --cyan:#33e0ff; --purple:#b07dff; --gold:#ffc233;
+  --green:#2ee6a6; --orange:#ff9f43; --pink:#ff4d8d; --red:#ff4f4f;
+  --shadow:0 22px 46px -22px #000d; --hshadow:0 30px 56px -20px #000f;
+}
+[data-theme="light"]{
+  --bg:#f6f8fd; --glass:rgba(20,30,65,.045); --glass-strong:rgba(20,30,65,.08);
+  --border:rgba(20,30,65,.12); --text:#161c33; --dim:#535f82; --heading:#12172b;
+  --neon-blue:#2563eb; --cyan:#0891b2; --purple:#7c3aed; --gold:#b45309;
+  --green:#059669; --orange:#c2410c; --pink:#db2777; --red:#dc2626;
+  --shadow:0 18px 36px -20px rgba(30,40,80,.18); --hshadow:0 24px 44px -18px rgba(30,40,80,.24);
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Segoe UI','Noto Sans Devanagari',Arial,sans-serif; color:var(--text); min-height:100vh; overflow-x:hidden;
+  transition:background .4s, color .4s;
+  background:
+    radial-gradient(ellipse at 10% -10%, #1c3a9955, transparent 55%),
+    radial-gradient(ellipse at 95% 10%, #7a2ab866, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, #0a5a6e44, transparent 55%),
+    linear-gradient(180deg,#04050f,#020208 90%);
+}
+[data-theme="light"] body{
+  background:
+    radial-gradient(ellipse at 10% -10%, #dbe4ff99, transparent 55%),
+    radial-gradient(ellipse at 95% 10%, #ede0ff99, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, #d7f5f099, transparent 55%),
+    linear-gradient(180deg,#f8faff,#eef1f9 90%);
+}
+::-webkit-scrollbar{width:8px;} ::-webkit-scrollbar-thumb{background:var(--neon-blue); border-radius:6px;} ::-webkit-scrollbar-track{background:transparent;}
+
+.glass{background:var(--glass); border:1px solid var(--border); border-radius:18px; backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+  box-shadow:var(--shadow), inset 0 1px 0 #ffffff12; transition:transform .35s, box-shadow .35s, background .4s, border .4s;}
+
+header{position:sticky; top:0; z-index:200; display:flex; align-items:center; justify-content:space-between; padding:14px 26px;
+  background:rgba(4,5,15,.75); backdrop-filter:blur(18px); border-bottom:1px solid var(--border); flex-wrap:wrap; gap:10px; transition:background .4s;}
+[data-theme="light"] header{background:rgba(255,255,255,.8);}
+.brand{display:flex; align-items:center; gap:12px;}
+.brand img{width:44px; height:44px; border-radius:10px; object-fit:cover; border:2px solid var(--neon-blue); box-shadow:0 0 18px #3ea6ff88;}
+.logo-fallback{width:44px; height:44px; border-radius:10px; display:flex; align-items:center; justify-content:center;
+  background:linear-gradient(135deg,var(--neon-blue),#1f3d8c); font-weight:900; font-size:12px; border:2px solid var(--cyan); color:#fff;}
+.brand-text .name{font-weight:900; font-size:18px; color:var(--cyan); letter-spacing:.5px;}
+.brand-text .tag{font-size:11px; color:var(--dim); font-weight:600;}
+nav{display:flex; gap:5px; overflow-x:auto; max-width:52vw;}
+nav::-webkit-scrollbar{height:4px;}
+nav a{color:var(--dim); text-decoration:none; font-size:11.5px; padding:6px 11px; border-radius:16px; border:1px solid transparent; transition:.2s; font-weight:700; white-space:nowrap;}
+nav a:hover{color:var(--heading); border-color:var(--neon-blue); background:#3ea6ff1a;}
+.theme-btn{flex-shrink:0; width:40px; height:40px; border-radius:12px; border:1px solid var(--border); background:var(--glass-strong);
+  color:var(--text); font-size:17px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:.25s;}
+.theme-btn:hover{border-color:var(--neon-blue); transform:translateY(-2px);}
+
+.hero{position:relative; padding:60px 6vw 40px; text-align:center;}
+.eyebrow{display:inline-block; padding:7px 22px; border-radius:30px; color:#04050f; font-size:12px; font-weight:900;
+  letter-spacing:2px; text-transform:uppercase; margin-bottom:20px;
+  background:linear-gradient(120deg,var(--gold),var(--orange),var(--pink),var(--purple),var(--cyan));
+  box-shadow:0 10px 26px -6px #000b;}
+.hero h1{font-size:clamp(26px,5.5vw,48px); font-weight:900; line-height:1.25;
+  background:linear-gradient(90deg,var(--neon-blue),var(--cyan) 35%,var(--purple) 65%,var(--pink)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+.hero .en{font-size:16px; color:var(--dim); font-weight:700; margin-top:10px;}
+.hero p{color:var(--dim); max-width:780px; margin:20px auto 0; font-size:14.5px; line-height:1.9; font-weight:600;}
+
+section{position:relative; padding:44px 6vw; max-width:1200px; margin:0 auto;}
+.sec-head{display:flex; align-items:center; gap:14px; margin-bottom:24px;}
+.sec-num{width:44px; height:44px; border-radius:14px; flex-shrink:0; display:flex; align-items:center; justify-content:center;
+  font-weight:900; font-size:16px; color:#04050f; box-shadow:0 8px 22px -6px var(--glow,#3ea6ff99); border:2px solid #ffffffaa;}
+.sec-head h2{font-size:clamp(19px,3vw,26px); font-weight:900; color:var(--heading);}
+.sec-head .sub{color:var(--dim); font-size:12.5px; font-weight:600; margin-top:2px;}
+.sec-head .en-tag{font-size:11px; color:var(--gold); font-weight:700; letter-spacing:.5px;}
+
+.card{padding:20px 22px;}
+.grid{display:grid; gap:16px;}
+.grid-2{grid-template-columns:1fr 1fr;} .grid-3{grid-template-columns:repeat(3,1fr);}
+@media(max-width:900px){.grid-3{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.grid-2,.grid-3{grid-template-columns:1fr;} nav{max-width:100%;}}
+
+b.hi{color:var(--pink); font-weight:900;} b.hi2{color:var(--green); font-weight:900;} b.hi3{color:var(--gold); font-weight:900;}
+.eng-term{color:var(--cyan); font-style:italic; font-weight:700;}
+
+.rule-card{padding:22px; border-left:5px solid var(--neon-blue);}
+.rule-card h4{font-size:16.5px; color:var(--cyan); font-weight:900; margin-bottom:10px;}
+.rule-card p{font-size:14px; color:var(--dim); line-height:1.9; font-weight:600;}
+.rule-card ul{margin:10px 0 0 20px; font-size:14px; color:var(--dim); line-height:2; font-weight:600;}
+.rule-card ul li::marker{color:var(--heading); font-weight:900;}
+
+.def-card{padding:18px 20px; border-radius:16px;}
+.def-card h4{font-size:14.5px; margin-bottom:8px; display:flex; align-items:center; gap:8px; font-weight:900;}
+.def-card p{font-size:13px; color:var(--dim); line-height:1.8; font-weight:600;}
+
+.q-card{padding:18px 20px; margin-bottom:14px;}
+.q-card .qlabel{font-size:11.5px; font-weight:900; color:var(--gold); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px; display:flex; align-items:center; gap:10px; flex-wrap:wrap;}
+.q-card .qtext{font-size:14.5px; font-weight:800; color:var(--heading); margin-bottom:14px; line-height:1.75;}
+.q-card .tag{font-size:10px; padding:3px 10px; border-radius:10px; font-weight:900; color:#04050f;}
+.show-ans-btn{padding:9px 20px; border-radius:10px; border:1.5px solid var(--green); background:transparent; color:var(--green);
+  font-weight:800; font-size:12px; cursor:pointer; transition:.2s;}
+.show-ans-btn:hover{background:var(--green); color:#04050f;}
+.show-ans-btn.open{background:var(--green); color:#04050f;}
+.ans-wrap{margin-top:14px; display:none;}
+.ans-wrap.open{display:block;}
+.q-card .slabel{font-size:11.5px; font-weight:900; color:var(--green); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;}
+.q-card .stext{font-size:14px; color:var(--dim); line-height:2; font-weight:600; background:var(--glass-strong); padding:12px 14px; border-radius:10px;}
+
+.hw-card{padding:18px 20px;}
+.hw-card ol{margin:0; padding-left:20px; font-size:13.5px; color:var(--dim); line-height:2.1; font-weight:600;}
+.hw-card ol li{margin-bottom:8px;}
+.hw-card ol li::marker{color:var(--heading); font-weight:800;}
+
+.table-wrap{overflow-x:auto; margin-bottom:16px;}
+table{width:100%; border-collapse:collapse; min-width:560px;}
+thead th{text-align:center; padding:12px 14px; background:linear-gradient(120deg,var(--neon-blue),var(--purple)); color:#fff;
+  font-size:12px; text-transform:uppercase; letter-spacing:.5px; font-weight:900;}
+thead th:first-child{border-radius:10px 0 0 0;} thead th:last-child{border-radius:0 10px 0 0;}
+tbody td{padding:12px 14px; border-bottom:1px solid var(--border); color:var(--dim); font-size:13px; text-align:center; font-weight:600;}
+tbody tr:hover{background:#3ea6ff14;}
+
+.ex-strip{display:flex; flex-wrap:wrap; gap:10px; margin-top:12px;}
+.ex-chip{background:var(--glass-strong); border:1px solid var(--border); border-radius:12px; padding:10px 14px; font-size:13px; color:var(--text); font-weight:600; line-height:1.6;}
+
+footer{text-align:center; padding:50px 6vw 70px; color:var(--dim); font-size:12.5px; border-top:1px solid var(--border); margin-top:30px; font-weight:600;}
+footer .name{color:var(--cyan); font-weight:900; font-size:16px;}
+footer .copy{margin-top:18px; font-size:11px; color:var(--dim); opacity:.8;}
+@media(max-width:480px){
+  .rule-card p, .q-card .stext, .def-card p{font-size:14.5px;}
+  .rule-card h4{font-size:17px;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <img src="images/1000043468.png" alt="PK STUDY" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="logo-fallback" style="display:none;">PK</div>
+    <div class="brand-text"><div class="name">PK STUDY</div><div class="tag">Class 8-9 (Combined) • English • Grammar</div></div>
+  </div>
+  <nav>
+    <a href="#notes">नोट्स</a><a href="#formulas">नियम</a><a href="#translation">अनुवाद</a>
+    <a href="#blanks">रिक्त स्थान</a><a href="#transform">वाक्य रूपांतरण</a><a href="#homework">होमवर्क</a>
+  </nav>
+  <button class="theme-btn" id="themeToggle" onclick="toggleTheme()" title="Dark/Light Mode">🌙</button>
+</header>
+
+<!-- ============ HERO ============ -->
+<div class="hero">
+  <span class="eyebrow">कक्षा 8-9 (संयुक्त) · English Grammar · Simple Present Tense</span>
+  <h1>Simple Present Tense</h1>
+  <div class="en">पूर्ण विस्तृत अध्ययन — Affirmative, Negative, Interrogative & WH-Questions</div>
+  <p>इस पेज में केवल <b class="hi">Simple Present Tense</b> को पूरी गहराई से पढ़ेंगे — कब प्रयोग होता है, सकारात्मक (Affirmative), नकारात्मक (Negative), प्रश्नवाचक (Interrogative — Yes/No) और WH-प्रश्नवाचक वाक्य कैसे बनाए जाते हैं, बहुत सारे उदाहरणों के साथ। इसके बाद बहुत सारे <b class="hi2">अनुवाद अभ्यास</b>, <b class="hi3">रिक्त स्थान (Fill in the Blanks)</b>, <b class="hi">वाक्य रूपांतरण</b> प्रश्न और अंत में Homework दिया गया है।</p>
+</div>
+
+<!-- ============ NOTES ============ -->
+<section id="notes">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--neon-blue),#1f6fc9); --glow:#3ea6ff99;">📝</div>
+    <div><h2>Notes — विस्तार से समझें</h2><div class="sub en-tag">Detailed Concept Notes with Many Examples</div></div></div>
+
+  <div class="glass card" style="margin-bottom:18px;">
+    <h3 style="color:var(--gold); font-size:16.5px; margin-bottom:10px;">Simple Present Tense कब प्रयोग होता है?</h3>
+    <p style="color:var(--dim); font-size:14px; line-height:1.9; font-weight:600; margin-bottom:10px;">
+      <b class="hi3">सूत्र (Formula):</b> Subject + Verb (V1 / V1+s/es) + Object
+    </p>
+    <ul style="margin:0 0 0 20px; font-size:14px; color:var(--dim); line-height:2; font-weight:600;">
+      <li><b class="hi">आदतन/नियमित काम (Habitual Actions)</b> — "I get up at 6 o'clock every day." / "He brushes his teeth twice a day."</li>
+      <li><b class="hi2">सामान्य सत्य/तथ्य (Universal Truths & Facts)</b> — "The sun rises in the east." / "Water boils at 100°C."</li>
+      <li><b class="hi3">स्थायी समय-सारणी (Fixed Schedules/Timetables)</b> — "The train leaves at 9 o'clock." / "The shop opens at 10 a.m."</li>
+      <li><b class="hi">निर्देश/आदेश (Instructions & Directions)</b> — "You turn left and go straight." / "First you switch on the fan."</li>
+      <li><b class="hi2">खेल की कमेंट्री एवं वर्णन (Sports Commentary / Vivid Narration)</b> — "Kohli hits the ball for a six! He runs fast."</li>
+      <li><b class="hi3">विस्मयादिबोधक "Here/There" से शुरू वाक्य</b> — "Here comes the bus!" / "There goes my brother!"</li>
+    </ul>
+  </div>
+
+  <div class="glass card" style="margin-bottom:18px;">
+    <h3 style="color:var(--gold); font-size:16.5px; margin-bottom:12px;">Do / Does तालिका</h3>
+    <div class="table-wrap" style="margin-bottom:0;">
+      <table>
+        <thead><tr><th>Subject</th><th>Verb रूप (Affirmative)</th><th>Negative</th><th>Interrogative</th></tr></thead>
+        <tbody>
+          <tr><td>I, We, You, They</td><td>V1 (base form)</td><td>do not / don't</td><td>Do</td></tr>
+          <tr><td>He, She, It (कोई भी एकवचन नाम)</td><td>V1 + s/es</td><td>does not / doesn't</td><td>Does</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="glass card" style="margin-bottom:18px;">
+    <h3 style="color:var(--gold); font-size:16.5px; margin-bottom:12px;">-s / -es जोड़ने के नियम (विस्तार से)</h3>
+    <div class="table-wrap" style="margin-bottom:0;">
+      <table>
+        <thead><tr><th>नियम</th><th>उदाहरण</th></tr></thead>
+        <tbody>
+          <tr><td>साधारण verb में केवल -s जोड़ें</td><td>play→plays, read→reads, eat→eats, run→runs, come→comes</td></tr>
+          <tr><td>o, ch, sh, ss, x, z से समाप्त verb में -es जोड़ें</td><td>go→goes, do→does, watch→watches, wash→washes, kiss→kisses, catch→catches, fix→fixes, buzz→buzzes</td></tr>
+          <tr><td>consonant + y से समाप्त verb में y हटाकर -ies जोड़ें</td><td>study→studies, cry→cries, fly→flies, try→tries, carry→carries</td></tr>
+          <tr><td>vowel + y से समाप्त verb में केवल -s जोड़ें</td><td>play→plays, say→says, enjoy→enjoys</td></tr>
+          <tr><td>have का विशेष रूप</td><td>I/We/You/They → have; He/She/It → has</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div style="display:flex; flex-direction:column; gap:16px;">
+    <div class="rule-card" style="border-left-color:var(--cyan);">
+      <h4 style="color:var(--cyan);">🟢 1. सकारात्मक वाक्य (Affirmative Sentence)</h4>
+      <p><b class="hi3">सूत्र:</b> Subject + Verb (V1 / V1+s/es) + Object</p>
+      <div class="ex-strip" id="affExamples"></div>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--red);">
+      <h4 style="color:var(--red);">🔴 2. नकारात्मक वाक्य (Negative Sentence)</h4>
+      <p><b class="hi3">सूत्र:</b> Subject + do not/don't (या does not/doesn't) + Verb (V1, बिना s/es) + Object<br>
+      <b class="hi">ध्यान दें:</b> does not/doesn't के बाद verb हमेशा base रूप में रहता है, s/es दोबारा नहीं लगता।</p>
+      <div class="ex-strip" id="negExamples"></div>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--purple);">
+      <h4 style="color:var(--purple);">🟣 3. प्रश्नवाचक वाक्य — Yes/No Question (Interrogative)</h4>
+      <p><b class="hi3">सूत्र:</b> Do/Does + Subject + Verb (V1, बिना s/es) + Object + ?</p>
+      <div class="ex-strip" id="intExamples"></div>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--gold);">
+      <h4 style="color:var(--gold);">🟡 4. WH-प्रश्नवाचक वाक्य (WH-Question Sentence)</h4>
+      <p><b class="hi3">सूत्र:</b> WH-शब्द (What/Where/When/Who/Why/How/Which/Whose) + Do/Does + Subject + Verb (V1) + Object + ?<br>
+      <b class="hi">विशेष नियम:</b> जब <b class="hi2">Who</b> स्वयं वाक्य का subject होता है, तब Do/Does का प्रयोग नहीं होता — जैसे "Who teaches you English?" (सही ✓), न कि "Who does teach you English?" (गलत ✗)।</p>
+      <div class="ex-strip" id="whExamples"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FORMULA SHEET ============ -->
+<section id="formulas">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--purple),#7e4fd1); --glow:#b07dff99;">📋</div>
+    <div><h2>सूत्र एवं नियम (Rules Sheet)</h2><div class="sub en-tag">Quick Revision</div></div></div>
+  <div class="grid grid-3" id="formulaSheetGrid"></div>
+</section>
+
+<!-- ============ TRANSLATION PRACTICE ============ -->
+<section id="translation">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--green),#1a9c70); --glow:#2ee6a699;">🔤</div>
+    <div><h2>अनुवाद अभ्यास (Hindi → English Translation)</h2><div class="sub en-tag">बहुत सारे हल किए गए अनुवाद — उत्तर देखने के लिए बटन दबाएँ</div></div></div>
+  <div id="translationWrap"></div>
+</section>
+
+<!-- ============ FILL IN THE BLANKS ============ -->
+<section id="blanks">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--orange),#c9650c); --glow:#ff9f4399;">✏️</div>
+    <div><h2>रिक्त स्थान भरिए (Fill in the Blanks)</h2><div class="sub en-tag">सही रूप भरकर वाक्य पूरा कीजिए</div></div></div>
+  <div id="blanksWrap"></div>
+</section>
+
+<!-- ============ SENTENCE TRANSFORMATION ============ -->
+<section id="transform">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--pink),#b8215f); --glow:#ff4d8d99;">🔁</div>
+    <div><h2>वाक्य रूपांतरण एवं सुधार (Sentence Transformation)</h2><div class="sub en-tag">Affirmative ↔ Negative ↔ Interrogative ↔ WH-Question</div></div></div>
+  <div id="transformWrap"></div>
+</section>
+
+<!-- ============ HOMEWORK ============ -->
+<section id="homework">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--red),#a82424); --glow:#ff4f4f99;">🏠</div>
+    <div><h2>घर से करने के लिए Homework</h2><div class="sub en-tag">बिना उत्तर देखे खुद हल करें</div></div></div>
+  <div class="grid grid-3" id="homeworkGrid"></div>
+  <p style="color:var(--dim); font-size:12px; margin-top:14px; font-weight:600;">यह सभी प्रश्न अपनी English की notebook में हल करके अगली कक्षा में साथ लाइए।</p>
+</section>
+
+<footer>
+  <span class="name">PK STUDY</span> — Simple Present Tense पूर्ण
+  <div class="copy">Class 8-9 (Combined) · English Grammar · Simple Present Tense — PK STUDY, All Copyright Reserved</div>
+</footer>
+
+<script>
+function toggleTheme(){
+  const html = document.documentElement;
+  const isLight = html.getAttribute('data-theme') === 'light';
+  html.setAttribute('data-theme', isLight ? '' : 'light');
+  document.getElementById('themeToggle').textContent = isLight ? '🌙' : '☀️';
+}
+function el(tag, cls, html){ const d=document.createElement(tag); if(cls)d.className=cls; if(html!==undefined)d.innerHTML=html; return d; }
+
+const affExamplesData = [
+  "I play cricket every day.", "We go to school by bus.", "You speak English well.",
+  "They live in Patna.", "He plays cricket every day.", "She goes to the market every morning.",
+  "It rains a lot in July.", "My father works in a bank.", "The sun rises in the east.",
+  "Ravi studies in class 8."
+];
+const negExamplesData = [
+  "I do not play cricket.", "We don't go to school on Sunday.", "You do not speak French.",
+  "They do not live in Delhi.", "He does not play cricket.", "She doesn't go to the market on Monday.",
+  "It does not rain much in December.", "My father does not work on Sunday.",
+  "Ravi does not study at night.", "The shop does not open before 10 a.m."
+];
+const intExamplesData = [
+  "Do you play cricket?", "Do we need a pen?", "Do they live in Delhi?",
+  "Does he play cricket?", "Does she go to the market every day?", "Does it rain much in your city?",
+  "Does your father work in a bank?", "Does Ravi study in class 8?",
+  "Do your friends speak English?", "Does the shop open at 10 a.m.?"
+];
+const whExamplesData = [
+  "What do you play? — I play cricket.", "Where does she live? — She lives in Patna.",
+  "When do they go to school? — They go to school in the morning.", "Why does he cry? — He cries because he is hurt.",
+  "How do you come to school? — I come to school by bus.", "Who teaches you English? — Mr. Sharma teaches me English.",
+  "Whom do you love the most? — I love my mother the most.", "Which subject do you like the most? — I like Science the most.",
+  "Whose bag do you carry? — I carry my sister's bag.", "How often does she visit her grandmother? — She visits her grandmother twice a month."
+];
+
+const formulaSheetData = [
+  {t:"Affirmative सूत्र", d:"Subject + V1(s/es) + Object — जैसे 'She plays football.'", c:"var(--cyan)"},
+  {t:"Negative सूत्र", d:"Subject + do/does + not + V1 + Object — जैसे 'She does not play football.'", c:"var(--red)"},
+  {t:"Interrogative सूत्र", d:"Do/Does + Subject + V1 + Object? — जैसे 'Does she play football?'", c:"var(--purple)"},
+  {t:"WH-Question सूत्र", d:"WH-शब्द + Do/Does + Subject + V1 + Object? — जैसे 'Where does she play?'", c:"var(--gold)"},
+  {t:"-es जोड़ने का नियम", d:"o, ch, sh, ss, x, z से समाप्त verb में -es — जैसे go→goes, watch→watches", c:"var(--green)"},
+  {t:"y वाला नियम", d:"consonant+y से समाप्त verb में y हटाकर -ies — जैसे study→studies", c:"var(--orange)"}
+];
+
+const translationData = [
+  {tag:"Affirmative", color:"var(--cyan)", q:"मैं हर सुबह दौड़ लगाता हूँ।", a:"I run every morning."},
+  {tag:"Affirmative", color:"var(--cyan)", q:"वह प्रतिदिन गीत गाती है।", a:"She sings a song every day."},
+  {tag:"Affirmative", color:"var(--cyan)", q:"हम रोज़ पार्क जाते हैं।", a:"We go to the park every day."},
+  {tag:"Negative", color:"var(--red)", q:"मुझे मछली पसंद नहीं है।", a:"I do not like fish. / I don't like fish."},
+  {tag:"Negative", color:"var(--red)", q:"वह झूठ नहीं बोलता है।", a:"He does not tell lies. / He doesn't tell lies."},
+  {tag:"Negative", color:"var(--red)", q:"वे हिंदी नहीं समझते हैं।", a:"They do not understand Hindi. / They don't understand Hindi."},
+  {tag:"Interrogative", color:"var(--purple)", q:"क्या तुम रोज़ पढ़ाई करते हो?", a:"Do you study every day?"},
+  {tag:"Interrogative", color:"var(--purple)", q:"क्या वह क्रिकेट खेलती है?", a:"Does she play cricket?"},
+  {tag:"Interrogative", color:"var(--purple)", q:"क्या तुम्हारे माता-पिता पटना में रहते हैं?", a:"Do your parents live in Patna?"},
+  {tag:"WH-Question", color:"var(--gold)", q:"तुम स्कूल कैसे जाते हो?", a:"How do you go to school?"},
+  {tag:"WH-Question", color:"var(--gold)", q:"वह कब सोता है?", a:"When does he sleep?"},
+  {tag:"WH-Question", color:"var(--gold)", q:"तुम्हें कौन-सा फल पसंद है?", a:"Which fruit do you like?"},
+  {tag:"WH-Question", color:"var(--gold)", q:"यह किताब किसकी है?", a:"Whose book is this?"},
+  {tag:"विशेष प्रयोग", color:"var(--green)", q:"बस सुबह 8 बजे चलती है।", a:"The bus leaves at 8 o'clock in the morning."},
+  {tag:"विशेष प्रयोग", color:"var(--green)", q:"पहले पानी उबालो, फिर चायपत्ती डालो।", a:"First you boil the water, then you add tea leaves."},
+  {tag:"विशेष प्रयोग", color:"var(--green)", q:"पृथ्वी सूर्य के चारों ओर घूमती है।", a:"The earth revolves around the sun."}
+];
+
+const blanksData = [
+  {q:"He _____ (play) football every Sunday.", a:"plays"},
+  {q:"I _____ (not/eat) meat.", a:"do not eat / don't eat"},
+  {q:"_____ she _____ (go) to school by bus?", a:"Does, go"},
+  {q:"My mother _____ (cook) food every day.", a:"cooks"},
+  {q:"They _____ (not/live) in this city.", a:"do not live / don't live"},
+  {q:"_____ you _____ (like) ice cream?", a:"Do, like"},
+  {q:"The sun _____ (rise) in the east.", a:"rises"},
+  {q:"We _____ (not/have) a car.", a:"do not have / don't have"},
+  {q:"_____ your brother _____ (study) in class 9?", a:"Does, study"},
+  {q:"Water _____ (boil) at 100 degree Celsius.", a:"boils"},
+  {q:"She _____ (not/speak) French.", a:"does not speak / doesn't speak"},
+  {q:"_____ the shop _____ (open) at 9 a.m.?", a:"Does, open"}
+];
+
+const transformData = [
+  {q:"इस affirmative वाक्य को negative में बदलिए: \"He plays football.\"", a:"He does not play football. / He doesn't play football."},
+  {q:"इस affirmative वाक्य को interrogative में बदलिए: \"She likes tea.\"", a:"Does she like tea?"},
+  {q:"इस negative वाक्य को affirmative में बदलिए: \"I do not like coffee.\"", a:"I like coffee."},
+  {q:"वाक्य सुधारिए: \"She don't go to school.\"", a:"She doesn't go to school. — She के साथ 'don't' नहीं, 'doesn't' आता है।"},
+  {q:"वाक्य सुधारिए: \"Does he plays cricket?\"", a:"Does he play cricket? — Does के बाद verb हमेशा base रूप में रहता है।"},
+  {q:"वाक्य सुधारिए: \"They goes to market.\"", a:"They go to market. — They बहुवचन है, verb में s/es नहीं लगता।"},
+  {q:"इस वाक्य को 'कहाँ' पूछने वाले WH-प्रश्न में बदलिए: \"She lives in Patna.\"", a:"Where does she live?"},
+  {q:"इस वाक्य को Yes/No प्रश्न में बदलिए: \"They play football.\"", a:"Do they play football?"},
+  {q:"वाक्य सुधारिए: \"He do not like milk.\"", a:"He does not like milk. — He के साथ 'do not' नहीं, 'does not' आता है।"},
+  {q:"वाक्य सुधारिए: \"Do she sing well?\"", a:"Does she sing well? — She के साथ 'Do' नहीं, 'Does' आता है।"}
+];
+
+const homeworkData = [
+  {part:"अनुवाद (Translation)", color:"var(--cyan)", qs:[
+    "मेरा भाई रोज़ फुटबॉल खेलता है।",
+    "वह गाड़ी नहीं चलाती है।",
+    "क्या तुम अपना गृहकार्य समय पर करते हो?",
+    "तुम्हारे पिताजी क्या काम करते हैं?",
+    "बच्चे हर रोज़ स्कूल जाते हैं।"
+  ]},
+  {part:"रिक्त स्थान (Fill in the Blanks)", color:"var(--orange)", qs:[
+    "My sister _____ (dance) very well.",
+    "We _____ (not/go) to the market on Monday.",
+    "_____ your friends _____ (play) chess?",
+    "The moon _____ (move) around the earth.",
+    "He _____ (not/watch) TV at night."
+  ]},
+  {part:"वाक्य रूपांतरण (Transformation)", color:"var(--green)", qs:[
+    "\"She sings well.\" को negative वाक्य में बदलिए।",
+    "\"They read books.\" को interrogative वाक्य में बदलिए।",
+    "\"He lives in Delhi.\" से 'कहाँ' पूछने वाला WH-प्रश्न बनाइए।"
+  ]}
+];
+
+function buildExampleStrip(id, data){
+  const wrap = document.getElementById(id);
+  data.forEach(ex=>{ wrap.appendChild(el('div','ex-chip', ex)); });
+}
+function buildFormulaSheet(){
+  const g = document.getElementById('formulaSheetGrid');
+  formulaSheetData.forEach(f=>{ const d=el('div','glass def-card', `<h4 style="color:${f.c}">📋 ${f.t}</h4><p>${f.d}</p>`); g.appendChild(d); });
+}
+function buildQA(containerId, data, labelPrefix, ansLabel){
+  const wrap = document.getElementById(containerId);
+  data.forEach((item,i)=>{
+    const tagHtml = item.tag ? `<span class="tag" style="background:${item.color};">${item.tag}</span>` : '';
+    const d = el('div','glass q-card', `<div class="qlabel">${labelPrefix} ${i+1} ${tagHtml}</div><div class="qtext">${item.q}</div>
+      <button class="show-ans-btn" onclick="toggleAnswer(this)">उत्तर दिखाएँ (Show Answer)</button>
+      <div class="ans-wrap"><div class="slabel">${ansLabel}</div><div class="stext">${item.a}</div></div>`);
+    wrap.appendChild(d);
+  });
+}
+function toggleAnswer(btn){
+  const wrap = btn.nextElementSibling;
+  const isOpen = wrap.classList.toggle('open');
+  btn.classList.toggle('open', isOpen);
+  btn.textContent = isOpen ? 'उत्तर छुपाएँ (Hide Answer)' : 'उत्तर दिखाएँ (Show Answer)';
+}
+function buildHomework(){
+  const g = document.getElementById('homeworkGrid');
+  homeworkData.forEach(hw=>{
+    const items = hw.qs.map(q=>`<li>${q}</li>`).join('');
+    const d = el('div','glass hw-card', `<span style="display:inline-block; font-weight:900; font-size:12.5px; color:#04050f; background:${hw.color}; padding:5px 14px; border-radius:16px; margin-bottom:10px;">${hw.part}</span><ol>${items}</ol>`);
+    g.appendChild(d);
+  });
+}
+
+buildExampleStrip('affExamples', affExamplesData);
+buildExampleStrip('negExamples', negExamplesData);
+buildExampleStrip('intExamples', intExamplesData);
+buildExampleStrip('whExamples', whExamplesData);
+buildFormulaSheet();
+buildQA('translationWrap', translationData, 'वाक्य', 'English Translation');
+buildQA('blanksWrap', blanksData, 'प्रश्न', 'उत्तर (Answer)');
+buildQA('transformWrap', transformData, 'प्रश्न', 'उत्तर (Answer)');
+buildHomework();
+</script>
+</body>
+</html>

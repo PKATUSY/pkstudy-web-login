@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PK STUDY | शरीर क्रिया विज्ञान — अंतःस्रावी ग्रंथियाँ एवं जनन तंत्र</title>
+<style>
+:root{
+  --bg:#04050f; --glass:rgba(255,255,255,.045); --glass-strong:rgba(255,255,255,.08);
+  --border:rgba(255,255,255,.12); --text:#f2f6ff; --dim:#9fb0da; --heading:#ffffff;
+  --neon-blue:#3ea6ff; --cyan:#33e0ff; --purple:#b07dff; --gold:#ffc233;
+  --green:#2ee6a6; --orange:#ff9f43; --pink:#ff4d8d; --red:#ff4f4f;
+  --shadow:0 22px 46px -22px #000d; --hshadow:0 30px 56px -20px #000f;
+}
+[data-theme="light"]{
+  --bg:#f6f8fd; --glass:rgba(20,30,65,.045); --glass-strong:rgba(20,30,65,.08);
+  --border:rgba(20,30,65,.12); --text:#161c33; --dim:#535f82; --heading:#12172b;
+  --neon-blue:#2563eb; --cyan:#0891b2; --purple:#7c3aed; --gold:#b45309;
+  --green:#059669; --orange:#c2410c; --pink:#db2777; --red:#dc2626;
+  --shadow:0 18px 36px -20px rgba(30,40,80,.18); --hshadow:0 24px 44px -18px rgba(30,40,80,.24);
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Segoe UI','Noto Sans Devanagari',Arial,sans-serif; color:var(--text); min-height:100vh; overflow-x:hidden;
+  transition:background .4s, color .4s;
+  background:
+    radial-gradient(ellipse at 10% -10%, #1c3a9955, transparent 55%),
+    radial-gradient(ellipse at 95% 10%, #7a2ab866, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, #0a5a6e44, transparent 55%),
+    linear-gradient(180deg,#04050f,#020208 90%);
+}
+[data-theme="light"] body{
+  background:
+    radial-gradient(ellipse at 10% -10%, #dbe4ff99, transparent 55%),
+    radial-gradient(ellipse at 95% 10%, #ede0ff99, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, #d7f5f099, transparent 55%),
+    linear-gradient(180deg,#f8faff,#eef1f9 90%);
+}
+::-webkit-scrollbar{width:8px;} ::-webkit-scrollbar-thumb{background:var(--neon-blue); border-radius:6px;} ::-webkit-scrollbar-track{background:transparent;}
+
+.glass{background:var(--glass); border:1px solid var(--border); border-radius:18px; backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+  box-shadow:var(--shadow), inset 0 1px 0 #ffffff12;}
+
+header{position:sticky; top:0; z-index:200; display:flex; align-items:center; justify-content:space-between; padding:14px 26px;
+  background:rgba(4,5,15,.75); backdrop-filter:blur(18px); border-bottom:1px solid var(--border); flex-wrap:wrap; gap:10px; transition:background .4s;}
+[data-theme="light"] header{background:rgba(255,255,255,.8);}
+.brand{display:flex; align-items:center; gap:12px;}
+.brand img{width:44px; height:44px; border-radius:10px; object-fit:cover; border:2px solid var(--neon-blue); box-shadow:0 0 18px #3ea6ff88;}
+.logo-fallback{width:44px; height:44px; border-radius:10px; display:flex; align-items:center; justify-content:center;
+  background:linear-gradient(135deg,var(--neon-blue),#1f3d8c); font-weight:900; font-size:12px; border:2px solid var(--cyan); color:#fff;}
+.brand-text .name{font-weight:900; font-size:18px; color:var(--cyan); letter-spacing:.5px;}
+.brand-text .tag{font-size:11px; color:var(--dim); font-weight:600;}
+nav{display:flex; gap:5px; overflow-x:auto; max-width:52vw;}
+nav::-webkit-scrollbar{height:4px;}
+nav a{color:var(--dim); text-decoration:none; font-size:11.5px; padding:6px 11px; border-radius:16px; border:1px solid transparent; transition:.2s; font-weight:700; white-space:nowrap;}
+nav a:hover{color:var(--heading); border-color:var(--neon-blue); background:#3ea6ff1a;}
+.theme-btn{flex-shrink:0; width:40px; height:40px; border-radius:12px; border:1px solid var(--border); background:var(--glass-strong);
+  color:var(--text); font-size:17px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:.25s;}
+.theme-btn:hover{border-color:var(--neon-blue); transform:translateY(-2px);}
+
+.hero{position:relative; padding:60px 6vw 40px; text-align:center;}
+.eyebrow{display:inline-block; padding:7px 22px; border-radius:30px; color:#04050f; font-size:12px; font-weight:900;
+  letter-spacing:2px; text-transform:uppercase; margin-bottom:20px;
+  background:linear-gradient(120deg,var(--gold),var(--orange),var(--pink),var(--purple),var(--cyan));
+  box-shadow:0 10px 26px -6px #000b;}
+.hero h1{font-size:clamp(24px,5vw,44px); font-weight:900; line-height:1.3;
+  background:linear-gradient(90deg,var(--neon-blue),var(--cyan) 35%,var(--purple) 65%,var(--pink)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+.hero .en{font-size:16px; color:var(--dim); font-weight:700; margin-top:10px;}
+.hero p{color:var(--dim); max-width:760px; margin:20px auto 0; font-size:14.5px; line-height:1.9; font-weight:500;}
+
+section{position:relative; padding:44px 6vw; max-width:1200px; margin:0 auto;}
+.sec-head{display:flex; align-items:center; gap:14px; margin-bottom:24px;}
+.sec-num{width:44px; height:44px; border-radius:14px; flex-shrink:0; display:flex; align-items:center; justify-content:center;
+  font-weight:900; font-size:16px; color:#04050f; box-shadow:0 8px 22px -6px var(--glow,#3ea6ff99); border:2px solid #ffffffaa;}
+.sec-head h2{font-size:clamp(19px,3vw,26px); font-weight:900; color:var(--heading);}
+.sec-head .sub{color:var(--dim); font-size:12.5px; font-weight:600; margin-top:2px;}
+.sec-head .en-tag{font-size:11px; color:var(--gold); font-weight:700; letter-spacing:.5px;}
+
+.card{padding:20px 22px;}
+.grid{display:grid; gap:16px;}
+.grid-2{grid-template-columns:1fr 1fr;} .grid-3{grid-template-columns:repeat(3,1fr);}
+@media(max-width:900px){.grid-3{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.grid-2,.grid-3{grid-template-columns:1fr;} nav{max-width:100%;}}
+
+b.hi{color:var(--pink); font-weight:900;} b.hi2{color:var(--green); font-weight:900;} b.hi3{color:var(--gold); font-weight:900;}
+
+.rule-card{padding:20px; border-left:5px solid var(--neon-blue);}
+.rule-card h4{font-size:15px; color:var(--cyan); font-weight:900; margin-bottom:10px;}
+.rule-card p{font-size:13px; color:var(--dim); line-height:1.85; font-weight:500; margin-bottom:8px;}
+.rule-card ul{margin:6px 0 6px 20px; font-size:13px; color:var(--dim); line-height:1.9; font-weight:500;}
+.rule-card ul li{margin-bottom:4px;}
+
+.example-card{padding:18px 20px; margin-bottom:14px;}
+.example-card .qlabel{font-size:11px; font-weight:900; color:var(--gold); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;}
+.example-card .qtext{font-size:13.5px; font-weight:700; color:var(--heading); margin-bottom:14px; line-height:1.7;}
+.example-card .slabel{font-size:11px; font-weight:900; color:var(--green); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;}
+.example-card .stext{font-size:13px; color:var(--dim); line-height:1.9; font-weight:500; background:var(--glass-strong); padding:12px 14px; border-radius:10px; white-space:pre-line;}
+.show-ans-btn{padding:9px 20px; border-radius:10px; border:1.5px solid var(--green); background:transparent; color:var(--green);
+  font-weight:800; font-size:12px; cursor:pointer; transition:.2s;}
+.show-ans-btn:hover{background:var(--green); color:#04050f;}
+.show-ans-btn.open{background:var(--green); color:#04050f;}
+.ans-wrap{margin-top:14px; display:none;}
+.ans-wrap.open{display:block;}
+.pill{display:inline-block; padding:3px 10px; border-radius:10px; font-size:10px; font-weight:900; margin-left:8px; vertical-align:middle;}
+.pill-obj{background:linear-gradient(120deg,var(--cyan),#0a85b8); color:#04050f;}
+.pill-subj{background:linear-gradient(120deg,var(--purple),#7e4fd1); color:#fff;}
+
+.hw-card{padding:18px 20px;}
+.hw-card ol{margin:0; padding-left:20px; font-size:13px; color:var(--dim); line-height:2; font-weight:500;}
+.hw-card ol li{margin-bottom:8px;}
+.hw-card ol li::marker{color:var(--heading); font-weight:800;}
+
+.table-wrap{overflow-x:auto; margin-bottom:16px;}
+table{width:100%; border-collapse:collapse; min-width:560px;}
+thead th{text-align:center; padding:12px 14px; background:linear-gradient(120deg,var(--neon-blue),var(--purple)); color:#fff;
+  font-size:12px; text-transform:uppercase; letter-spacing:.5px; font-weight:900;}
+thead th:first-child{border-radius:10px 0 0 0;} thead th:last-child{border-radius:0 10px 0 0;}
+tbody td{padding:12px 14px; border-bottom:1px solid var(--border); color:var(--dim); font-size:12.5px; text-align:center; font-weight:600;}
+tbody tr:hover{background:#3ea6ff14;}
+
+footer{text-align:center; padding:50px 6vw 70px; color:var(--dim); font-size:12.5px; border-top:1px solid var(--border); margin-top:30px; font-weight:600;}
+footer .name{color:var(--cyan); font-weight:900; font-size:16px;}
+footer .copy{margin-top:18px; font-size:11px; color:var(--dim); opacity:.8;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <img src="images/1000043468.png" alt="PK STUDY" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="logo-fallback" style="display:none;">PK</div>
+    <div class="brand-text"><div class="name">PK STUDY</div><div class="tag">Class 12 • गृह विज्ञान • अध्याय 1</div></div>
+  </div>
+  <nav>
+    <a href="#notes">नोट्स</a><a href="#tables">महत्वपूर्ण तथ्य</a><a href="#questions">प्रश्न</a><a href="#homework">होमवर्क</a>
+  </nav>
+  <button class="theme-btn" id="themeToggle" onclick="toggleTheme()" title="Dark/Light Mode">🌙</button>
+</header>
+
+<!-- ============ HERO ============ -->
+<div class="hero">
+  <span class="eyebrow">कक्षा 12 · गृह विज्ञान · अध्याय 1 · बिहार बोर्ड</span>
+  <h1>शरीर क्रिया विज्ञान — अंतःस्रावी ग्रंथियाँ एवं जनन तंत्र</h1>
+  <div class="en">Physiology — Endocrine Glands and Reproductive System</div>
+  <p>इस अध्याय में अंतःस्रावी व बहिःस्रावी ग्रंथियों, हार्मोन के कार्यों, प्रमुख ग्रंथियों (पीयूष, हाइपोथैलेमस, थायराइड), पुरुष व स्त्री जनन तंत्र, मासिक धर्म और गर्भावस्था में हार्मोन की भूमिका के बारे में पढ़ेंगे। इस पेज में Notes, महत्वपूर्ण तथ्य-तालिकाएँ, Objective व Subjective महत्वपूर्ण प्रश्न (उत्तर सहित), और Homework दिया गया है।</p>
+</div>
+
+<!-- ============ NOTES ============ -->
+<section id="notes">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--neon-blue),#1f6fc9); --glow:#3ea6ff99;">📝</div>
+    <div><h2>Notes — अध्याय के मुख्य भाग</h2><div class="sub en-tag">Concept Notes, Section-wise</div></div></div>
+  <div class="glass card" style="display:flex; flex-direction:column; gap:16px;">
+    <div class="rule-card" style="border-left-color:var(--cyan);">
+      <h4 style="color:var(--cyan);">1. ग्रंथियों के प्रकार (Types of Glands)</h4>
+      <p><b class="hi">अंतःस्रावी ग्रंथियाँ (Endocrine Glands)</b> — ये नलिका-विहीन (Ductless) ग्रंथियाँ हैं। इनके चारों ओर रक्त कोशिकाओं का घना जाल बिछा रहता है, जिसके माध्यम से ये अपने स्रावी पदार्थ (हार्मोन) को सीधे रक्त में डाल देती हैं — जैसे पीयूष ग्रंथि, थायराइड, अंडाशय, वृषण।</p>
+      <p><b class="hi">बहिःस्रावी ग्रंथियाँ (Exocrine Glands)</b> — ये नलिका-युक्त (Ducted) ग्रंथियाँ हैं। ये अपने स्रावित पदार्थ को एक नलिका के माध्यम से शरीर के विशेष भाग तक पहुँचाती हैं — जैसे यकृत (Liver), लार ग्रंथियाँ (Salivary Glands), आँसू ग्रंथियाँ (Tear Glands)।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--pink);">
+      <h4 style="color:var(--pink);">2. हार्मोन (Hormones) और उनके कार्य</h4>
+      <p>हार्मोन रक्त के ज़रिए शरीर के विभिन्न अंगों, त्वचा, मांसपेशियों और ऊतकों तक संदेश पहुँचाते हैं, जो शरीर को बताते हैं कि क्या और कब करना है।</p>
+      <p><b>हार्मोन के प्रमुख कार्य:</b></p>
+      <ul>
+        <li>चयापचय (Metabolism), Homeostasis और शरीर का तापमान नियंत्रित करना</li>
+        <li>वृद्धि और विकास (Growth and Development) को नियंत्रित करना</li>
+        <li>यौन क्रिया और मूड को नियंत्रित करना</li>
+        <li>प्रजनन (Reproduction) की प्रक्रिया को नियंत्रित करना</li>
+      </ul>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--green);">
+      <h4 style="color:var(--green);">3. प्रमुख अंतःस्रावी ग्रंथियाँ</h4>
+      <ul>
+        <li><b class="hi3">पीयूष ग्रंथि (Pituitary Gland)</b> — खोपड़ी के अंदर स्थित, मटर के दाने के आकार की; इसे <b class="hi">"मास्टर ग्रंथि"</b> कहा जाता है क्योंकि इसके हार्मोन अन्य ग्रंथियों (अधिवृक्क, थायरॉयड, प्रजनन ग्रंथियाँ) को नियंत्रित करते हैं।</li>
+        <li><b class="hi3">हाइपोथैलेमस (Hypothalamus)</b> — पीयूष ग्रंथि के साथ मिलकर काम करता है, कई हार्मोन बनाने और नियंत्रित करने का काम करता है।</li>
+        <li><b class="hi3">थायराइड ग्रंथि (Thyroid Gland)</b> — गर्दन में श्वासनली के ऊपर, स्वरयंत्र के दोनों ओर स्थित, तितली के पंखों जैसी आकृति की होती है।</li>
+        <li><b class="hi3">अंडाशय (Ovary)</b> — महिलाओं में एस्ट्रोजन और प्रोजेस्टेरोन हार्मोन बनाता है।</li>
+        <li><b class="hi3">वृषण (Testes)</b> — पुरुषों में एन्ड्रोजेन (टेस्टोस्टेरोन) हार्मोन बनाता है।</li>
+      </ul>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--orange);">
+      <h4 style="color:var(--orange);">4. पुरुष जनन तंत्र (Male Reproductive System)</h4>
+      <p>मुख्य अंग — <b class="hi">वृषण (Testes)</b>, शुक्राशय (Seminal Vesicle), प्रोस्टेट ग्रंथि (Prostate Gland)।</p>
+      <p>वृषण शुक्राणु (Sperm) और <b class="hi2">एन्ड्रोजेन हार्मोन</b> दोनों बनाते हैं। एन्ड्रोजेन हार्मोन पुरुषत्व (Masculine Characteristics) के विकास के लिए ज़िम्मेदार होता है।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--purple);">
+      <h4 style="color:var(--purple);">5. स्त्री जनन तंत्र (Female Reproductive System)</h4>
+      <p>मुख्य अंग — अंडाशय (Ovary), गर्भाशय (Uterus), फैलोपियन नलिका, योनि।</p>
+      <p><b class="hi">अंडाशय के दो मुख्य कार्य</b> — (1) एस्ट्रोजन हार्मोन का उत्पादन करना, (2) अंडाणु (Ovum) का उत्पादन करना और उनके विकास में सहायता करना।</p>
+      <p>यौवनारंभ (Puberty) के समय, लगभग <b class="hi3">10 से 15 वर्ष</b> की आयु में लड़कियों का अंडाशय हर महीने एक विकसित अंडाणु बनाना शुरू करता है।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--gold);">
+      <h4 style="color:var(--gold);">6. मासिक धर्म एवं गर्भावस्था में हार्मोन की भूमिका</h4>
+      <p><b class="hi">मासिक धर्म (Menstruation)</b> — हर महीने योनि से होने वाला रक्त स्राव, जो तब होता है जब अंडाणु निषेचित (Fertilise) नहीं होता और गर्भाशय की भीतरी परत टूट जाती है।</p>
+      <p>निषेचन के बाद <b class="hi3">पीत-पिंड (Corpus Luteum)</b> मुख्यतः <b class="hi3">प्रोजेस्टेरोन हार्मोन</b> स्रावित करता है, जो मासिक धर्म को रोकने में मदद करता है।</p>
+      <p>गर्भावस्था के दौरान अंडोत्सर्ग (Ovulation) नहीं होता, क्योंकि कॉर्पस ल्यूटियम और बाद में प्लेसेंटा अधिक मात्रा में प्रोजेस्टेरोन हार्मोन का उत्पादन करते हैं।</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ IMPORTANT FACTS / TABLES ============ -->
+<section id="tables">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--purple),#7e4fd1); --glow:#b07dff99;">📊</div>
+    <div><h2>महत्वपूर्ण तथ्य तालिकाएँ</h2><div class="sub en-tag">Key Reference Tables</div></div></div>
+
+  <div class="glass card table-wrap">
+    <table>
+      <thead><tr><th>विशेषता</th><th>अंतःस्रावी ग्रंथि (Endocrine)</th><th>बहिःस्रावी ग्रंथि (Exocrine)</th></tr></thead>
+      <tbody>
+        <tr><td>नलिका</td><td>नलिका-विहीन (Ductless)</td><td>नलिका-युक्त (Ducted)</td></tr>
+        <tr><td>स्राव कहाँ जाता है</td><td>सीधे रक्त में</td><td>नलिका के माध्यम से विशेष भाग में</td></tr>
+        <tr><td>उदाहरण</td><td>पीयूष ग्रंथि, थायराइड, अंडाशय, वृषण</td><td>यकृत, लार ग्रंथि, आँसू ग्रंथि</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="glass card table-wrap">
+    <table>
+      <thead><tr><th>ग्रंथि</th><th>स्थान</th><th>मुख्य हार्मोन / कार्य</th></tr></thead>
+      <tbody>
+        <tr><td>पीयूष ग्रंथि</td><td>खोपड़ी के अंदर</td><td>"मास्टर ग्रंथि" — अन्य ग्रंथियों को नियंत्रित करती है</td></tr>
+        <tr><td>हाइपोथैलेमस</td><td>मस्तिष्क में, पीयूष ग्रंथि के पास</td><td>पीयूष ग्रंथि के साथ मिलकर हार्मोन नियंत्रित करता है</td></tr>
+        <tr><td>थायराइड ग्रंथि</td><td>गर्दन में, स्वरयंत्र के दोनों ओर</td><td>चयापचय को नियंत्रित करती है</td></tr>
+        <tr><td>अंडाशय</td><td>स्त्री शरीर में</td><td>एस्ट्रोजन, प्रोजेस्टेरोन, अंडाणु उत्पादन</td></tr>
+        <tr><td>वृषण</td><td>पुरुष शरीर में</td><td>एन्ड्रोजेन (टेस्टोस्टेरोन), शुक्राणु उत्पादन</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="glass card table-wrap">
+    <table>
+      <thead><tr><th>पुरुष जनन तंत्र</th><th>स्त्री जनन तंत्र</th></tr></thead>
+      <tbody>
+        <tr><td>वृषण (Testes)</td><td>अंडाशय (Ovary)</td></tr>
+        <tr><td>शुक्राशय (Seminal Vesicle)</td><td>गर्भाशय (Uterus)</td></tr>
+        <tr><td>प्रोस्टेट ग्रंथि (Prostate Gland)</td><td>फैलोपियन नलिका एवं योनि</td></tr>
+        <tr><td>हार्मोन: एन्ड्रोजेन</td><td>हार्मोन: एस्ट्रोजन, प्रोजेस्टेरोन</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ IMPORTANT QUESTIONS ============ -->
+<section id="questions">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--green),#1a9c70); --glow:#2ee6a699;">📘</div>
+    <div><h2>महत्वपूर्ण प्रश्न (Objective + Subjective)</h2><div class="sub en-tag">उत्तर देखने के लिए बटन दबाएँ</div></div></div>
+  <div id="qWrap"></div>
+</section>
+
+<!-- ============ HOMEWORK ============ -->
+<section id="homework">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--red),#a82424); --glow:#ff4f4f99;">🏠</div>
+    <div><h2>घर से करने के लिए Homework</h2><div class="sub en-tag">Notebook Exercise — बिना उत्तर देखे खुद हल करें</div></div></div>
+  <div class="glass card hw-card">
+    <ol id="homeworkList"></ol>
+  </div>
+  <p style="color:var(--dim); font-size:12px; margin-top:14px; font-weight:600;">यह सभी प्रश्न अपनी Home Science की notebook में हल करके अगली कक्षा में साथ लाइए।</p>
+</section>
+
+<footer>
+  <span class="name">PK STUDY</span> — अध्याय 1 पूर्ण
+  <div class="copy">Class 12 · गृह विज्ञान · शरीर क्रिया विज्ञान — PK STUDY, All Copyright Reserved</div>
+</footer>
+
+<script>
+function toggleTheme(){
+  const html = document.documentElement;
+  const isLight = html.getAttribute('data-theme') === 'light';
+  html.setAttribute('data-theme', isLight ? '' : 'light');
+  document.getElementById('themeToggle').textContent = isLight ? '🌙' : '☀️';
+}
+function el(tag, cls, html){ const d=document.createElement(tag); if(cls)d.className=cls; if(html!==undefined)d.innerHTML=html; return d; }
+
+const qData = [
+  {type:"obj", q:"अंतःस्रावी ग्रंथियों को क्या कहा जाता है?", a:"नलिका-विहीन (Ductless) ग्रंथियाँ — क्योंकि ये अपने स्रावी पदार्थ को सीधे रक्त में डालती हैं, किसी नलिका के माध्यम से नहीं।"},
+  {type:"obj", q:"शरीर की \"मास्टर ग्रंथि\" किसे कहा जाता है और क्यों?", a:"पीयूष ग्रंथि (Pituitary Gland) को \"मास्टर ग्रंथि\" कहा जाता है, क्योंकि इसके हार्मोन शरीर की अन्य महत्वपूर्ण ग्रंथियों (अधिवृक्क, थायरॉयड, प्रजनन ग्रंथियाँ) को नियंत्रित करते हैं।"},
+  {type:"obj", q:"महिलाओं में कौन-सा अंग एस्ट्रोजन और प्रोजेस्टेरोन हार्मोन बनाता है?", a:"अंडाशय (Ovary)।"},
+  {type:"obj", q:"पुरुष जनन तंत्र में एन्ड्रोजेन हार्मोन कहाँ से बनता है?", a:"वृषण (Testes) से।"},
+  {type:"obj", q:"थायराइड ग्रंथि शरीर में कहाँ स्थित है?", a:"गर्दन में, श्वासनली के ऊपर और स्वरयंत्र के दोनों ओर — यह तितली के पंखों जैसी आकृति की होती है।"},
+  {type:"obj", q:"गर्भावस्था के दौरान कौन-सा हार्मोन अधिक मात्रा में बनता है जो मासिक धर्म को रोकता है?", a:"प्रोजेस्टेरोन हार्मोन — जो पहले कॉर्पस ल्यूटियम और बाद में प्लेसेंटा द्वारा बनाया जाता है।"},
+  {type:"obj", q:"बहिःस्रावी ग्रंथि (Exocrine Gland) का एक उदाहरण दीजिए।", a:"यकृत (Liver), लार ग्रंथि (Salivary Gland) या आँसू ग्रंथि (Tear Gland) — इनमें से कोई भी।"},
+  {type:"obj", q:"यौवनारंभ (Puberty) में लड़कियों का अंडाशय लगभग किस आयु में अंडाणु बनाना शुरू करता है?", a:"लगभग 10 से 15 वर्ष की आयु में।"},
+  {type:"subj", q:"अंतःस्रावी और बहिःस्रावी ग्रंथियों में अंतर स्पष्ट कीजिए।", a:"अंतःस्रावी ग्रंथियाँ नलिका-विहीन होती हैं और अपने हार्मोन को सीधे रक्त में स्रावित करती हैं — जैसे पीयूष ग्रंथि, थायराइड, अंडाशय, वृषण। बहिःस्रावी ग्रंथियाँ नलिका-युक्त होती हैं और अपने स्रावित पदार्थ को एक नलिका के माध्यम से शरीर के किसी विशेष भाग तक पहुँचाती हैं — जैसे यकृत, लार ग्रंथि, आँसू ग्रंथि। दोनों के स्रावित पदार्थ शरीर की अलग-अलग ज़रूरतें पूरी करते हैं।"},
+  {type:"subj", q:"हार्मोन के प्रमुख कार्य बताइए।", a:"हार्मोन रक्त के ज़रिए शरीर के अंगों, त्वचा, मांसपेशियों और ऊतकों तक संदेश पहुँचाते हैं। इनके प्रमुख कार्य हैं — (1) चयापचय (Metabolism), Homeostasis और शरीर के तापमान को नियंत्रित करना, (2) वृद्धि और विकास को नियंत्रित करना, (3) यौन क्रिया और मूड को नियंत्रित करना, (4) प्रजनन की प्रक्रिया को नियंत्रित करना।"},
+  {type:"subj", q:"पीयूष ग्रंथि को \"मास्टर ग्रंथि\" क्यों कहा जाता है? इसकी स्थिति भी बताइए।", a:"पीयूष ग्रंथि खोपड़ी के अंदर स्थित होती है और मटर के दाने के आकार की होती है। इसे \"मास्टर ग्रंथि\" इसलिए कहा जाता है क्योंकि यह हार्मोन बनाकर शरीर की अन्य महत्वपूर्ण अंतःस्रावी ग्रंथियों — जैसे अधिवृक्क ग्रंथि, थायरॉयड ग्रंथि और प्रजनन ग्रंथियों (अंडाशय, वृषण) — के कार्य को नियंत्रित करती है।"},
+  {type:"subj", q:"पुरुष जनन तंत्र के प्रमुख अंगों और उनके कार्यों का वर्णन कीजिए।", a:"पुरुष जनन तंत्र के प्रमुख अंग हैं — वृषण (Testes), शुक्राशय (Seminal Vesicle) और प्रोस्टेट ग्रंथि (Prostate Gland)। वृषण का मुख्य कार्य शुक्राणु (Sperm) और एन्ड्रोजेन हार्मोन (मुख्यतः टेस्टोस्टेरोन) का उत्पादन करना है। एन्ड्रोजेन हार्मोन पुरुषत्व से जुड़े लक्षणों (जैसे आवाज़ का भारी होना, माँसपेशियों का विकास) के लिए ज़िम्मेदार होता है। शुक्राशय और प्रोस्टेट ग्रंथि वीर्य (Semen) बनाने में सहायक होती हैं।"},
+  {type:"subj", q:"स्त्री जनन तंत्र में अंडाशय की भूमिका स्पष्ट कीजिए।", a:"अंडाशय (Ovary) स्त्री जनन तंत्र की मुख्य ग्रंथि है, जिसके दो प्रमुख कार्य हैं — (1) एस्ट्रोजन और प्रोजेस्टेरोन हार्मोन का उत्पादन करना, जो स्त्री के शारीरिक विकास और प्रजनन-चक्र को नियंत्रित करते हैं, (2) अंडाणु (Ovum) का उत्पादन करना और उनके विकास में सहायता करना। यौवनारंभ के समय (लगभग 10-15 वर्ष की आयु में) अंडाशय हर महीने एक विकसित अंडाणु बनाना शुरू करता है, जो मासिक धर्म चक्र का आधार है।"},
+  {type:"subj", q:"मासिक धर्म किसे कहते हैं? इसका संक्षिप्त वर्णन कीजिए।", a:"मासिक धर्म (Menstruation) हर महीने योनि से होने वाला रक्त स्राव है, जो तब होता है जब अंडाशय से निकला अंडाणु निषेचित (Fertilise) नहीं होता। ऐसी स्थिति में गर्भाशय की भीतरी परत (जो संभावित गर्भावस्था के लिए तैयार हुई थी) टूटकर शरीर से बाहर निकल जाती है। यह चक्र आमतौर पर हर महीने दोहराया जाता है और यौवनारंभ से लेकर रजोनिवृत्ति (Menopause) तक चलता है।"},
+  {type:"subj", q:"गर्भावस्था के दौरान प्रोजेस्टेरोन हार्मोन की क्या भूमिका है?", a:"निषेचन के बाद पीत-पिंड (Corpus Luteum) मुख्यतः प्रोजेस्टेरोन हार्मोन स्रावित करता है, जो मासिक धर्म को रोकने में सहायता करता है, ताकि गर्भाशय की भीतरी परत बनी रहे और भ्रूण का विकास हो सके। गर्भावस्था के दौरान अंडोत्सर्ग (Ovulation) भी नहीं होता, क्योंकि कॉर्पस ल्यूटियम और बाद में प्लेसेंटा अधिक मात्रा में प्रोजेस्टेरोन का उत्पादन करते रहते हैं, जिससे गर्भावस्था बनी रहती है।"}
+];
+
+const homeworkData = [
+  "अंतःस्रावी ग्रंथियों की सूची बनाइए और उनके एक-एक प्रमुख कार्य लिखिए।",
+  "हाइपोथैलेमस और पीयूष ग्रंथि के बीच क्या संबंध है, समझाइए।",
+  "एन्ड्रोजेन हार्मोन का पुरुष शरीर में क्या महत्व है?",
+  "मासिक धर्म चक्र में अंडाशय की क्या भूमिका होती है, समझाइए।",
+  "एक तालिका बनाइए जिसमें प्रमुख अंतःस्रावी ग्रंथि, उसका स्थान और मुख्य हार्मोन लिखा हो।",
+  "गर्भावस्था के दौरान अंडोत्सर्ग (Ovulation) क्यों नहीं होता, कारण सहित लिखिए।"
+];
+
+function buildQuestions(){
+  const wrap = document.getElementById('qWrap');
+  qData.forEach((item)=>{
+    const pillHtml = item.type === 'obj' ? '<span class="pill pill-obj">Objective</span>' : '<span class="pill pill-subj">Subjective</span>';
+    const d = el('div','glass example-card', `<div class="qlabel">प्रश्न ${pillHtml}</div><div class="qtext">${item.q}</div>
+      <button class="show-ans-btn" onclick="toggleAnswer(this)">उत्तर दिखाएँ (Show Answer)</button>
+      <div class="ans-wrap"><div class="slabel">उत्तर (Answer)</div><div class="stext">${item.a}</div></div>`);
+    wrap.appendChild(d);
+  });
+}
+function toggleAnswer(btn){
+  const wrap = btn.nextElementSibling;
+  const isOpen = wrap.classList.toggle('open');
+  btn.classList.toggle('open', isOpen);
+  btn.textContent = isOpen ? 'उत्तर छुपाएँ (Hide Answer)' : 'उत्तर दिखाएँ (Show Answer)';
+}
+function buildHomework(){
+  const g = document.getElementById('homeworkList');
+  homeworkData.forEach(q=>{ const li = document.createElement('li'); li.textContent = q; g.appendChild(li); });
+}
+
+buildQuestions();
+buildHomework();
+</script>
+</body>
+</html>

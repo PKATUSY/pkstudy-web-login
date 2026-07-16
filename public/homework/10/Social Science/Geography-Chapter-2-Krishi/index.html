@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PK STUDY | कृषि</title>
+<style>
+:root{
+  --bg:#04050f; --glass:rgba(255,255,255,.045); --glass-strong:rgba(255,255,255,.08);
+  --border:rgba(255,255,255,.12); --text:#f2f6ff; --dim:#9fb0da; --heading:#ffffff;
+  --neon-blue:#3ea6ff; --cyan:#33e0ff; --purple:#b07dff; --gold:#ffc233;
+  --green:#2ee6a6; --orange:#ff9f43; --pink:#ff4d8d; --red:#ff4f4f;
+  --shadow:0 22px 46px -22px #000d; --hshadow:0 30px 56px -20px #000f;
+}
+[data-theme="light"]{
+  --bg:#f6f8fd; --glass:rgba(20,30,65,.045); --glass-strong:rgba(20,30,65,.08);
+  --border:rgba(20,30,65,.12); --text:#161c33; --dim:#535f82; --heading:#12172b;
+  --neon-blue:#2563eb; --cyan:#0891b2; --purple:#7c3aed; --gold:#b45309;
+  --green:#059669; --orange:#c2410c; --pink:#db2777; --red:#dc2626;
+  --shadow:0 18px 36px -20px rgba(30,40,80,.18); --hshadow:0 24px 44px -18px rgba(30,40,80,.24);
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Segoe UI','Noto Sans Devanagari',Arial,sans-serif; color:var(--text); min-height:100vh; overflow-x:hidden;
+  transition:background .4s, color .4s;
+  background:
+    radial-gradient(ellipse at 10% -10%, #1c3a9955, transparent 55%),
+    radial-gradient(ellipse at 95% 10%, #7a2ab866, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, #0a5a6e44, transparent 55%),
+    linear-gradient(180deg,#04050f,#020208 90%);
+}
+[data-theme="light"] body{
+  background:
+    radial-gradient(ellipse at 10% -10%, #dbe4ff99, transparent 55%),
+    radial-gradient(ellipse at 95% 10%, #ede0ff99, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, #d7f5f099, transparent 55%),
+    linear-gradient(180deg,#f8faff,#eef1f9 90%);
+}
+::-webkit-scrollbar{width:8px;} ::-webkit-scrollbar-thumb{background:var(--neon-blue); border-radius:6px;} ::-webkit-scrollbar-track{background:transparent;}
+
+.glass{background:var(--glass); border:1px solid var(--border); border-radius:18px; backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+  box-shadow:var(--shadow), inset 0 1px 0 #ffffff12;}
+
+header{position:sticky; top:0; z-index:200; display:flex; align-items:center; justify-content:space-between; padding:14px 26px;
+  background:rgba(4,5,15,.75); backdrop-filter:blur(18px); border-bottom:1px solid var(--border); flex-wrap:wrap; gap:10px; transition:background .4s;}
+[data-theme="light"] header{background:rgba(255,255,255,.8);}
+.brand{display:flex; align-items:center; gap:12px;}
+.brand img{width:44px; height:44px; border-radius:10px; object-fit:cover; border:2px solid var(--neon-blue); box-shadow:0 0 18px #3ea6ff88;}
+.logo-fallback{width:44px; height:44px; border-radius:10px; display:flex; align-items:center; justify-content:center;
+  background:linear-gradient(135deg,var(--neon-blue),#1f3d8c); font-weight:900; font-size:12px; border:2px solid var(--cyan); color:#fff;}
+.brand-text .name{font-weight:900; font-size:18px; color:var(--cyan); letter-spacing:.5px;}
+.brand-text .tag{font-size:11px; color:var(--dim); font-weight:600;}
+nav{display:flex; gap:5px; overflow-x:auto; max-width:52vw;}
+nav::-webkit-scrollbar{height:4px;}
+nav a{color:var(--dim); text-decoration:none; font-size:11.5px; padding:6px 11px; border-radius:16px; border:1px solid transparent; transition:.2s; font-weight:700; white-space:nowrap;}
+nav a:hover{color:var(--heading); border-color:var(--neon-blue); background:#3ea6ff1a;}
+.theme-btn{flex-shrink:0; width:40px; height:40px; border-radius:12px; border:1px solid var(--border); background:var(--glass-strong);
+  color:var(--text); font-size:17px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:.25s;}
+.theme-btn:hover{border-color:var(--neon-blue); transform:translateY(-2px);}
+
+.hero{position:relative; padding:60px 6vw 40px; text-align:center;}
+.eyebrow{display:inline-block; padding:7px 22px; border-radius:30px; color:#04050f; font-size:12px; font-weight:900;
+  letter-spacing:2px; text-transform:uppercase; margin-bottom:20px;
+  background:linear-gradient(120deg,var(--gold),var(--orange),var(--pink),var(--purple),var(--cyan));
+  box-shadow:0 10px 26px -6px #000b;}
+.hero h1{font-size:clamp(26px,5.5vw,48px); font-weight:900; line-height:1.25;
+  background:linear-gradient(90deg,var(--neon-blue),var(--cyan) 35%,var(--purple) 65%,var(--pink)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+.hero .en{font-size:16px; color:var(--dim); font-weight:700; margin-top:10px;}
+.hero p{color:var(--dim); max-width:760px; margin:20px auto 0; font-size:14.5px; line-height:1.9; font-weight:500;}
+
+section{position:relative; padding:44px 6vw; max-width:1200px; margin:0 auto;}
+.sec-head{display:flex; align-items:center; gap:14px; margin-bottom:24px;}
+.sec-num{width:44px; height:44px; border-radius:14px; flex-shrink:0; display:flex; align-items:center; justify-content:center;
+  font-weight:900; font-size:16px; color:#04050f; box-shadow:0 8px 22px -6px var(--glow,#3ea6ff99); border:2px solid #ffffffaa;}
+.sec-head h2{font-size:clamp(19px,3vw,26px); font-weight:900; color:var(--heading);}
+.sec-head .sub{color:var(--dim); font-size:12.5px; font-weight:600; margin-top:2px;}
+.sec-head .en-tag{font-size:11px; color:var(--gold); font-weight:700; letter-spacing:.5px;}
+
+.card{padding:20px 22px;}
+.grid{display:grid; gap:16px;}
+.grid-2{grid-template-columns:1fr 1fr;} .grid-3{grid-template-columns:repeat(3,1fr);}
+@media(max-width:900px){.grid-3{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.grid-2,.grid-3{grid-template-columns:1fr;} nav{max-width:100%;}}
+
+b.hi{color:var(--pink); font-weight:900;} b.hi2{color:var(--green); font-weight:900;} b.hi3{color:var(--gold); font-weight:900;}
+
+.rule-card{padding:20px; border-left:5px solid var(--neon-blue);}
+.rule-card h4{font-size:15px; color:var(--cyan); font-weight:900; margin-bottom:10px;}
+.rule-card p{font-size:13px; color:var(--dim); line-height:1.85; font-weight:500; margin-bottom:8px;}
+.rule-card ul{margin:6px 0 6px 20px; font-size:13px; color:var(--dim); line-height:1.9; font-weight:500;}
+.rule-card ul li{margin-bottom:4px;}
+
+.example-card{padding:18px 20px; margin-bottom:14px;}
+.example-card .qlabel{font-size:11px; font-weight:900; color:var(--gold); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;}
+.example-card .qtext{font-size:13.5px; font-weight:700; color:var(--heading); margin-bottom:14px; line-height:1.7;}
+.example-card .slabel{font-size:11px; font-weight:900; color:var(--green); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;}
+.example-card .stext{font-size:13px; color:var(--dim); line-height:1.9; font-weight:500; background:var(--glass-strong); padding:12px 14px; border-radius:10px; white-space:pre-line;}
+.show-ans-btn{padding:9px 20px; border-radius:10px; border:1.5px solid var(--green); background:transparent; color:var(--green);
+  font-weight:800; font-size:12px; cursor:pointer; transition:.2s;}
+.show-ans-btn:hover{background:var(--green); color:#04050f;}
+.show-ans-btn.open{background:var(--green); color:#04050f;}
+.ans-wrap{margin-top:14px; display:none;}
+.ans-wrap.open{display:block;}
+.pill{display:inline-block; padding:3px 10px; border-radius:10px; font-size:10px; font-weight:900; margin-left:8px; vertical-align:middle;}
+.pill-obj{background:linear-gradient(120deg,var(--cyan),#0a85b8); color:#04050f;}
+.pill-subj{background:linear-gradient(120deg,var(--purple),#7e4fd1); color:#fff;}
+
+.hw-card{padding:18px 20px;}
+.hw-card ol{margin:0; padding-left:20px; font-size:13px; color:var(--dim); line-height:2; font-weight:500;}
+.hw-card ol li{margin-bottom:8px;}
+.hw-card ol li::marker{color:var(--heading); font-weight:800;}
+
+.table-wrap{overflow-x:auto; margin-bottom:16px;}
+table{width:100%; border-collapse:collapse; min-width:560px;}
+thead th{text-align:center; padding:12px 14px; background:linear-gradient(120deg,var(--neon-blue),var(--purple)); color:#fff;
+  font-size:12px; text-transform:uppercase; letter-spacing:.5px; font-weight:900;}
+thead th:first-child{border-radius:10px 0 0 0;} thead th:last-child{border-radius:0 10px 0 0;}
+tbody td{padding:12px 14px; border-bottom:1px solid var(--border); color:var(--dim); font-size:12.5px; text-align:center; font-weight:600;}
+tbody tr:hover{background:#3ea6ff14;}
+
+footer{text-align:center; padding:50px 6vw 70px; color:var(--dim); font-size:12.5px; border-top:1px solid var(--border); margin-top:30px; font-weight:600;}
+footer .name{color:var(--cyan); font-weight:900; font-size:16px;}
+footer .copy{margin-top:18px; font-size:11px; color:var(--dim); opacity:.8;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <img src="images/1000043468.png" alt="PK STUDY" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="logo-fallback" style="display:none;">PK</div>
+    <div class="brand-text"><div class="name">PK STUDY</div><div class="tag">Class 10 • भूगोल • अध्याय 2</div></div>
+  </div>
+  <nav>
+    <a href="#notes">नोट्स</a><a href="#tables">महत्वपूर्ण तथ्य</a><a href="#questions">प्रश्न</a><a href="#homework">होमवर्क</a>
+  </nav>
+  <button class="theme-btn" id="themeToggle" onclick="toggleTheme()" title="Dark/Light Mode">🌙</button>
+</header>
+
+<!-- ============ HERO ============ -->
+<div class="hero">
+  <span class="eyebrow">कक्षा 10 · भूगोल · अध्याय 2 · बिहार बोर्ड</span>
+  <h1>कृषि</h1>
+  <div class="en">Agriculture</div>
+  <p>इस अध्याय में भारत की खरीफ एवं रबी फसलों, निर्वाहक व व्यापारिक कृषि, प्रमुख नकदी फसलों और हरित क्रांति के बारे में पढ़ेंगे। इस पेज में Notes, महत्वपूर्ण तथ्य-तालिकाएँ, Objective व Subjective महत्वपूर्ण प्रश्न (उत्तर सहित), और Homework दिया गया है।</p>
+</div>
+
+<!-- ============ NOTES ============ -->
+<section id="notes">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--neon-blue),#1f6fc9); --glow:#3ea6ff99;">📝</div>
+    <div><h2>Notes — अध्याय के मुख्य भाग</h2><div class="sub en-tag">Concept Notes, Section-wise</div></div></div>
+  <div class="glass card" style="display:flex; flex-direction:column; gap:16px;">
+    <div class="rule-card" style="border-left-color:var(--cyan);">
+      <h4 style="color:var(--cyan);">2(क). कृषि का महत्व एवं भारत की अर्थव्यवस्था में भूमिका</h4>
+      <p><b class="hi">कृषि</b> भारतीय अर्थव्यवस्था की रीढ़ मानी जाती है। भारत की लगभग आधी जनसंख्या प्रत्यक्ष या अप्रत्यक्ष रूप से कृषि पर निर्भर है।</p>
+      <p><b>महत्व:</b></p>
+      <ul>
+        <li>देश की खाद्य सुरक्षा सुनिश्चित करती है — अनाज, दलहन, तिलहन की आपूर्ति</li>
+        <li>चीनी, वस्त्र, जूट जैसे कृषि-आधारित उद्योगों को कच्चा माल प्रदान करती है</li>
+        <li>राष्ट्रीय आय (GDP) में महत्वपूर्ण योगदान देती है</li>
+        <li>ग्रामीण क्षेत्रों में सबसे बड़ा रोजगार का साधन है</li>
+        <li>निर्यात के माध्यम से विदेशी मुद्रा अर्जित करने में सहायक है — जैसे चाय, मसाले, चावल</li>
+      </ul>
+      <p>भारत मानसून पर निर्भर एक कृषि प्रधान देश है, इसलिए वर्षा का असमान वितरण कृषि उत्पादन को सीधे प्रभावित करता है।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--pink);">
+      <h4 style="color:var(--pink);">2(ख). खरीफ फसल (Kharif Crops)</h4>
+      <p><b class="hi">खरीफ फसलें</b> वे फसलें हैं जिनकी बुवाई मानसून के आगमन के साथ <b class="hi3">जून-जुलाई</b> में की जाती है और कटाई <b class="hi3">सितंबर-अक्टूबर</b> में होती है। इन फसलों को अधिक तापमान और अधिक वर्षा की आवश्यकता होती है।</p>
+      <p><b>मुख्य फसलें:</b></p>
+      <ul>
+        <li><b class="hi2">चावल (धान)</b> — अधिक वर्षा व उच्च तापमान वाले क्षेत्रों की मुख्य फसल</li>
+        <li><b class="hi2">मक्का, ज्वार, बाजरा</b> — मोटे अनाज, कम उपजाऊ भूमि में भी उगाए जाते हैं</li>
+        <li><b class="hi2">कपास</b> — काली मृदा (रेगुर मृदा) में उगाई जाने वाली प्रमुख रेशेदार फसल</li>
+        <li><b class="hi2">जूट</b> — गंगा-ब्रह्मपुत्र डेल्टा की जलोढ़ मृदा में उगाई जाती है</li>
+        <li><b class="hi2">अरहर, मूंगफली, सोयाबीन</b> — दलहन एवं तिलहन फसलें</li>
+      </ul>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--green);">
+      <h4 style="color:var(--green);">2(ग). रबी फसल (Rabi Crops)</h4>
+      <p><b class="hi">रबी फसलें</b> वे फसलें हैं जिनकी बुवाई शीत ऋतु में <b class="hi3">अक्टूबर-नवंबर</b> में की जाती है और कटाई गर्मी की शुरुआत में <b class="hi3">मार्च-अप्रैल</b> में होती है। इन फसलों को वृद्धि के समय ठंडा मौसम और पकते समय गर्म व शुष्क मौसम चाहिए।</p>
+      <p><b>मुख्य फसलें:</b></p>
+      <ul>
+        <li><b class="hi2">गेहूँ</b> — भारत की दूसरी सबसे महत्वपूर्ण खाद्यान्न फसल, पंजाब-हरियाणा-उत्तर प्रदेश में अधिक उपज</li>
+        <li><b class="hi2">जौ, चना</b> — शुष्क व अर्ध-शुष्क क्षेत्रों में उगाई जाने वाली फसलें</li>
+        <li><b class="hi2">सरसों</b> — प्रमुख तिलहन फसल</li>
+        <li><b class="hi2">मटर व अन्य दलहन</b> — रबी ऋतु की महत्वपूर्ण दलहनी फसलें</li>
+      </ul>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--orange);">
+      <h4 style="color:var(--orange);">2(घ). निर्वाहक कृषि बनाम व्यापारिक कृषि</h4>
+      <p><b class="hi">निर्वाहक कृषि (Subsistence Agriculture)</b> — इसमें किसान छोटे-छोटे खेतों में परंपरागत तरीकों से खेती करते हैं और उपज का अधिकांश भाग अपने परिवार के उपभोग के लिए रखते हैं। तकनीक व पूंजी का उपयोग कम होता है।</p>
+      <p><b class="hi2">व्यापारिक कृषि (Commercial Agriculture)</b> — इसमें फसलों को बड़े पैमाने पर बाज़ार में बेचने के उद्देश्य से उगाया जाता है। आधुनिक तकनीक, अधिक पूंजी, उन्नत बीज व मशीनों का उपयोग होता है — जैसे गेहूँ, कपास, गन्ने की बड़े पैमाने पर खेती।</p>
+      <p>भारत में परंपरागत रूप से निर्वाहक कृषि प्रधान रही है, परंतु हरित क्रांति के बाद कई क्षेत्रों में व्यापारिक कृषि का विस्तार हुआ है।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--purple);">
+      <h4 style="color:var(--purple);">2(ङ). प्रमुख नकदी फसलें (Cash Crops)</h4>
+      <p><b class="hi">नकदी फसलें</b> वे फसलें हैं जो सीधे उपभोग के बजाय बाज़ार में बेचने या उद्योगों में कच्चे माल के रूप में उपयोग के लिए उगाई जाती हैं।</p>
+      <ul>
+        <li><b class="hi3">चाय</b> — गर्म व आर्द्र जलवायु, ढलानदार भूमि व अच्छी जल निकासी वाली मृदा चाहिए; असम (सबसे बड़ा उत्पादक), पश्चिम बंगाल (दार्जिलिंग), तमिलनाडु, केरल, हिमाचल प्रदेश में उगाई जाती है</li>
+        <li><b class="hi3">कॉफी</b> — पश्चिमी घाट/नीलगिरि की पहाड़ियों में उगाई जाती है; कर्नाटक सबसे बड़ा उत्पादक (लगभग 70%), इसके बाद केरल व तमिलनाडु</li>
+        <li><b class="hi3">गन्ना</b> — साल भर तैयार होने वाली फसल, चीनी व गुड़ उद्योग का आधार; उत्तर प्रदेश सबसे बड़ा उत्पादक, इसके बाद महाराष्ट्र, कर्नाटक, बिहार</li>
+        <li><b class="hi3">कपास</b> — काली मृदा में उगाई जाती है, वस्त्र उद्योग का कच्चा माल; महाराष्ट्र, गुजरात, तेलंगाना प्रमुख उत्पादक</li>
+        <li><b class="hi3">जूट</b> — इसे "सुनहरा रेशा" (Golden Fibre) कहा जाता है; पश्चिम बंगाल, बिहार व असम की जलोढ़ मृदा में उगाई जाती है</li>
+      </ul>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--red);">
+      <h4 style="color:var(--red);">2(च). हरित क्रांति (Green Revolution)</h4>
+      <p><b class="hi">हरित क्रांति</b> 1960 के दशक में भारत में शुरू हुआ एक कृषि सुधार कार्यक्रम था, जिसका उद्देश्य उच्च उपज देने वाले बीजों (HYV), रासायनिक उर्वरकों, कीटनाशकों और निश्चित सिंचाई सुविधाओं के प्रयोग से खाद्यान्न उत्पादन में तेज़ी से वृद्धि करना था।</p>
+      <p><b>कारण:</b> बढ़ती जनसंख्या के लिए खाद्यान्न की माँग, विदेशों से अनाज आयात पर निर्भरता कम करने की आवश्यकता, उन्नत बीजों व तकनीक की उपलब्धता।</p>
+      <p><b class="hi2">प्रभाव:</b> पंजाब, हरियाणा व पश्चिमी उत्तर प्रदेश में गेहूँ की उपज में भारी वृद्धि हुई और देश खाद्यान्न के मामले में आत्मनिर्भर हुआ। परंतु इससे क्षेत्रीय असमानता, भूमिगत जल का अत्यधिक दोहन, मृदा की उर्वरता में कमी और रासायनिक प्रदूषण जैसी समस्याएँ भी उत्पन्न हुईं।</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ IMPORTANT FACTS / TABLES ============ -->
+<section id="tables">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--purple),#7e4fd1); --glow:#b07dff99;">📊</div>
+    <div><h2>महत्वपूर्ण तथ्य तालिकाएँ</h2><div class="sub en-tag">Key Reference Tables</div></div></div>
+
+  <div class="glass card table-wrap">
+    <table>
+      <thead><tr><th>मौसम</th><th>बुवाई का समय</th><th>कटाई का समय</th><th>मुख्य फसलें</th></tr></thead>
+      <tbody>
+        <tr><td>खरीफ (मानसून ऋतु)</td><td>जून–जुलाई</td><td>सितंबर–अक्टूबर</td><td>चावल, मक्का, ज्वार, बाजरा, कपास, जूट, अरहर, मूंगफली</td></tr>
+        <tr><td>रबी (शीत ऋतु)</td><td>अक्टूबर–नवंबर</td><td>मार्च–अप्रैल</td><td>गेहूँ, जौ, चना, सरसों, मटर</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="glass card table-wrap">
+    <table>
+      <thead><tr><th>प्रमुख फसल</th><th>प्रमुख उत्पादक राज्य</th><th>उपयोग</th></tr></thead>
+      <tbody>
+        <tr><td>चावल</td><td>पश्चिम बंगाल, उत्तर प्रदेश, पंजाब</td><td>मुख्य खाद्यान्न</td></tr>
+        <tr><td>गेहूँ</td><td>उत्तर प्रदेश, पंजाब, हरियाणा, मध्य प्रदेश</td><td>मुख्य खाद्यान्न</td></tr>
+        <tr><td>चाय</td><td>असम, पश्चिम बंगाल, तमिलनाडु</td><td>पेय पदार्थ, निर्यात</td></tr>
+        <tr><td>कॉफी</td><td>कर्नाटक, केरल, तमिलनाडु</td><td>पेय पदार्थ, निर्यात</td></tr>
+        <tr><td>गन्ना</td><td>उत्तर प्रदेश, महाराष्ट्र, कर्नाटक, बिहार</td><td>चीनी, गुड़, शीरा</td></tr>
+        <tr><td>कपास</td><td>महाराष्ट्र, गुजरात, तेलंगाना</td><td>वस्त्र (सूती कपड़ा) उद्योग</td></tr>
+        <tr><td>जूट</td><td>पश्चिम बंगाल, बिहार, असम</td><td>बोरे, सुतली, कपड़ा उद्योग</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ IMPORTANT QUESTIONS ============ -->
+<section id="questions">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--green),#1a9c70); --glow:#2ee6a699;">📘</div>
+    <div><h2>महत्वपूर्ण प्रश्न (Objective + Subjective)</h2><div class="sub en-tag">उत्तर देखने के लिए बटन दबाएँ</div></div></div>
+  <div id="qWrap"></div>
+</section>
+
+<!-- ============ HOMEWORK ============ -->
+<section id="homework">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--red),#a82424); --glow:#ff4f4f99;">🏠</div>
+    <div><h2>घर से करने के लिए Homework</h2><div class="sub en-tag">Notebook Exercise — बिना उत्तर देखे खुद हल करें</div></div></div>
+  <div class="glass card hw-card">
+    <ol id="homeworkList"></ol>
+  </div>
+  <p style="color:var(--dim); font-size:12px; margin-top:14px; font-weight:600;">यह सभी प्रश्न अपनी Social Science की notebook में हल करके अगली कक्षा में साथ लाइए।</p>
+</section>
+
+<footer>
+  <span class="name">PK STUDY</span> — अध्याय 2 पूर्ण
+  <div class="copy">Class 10 · भूगोल · कृषि — PK STUDY, All Copyright Reserved</div>
+</footer>
+
+<script>
+function toggleTheme(){
+  const html = document.documentElement;
+  const isLight = html.getAttribute('data-theme') === 'light';
+  html.setAttribute('data-theme', isLight ? '' : 'light');
+  document.getElementById('themeToggle').textContent = isLight ? '🌙' : '☀️';
+}
+function el(tag, cls, html){ const d=document.createElement(tag); if(cls)d.className=cls; if(html!==undefined)d.innerHTML=html; return d; }
+
+const qData = [
+  {type:"obj", q:"भारत में खरीफ फसल की बुवाई किस मौसम में की जाती है?", a:"मानसून के आगमन के साथ जून-जुलाई में — इनकी कटाई सितंबर-अक्टूबर में होती है।"},
+  {type:"obj", q:"रबी फसल की बुवाई और कटाई का समय बताइए।", a:"बुवाई अक्टूबर-नवंबर में और कटाई मार्च-अप्रैल में होती है।"},
+  {type:"obj", q:"भारत का सबसे बड़ा चाय उत्पादक राज्य कौन-सा है?", a:"असम — यहाँ से भारत के लगभग 50% से अधिक चाय का उत्पादन होता है।"},
+  {type:"obj", q:"भारत में कॉफी का सर्वाधिक उत्पादन किस राज्य में होता है?", a:"कर्नाटक — भारत के लगभग 70% कॉफी उत्पादन के लिए उत्तरदायी।"},
+  {type:"obj", q:"गन्ने का सर्वाधिक उत्पादन करने वाला राज्य कौन-सा है?", a:"उत्तर प्रदेश।"},
+  {type:"obj", q:"भारत में हरित क्रांति की शुरुआत किस दशक में हुई?", a:"1960 के दशक में।"},
+  {type:"obj", q:"जूट की खेती के लिए कौन-सी मृदा सबसे उपयुक्त मानी जाती है?", a:"जलोढ़ मृदा — गंगा-ब्रह्मपुत्र डेल्टा क्षेत्र (पश्चिम बंगाल, बिहार, असम) में उगाई जाती है।"},
+  {type:"obj", q:"'सुनहरा रेशा' (Golden Fibre) किस फसल को कहा जाता है?", a:"जूट को।"},
+  {type:"obj", q:"कपास की खेती के लिए कौन-सी मृदा सबसे उपयुक्त होती है?", a:"काली मृदा (रेगुर मृदा) — जो मुख्यतः दक्कन के पठार में पाई जाती है।"},
+  {type:"obj", q:"गेहूँ किस ऋतु की फसल है?", a:"रबी ऋतु की फसल।"},
+  {type:"subj", q:"निर्वाहक कृषि और व्यापारिक कृषि में अंतर स्पष्ट कीजिए।", a:"निर्वाहक कृषि में किसान छोटे-छोटे खेतों में परंपरागत तरीकों से खेती करते हैं और उपज का अधिकांश भाग अपने परिवार के उपभोग के लिए रखते हैं; इसमें तकनीक व पूंजी का उपयोग कम होता है। इसके विपरीत, व्यापारिक कृषि में फसलों को बड़े पैमाने पर बाज़ार में बेचने के उद्देश्य से उगाया जाता है, जिसमें आधुनिक तकनीक, अधिक पूंजी, उन्नत बीज व मशीनों का प्रयोग होता है — जैसे गेहूँ, कपास व गन्ने की बड़े पैमाने पर खेती।"},
+  {type:"subj", q:"खरीफ और रबी फसलों में अंतर स्पष्ट कीजिए, उदाहरण सहित।", a:"खरीफ फसलों की बुवाई मानसून के आगमन के साथ जून-जुलाई में होती है और कटाई सितंबर-अक्टूबर में होती है; इन्हें अधिक तापमान व अधिक वर्षा की आवश्यकता होती है — जैसे चावल, मक्का, कपास, जूट, अरहर। रबी फसलों की बुवाई शीत ऋतु में अक्टूबर-नवंबर में होती है और कटाई मार्च-अप्रैल में होती है; इन्हें वृद्धि के समय ठंडा और पकते समय गर्म-शुष्क मौसम चाहिए — जैसे गेहूँ, जौ, चना, सरसों।"},
+  {type:"subj", q:"हरित क्रांति क्या है? इसके कारण एवं प्रभाव बताइए।", a:"हरित क्रांति 1960 के दशक में भारत में शुरू हुआ एक कृषि सुधार कार्यक्रम था, जिसमें उच्च उपज देने वाले बीजों (HYV), रासायनिक उर्वरकों, कीटनाशकों और निश्चित सिंचाई सुविधाओं के प्रयोग से खाद्यान्न उत्पादन में तेज़ी से वृद्धि की गई। इसका मुख्य कारण बढ़ती जनसंख्या के लिए खाद्यान्न की माँग और विदेशी अनाज आयात पर निर्भरता कम करना था। प्रभाव स्वरूप पंजाब, हरियाणा व पश्चिमी उत्तर प्रदेश में गेहूँ की उपज में भारी वृद्धि हुई और भारत खाद्यान्न के मामले में आत्मनिर्भर बना; परंतु इससे क्षेत्रीय असमानता, भूमिगत जल का अत्यधिक दोहन, मृदा की उर्वरता में कमी और रासायनिक प्रदूषण जैसी समस्याएँ भी उत्पन्न हुईं।"},
+  {type:"subj", q:"भारतीय अर्थव्यवस्था में कृषि के महत्व को स्पष्ट कीजिए।", a:"कृषि भारतीय अर्थव्यवस्था की रीढ़ है — देश की लगभग आधी जनसंख्या प्रत्यक्ष या अप्रत्यक्ष रूप से इस पर निर्भर है। यह देश की खाद्य सुरक्षा सुनिश्चित करती है, चीनी-वस्त्र-जूट जैसे कृषि-आधारित उद्योगों को कच्चा माल प्रदान करती है, राष्ट्रीय आय (GDP) में महत्वपूर्ण योगदान देती है, ग्रामीण क्षेत्रों में रोजगार का सबसे बड़ा साधन है, और चाय-मसाले-चावल जैसे उत्पादों के निर्यात से विदेशी मुद्रा भी अर्जित करती है।"},
+  {type:"subj", q:"भारत की किन्हीं चार प्रमुख नकदी फसलों के नाम व उनके प्रमुख उत्पादक राज्य लिखिए।", a:"(1) चाय — असम (सबसे बड़ा उत्पादक), पश्चिम बंगाल (दार्जिलिंग), तमिलनाडु। (2) कॉफी — कर्नाटक (सबसे बड़ा उत्पादक), केरल, तमिलनाडु। (3) गन्ना — उत्तर प्रदेश (सबसे बड़ा उत्पादक), महाराष्ट्र, बिहार। (4) कपास — महाराष्ट्र, गुजरात, तेलंगाना — काली मृदा में उगाई जाती है।"}
+];
+
+const homeworkData = [
+  "खरीफ और रबी फसल में कोई तीन अंतर लिखिए।",
+  "भारत की किन्हीं तीन दलहन फसलों के नाम लिखिए।",
+  "चाय की खेती के लिए आवश्यक भौगोलिक दशाओं का वर्णन कीजिए।",
+  "निर्वाहक कृषि की प्रमुख विशेषताएँ लिखिए।",
+  "हरित क्रांति से भारत को क्या-क्या लाभ हुए?",
+  "अपने क्षेत्र में उगाई जाने वाली किन्हीं 5 फसलों की सूची बनाकर उन्हें खरीफ/रबी में वर्गीकृत कीजिए। (Practical Activity)",
+  "भारत के मानचित्र में गन्ना, कपास व जूट के प्रमुख उत्पादक राज्यों को चिन्हित कीजिए। (Map Activity)"
+];
+
+function buildQuestions(){
+  const wrap = document.getElementById('qWrap');
+  qData.forEach((item)=>{
+    const pillHtml = item.type === 'obj' ? '<span class="pill pill-obj">Objective</span>' : '<span class="pill pill-subj">Subjective</span>';
+    const d = el('div','glass example-card', `<div class="qlabel">प्रश्न ${pillHtml}</div><div class="qtext">${item.q}</div>
+      <button class="show-ans-btn" onclick="toggleAnswer(this)">उत्तर दिखाएँ (Show Answer)</button>
+      <div class="ans-wrap"><div class="slabel">उत्तर (Answer)</div><div class="stext">${item.a}</div></div>`);
+    wrap.appendChild(d);
+  });
+}
+function toggleAnswer(btn){
+  const wrap = btn.nextElementSibling;
+  const isOpen = wrap.classList.toggle('open');
+  btn.classList.toggle('open', isOpen);
+  btn.textContent = isOpen ? 'उत्तर छुपाएँ (Hide Answer)' : 'उत्तर दिखाएँ (Show Answer)';
+}
+function buildHomework(){
+  const g = document.getElementById('homeworkList');
+  homeworkData.forEach(q=>{ const li = document.createElement('li'); li.textContent = q; g.appendChild(li); });
+}
+
+buildQuestions();
+buildHomework();
+</script>
+</body>
+</html>

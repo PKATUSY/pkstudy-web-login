@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PK STUDY | परिमेय संख्याएँ और संख्या पद्धति — Rational Numbers & Number Systems</title>
+<style>
+:root{
+  --bg:#04050f; --glass:rgba(255,255,255,.045); --glass-strong:rgba(255,255,255,.08);
+  --border:rgba(255,255,255,.12); --text:#f2f6ff; --dim:#9fb0da; --heading:#ffffff;
+  --neon-blue:#3ea6ff; --cyan:#33e0ff; --purple:#b07dff; --gold:#ffc233;
+  --green:#2ee6a6; --orange:#ff9f43; --pink:#ff4d8d; --red:#ff4f4f;
+  --shadow:0 22px 46px -22px #000d; --hshadow:0 30px 56px -20px #000f;
+}
+[data-theme="light"]{
+  --bg:#f6f8fd; --glass:rgba(20,30,65,.045); --glass-strong:rgba(20,30,65,.08);
+  --border:rgba(20,30,65,.12); --text:#161c33; --dim:#535f82; --heading:#12172b;
+  --neon-blue:#2563eb; --cyan:#0891b2; --purple:#7c3aed; --gold:#b45309;
+  --green:#059669; --orange:#c2410c; --pink:#db2777; --red:#dc2626;
+  --shadow:0 18px 36px -20px rgba(30,40,80,.18); --hshadow:0 24px 44px -18px rgba(30,40,80,.24);
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Segoe UI','Noto Sans Devanagari',Arial,sans-serif; color:var(--text); min-height:100vh; overflow-x:hidden;
+  transition:background .4s, color .4s;
+  background:
+    radial-gradient(ellipse at 10% -10%, #1c3a9955, transparent 55%),
+    radial-gradient(ellipse at 95% 10%, #7a2ab866, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, #0a5a6e44, transparent 55%),
+    linear-gradient(180deg,#04050f,#020208 90%);
+}
+[data-theme="light"] body{
+  background:
+    radial-gradient(ellipse at 10% -10%, #dbe4ff99, transparent 55%),
+    radial-gradient(ellipse at 95% 10%, #ede0ff99, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, #d7f5f099, transparent 55%),
+    linear-gradient(180deg,#f8faff,#eef1f9 90%);
+}
+::-webkit-scrollbar{width:8px;} ::-webkit-scrollbar-thumb{background:var(--neon-blue); border-radius:6px;} ::-webkit-scrollbar-track{background:transparent;}
+
+.glass{background:var(--glass); border:1px solid var(--border); border-radius:18px; backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+  box-shadow:var(--shadow), inset 0 1px 0 #ffffff12; transition:transform .35s, box-shadow .35s, background .4s, border .4s;}
+.glass:hover{transform:translateY(-4px); box-shadow:var(--hshadow), inset 0 1px 0 #ffffff1e;}
+
+header{position:sticky; top:0; z-index:200; display:flex; align-items:center; justify-content:space-between; padding:14px 26px;
+  background:rgba(4,5,15,.75); backdrop-filter:blur(18px); border-bottom:1px solid var(--border); flex-wrap:wrap; gap:10px; transition:background .4s;}
+[data-theme="light"] header{background:rgba(255,255,255,.8);}
+.brand{display:flex; align-items:center; gap:12px;}
+.brand img{width:44px; height:44px; border-radius:10px; object-fit:cover; border:2px solid var(--neon-blue); box-shadow:0 0 18px #3ea6ff88;}
+.logo-fallback{width:44px; height:44px; border-radius:10px; display:flex; align-items:center; justify-content:center;
+  background:linear-gradient(135deg,var(--neon-blue),#1f3d8c); font-weight:900; font-size:12px; border:2px solid var(--cyan); color:#fff;}
+.brand-text .name{font-weight:900; font-size:18px; color:var(--cyan); letter-spacing:.5px;}
+.brand-text .tag{font-size:11px; color:var(--dim); font-weight:600;}
+nav{display:flex; gap:5px; overflow-x:auto; max-width:52vw;}
+nav::-webkit-scrollbar{height:4px;}
+nav a{color:var(--dim); text-decoration:none; font-size:11.5px; padding:6px 11px; border-radius:16px; border:1px solid transparent; transition:.2s; font-weight:700; white-space:nowrap;}
+nav a:hover{color:var(--heading); border-color:var(--neon-blue); background:#3ea6ff1a;}
+.theme-btn{flex-shrink:0; width:40px; height:40px; border-radius:12px; border:1px solid var(--border); background:var(--glass-strong);
+  color:var(--text); font-size:17px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:.25s;}
+.theme-btn:hover{border-color:var(--neon-blue); transform:translateY(-2px);}
+
+/* ===== HERO ===== */
+.hero{position:relative; padding:80px 6vw 60px; text-align:center; overflow:hidden;}
+.hero-bg{position:absolute; inset:0; z-index:0; opacity:.5;}
+.eyebrow{display:inline-block; padding:7px 22px; border-radius:30px; color:#04050f; font-size:12px; font-weight:900;
+  letter-spacing:2.5px; text-transform:uppercase; margin-bottom:20px; position:relative; z-index:2;
+  background:linear-gradient(120deg,var(--gold),var(--orange),var(--pink),var(--purple),var(--cyan)); background-size:400% 100%; animation:shim 8s linear infinite;
+  box-shadow:0 10px 26px -6px #000b;}
+@keyframes shim{0%{background-position:0% 0;}100%{background-position:400% 0;}}
+.hero h1{position:relative; z-index:2; font-size:clamp(26px,5.4vw,50px); font-weight:900; line-height:1.25;
+  background:linear-gradient(90deg,var(--neon-blue),var(--cyan) 35%,var(--purple) 65%,var(--pink)); -webkit-background-clip:text; background-clip:text; color:transparent;
+  text-shadow:0 0 60px #3ea6ff33; animation:hueGlow 6s ease-in-out infinite;}
+@keyframes hueGlow{0%,100%{filter:brightness(1);} 50%{filter:brightness(1.2);}}
+.hero .en{position:relative; z-index:2; font-size:16px; color:var(--dim); font-weight:700; margin-top:10px; letter-spacing:1px;}
+.hero p{position:relative; z-index:2; color:var(--dim); max-width:760px; margin:20px auto 0; font-size:14.5px; line-height:1.9; font-weight:500;}
+.pulse-line{position:relative; z-index:2; width:150px; height:4px; margin:28px auto 0; border-radius:4px;
+  background:linear-gradient(90deg,var(--neon-blue),var(--cyan),var(--purple),var(--gold)); background-size:300% 100%; animation:shim 4s linear infinite;
+  box-shadow:0 4px 20px -2px #3ea6ff88;}
+
+.optics-scene{position:relative; z-index:2; max-width:680px; margin:36px auto 0; height:210px;}
+.optics-scene svg{width:100%; height:100%;}
+.laser{stroke-dasharray:8 6; animation:dash 1.4s linear infinite;}
+@keyframes dash{to{stroke-dashoffset:-28;}}
+.glow-dot{filter:drop-shadow(0 0 8px currentColor);}
+@keyframes floaty{0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);}}
+.float-ic{animation:floaty 4s ease-in-out infinite;}
+
+section{position:relative; z-index:1; padding:52px 6vw; max-width:1300px; margin:0 auto;}
+.sec-head{display:flex; align-items:center; gap:14px; margin-bottom:28px;}
+.sec-num{width:44px; height:44px; border-radius:14px; flex-shrink:0; display:flex; align-items:center; justify-content:center;
+  font-weight:900; font-size:16px; color:#04050f; box-shadow:0 8px 22px -6px var(--glow,#3ea6ff99); border:2px solid #ffffffaa;}
+.sec-head h2{font-size:clamp(19px,3vw,26px); font-weight:900; color:var(--heading);}
+.sec-head .sub{color:var(--dim); font-size:12.5px; font-weight:600; margin-top:2px;}
+.sec-head .en-tag{font-size:11px; color:var(--gold); font-weight:700; letter-spacing:.5px;}
+
+.card{padding:20px 22px;}
+.grid{display:grid; gap:16px;}
+.grid-2{grid-template-columns:1fr 1fr;} .grid-3{grid-template-columns:repeat(3,1fr);}
+.grid-4{grid-template-columns:repeat(4,1fr);} .grid-5{grid-template-columns:repeat(5,1fr);}
+@media(max-width:900px){.grid-3,.grid-4,.grid-5{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.grid-2,.grid-3,.grid-4,.grid-5{grid-template-columns:1fr;} nav{max-width:100%;}}
+
+b.hi{color:var(--pink); font-weight:900;} b.hi2{color:var(--green); font-weight:900;} b.hi3{color:var(--gold); font-weight:900;}
+.eng-term{color:var(--cyan); font-style:italic; font-weight:700;}
+
+.obj-card{padding:16px 18px; display:flex; align-items:center; gap:12px;}
+.obj-card .ic{font-size:24px; flex-shrink:0;}
+.obj-card .t{font-size:13.5px; font-weight:800; color:var(--text);}
+
+.timeline{position:relative; padding-left:36px;}
+.timeline::before{content:''; position:absolute; left:11px; top:6px; bottom:6px; width:3px;
+  background:linear-gradient(180deg,var(--neon-blue),var(--cyan),var(--purple),var(--gold)); border-radius:3px; box-shadow:0 0 14px #3ea6ff66;}
+.t-item{position:relative; margin-bottom:26px;}
+.t-item::before{content:''; position:absolute; left:-31px; top:6px; width:18px; height:18px; border-radius:50%;
+  background:var(--bg); border:3px solid var(--dotcolor,var(--neon-blue)); box-shadow:0 0 16px var(--dotcolor,var(--neon-blue));}
+.t-item:nth-child(1){--dotcolor:var(--gold);} .t-item:nth-child(2){--dotcolor:var(--cyan);}
+.t-item:nth-child(3){--dotcolor:var(--purple);} .t-item:nth-child(4){--dotcolor:var(--green);} .t-item:nth-child(5){--dotcolor:var(--pink);}
+.t-year{display:inline-block; font-weight:900; font-size:13.5px; color:#04050f; background:var(--dotcolor,var(--neon-blue));
+  padding:5px 16px; border-radius:20px; margin-bottom:8px; box-shadow:0 4px 14px -2px var(--dotcolor,#3ea6ff88);}
+.t-item h3{font-size:16px; color:var(--heading); font-weight:800; margin-bottom:4px;}
+.t-item p{font-size:13px; color:var(--dim); line-height:1.8; font-weight:500;}
+
+.mindmap-wrap{display:flex; justify-content:center;}
+.mindmap-wrap svg{width:100%; max-width:1100px; height:auto;}
+.mm-node{stroke-width:2; rx:14;}
+.mm-text{fill:var(--heading); font-size:12.5px; font-weight:800;}
+.mm-line{stroke-width:2; opacity:.55; stroke-dasharray:5 4;}
+
+.flow-col{display:flex; flex-direction:column; align-items:center; gap:6px;}
+.flow-box{padding:12px 22px; border-radius:12px; font-weight:900; font-size:13px; color:#04050f; text-align:center; min-width:180px; box-shadow:0 8px 20px -6px #0009;}
+.flow-arrow{font-size:20px; color:var(--cyan); font-weight:900;}
+
+.def-card{padding:18px 20px; border-radius:16px;}
+.def-card h4{font-size:14.5px; margin-bottom:8px; display:flex; align-items:center; gap:8px; font-weight:900;}
+.def-card p{font-size:12.5px; color:var(--dim); line-height:1.75; font-weight:500;}
+
+.diagram-card{padding:18px; text-align:center;}
+.diagram-card svg{width:100%; max-width:280px; height:150px;}
+.diagram-card .cap{font-weight:800; font-size:13px; color:var(--heading); margin-top:8px;}
+.diagram-card .cap2{font-size:11px; color:var(--dim); margin-top:2px;}
+
+.rule-card{padding:20px; border-left:5px solid var(--neon-blue);}
+.rule-card h4{font-size:15px; color:var(--cyan); font-weight:900; margin-bottom:8px;}
+.rule-card p{font-size:13px; color:var(--dim); line-height:1.8; font-weight:500;}
+
+.example-card{padding:18px 20px;}
+.example-card .qlabel{font-size:11px; font-weight:900; color:var(--gold); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;}
+.example-card .qtext{font-size:13.5px; font-weight:700; color:var(--heading); margin-bottom:14px; line-height:1.7;}
+.example-card .slabel{font-size:11px; font-weight:900; color:var(--green); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;}
+.example-card .stext{font-size:13px; color:var(--dim); line-height:1.8; font-weight:500; background:var(--glass-strong); padding:12px 14px; border-radius:10px;}
+.example-card{margin-bottom:14px;}
+
+.hw-card{padding:18px 20px;}
+.hw-card ol{margin:0; padding-left:20px; font-size:13px; color:var(--dim); line-height:2; font-weight:500;}
+.hw-card ol li{margin-bottom:6px;}
+.hw-card ol li::marker{color:var(--heading); font-weight:800;}
+
+.table-wrap{overflow-x:auto;}
+table{width:100%; border-collapse:collapse; min-width:700px;}
+thead th{text-align:center; padding:12px 14px; background:linear-gradient(120deg,var(--neon-blue),var(--purple)); color:#fff;
+  font-size:12px; text-transform:uppercase; letter-spacing:.5px; font-weight:900;}
+thead th:first-child{border-radius:10px 0 0 0;} thead th:last-child{border-radius:0 10px 0 0;}
+tbody td{padding:12px 14px; border-bottom:1px solid var(--border); color:var(--dim); font-size:12.5px; text-align:center; font-weight:600;}
+tbody tr:hover{background:#3ea6ff14;}
+tbody tr.current-row{background:#ffc23322;}
+tbody tr.current-row td{color:var(--heading); font-weight:800;}
+.pill{display:inline-block; padding:4px 12px; border-radius:12px; font-size:10.5px; font-weight:900;}
+.pill-real{background:linear-gradient(120deg,var(--red),#a82424); color:#fff;}
+.pill-virtual{background:linear-gradient(120deg,var(--cyan),#0a85b8); color:#04050f;}
+.pill-erect{background:linear-gradient(120deg,var(--green),#1a9c70); color:#04050f;}
+.pill-inverted{background:linear-gradient(120deg,var(--orange),#c9650c); color:#04050f;}
+.pill-current{background:linear-gradient(120deg,var(--gold),#c9650c); color:#04050f;}
+
+.formula-card{padding:24px; text-align:center; border-radius:18px; position:relative; overflow:hidden;}
+.formula-card .big{font-size:22px; font-weight:900; color:var(--heading); margin:10px 0; font-family:'Segoe UI',sans-serif;}
+.formula-card .name{font-size:12.5px; color:var(--gold); font-weight:800; text-transform:uppercase; letter-spacing:1px;}
+.formula-card .d{font-size:11.5px; color:var(--dim); margin-top:8px; line-height:1.6; font-weight:500;}
+
+.app-card{padding:18px; text-align:center;}
+.app-card .ic{font-size:34px; margin-bottom:8px;}
+.app-card .t{font-weight:800; font-size:13px; color:var(--heading);}
+.app-card .d{font-size:11px; color:var(--dim); margin-top:4px;}
+
+.trick-card{padding:16px 18px; border-left:4px solid var(--gold);}
+.mistake-card{padding:16px 18px; border-left:4px solid var(--red); background:linear-gradient(120deg,#ff4f4f14,transparent);}
+.mistake-card .wrong{color:var(--red); font-weight:800; font-size:12.5px; text-decoration:line-through;}
+.mistake-card .right{color:var(--green); font-weight:800; font-size:12.5px;}
+
+.q-card{margin-bottom:10px; overflow:hidden;}
+.q-head{padding:14px 18px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:10px;}
+.q-head .txt{font-weight:800; font-size:13px; color:var(--heading);}
+.q-head .tag{font-size:10px; padding:3px 10px; border-radius:10px; font-weight:900; color:#04050f; flex-shrink:0;}
+.q-head .arrow{color:var(--cyan); transition:transform .3s;}
+.q-head.open .arrow{transform:rotate(180deg);}
+.q-body{max-height:0; overflow:hidden; transition:max-height .4s; padding:0 18px;}
+.q-body.open{max-height:300px; padding:0 18px 16px;}
+.q-body p{font-size:12.5px; color:var(--dim); line-height:1.8; font-weight:500;}
+
+.quiz-item{padding:16px 18px; margin-bottom:12px;}
+.quiz-item .q{font-weight:800; font-size:13.5px; margin-bottom:10px; color:var(--heading);}
+.quiz-opt{display:block; padding:9px 14px; margin:6px 0; border-radius:10px; border:1.5px solid var(--border); font-size:12.5px;
+  color:var(--dim); font-weight:600; cursor:pointer; transition:.2s;}
+.quiz-opt:hover{border-color:var(--cyan);}
+.quiz-opt.selected{border-color:var(--neon-blue); background:#3ea6ff1a;}
+.quiz-opt.correct-answer{background:linear-gradient(120deg,var(--green),#1a9c70); color:#04050f; border-color:transparent; font-weight:900;}
+.quiz-opt.wrong-answer{background:linear-gradient(120deg,var(--red),#b82828); color:#fff; border-color:transparent; font-weight:900;}
+.score-box{text-align:center; padding:24px;}
+.score-box .num{font-size:44px; font-weight:900; color:var(--gold);}
+.btn-primary{padding:12px 26px; border-radius:14px; border:none; font-weight:900; font-size:13px; cursor:pointer;
+  background:linear-gradient(120deg,var(--neon-blue),var(--purple)); color:#fff; box-shadow:0 10px 24px -6px #0009;}
+
+footer{text-align:center; padding:50px 6vw 70px; color:var(--dim); font-size:12.5px; border-top:1px solid var(--border); margin-top:30px; font-weight:600;}
+footer .name{color:var(--cyan); font-weight:900; font-size:16px;}
+footer .badges{display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin:16px 0;}
+footer .badge{padding:6px 16px; border-radius:20px; font-size:11px; font-weight:800; background:var(--glass-strong); border:1px solid var(--border);}
+footer .copy{margin-top:18px; font-size:11px; color:var(--dim); opacity:.8;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <img src="images/1000043468.png" alt="PK STUDY" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="logo-fallback" style="display:none;">PK</div>
+    <div class="brand-text"><div class="name">PK STUDY</div><div class="tag">Class 8-9 (Combined) • Maths • Part 1</div></div>
+  </div>
+  <nav>
+    <a href="#syllabus">सिलेबस मैप</a><a href="#s2">उद्देश्य</a><a href="#s4">माइंड मैप</a><a href="#s6">परिभाषाएँ</a>
+    <a href="#notes">नोट्स</a><a href="#formulas">सूत्र</a><a href="#s7">संख्या प्रकार</a><a href="#s11">तालिका</a>
+    <a href="#s14">तथ्य दीवार</a><a href="#s17">प्रश्न</a><a href="#s18">क्विज़</a><a href="#homework">होमवर्क</a>
+  </nav>
+  <button class="theme-btn" id="themeToggle" onclick="toggleTheme()" title="Dark/Light Mode">🌙</button>
+</header>
+
+<!-- ============ HERO ============ -->
+<div class="hero">
+  <span class="eyebrow">कक्षा 8-9 (संयुक्त) · Maths · Part 1</span>
+  <h1>परिमेय संख्याएँ और संख्या पद्धति</h1>
+  <div class="en">Rational Numbers & Number Systems</div>
+  <p>यह Class 8 और Class 9 के <b>संयुक्त (combined)</b> Maths syllabus का <b>Part 1</b> है — जिससे पूरी 22-Part यात्रा शुरू होती है। इसमें Rational Numbers की properties, number line पर उन्हें दिखाना, Irrational Numbers और पूरा Real Number System सीखेंगे। इसे 6 दिनों (Part 1A, 1B, 1C) में पूरा करेंगे।</p>
+  <div class="pulse-line"></div>
+
+  <div class="optics-scene">
+    <svg viewBox="0 0 640 210">
+      <defs>
+        <radialGradient id="coreGrad" cx="50%" cy="50%" r="60%">
+          <stop offset="0%" stop-color="#7ad6ff"/><stop offset="100%" stop-color="#3ea6ff"/>
+        </radialGradient>
+      </defs>
+      <circle cx="320" cy="105" r="46" fill="url(#coreGrad)" stroke="#fff8" stroke-width="2" class="glow-dot"/>
+      <text x="320" y="113" text-anchor="middle" font-size="20" font-weight="900" fill="#04050f">p/q</text>
+      <text x="320" y="168" text-anchor="middle" font-size="12" font-weight="900" fill="#ffc233">Part 1</text>
+
+      <line class="laser" x1="284" y1="85" x2="120" y2="40" stroke="#33e0ff" stroke-width="2.5"/>
+      <circle cx="110" cy="35" r="18" fill="#33e0ff33" stroke="#33e0ff" stroke-width="2" class="glow-dot float-ic"/>
+      <text x="110" y="41" text-anchor="middle" font-size="16">🔢</text>
+      <text x="110" y="68" text-anchor="middle" font-size="11" font-weight="800" fill="#33e0ff">Rational</text>
+
+      <line class="laser" x1="284" y1="125" x2="120" y2="170" stroke="#2ee6a6" stroke-width="2.5"/>
+      <circle cx="110" cy="175" r="18" fill="#2ee6a633" stroke="#2ee6a6" stroke-width="2" class="glow-dot float-ic"/>
+      <text x="110" y="181" text-anchor="middle" font-size="16">√2</text>
+      <text x="110" y="204" text-anchor="middle" font-size="11" font-weight="800" fill="#2ee6a6">Irrational</text>
+
+      <line class="laser" x1="356" y1="85" x2="520" y2="40" stroke="#ff4d8d" stroke-width="2.5"/>
+      <circle cx="530" cy="35" r="18" fill="#ff4d8d33" stroke="#ff4d8d" stroke-width="2" class="glow-dot float-ic"/>
+      <text x="530" y="41" text-anchor="middle" font-size="16">📏</text>
+      <text x="530" y="68" text-anchor="middle" font-size="11" font-weight="800" fill="#ff4d8d">Number Line</text>
+
+      <line class="laser" x1="356" y1="125" x2="520" y2="170" stroke="#ffc233" stroke-width="2.5"/>
+      <circle cx="530" cy="175" r="18" fill="#ffc23333" stroke="#ffc233" stroke-width="2" class="glow-dot float-ic"/>
+      <text x="530" y="181" text-anchor="middle" font-size="16">🌐</text>
+      <text x="530" y="204" text-anchor="middle" font-size="11" font-weight="800" fill="#ffc233">Real Numbers</text>
+    </svg>
+  </div>
+</div>
+
+<!-- ============ SYLLABUS ROADMAP ============ -->
+<section id="syllabus">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--gold),#c9650c); --glow:#ffc23399;">🗺️</div>
+    <div><h2>पूरा सिलेबस रोडमैप — Class 8-9 संयुक्त Maths</h2><div class="sub en-tag">Kaun sa Part mein kaun sa Chapter — pura naksha</div></div></div>
+  <div class="glass card table-wrap">
+    <table>
+      <thead><tr><th>Part</th><th>Chapter (Class)</th><th>Din (Days)</th><th>Sub-Parts</th></tr></thead>
+      <tbody id="syllabusBody"></tbody>
+    </table>
+  </div>
+  <p style="color:var(--dim); font-size:12px; margin-top:14px; font-weight:600;">नोट: यह फ़ाइल सिर्फ़ Class 8 के फ़ोल्डर में रखी गई है, क्योंकि Class 8 और 9 का Maths एक साथ, एक ही क्रम में पढ़ाया जा रहा है — चैप्टर के नाम अलग-अलग क्लास के हिसाब से नहीं, बल्कि मिलाकर (mixed) दिए गए हैं। जो चैप्टर 2-3 दिन से ज़्यादा चलता है, उसे A/B/C/D sub-parts में बाँटा गया है।</p>
+</section>
+
+<!-- ============ 2. LEARNING OBJECTIVES ============ -->
+<section id="s2">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--cyan),#0a85b8); --glow:#33e0ff99;">2</div>
+    <div><h2>सीखने के उद्देश्य</h2><div class="sub en-tag">Learning Objectives</div></div></div>
+  <div class="grid grid-3" id="objGrid"></div>
+</section>
+
+<!-- ============ 3. TIMELINE (STORY) ============ -->
+<section id="s3">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--gold),#c9650c); --glow:#ffc23399;">3</div>
+    <div><h2>6 दिन में हम कैसे सीखेंगे?</h2><div class="sub en-tag">Part 1A, 1B, 1C — Day by Day</div></div></div>
+  <div class="glass card">
+    <div class="timeline" id="timelineList"></div>
+  </div>
+</section>
+
+<!-- ============ 4. MIND MAP ============ -->
+<section id="s4">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--purple),#7e4fd1); --glow:#b07dff99;">4</div>
+    <div><h2>Color Mind Map — Rational Numbers & Number Systems</h2><div class="sub en-tag">Complete overview of Part 1</div></div></div>
+  <div class="glass card mindmap-wrap">
+    <svg viewBox="0 0 1100 640">
+      <defs><radialGradient id="mmCoreGrad" cx="50%" cy="50%" r="60%"><stop offset="0%" stop-color="#3ea6ff"/><stop offset="100%" stop-color="#1f6fc9"/></radialGradient></defs>
+      <line class="mm-line" x1="550" y1="320" x2="180" y2="100" stroke="#33e0ff"/>
+      <line class="mm-line" x1="550" y1="320" x2="920" y2="100" stroke="#ff4d8d"/>
+      <line class="mm-line" x1="550" y1="320" x2="140" y2="330" stroke="#ff9f43"/>
+      <line class="mm-line" x1="550" y1="320" x2="960" y2="330" stroke="#b07dff"/>
+      <line class="mm-line" x1="550" y1="320" x2="220" y2="560" stroke="#2ee6a6"/>
+      <line class="mm-line" x1="550" y1="320" x2="880" y2="560" stroke="#ffe14d"/>
+      <circle cx="550" cy="320" r="70" fill="url(#mmCoreGrad)" stroke="#7ad6ff" stroke-width="2.5"/>
+      <text x="550" y="326" text-anchor="middle" fill="#fff" font-size="14" font-weight="900">Rational Numbers &amp; Real Numbers</text>
+
+      <rect class="mm-node" x="30" y="50" width="240" height="90" rx="14" fill="#33e0ff22" stroke="#33e0ff"/>
+      <text class="mm-text" x="50" y="78" fill="#33e0ff" font-size="14">Rational Numbers (p/q)</text><text class="mm-text" x="50" y="98">Part 1A</text>
+      <text class="mm-text" x="50" y="118" font-size="11" fill="#9fb0da">पहचान और सरल रूप</text>
+
+      <rect class="mm-node" x="820" y="50" width="250" height="90" rx="14" fill="#ff4d8d22" stroke="#ff4d8d"/>
+      <text class="mm-text" x="840" y="78" fill="#ff4d8d" font-size="14">Number Line Representation</text><text class="mm-text" x="840" y="98">Part 1A</text>
+      <text class="mm-text" x="840" y="118" font-size="11" fill="#9fb0da">Rational numbers को point से दिखाना</text>
+
+      <rect class="mm-node" x="10" y="290" width="230" height="90" rx="14" fill="#ff9f4322" stroke="#ff9f43"/>
+      <text class="mm-text" x="30" y="318" fill="#ff9f43" font-size="14">Properties</text><text class="mm-text" x="30" y="338">Part 1B</text>
+      <text class="mm-text" x="30" y="358" font-size="11" fill="#9fb0da">Closure, Commutative, Associative</text>
+
+      <rect class="mm-node" x="860" y="290" width="240" height="90" rx="14" fill="#b07dff22" stroke="#b07dff"/>
+      <text class="mm-text" x="880" y="318" fill="#b07dff" font-size="14">Identity &amp; Inverse</text><text class="mm-text" x="880" y="338">Part 1B</text>
+      <text class="mm-text" x="880" y="358" font-size="11" fill="#9fb0da">Additive/Multiplicative</text>
+
+      <rect class="mm-node" x="60" y="510" width="270" height="100" rx="14" fill="#2ee6a622" stroke="#2ee6a6"/>
+      <text class="mm-text" x="80" y="538" fill="#2ee6a6" font-size="14">Irrational Numbers</text><text class="mm-text" x="80" y="558">Part 1C</text>
+      <text class="mm-text" x="80" y="578" font-size="11" fill="#9fb0da">√2, √3, π जैसी संख्याएँ</text>
+
+      <rect class="mm-node" x="750" y="510" width="290" height="100" rx="14" fill="#ffe14d22" stroke="#ffe14d"/>
+      <text class="mm-text" x="770" y="538" fill="#ffe14d" font-size="14">Real Numbers &amp; Exponents</text><text class="mm-text" x="770" y="558">Part 1C</text>
+      <text class="mm-text" x="770" y="578" font-size="11" fill="#9fb0da">Revision + practice questions</text>
+    </svg>
+  </div>
+</section>
+
+<!-- ============ 5. FLOWCHART ============ -->
+<section id="s5">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--neon-blue),#1f6fc9); --glow:#3ea6ff99;">5</div>
+    <div><h2>Flowchart — Rational और Real Numbers की कहानी</h2><div class="sub en-tag">Rational & Real Number Flowcharts</div></div></div>
+  <div class="grid grid-2">
+    <div class="glass card">
+      <h4 style="color:var(--cyan); text-align:center; margin-bottom:14px; font-weight:900;">Rational Number शाखा (Rational Branch)</h4>
+      <div class="flow-col">
+        <div class="flow-box" style="background:var(--cyan);">संख्या को p/q रूप में लिखो</div><div class="flow-arrow">↓</div>
+        <div class="flow-box" style="background:var(--neon-blue);">Simplest form में बदलो</div><div class="flow-arrow">↓</div>
+        <div class="flow-box" style="background:var(--purple);">Number line पर point ढूँढो</div><div class="flow-arrow">↓</div>
+        <div class="flow-box" style="background:var(--orange);">Properties check करो</div><div class="flow-arrow">↓</div>
+        <div class="flow-box" style="background:var(--green);">Practice से पक्का करो</div>
+      </div>
+    </div>
+    <div class="glass card">
+      <h4 style="color:var(--pink); text-align:center; margin-bottom:14px; font-weight:900;">Real Number शाखा (Real Number Branch)</h4>
+      <div class="flow-col">
+        <div class="flow-box" style="background:var(--cyan);">Decimal expansion देखो</div><div class="flow-arrow">↓</div>
+        <div class="flow-box" style="background:var(--pink);">Terminating/Repeating है?</div><div class="flow-arrow">↓</div>
+        <div class="flow-box" style="background:var(--purple);">हाँ तो Rational, नहीं तो Irrational</div><div class="flow-arrow">↓</div>
+        <div class="flow-box" style="background:var(--gold);">Rational + Irrational = Real</div><div class="flow-arrow">↓</div>
+        <div class="flow-box" style="background:var(--orange);">Number line पर दिखाओ</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. DEFINITION CARDS ============ -->
+<section id="s6">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--green),#1a9c70); --glow:#2ee6a699;">6</div>
+    <div><h2>परिभाषाएँ</h2><div class="sub en-tag">Key Definitions</div></div></div>
+  <div class="grid grid-3" id="defGrid"></div>
+</section>
+
+<!-- ============ NOTES ============ -->
+<section id="notes">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--neon-blue),#1f6fc9); --glow:#3ea6ff99;">📝</div>
+    <div><h2>Notes — विस्तार से समझें</h2><div class="sub en-tag">Detailed Concept Notes</div></div></div>
+  <div class="glass card" style="display:flex; flex-direction:column; gap:16px;">
+    <div class="rule-card" style="border-left-color:var(--cyan);">
+      <h4 style="color:var(--cyan);">1. Rational Number की पहचान (Identifying Rational Numbers)</h4>
+      <p>कोई भी संख्या जिसे <b class="hi">p/q</b> रूप में लिखा जा सके (जहाँ p, q पूर्णांक हों और q≠0), वह Rational Number है। हर Integer भी Rational है क्योंकि उसे q=1 के साथ p/1 रूप में लिखा जा सकता है। उदाहरण: 5 = 5/1, -3 = -3/1, 0.75 = 3/4।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--pink);">
+      <h4 style="color:var(--pink);">2. Number Line पर Representation</h4>
+      <p>Rational Number को number line पर दिखाने के लिए पहले उसे simplest form में लाओ, फिर 0 से दायें (positive) या बाएँ (negative) उतने बराबर हिस्सों में बाँटो जितना denominator हो। उदाहरण: 3/4 को दिखाने के लिए 0 से 1 के बीच को 4 बराबर हिस्सों में बाँटकर तीसरे हिस्से पर point लगाओ।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--green);">
+      <h4 style="color:var(--green);">3. Closure, Commutative, Associative Properties</h4>
+      <p>Rational Numbers, Addition और Multiplication में <b class="hi2">Closure</b> (जवाब भी rational), <b class="hi2">Commutative</b> (क्रम बदलने पर जवाब वही) और <b class="hi2">Associative</b> (समूहन बदलने पर जवाब वही) property को संतुष्ट करते हैं। Subtraction में सिर्फ़ Closure होती है, Division में 0 से भाग छोड़कर Closure होती है।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--orange);">
+      <h4 style="color:var(--orange);">4. Additive और Multiplicative Identity, Inverse</h4>
+      <p>Additive Identity <b class="hi3">0</b> है (a+0=a), Multiplicative Identity <b class="hi3">1</b> है (a×1=a)। किसी संख्या a का Additive Inverse -a होता है (a+(-a)=0), और Multiplicative Inverse 1/a होता है (a×1/a=1, जहाँ a≠0)।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--purple);">
+      <h4 style="color:var(--purple);">5. Irrational Numbers की पहचान</h4>
+      <p>जिस संख्या को p/q रूप में नहीं लिखा जा सकता, वह Irrational है। इसका decimal expansion न terminate होता है, न repeat करता है। उदाहरण: √2 = 1.41421356... (कभी खत्म नहीं होता, कोई pattern repeat नहीं करता)।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--gold);">
+      <h4 style="color:var(--gold);">6. Real Number System</h4>
+      <p>Rational और Irrational Numbers मिलकर <b class="hi">Real Numbers</b> बनाते हैं। हर Real Number को Number Line पर एक बिंदु से दिखाया जा सकता है, और Number Line पर हर बिंदु एक Real Number को दर्शाता है।</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FORMULA SHEET ============ -->
+<section id="formulas">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--purple),#7e4fd1); --glow:#b07dff99;">🧮</div>
+    <div><h2>ज़रूरी सूत्र (Formula Sheet)</h2><div class="sub en-tag">Key Formulas to Remember</div></div></div>
+  <div class="grid grid-3" id="formulaSheetGrid"></div>
+</section>
+
+<!-- ============ SOLVED EXAMPLES ============ -->
+<section id="examples">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--green),#1a9c70); --glow:#2ee6a699;">✍️</div>
+    <div><h2>हल किए गए उदाहरण (Solved Examples)</h2><div class="sub en-tag">Step-by-Step Worked Examples</div></div></div>
+  <div id="examplesWrap"></div>
+</section>
+
+<!-- ============ 7. NUMBER TYPES GALLERY ============ -->
+<section id="s7">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--orange),#c9650c); --glow:#ff9f4399;">7</div>
+    <div><h2>संख्याओं के प्रकार</h2><div class="sub en-tag">Types of Numbers</div></div></div>
+  <div class="grid grid-3">
+    <div class="glass diagram-card">
+      <svg viewBox="0 0 260 150"><rect x="20" y="20" width="220" height="30" fill="#33e0ff"/><rect x="20" y="50" width="220" height="30" fill="#3ea6ff"/><rect x="20" y="80" width="220" height="30" fill="#7ad6ff"/></svg>
+      <div class="cap">Natural → Whole → Integers</div><div class="cap2">1,2,3... → 0,1,2... → ...-2,-1,0,1,2...</div>
+    </div>
+    <div class="glass diagram-card">
+      <svg viewBox="0 0 260 150"><rect x="20" y="20" width="220" height="35" fill="#2ee6a6"/><rect x="20" y="55" width="220" height="35" fill="#1a9c70"/></svg>
+      <div class="cap">Rational Numbers</div><div class="cap2">p/q रूप — जैसे 3/4, -2/5, 0.75</div>
+    </div>
+    <div class="glass diagram-card">
+      <svg viewBox="0 0 260 150"><rect x="20" y="20" width="220" height="35" fill="#ff4d8d"/><rect x="20" y="55" width="220" height="35" fill="#c9295f"/><rect x="20" y="90" width="220" height="35" fill="#921f45"/></svg>
+      <div class="cap">Irrational Numbers</div><div class="cap2">p/q रूप में नहीं — √2, √3, π</div>
+    </div>
+  </div>
+
+  <div class="glass card" style="margin-top:20px;" id="s8">
+    <h4 style="color:var(--gold); margin-bottom:14px; font-weight:900;">Real Numbers का परिवार (Family of Real Numbers)</h4>
+    <svg viewBox="0 0 500 180" style="width:100%; max-width:520px; display:block; margin:0 auto;">
+      <rect x="60" y="20" width="380" height="40" fill="#3ea6ff"/>
+      <rect x="60" y="60" width="185" height="100" fill="#8b5cf6"/>
+      <rect x="255" y="60" width="185" height="100" fill="#2ee6a6"/>
+      <text x="250" y="45" text-anchor="middle" fill="#04050f" font-size="12" font-weight="800">Real Numbers (R)</text>
+      <text x="152" y="105" text-anchor="middle" fill="#fff" font-size="11" font-weight="800">Rational</text>
+      <text x="152" y="122" text-anchor="middle" fill="#fff" font-size="10">Integers, Fractions</text>
+      <text x="348" y="105" text-anchor="middle" fill="#04050f" font-size="11" font-weight="800">Irrational</text>
+      <text x="348" y="122" text-anchor="middle" fill="#04050f" font-size="10">√2, √3, π</text>
+    </svg>
+    <div class="grid grid-3" style="margin-top:16px;">
+      <div class="glass def-card"><h4 style="color:var(--neon-blue);">🌐 Real Numbers</h4><p>Number line पर मौजूद हर संख्या — Rational और Irrational दोनों मिलकर बनती हैं</p></div>
+      <div class="glass def-card"><h4 style="color:var(--purple);">🔢 Rational</h4><p>जिसे p/q रूप में लिखा जा सके — decimal terminate या repeat करता है</p></div>
+      <div class="glass def-card"><h4 style="color:var(--green);">√ Irrational</h4><p>जिसे p/q रूप में नहीं लिखा जा सकता — decimal न terminate होता है, न repeat</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 9. RULES ============ -->
+<section id="s9">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--pink),#b8285f); --glow:#ff4d8d99;">9</div>
+    <div><h2>याद रखने के नियम</h2><div class="sub en-tag">Rules to Remember</div></div></div>
+  <div class="grid grid-2">
+    <div class="glass rule-card"><h4>नियम 1</h4><p>Rational Number p/q में <span class="eng-term">q कभी भी 0 नहीं</span> हो सकता — division by zero संभव नहीं है।</p></div>
+    <div class="glass rule-card"><h4>नियम 2</h4><p>हर rational number का decimal रूप या तो <b class="hi">terminate</b> होता है या <b class="hi">repeat (recurring)</b> होता है — अगर दोनों नहीं होते, तो वो irrational है।</p></div>
+  </div>
+  <div class="glass card" style="margin-top:16px; text-align:center;">
+    <svg viewBox="0 0 300 150" style="max-width:340px; width:100%;">
+      <rect x="20" y="100" width="260" height="30" fill="#3ea6ff33"/>
+      <path d="M 150 100 Q 150 60 150 45" stroke="#2ee6a6" stroke-width="4" fill="none"/>
+      <circle cx="150" cy="35" r="24" fill="#2ee6a6" class="glow-dot"/>
+      <text x="150" y="41" text-anchor="middle" font-size="16">📏</text>
+      <text x="150" y="140" text-anchor="middle" fill="#ffc233" font-size="12" font-weight="800">हर संख्या को number line पर रखना practice से आता है</text>
+    </svg>
+  </div>
+</section>
+
+<!-- ============ 10. PRACTICE PLACES GALLERY ============ -->
+<section id="s10">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--cyan),#0a85b8); --glow:#33e0ff99;">10</div>
+    <div><h2>Rational-Irrational Numbers कहाँ मिलते हैं?</h2><div class="sub en-tag">Where They Appear in Real Life</div></div></div>
+  <div class="grid grid-4" id="rayGallery"></div>
+</section>
+
+<!-- ============ 11. TABLE ============ -->
+<section id="s11">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--purple),#7e4fd1); --glow:#b07dff99;">11</div>
+    <div><h2>Properties तालिका</h2><div class="sub en-tag">Rational Numbers की Properties</div></div></div>
+  <div class="glass card table-wrap">
+    <table>
+      <thead><tr><th>Operation</th><th>Closure</th><th>Commutative</th><th>Associative</th></tr></thead>
+      <tbody>
+        <tr><td>Addition</td><td>✅ हाँ</td><td>✅ हाँ</td><td>✅ हाँ</td></tr>
+        <tr><td>Subtraction</td><td>✅ हाँ</td><td>❌ नहीं</td><td>❌ नहीं</td></tr>
+        <tr><td>Multiplication</td><td>✅ हाँ</td><td>✅ हाँ</td><td>✅ हाँ</td></tr>
+        <tr><td>Division</td><td>❌ नहीं (0 से भाग नहीं)</td><td>❌ नहीं</td><td>❌ नहीं</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ 12. COMPARISON ============ -->
+<section id="s12">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--green),#1a9c70); --glow:#2ee6a699;">12</div>
+    <div><h2>Rational बनाम Irrational Numbers</h2><div class="sub en-tag">Rational vs Irrational Comparison</div></div></div>
+  <div class="glass card table-wrap">
+    <table>
+      <thead><tr><th>विशेषता</th><th>Rational Number</th><th>Irrational Number</th></tr></thead>
+      <tbody>
+        <tr><td>p/q रूप में लिखना</td><td>संभव है</td><td>संभव नहीं है</td></tr>
+        <tr><td>Decimal Expansion</td><td>Terminating या Repeating</td><td>Non-Terminating, Non-Repeating</td></tr>
+        <tr><td>उदाहरण</td><td>3/4, -2/5, 0.75, 5</td><td>√2, √3, π</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ 13. APPLICATIONS ============ -->
+<section id="s13">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--orange),#c9650c); --glow:#ff9f4399;">13</div>
+    <div><h2>दैनिक जीवन में उपयोग</h2><div class="sub en-tag">Real-Life Uses</div></div></div>
+  <div class="grid grid-4" id="appGrid"></div>
+</section>
+
+<!-- ============ 14. FACTS WALL ============ -->
+<section id="s14">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--gold),#c9650c); --glow:#ffc23399;">14</div>
+    <div><h2>Important Facts Wall</h2><div class="sub en-tag">Quick Facts Together</div></div></div>
+  <div class="grid grid-3" id="formulaWall"></div>
+</section>
+
+<!-- ============ 15. TRICKS ============ -->
+<section id="s15">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--green),#1a9c70); --glow:#2ee6a699;">15</div>
+    <div><h2>याद रखने की तरकीबें</h2><div class="sub en-tag">Memory Tricks</div></div></div>
+  <div class="grid grid-2" id="tricksGrid"></div>
+</section>
+
+<!-- ============ 16. COMMON MISTAKES ============ -->
+<section id="s16">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--red),#a82424); --glow:#ff4f4f99;">16</div>
+    <div><h2>आम गलतियाँ</h2><div class="sub en-tag">Common Mistakes Students Make</div></div></div>
+  <div class="grid grid-2" id="mistakesGrid"></div>
+</section>
+
+<!-- ============ 17. QUESTION BANK ============ -->
+<section id="s17">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--purple),#7e4fd1); --glow:#b07dff99;">17</div>
+    <div><h2>महत्वपूर्ण प्रश्न</h2><div class="sub en-tag">Important Questions — All Types</div></div></div>
+  <div id="qBank"></div>
+</section>
+
+<!-- ============ 18. QUIZ ============ -->
+<section id="s18">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--cyan),#0a85b8); --glow:#33e0ff99;">18</div>
+    <div><h2>Practice Quiz</h2><div class="sub en-tag">तुरंत उत्तर व स्कोर</div></div></div>
+  <div class="glass card">
+    <div id="quizWrap"></div>
+    <div style="text-align:center; margin-top:16px;"><button class="btn-primary" onclick="checkQuiz()">Submit Quiz</button></div>
+    <div class="score-box" id="scoreBox" style="display:none;"><div class="num" id="scoreNum">0/0</div><div style="color:var(--dim); font-weight:700;">आपका स्कोर</div></div>
+  </div>
+</section>
+
+<!-- ============ HOMEWORK ============ -->
+<section id="homework">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--red),#a82424); --glow:#ff4f4f99;">🏠</div>
+    <div><h2>घर से करने के लिए Homework</h2><div class="sub en-tag">Notebook Exercise — Part 1A, 1B, 1C</div></div></div>
+  <div class="grid grid-3" id="homeworkGrid"></div>
+  <p style="color:var(--dim); font-size:12px; margin-top:14px; font-weight:600;">यह सभी प्रश्न अपनी Maths की notebook में हल करके अगली कक्षा में साथ लाने हैं।</p>
+</section>
+
+<!-- ============ 19. CHEAT SHEET ============ -->
+<section id="s19">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--orange),#c9650c); --glow:#ff9f4399;">19</div>
+    <div><h2>Cheat Sheet — एक पेज में सब कुछ</h2><div class="sub en-tag">Summary Revision</div></div></div>
+  <div class="glass card">
+    <div class="grid grid-2">
+      <div>
+        <h4 style="color:var(--cyan); margin-bottom:8px; font-weight:900;">🔢 Rational Numbers</h4>
+        <p style="font-size:12.5px; color:var(--dim); line-height:2; font-weight:600;">
+          ✅ p/q रूप, q ≠ 0<br>✅ Addition और Multiplication में Closure, Commutative, Associative — सभी लागू<br>✅ Additive Identity = 0, Multiplicative Identity = 1<br>✅ हर rational के बीच अनंत rational numbers होते हैं<br>✅ Decimal terminate या repeat होगा
+        </p>
+      </div>
+      <div>
+        <h4 style="color:var(--pink); margin-bottom:8px; font-weight:900;">🌐 Real Numbers</h4>
+        <p style="font-size:12.5px; color:var(--dim); line-height:2; font-weight:600;">
+          ✅ Real Numbers = Rational + Irrational<br>✅ Irrational का decimal न terminate होता है, न repeat<br>✅ √2, √3, π — सब irrational हैं<br>✅ हर perfect square का √ rational होता है (जैसे √4=2)<br>✅ रोज़ 3-4 numbers की पहचान practice करो
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div style="font-size:20px;">✨</div>
+  <span class="name">PK STUDY</span> — Part 1 Complete · Revision Ready
+  <div class="badges">
+    <span class="badge">✅ सरल भाषा</span>
+    <span class="badge">✅ Class 8-9 संयुक्त Syllabus</span>
+    <span class="badge">✅ मज़ेदार गतिविधियाँ</span>
+    <span class="badge">✅ Maths Foundation</span>
+  </div>
+  Made for Class 8-9 Students · Maths · Part 1: Rational Numbers & Number Systems
+  <div class="copy">PK STUDY — All Copyright Reserved</div>
+</footer>
+
+<script>
+/* ================= THEME ================= */
+function toggleTheme(){
+  const html = document.documentElement;
+  const isLight = html.getAttribute('data-theme') === 'light';
+  html.setAttribute('data-theme', isLight ? '' : 'light');
+  document.getElementById('themeToggle').textContent = isLight ? '🌙' : '☀️';
+}
+
+/* ================= DATA ================= */
+const syllabusData = [
+  [1,"Rational Numbers (कक्षा 8) + Number Systems (कक्षा 9)","6","1A, 1B, 1C",true],
+  [2,"Linear Equations in One Variable (क.8) + Linear Equations in Two Variables (क.9)","6","2A, 2B, 2C",false],
+  [3,"Polynomials (कक्षा 9)","5","3A, 3B",false],
+  [4,"Algebraic Expressions and Identities (कक्षा 8)","4","4A, 4B",false],
+  [5,"Factorisation (कक्षा 8)","3","—",false],
+  [6,"Coordinate Geometry (कक्षा 9)","2","—",false],
+  [7,"Understanding Quadrilaterals (क.8) + Quadrilaterals (क.9)","5","7A, 7B, 7C",false],
+  [8,"Introduction to Euclid's Geometry + Lines and Angles (कक्षा 9)","4","8A, 8B",false],
+  [9,"Triangles (कक्षा 9)","5","9A, 9B, 9C",false],
+  [10,"Practical Geometry (क.8) + Constructions (क.9)","4","10A, 10B",false],
+  [11,"Areas of Parallelograms and Triangles (कक्षा 9)","3","—",false],
+  [12,"Circles (कक्षा 9)","4","12A, 12B",false],
+  [13,"Squares and Square Roots + Cubes and Cube Roots (कक्षा 8)","4","13A, 13B",false],
+  [14,"Exponents and Powers (कक्षा 8)","3","—",false],
+  [15,"Comparing Quantities (कक्षा 8)","4","15A, 15B",false],
+  [16,"Mensuration (क.8) + Heron's Formula + Surface Areas and Volumes (क.9)","7","16A, 16B, 16C, 16D",false],
+  [17,"Visualising Solid Shapes (कक्षा 8)","2","—",false],
+  [18,"Direct and Inverse Proportions (कक्षा 8)","3","—",false],
+  [19,"Data Handling (क.8) + Statistics (क.9)","5","19A, 19B, 19C",false],
+  [20,"Probability (कक्षा 9)","2","—",false],
+  [21,"Playing with Numbers (कक्षा 8)","3","—",false],
+  [22,"Introduction to Graphs (कक्षा 8)","2","—",false]
+];
+const objectives = [
+  ["✅","Rational Numbers को p/q रूप में पहचानना सीखना"],["✅","Rational Numbers को number line पर दिखाना सीखना"],
+  ["✅","Closure, Commutative, Associative properties समझना"],["✅","Additive/Multiplicative Identity और Inverse पहचानना"],
+  ["✅","Irrational Numbers को पहचानना सीखना"],["✅","Real Number System को पूरी तरह समझना"],
+  ["✅","Decimal expansion से rational/irrational पहचानना"],["✅","रोज़ practice करने की आदत बनाना"],
+  ["✅","6 दिन का daily practice plan पूरा करना"]
+];
+const timelineData = [
+  ["Part 1A","Rational Numbers और Number Line","Rational Numbers की पहचान करना, उन्हें simplest form में लिखना और number line पर दिखाना सीखते हैं।"],
+  ["Part 1B","Properties, Identity और Inverse","Closure, Commutative, Associative properties समझते हैं और Additive/Multiplicative Identity व Inverse पहचानते हैं।"],
+  ["Part 1C","Irrational Numbers, Real Numbers और Revision","Irrational Numbers पहचानना, Real Number System समझना सीखते हैं, और पूरे Part 1 का revision करते हैं।"]
+];
+const definitions = [
+  {t:"Rational Number (परिमेय संख्या)", d:"जिसे p/q रूप में लिखा जा सके, जहाँ p, q पूर्णांक हों और q ≠ 0।", c:"var(--cyan)"},
+  {t:"Irrational Number (अपरिमेय संख्या)", d:"जिसे p/q रूप में नहीं लिखा जा सकता — जैसे √2, √3, π।", c:"var(--pink)"},
+  {t:"Real Number (वास्तविक संख्या)", d:"Rational और Irrational numbers मिलकर Real Numbers बनाते हैं।", c:"var(--green)"},
+  {t:"Closure Property (संवृत गुण)", d:"दो rational numbers पर operation करने पर जवाब भी rational number होता है।", c:"var(--orange)"},
+  {t:"Commutative Property (क्रमविनिमेय गुण)", d:"संख्याओं का क्रम बदलने पर भी जवाब वही रहता है — a+b = b+a।", c:"var(--purple)"},
+  {t:"Associative Property (साहचर्य गुण)", d:"समूहन बदलने पर भी जवाब वही रहता है — (a+b)+c = a+(b+c)।", c:"var(--gold)"},
+  {t:"Additive Identity (योगात्मक तत्समक)", d:"वह संख्या जिसे जोड़ने पर संख्या नहीं बदलती — यह 0 है।", c:"var(--cyan)"},
+  {t:"Multiplicative Identity (गुणात्मक तत्समक)", d:"वह संख्या जिससे गुणा करने पर संख्या नहीं बदलती — यह 1 है।", c:"var(--pink)"},
+  {t:"Additive Inverse (योगात्मक प्रतिलोम)", d:"वह संख्या जिसे जोड़ने पर जवाब 0 आता है — a का additive inverse -a है।", c:"var(--green)"},
+  {t:"Multiplicative Inverse (गुणात्मक प्रतिलोम)", d:"वह संख्या जिससे गुणा करने पर जवाब 1 आता है — इसे Reciprocal भी कहते हैं।", c:"var(--orange)"},
+  {t:"Terminating Decimal (सांत दशमलव)", d:"वह decimal जो एक निश्चित अंक के बाद खत्म हो जाता है — जैसे 0.75।", c:"var(--purple)"},
+  {t:"Non-Terminating Recurring Decimal (असांत आवर्ती दशमलव)", d:"वह decimal जो बार-बार दोहराता है और खत्म नहीं होता — जैसे 0.333...।", c:"var(--gold)"}
+];
+const rayGalleryData = [
+  ["मापन", "लंबाई-चौड़ाई नापने में fractions","📏"],["इंजीनियरिंग", "गोल आकृतियों में π का इस्तेमाल","⚙️"],
+  ["वित्त (Finance)","ब्याज दर और छूट में fractions","💰"],["खेल", "Averages और ratios निकालना","🏆"]
+];
+const appData = [
+  ["🍳","खाना बनाने में","सामग्री की मात्रा fractions में नापना"],["📏","इंजीनियरिंग में","घेरे और गोल आकृतियों में π (irrational) का इस्तेमाल"],
+  ["💰","ब्याज निकालने में","Interest rate को fraction/decimal में calculate करना"],["🏆","खेल के आँकड़ों में","Batting average, win ratio निकालना"],
+  ["🎯","Discount calculation में","Sale price निकालने के लिए percentage/fraction"],["⏰","समय बाँटने में","घंटे को minutes/fractions में बाँटना"],
+  ["🗺️","Map बनाने में","Scale (जैसे 1:50000) rational form में"],["📐","Design बनाने में","Golden ratio जैसी irrational संख्याओं का इस्तेमाल"]
+];
+const formulaWallData = [
+  ["हर Integer","Rational Number होता है","var(--cyan)"],["0 भी","एक Rational Number है","var(--pink)"],
+  ["√2","एक Irrational Number है","var(--green)"],["π (पाई)","एक Irrational Number है","var(--orange)"],
+  ["दो Rational Numbers के बीच","अनंत Rational Numbers होते हैं","var(--purple)"],["Additive Identity","0","var(--gold)"],
+  ["Multiplicative Identity","1","var(--cyan)"],["Real Numbers","Rational + Irrational","var(--pink)"]
+];
+const tricksData = [
+  ["🎯 Rational Number पहचानने की trick","अगर संख्या को p/q रूप में लिख सको, या decimal terminate/repeat करे, तो वो rational है।"],
+  ["🎯 Closure Property याद रखने की trick","'जोड़ो या गुणा करो, जवाब वहीं रहेगा' — Addition और Multiplication में rational numbers हमेशा rational रहते हैं।"],
+  ["🎯 Terminating vs Non-Terminating trick","भाग देते वक़्त अगर remainder कभी 0 आ जाए तो terminating, अगर पैटर्न दोहराए तो recurring, वरना irrational।"],
+  ["🎯 Irrational Number पहचानने की trick","√ के अंदर अगर perfect square नहीं है (जैसे √2, √3, √5), तो वो irrational है — लेकिन √4, √9, √16 rational हैं।"]
+];
+const mistakesData = [
+  ["गलती: q को 0 मान लेना","p/q में q कभी भी 0 नहीं हो सकता — division by zero संभव नहीं है, यह undefined होता है।"],
+  ["गलती: सभी decimals को rational समझना","सिर्फ़ terminating और repeating decimals ही rational होते हैं, non-repeating decimals irrational होते हैं।"],
+  ["गलती: √4 को irrational समझना","√4 = 2 है, जो एक rational number है — perfect square की जड़ हमेशा rational होती है।"],
+  ["गलती: Whole Numbers और Natural Numbers को एक समझना","Natural Numbers 1 से शुरू होते हैं (1,2,3...), जबकि Whole Numbers 0 से शुरू होते हैं (0,1,2,3...)।"]
+];
+const qBankData = [
+  {tag:"Objective", color:"var(--cyan)", q:"Rational Number की परिभाषा क्या है?", a:"वह संख्या जिसे p/q रूप में लिखा जा सके, जहाँ p और q पूर्णांक हों और q ≠ 0, उसे Rational Number कहते हैं।"},
+  {tag:"Very Short", color:"var(--pink)", q:"1 का Multiplicative Identity के रूप में क्या महत्व है?", a:"1 Multiplicative Identity है क्योंकि किसी भी संख्या को 1 से गुणा करने पर संख्या नहीं बदलती।"},
+  {tag:"Short", color:"var(--green)", q:"Rational और Irrational Numbers में क्या मुख्य अंतर है?", a:"Rational Numbers को p/q रूप में लिखा जा सकता है और इनका decimal terminate या repeat करता है, जबकि Irrational Numbers को p/q रूप में नहीं लिखा जा सकता और इनका decimal न terminate होता है, न repeat करता है।"},
+  {tag:"Long", color:"var(--orange)", q:"Rational Numbers की Closure, Commutative और Associative Properties को उदाहरण सहित समझाइए।", a:"Closure Property: दो rational numbers को जोड़ने या गुणा करने पर जवाब भी rational होता है — जैसे 1/2 + 1/3 = 5/6। Commutative Property: क्रम बदलने पर जवाब वही रहता है — 1/2 + 1/3 = 1/3 + 1/2। Associative Property: समूहन बदलने पर भी जवाब वही रहता है — (1/2+1/3)+1/4 = 1/2+(1/3+1/4)। ये तीनों properties Addition और Multiplication में लागू होती हैं, लेकिन Subtraction और Division में नहीं।"},
+  {tag:"Counting", color:"var(--purple)", q:"अगर एक list में 4 rational numbers और 3 irrational numbers हैं, तो कुल कितनी real numbers हैं?", a:"4 + 3 = 7 — क्योंकि Real Numbers, Rational और Irrational दोनों को मिलाकर बनते हैं, इसलिए कुल 7 real numbers हैं।"},
+  {tag:"Assertion-Reason", color:"var(--gold)", q:"अभिकथन: √4 एक rational number है। कारण: √4 = 2 है, जो एक integer है और हर integer rational होता है।", a:"दोनों सही हैं और कारण अभिकथन की सही व्याख्या करता है — क्योंकि √4 का मान 2 आता है, और 2 को 2/1 के रूप में लिखा जा सकता है, इसलिए यह rational है।"},
+  {tag:"Case Study", color:"var(--cyan)", q:"मीना ने एक वृत्त (circle) की परिधि नापने के लिए π का इस्तेमाल किया। उसकी सहेली ने कहा π एक साधारण भिन्न (fraction) है। क्या यह सही है?", a:"नहीं, यह सही नहीं है — π एक Irrational Number है, इसे p/q रूप में पूरी तरह नहीं लिखा जा सकता, इसका decimal expansion न terminate होता है, न repeat करता है।"},
+  {tag:"HOTS", color:"var(--pink)", q:"अगर सभी संख्याएँ सिर्फ़ Rational Numbers होतीं, तो गणित में क्या समस्या आ सकती थी?", a:"तब √2 जैसी संख्याएँ, जो कई ज्यामितीय (geometric) गणनाओं में ज़रूरी हैं (जैसे एक इकाई वर्ग का विकर्ण), को सही तरीके से व्यक्त नहीं किया जा सकता — इसीलिए Real Number System में Irrational Numbers को शामिल करना ज़रूरी है।"}
+];
+const formulaSheetData = [
+  {t:"Rational Number का रूप", d:"p/q, जहाँ p, q पूर्णांक हैं और q ≠ 0", c:"var(--cyan)"},
+  {t:"Additive Identity", d:"a + 0 = a — यानी 0 जोड़ने से संख्या नहीं बदलती", c:"var(--pink)"},
+  {t:"Multiplicative Identity", d:"a × 1 = a — यानी 1 से गुणा करने पर संख्या नहीं बदलती", c:"var(--green)"},
+  {t:"Additive Inverse", d:"a + (-a) = 0 — यानी संख्या और उसका उल्टा जोड़ने पर 0 मिलता है", c:"var(--orange)"},
+  {t:"Multiplicative Inverse", d:"a × (1/a) = 1, जहाँ a ≠ 0 — इसे Reciprocal कहते हैं", c:"var(--purple)"},
+  {t:"दो Rational Numbers के बीच की संख्या", d:"(a/b + c/d) ÷ 2 — दोनों का औसत निकालकर बीच की संख्या मिलती है", c:"var(--gold)"}
+];
+const examplesData = [
+  {q:"-3/5 और 2/5 का Additive Inverse ज्ञात कीजिए।", s:"-3/5 का Additive Inverse = 3/5 (क्योंकि -3/5 + 3/5 = 0)। 2/5 का Additive Inverse = -2/5 (क्योंकि 2/5 + (-2/5) = 0)।"},
+  {q:"बताइए कि √2 एक Irrational Number क्यों है?", s:"अगर √2 को p/q (simplest form, q≠0) मान लें, तो square करने पर 2q² = p² मिलता है। इससे p एक even number सिद्ध होता है, फिर q भी even निकलता है — जो शुरुआती मान्यता (p/q simplest form) से विरोधाभास (contradiction) है। इसलिए √2 को p/q रूप में नहीं लिखा जा सकता, अतः यह irrational है।"},
+  {q:"1/3 और 1/4 के बीच एक Rational Number ज्ञात कीजिए।", s:"(1/3 + 1/4) ÷ 2 = (4/12 + 3/12) ÷ 2 = (7/12) ÷ 2 = 7/24। इसलिए 7/24, 1/3 और 1/4 के बीच का एक rational number है।"}
+];
+const homeworkData = [
+  {part:"Part 1A", color:"var(--cyan)", qs:[
+    "निम्नलिखित को p/q रूप में लिखिए और simplest form में बदलिए: (a) 0.6 (b) -1.25",
+    "2/3 और -1/2 को number line पर दिखाइए।",
+    "निम्नलिखित में से कौनसी rational numbers हैं — पहचान कर कारण बताइए: 5, -7/9, √4, 0.333..."
+  ]},
+  {part:"Part 1B", color:"var(--pink)", qs:[
+    "सिद्ध कीजिए कि (2/3 + 1/4) + 1/6 = 2/3 + (1/4 + 1/6) — यह किस property को दर्शाता है?",
+    "निम्नलिखित संख्याओं का Additive Inverse और Multiplicative Inverse ज्ञात कीजिए: (a) 5/7 (b) -3/8",
+    "क्या Rational Numbers Subtraction में Commutative हैं? एक उदाहरण देकर समझाइए।"
+  ]},
+  {part:"Part 1C", color:"var(--green)", qs:[
+    "निम्नलिखित में से Rational और Irrational Numbers अलग-अलग कीजिए: √16, √7, 22/7, π, 0.101001000...",
+    "1/2 और 1/3 के बीच दो rational numbers ज्ञात कीजिए।",
+    "सत्य/असत्य बताइए: \"हर वास्तविक संख्या (Real Number) या तो Rational होती है या Irrational होती है।\"",
+    "अपनी notebook में एक Number Line बनाइए और उस पर -2, -1/2, 0, 3/4, 2 को दिखाइए।"
+  ]}
+];
+const quizData = [
+  {q:"निम्नलिखित में से कौनसी Rational Number है?", opts:["√2","3/4","π"], correct:1},
+  {q:"Rational Number p/q में q की क्या शर्त होती है?", opts:["q = 0 हो सकता है","q कभी 0 नहीं हो सकता","q हमेशा 1 होता है"], correct:1},
+  {q:"किसी संख्या का Additive Identity क्या होता है?", opts:["1","0","-1"], correct:1},
+  {q:"√9 किस प्रकार की संख्या है?", opts:["Irrational","Rational","न तो Rational न Irrational"], correct:1},
+  {q:"Real Numbers किन दो प्रकार की संख्याओं से मिलकर बनते हैं?", opts:["Rational और Irrational","Natural और Whole","Positive और Negative"], correct:0},
+  {q:"किस Property में Subtraction लागू नहीं होती?", opts:["Closure","Commutative","दोनों (Commutative और Associative)"], correct:2}
+];
+
+/* ================= RENDER FUNCTIONS ================= */
+function el(tag, cls, html){ const d=document.createElement(tag); if(cls)d.className=cls; if(html!==undefined)d.innerHTML=html; return d; }
+
+function buildSyllabus(){
+  const wrap = document.getElementById('syllabusBody');
+  syllabusData.forEach(row=>{
+    const tr = document.createElement('tr');
+    if(row[4]) tr.className='current-row';
+    const badge = row[4] ? `<span class="pill pill-current">अभी यही</span> Part ${row[0]}` : `Part ${row[0]}`;
+    tr.innerHTML = `<td>${badge}</td><td style="text-align:left;">${row[1]}</td><td>${row[2]}</td><td>${row[3]}</td>`;
+    wrap.appendChild(tr);
+  });
+}
+function buildObjectives(){
+  const g = document.getElementById('objGrid');
+  objectives.forEach(o=>{ const d=el('div','glass obj-card',`<span class="ic">${o[0]}</span><span class="t">${o[1]}</span>`); g.appendChild(d); });
+}
+function buildTimeline(){
+  const wrap = document.getElementById('timelineList');
+  timelineData.forEach(t=>{
+    const d = el('div','t-item', `<span class="t-year">${t[0]}</span><h3>${t[1]}</h3><p>${t[2]}</p>`);
+    wrap.appendChild(d);
+  });
+}
+function buildDefs(){
+  const g = document.getElementById('defGrid');
+  definitions.forEach(def=>{
+    const d = el('div','glass def-card', `<h4 style="color:${def.c}">📌 ${def.t}</h4><p>${def.d}</p>`);
+    g.appendChild(d);
+  });
+}
+function buildRayGallery(){
+  const g = document.getElementById('rayGallery');
+  const colors=['#33e0ff','#ff4d8d','#2ee6a6','#ffc233'];
+  rayGalleryData.forEach((r,i)=>{
+    const svg = `<svg viewBox="0 0 200 130"><circle cx="100" cy="55" r="36" fill="${colors[i]}22" stroke="${colors[i]}" stroke-width="2.5" class="glow-dot"/>
+      <text x="100" y="65" text-anchor="middle" font-size="26">${r[2]}</text></svg>`;
+    const d = el('div','glass diagram-card', `${svg}<div class="cap">${r[0]}</div><div class="cap2">${r[1]}</div>`);
+    g.appendChild(d);
+  });
+}
+function buildApps(){
+  const g = document.getElementById('appGrid');
+  appData.forEach(a=>{ const d=el('div','glass app-card',`<div class="ic float-ic">${a[0]}</div><div class="t">${a[1]}</div><div class="d">${a[2]}</div>`); g.appendChild(d); });
+}
+function buildFormulaWall(){
+  const g = document.getElementById('formulaWall');
+  formulaWallData.forEach(f=>{ const d=el('div','glass formula-card',`<div class="name" style="color:${f[2]}">${f[0]}</div><div class="big">${f[1]}</div>`); g.appendChild(d); });
+}
+function buildFormulaSheet(){
+  const g = document.getElementById('formulaSheetGrid');
+  formulaSheetData.forEach(f=>{ const d=el('div','glass def-card', `<h4 style="color:${f.c}">🧮 ${f.t}</h4><p>${f.d}</p>`); g.appendChild(d); });
+}
+function buildExamples(){
+  const wrap = document.getElementById('examplesWrap');
+  examplesData.forEach((ex,i)=>{
+    const d = el('div','glass card example-card', `<div class="qlabel">प्रश्न ${i+1}</div><div class="qtext">${ex.q}</div><div class="slabel">हल (Solution)</div><div class="stext">${ex.s}</div>`);
+    wrap.appendChild(d);
+  });
+}
+function buildHomework(){
+  const g = document.getElementById('homeworkGrid');
+  homeworkData.forEach(hw=>{
+    const items = hw.qs.map(q=>`<li>${q}</li>`).join('');
+    const d = el('div','glass hw-card', `<span class="t-year" style="background:${hw.color};">${hw.part}</span><ol>${items}</ol>`);
+    g.appendChild(d);
+  });
+}
+function buildTricks(){
+  const g = document.getElementById('tricksGrid');
+  tricksData.forEach(t=>{ const d=el('div','glass trick-card',`<b class="hi3">${t[0]}</b><p style="font-size:12.5px; color:var(--dim); margin-top:6px; line-height:1.7; font-weight:500;">${t[1]}</p>`); g.appendChild(d); });
+}
+function buildMistakes(){
+  const g = document.getElementById('mistakesGrid');
+  mistakesData.forEach(m=>{ const d=el('div','glass mistake-card',`<div class="wrong">⚠️ ${m[0]}</div><p style="font-size:12.5px; color:var(--dim); margin-top:8px; line-height:1.7; font-weight:500;">${m[1]}</p>`); g.appendChild(d); });
+}
+function buildQBank(){
+  const wrap = document.getElementById('qBank');
+  qBankData.forEach((q,i)=>{
+    const card = el('div','glass q-card');
+    card.innerHTML = `<div class="q-head" onclick="toggleQ(${i})"><span class="txt">${i+1}. ${q.q}</span>
+      <span style="display:flex; align-items:center; gap:8px;"><span class="tag" style="background:${q.color}">${q.tag}</span><span class="arrow" id="qarrow${i}">▾</span></span></div>
+      <div class="q-body" id="qbody${i}"><p>${q.a}</p></div>`;
+    wrap.appendChild(card);
+  });
+}
+function toggleQ(i){
+  document.getElementById('qbody'+i).classList.toggle('open');
+  document.getElementById('qarrow'+i).parentElement.parentElement.classList.toggle('open');
+}
+function buildQuiz(){
+  const wrap = document.getElementById('quizWrap');
+  quizData.forEach((q,i)=>{
+    const card = el('div','glass quiz-item');
+    let opts = q.opts.map((o,j)=>`<div class="quiz-opt" data-q="${i}" data-o="${j}" onclick="selectOpt(${i},${j},this)">${o}</div>`).join('');
+    card.innerHTML = `<div class="q">${i+1}. ${q.q}</div>${opts}`;
+    wrap.appendChild(card);
+  });
+}
+const userAnswers = {};
+function selectOpt(qi, oi, el){
+  document.querySelectorAll(`.quiz-opt[data-q="${qi}"]`).forEach(o=>o.classList.remove('selected'));
+  el.classList.add('selected');
+  userAnswers[qi] = oi;
+}
+function checkQuiz(){
+  let correct = 0;
+  quizData.forEach((q,i)=>{
+    document.querySelectorAll(`.quiz-opt[data-q="${i}"]`).forEach(o=>{
+      const oi = parseInt(o.dataset.o);
+      if(oi === q.correct) o.classList.add('correct-answer');
+      else if(userAnswers[i]===oi) o.classList.add('wrong-answer');
+    });
+    if(userAnswers[i] === q.correct) correct++;
+  });
+  document.getElementById('scoreBox').style.display='block';
+  document.getElementById('scoreNum').textContent = correct + '/' + quizData.length;
+  document.getElementById('scoreBox').scrollIntoView({behavior:'smooth'});
+}
+
+/* INIT */
+buildSyllabus(); buildObjectives(); buildTimeline(); buildDefs(); buildRayGallery(); buildApps();
+buildFormulaWall(); buildTricks(); buildMistakes(); buildQBank(); buildQuiz();
+buildFormulaSheet(); buildExamples(); buildHomework();
+</script>
+</body>
+</html>

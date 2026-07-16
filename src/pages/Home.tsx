@@ -5,7 +5,7 @@ import Navbar from '@/components/Navbar';
 import Carousel from '@/components/Carousel';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Book, Clock, Users, GraduationCap } from 'lucide-react';
+import { Book, Clock, Users, GraduationCap, NotebookPen } from 'lucide-react';
 import { useAuth } from '@/context/AuthContext';
 
 const Home = () => {
@@ -62,6 +62,13 @@ const Home = () => {
   // Features data
   const features = [
     {
+      title: "Homework",
+      description: "Class 6-12 subject-wise notes, formulas, solved questions and homework",
+      icon: NotebookPen,
+      link: "/homework/",
+      external: true
+    },
+    {
       title: "Courses",
       description: "Explore our wide range of courses designed to help you succeed",
       icon: Book,
@@ -106,7 +113,7 @@ const Home = () => {
           Welcome to PKStudy Learning Portal
         </h2>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
           {features.map((feature, index) => (
             <Card key={index} className="hover:shadow-lg transition-shadow">
               <CardHeader className="pb-2">
@@ -117,10 +124,10 @@ const Home = () => {
                 <CardDescription>{feature.description}</CardDescription>
               </CardContent>
               <CardFooter>
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   className="w-full border-pkblue text-pkblue hover:bg-pkblue hover:text-white"
-                  onClick={() => navigate(feature.link)}
+                  onClick={() => feature.external ? (window.location.href = feature.link) : navigate(feature.link)}
                 >
                   View Details
                 </Button>

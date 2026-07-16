@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PK STUDY | Tenses और Paragraph Writing — Part 2</title>
+<style>
+:root{
+  --bg:#04050f; --glass:rgba(255,255,255,.045); --glass-strong:rgba(255,255,255,.08);
+  --border:rgba(255,255,255,.12); --text:#f2f6ff; --dim:#9fb0da; --heading:#ffffff;
+  --neon-blue:#3ea6ff; --cyan:#33e0ff; --purple:#b07dff; --gold:#ffc233;
+  --green:#2ee6a6; --orange:#ff9f43; --pink:#ff4d8d; --red:#ff4f4f;
+  --shadow:0 22px 46px -22px #000d; --hshadow:0 30px 56px -20px #000f;
+}
+[data-theme="light"]{
+  --bg:#f6f8fd; --glass:rgba(20,30,65,.045); --glass-strong:rgba(20,30,65,.08);
+  --border:rgba(20,30,65,.12); --text:#161c33; --dim:#535f82; --heading:#12172b;
+  --neon-blue:#2563eb; --cyan:#0891b2; --purple:#7c3aed; --gold:#b45309;
+  --green:#059669; --orange:#c2410c; --pink:#db2777; --red:#dc2626;
+  --shadow:0 18px 36px -20px rgba(30,40,80,.18); --hshadow:0 24px 44px -18px rgba(30,40,80,.24);
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Segoe UI','Noto Sans Devanagari',Arial,sans-serif; color:var(--text); min-height:100vh; overflow-x:hidden;
+  transition:background .4s, color .4s;
+  background:
+    radial-gradient(ellipse at 10% -10%, #1c3a9955, transparent 55%),
+    radial-gradient(ellipse at 95% 10%, #7a2ab866, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, #0a5a6e44, transparent 55%),
+    linear-gradient(180deg,#04050f,#020208 90%);
+}
+[data-theme="light"] body{
+  background:
+    radial-gradient(ellipse at 10% -10%, #dbe4ff99, transparent 55%),
+    radial-gradient(ellipse at 95% 10%, #ede0ff99, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, #d7f5f099, transparent 55%),
+    linear-gradient(180deg,#f8faff,#eef1f9 90%);
+}
+::-webkit-scrollbar{width:8px;} ::-webkit-scrollbar-thumb{background:var(--neon-blue); border-radius:6px;} ::-webkit-scrollbar-track{background:transparent;}
+
+.glass{background:var(--glass); border:1px solid var(--border); border-radius:18px; backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+  box-shadow:var(--shadow), inset 0 1px 0 #ffffff12; transition:transform .35s, box-shadow .35s, background .4s, border .4s;}
+.glass:hover{transform:translateY(-4px); box-shadow:var(--hshadow), inset 0 1px 0 #ffffff1e;}
+
+header{position:sticky; top:0; z-index:200; display:flex; align-items:center; justify-content:space-between; padding:14px 26px;
+  background:rgba(4,5,15,.75); backdrop-filter:blur(18px); border-bottom:1px solid var(--border); flex-wrap:wrap; gap:10px; transition:background .4s;}
+[data-theme="light"] header{background:rgba(255,255,255,.8);}
+.brand{display:flex; align-items:center; gap:12px;}
+.brand img{width:44px; height:44px; border-radius:10px; object-fit:cover; border:2px solid var(--neon-blue); box-shadow:0 0 18px #3ea6ff88;}
+.logo-fallback{width:44px; height:44px; border-radius:10px; display:flex; align-items:center; justify-content:center;
+  background:linear-gradient(135deg,var(--neon-blue),#1f3d8c); font-weight:900; font-size:12px; border:2px solid var(--cyan); color:#fff;}
+.brand-text .name{font-weight:900; font-size:18px; color:var(--cyan); letter-spacing:.5px;}
+.brand-text .tag{font-size:11px; color:var(--dim); font-weight:600;}
+nav{display:flex; gap:5px; overflow-x:auto; max-width:52vw;}
+nav::-webkit-scrollbar{height:4px;}
+nav a{color:var(--dim); text-decoration:none; font-size:11.5px; padding:6px 11px; border-radius:16px; border:1px solid transparent; transition:.2s; font-weight:700; white-space:nowrap;}
+nav a:hover{color:var(--heading); border-color:var(--neon-blue); background:#3ea6ff1a;}
+.theme-btn{flex-shrink:0; width:40px; height:40px; border-radius:12px; border:1px solid var(--border); background:var(--glass-strong);
+  color:var(--text); font-size:17px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:.25s;}
+.theme-btn:hover{border-color:var(--neon-blue); transform:translateY(-2px);}
+
+/* ===== HERO ===== */
+.hero{position:relative; padding:80px 6vw 60px; text-align:center; overflow:hidden;}
+.hero-bg{position:absolute; inset:0; z-index:0; opacity:.5;}
+.eyebrow{display:inline-block; padding:7px 22px; border-radius:30px; color:#04050f; font-size:12px; font-weight:900;
+  letter-spacing:2.5px; text-transform:uppercase; margin-bottom:20px; position:relative; z-index:2;
+  background:linear-gradient(120deg,var(--gold),var(--orange),var(--pink),var(--purple),var(--cyan)); background-size:400% 100%; animation:shim 8s linear infinite;
+  box-shadow:0 10px 26px -6px #000b;}
+@keyframes shim{0%{background-position:0% 0;}100%{background-position:400% 0;}}
+.hero h1{position:relative; z-index:2; font-size:clamp(28px,6vw,54px); font-weight:900; line-height:1.25;
+  background:linear-gradient(90deg,var(--neon-blue),var(--cyan) 35%,var(--purple) 65%,var(--pink)); -webkit-background-clip:text; background-clip:text; color:transparent;
+  text-shadow:0 0 60px #3ea6ff33; animation:hueGlow 6s ease-in-out infinite;}
+@keyframes hueGlow{0%,100%{filter:brightness(1);} 50%{filter:brightness(1.2);}}
+.hero .en{position:relative; z-index:2; font-size:16px; color:var(--dim); font-weight:700; margin-top:10px; letter-spacing:1px;}
+.hero p{position:relative; z-index:2; color:var(--dim); max-width:760px; margin:20px auto 0; font-size:14.5px; line-height:1.9; font-weight:500;}
+.pulse-line{position:relative; z-index:2; width:150px; height:4px; margin:28px auto 0; border-radius:4px;
+  background:linear-gradient(90deg,var(--neon-blue),var(--cyan),var(--purple),var(--gold)); background-size:300% 100%; animation:shim 4s linear infinite;
+  box-shadow:0 4px 20px -2px #3ea6ff88;}
+
+.optics-scene{position:relative; z-index:2; max-width:680px; margin:36px auto 0; height:210px;}
+.optics-scene svg{width:100%; height:100%;}
+.laser{stroke-dasharray:8 6; animation:dash 1.4s linear infinite;}
+@keyframes dash{to{stroke-dashoffset:-28;}}
+.glow-dot{filter:drop-shadow(0 0 8px currentColor);}
+@keyframes floaty{0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);}}
+.float-ic{animation:floaty 4s ease-in-out infinite;}
+
+section{position:relative; z-index:1; padding:52px 6vw; max-width:1300px; margin:0 auto;}
+.sec-head{display:flex; align-items:center; gap:14px; margin-bottom:28px;}
+.sec-num{width:44px; height:44px; border-radius:14px; flex-shrink:0; display:flex; align-items:center; justify-content:center;
+  font-weight:900; font-size:16px; color:#04050f; box-shadow:0 8px 22px -6px var(--glow,#3ea6ff99); border:2px solid #ffffffaa;}
+.sec-head h2{font-size:clamp(19px,3vw,26px); font-weight:900; color:var(--heading);}
+.sec-head .sub{color:var(--dim); font-size:12.5px; font-weight:600; margin-top:2px;}
+.sec-head .en-tag{font-size:11px; color:var(--gold); font-weight:700; letter-spacing:.5px;}
+
+.card{padding:20px 22px;}
+.grid{display:grid; gap:16px;}
+.grid-2{grid-template-columns:1fr 1fr;} .grid-3{grid-template-columns:repeat(3,1fr);}
+.grid-4{grid-template-columns:repeat(4,1fr);} .grid-5{grid-template-columns:repeat(5,1fr);}
+@media(max-width:900px){.grid-3,.grid-4,.grid-5{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.grid-2,.grid-3,.grid-4,.grid-5{grid-template-columns:1fr;} nav{max-width:100%;}}
+
+b.hi{color:var(--pink); font-weight:900;} b.hi2{color:var(--green); font-weight:900;} b.hi3{color:var(--gold); font-weight:900;}
+.eng-term{color:var(--cyan); font-style:italic; font-weight:700;}
+
+.obj-card{padding:16px 18px; display:flex; align-items:center; gap:12px;}
+.obj-card .ic{font-size:24px; flex-shrink:0;}
+.obj-card .t{font-size:13.5px; font-weight:800; color:var(--text);}
+
+.timeline{position:relative; padding-left:36px;}
+.timeline::before{content:''; position:absolute; left:11px; top:6px; bottom:6px; width:3px;
+  background:linear-gradient(180deg,var(--neon-blue),var(--cyan),var(--purple),var(--gold)); border-radius:3px; box-shadow:0 0 14px #3ea6ff66;}
+.t-item{position:relative; margin-bottom:26px;}
+.t-item::before{content:''; position:absolute; left:-31px; top:6px; width:18px; height:18px; border-radius:50%;
+  background:var(--bg); border:3px solid var(--dotcolor,var(--neon-blue)); box-shadow:0 0 16px var(--dotcolor,var(--neon-blue));}
+.t-item:nth-child(1){--dotcolor:var(--gold);} .t-item:nth-child(2){--dotcolor:var(--cyan);}
+.t-item:nth-child(3){--dotcolor:var(--purple);} .t-item:nth-child(4){--dotcolor:var(--green);} .t-item:nth-child(5){--dotcolor:var(--pink);}
+.t-year{display:inline-block; font-weight:900; font-size:13.5px; color:#04050f; background:var(--dotcolor,var(--neon-blue));
+  padding:5px 16px; border-radius:20px; margin-bottom:8px; box-shadow:0 4px 14px -2px var(--dotcolor,#3ea6ff88);}
+.t-item h3{font-size:16px; color:var(--heading); font-weight:800; margin-bottom:4px;}
+.t-item p{font-size:13px; color:var(--dim); line-height:1.8; font-weight:500;}
+
+.mindmap-wrap{display:flex; justify-content:center;}
+.mindmap-wrap svg{width:100%; max-width:1100px; height:auto;}
+.mm-node{stroke-width:2; rx:14;}
+.mm-text{fill:var(--heading); font-size:12.5px; font-weight:800;}
+.mm-line{stroke-width:2; opacity:.55; stroke-dasharray:5 4;}
+
+.flow-col{display:flex; flex-direction:column; align-items:center; gap:6px;}
+.flow-box{padding:12px 22px; border-radius:12px; font-weight:900; font-size:13px; color:#04050f; text-align:center; min-width:180px; box-shadow:0 8px 20px -6px #0009;}
+.flow-arrow{font-size:20px; color:var(--cyan); font-weight:900;}
+
+/* ===== TENSE STRUCTURE TREE (box diagram) ===== */
+.tree-wrap{overflow-x:auto; padding:18px 4px 4px;}
+.ctree, .ctree ul, .ctree li{list-style-type:none; margin:0; padding:0; position:relative;}
+.ctree{display:table; margin:0 auto; text-align:center;}
+.ctree ul{display:table; width:100%;}
+.ctree li{display:table-cell; padding:1.9em .7em 0; vertical-align:top;}
+.ctree li::before{outline:solid 2px var(--cyan); content:""; left:0; position:absolute; right:0; top:0;}
+.ctree li:first-child::before{left:50%; border-radius:8px 0 0 0;}
+.ctree li:last-child::before{right:50%; border-radius:0 8px 0 0;}
+.ctree ul::before{outline:solid 2px var(--cyan); content:""; height:1.9em; left:50%; position:absolute; top:-1.9em;}
+.ctree > li{padding-top:0;}
+.ctree > li::before{display:none;}
+.ctree li:only-child{padding-top:0;}
+.ctree li:only-child::before{display:none;}
+.tree-box{display:inline-block; padding:12px 18px; border-radius:12px; font-weight:900; font-size:12.5px; color:#04050f; text-align:center;
+  min-width:130px; box-shadow:0 8px 20px -6px #0009; background:linear-gradient(120deg,var(--gold),var(--orange)); position:relative;}
+.tree-box small{display:block; font-weight:700; font-size:10px; margin-top:3px; opacity:.85;}
+.tree-box.root-box{background:linear-gradient(120deg,var(--neon-blue),var(--purple)); color:#fff; font-size:14px; min-width:170px; padding:14px 22px;}
+.tree-box.small{font-size:11px; min-width:118px; padding:10px 12px;}
+
+.def-card{padding:18px 20px; border-radius:16px;}
+.def-card h4{font-size:14.5px; margin-bottom:8px; display:flex; align-items:center; gap:8px; font-weight:900;}
+.def-card p{font-size:12.5px; color:var(--dim); line-height:1.75; font-weight:500;}
+
+.diagram-card{padding:18px; text-align:center;}
+.diagram-card svg{width:100%; max-width:280px; height:150px;}
+.diagram-card .cap{font-weight:800; font-size:13px; color:var(--heading); margin-top:8px;}
+.diagram-card .cap2{font-size:11px; color:var(--dim); margin-top:2px;}
+
+.rule-card{padding:20px; border-left:5px solid var(--neon-blue);}
+.rule-card h4{font-size:15px; color:var(--cyan); font-weight:900; margin-bottom:8px;}
+.rule-card p{font-size:13px; color:var(--dim); line-height:1.8; font-weight:500;}
+
+.example-card{padding:18px 20px;}
+.example-card .qlabel{font-size:11px; font-weight:900; color:var(--gold); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;}
+.example-card .qtext{font-size:13.5px; font-weight:700; color:var(--heading); margin-bottom:14px; line-height:1.7;}
+.example-card .slabel{font-size:11px; font-weight:900; color:var(--green); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;}
+.example-card .stext{font-size:13px; color:var(--dim); line-height:1.8; font-weight:500; background:var(--glass-strong); padding:12px 14px; border-radius:10px;}
+.example-card{margin-bottom:14px;}
+
+.hw-card{padding:18px 20px;}
+.hw-card ol{margin:0; padding-left:20px; font-size:13px; color:var(--dim); line-height:2; font-weight:500;}
+.hw-card ol li{margin-bottom:6px;}
+.hw-card ol li::marker{color:var(--heading); font-weight:800;}
+
+.table-wrap{overflow-x:auto;}
+table{width:100%; border-collapse:collapse; min-width:700px;}
+thead th{text-align:center; padding:12px 14px; background:linear-gradient(120deg,var(--neon-blue),var(--purple)); color:#fff;
+  font-size:12px; text-transform:uppercase; letter-spacing:.5px; font-weight:900;}
+thead th:first-child{border-radius:10px 0 0 0;} thead th:last-child{border-radius:0 10px 0 0;}
+tbody td{padding:12px 14px; border-bottom:1px solid var(--border); color:var(--dim); font-size:12.5px; text-align:center; font-weight:600;}
+tbody tr:hover{background:#3ea6ff14;}
+.pill{display:inline-block; padding:4px 12px; border-radius:12px; font-size:10.5px; font-weight:900;}
+.pill-real{background:linear-gradient(120deg,var(--red),#a82424); color:#fff;}
+.pill-virtual{background:linear-gradient(120deg,var(--cyan),#0a85b8); color:#04050f;}
+.pill-erect{background:linear-gradient(120deg,var(--green),#1a9c70); color:#04050f;}
+.pill-inverted{background:linear-gradient(120deg,var(--orange),#c9650c); color:#04050f;}
+
+.formula-card{padding:24px; text-align:center; border-radius:18px; position:relative; overflow:hidden;}
+.formula-card .big{font-size:22px; font-weight:900; color:var(--heading); margin:10px 0; font-family:'Segoe UI',sans-serif;}
+.formula-card .name{font-size:12.5px; color:var(--gold); font-weight:800; text-transform:uppercase; letter-spacing:1px;}
+.formula-card .d{font-size:11.5px; color:var(--dim); margin-top:8px; line-height:1.6; font-weight:500;}
+
+.app-card{padding:18px; text-align:center;}
+.app-card .ic{font-size:34px; margin-bottom:8px;}
+.app-card .t{font-weight:800; font-size:13px; color:var(--heading);}
+.app-card .d{font-size:11px; color:var(--dim); margin-top:4px;}
+
+.trick-card{padding:16px 18px; border-left:4px solid var(--gold);}
+.mistake-card{padding:16px 18px; border-left:4px solid var(--red); background:linear-gradient(120deg,#ff4f4f14,transparent);}
+.mistake-card .wrong{color:var(--red); font-weight:800; font-size:12.5px; text-decoration:line-through;}
+.mistake-card .right{color:var(--green); font-weight:800; font-size:12.5px;}
+
+.q-card{padding:18px 20px; margin-bottom:14px;}
+.q-card .qlabel{font-size:11px; font-weight:900; color:var(--gold); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px; display:flex; align-items:center; gap:10px; flex-wrap:wrap;}
+.q-card .qtext{font-size:13.5px; font-weight:700; color:var(--heading); margin-bottom:14px; line-height:1.7;}
+.q-card .tag{font-size:10px; padding:3px 10px; border-radius:10px; font-weight:900; color:#04050f;}
+.show-ans-btn{padding:9px 20px; border-radius:10px; border:1.5px solid var(--green); background:transparent; color:var(--green);
+  font-weight:800; font-size:12px; cursor:pointer; transition:.25s;}
+.show-ans-btn:hover{background:var(--green); color:#04050f;}
+.show-ans-btn.open{background:var(--green); color:#04050f;}
+.ans-wrap{margin-top:14px; display:none;}
+.ans-wrap.open{display:block;}
+.q-card .slabel{font-size:11px; font-weight:900; color:var(--green); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;}
+.q-card .stext{font-size:13px; color:var(--dim); line-height:1.8; font-weight:500; background:var(--glass-strong); padding:12px 14px; border-radius:10px;}
+
+.quiz-item{padding:16px 18px; margin-bottom:12px;}
+.quiz-item .q{font-weight:800; font-size:13.5px; margin-bottom:10px; color:var(--heading);}
+.quiz-opt{display:block; padding:9px 14px; margin:6px 0; border-radius:10px; border:1.5px solid var(--border); font-size:12.5px;
+  color:var(--dim); font-weight:600; cursor:pointer; transition:.2s;}
+.quiz-opt:hover{border-color:var(--cyan);}
+.quiz-opt.selected{border-color:var(--neon-blue); background:#3ea6ff1a;}
+.quiz-opt.correct-answer{background:linear-gradient(120deg,var(--green),#1a9c70); color:#04050f; border-color:transparent; font-weight:900;}
+.quiz-opt.wrong-answer{background:linear-gradient(120deg,var(--red),#b82828); color:#fff; border-color:transparent; font-weight:900;}
+.score-box{text-align:center; padding:24px;}
+.score-box .num{font-size:44px; font-weight:900; color:var(--gold);}
+.btn-primary{padding:12px 26px; border-radius:14px; border:none; font-weight:900; font-size:13px; cursor:pointer;
+  background:linear-gradient(120deg,var(--neon-blue),var(--purple)); color:#fff; box-shadow:0 10px 24px -6px #0009;}
+
+footer{text-align:center; padding:50px 6vw 70px; color:var(--dim); font-size:12.5px; border-top:1px solid var(--border); margin-top:30px; font-weight:600;}
+footer .name{color:var(--cyan); font-weight:900; font-size:16px;}
+footer .badges{display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin:16px 0;}
+footer .badge{padding:6px 16px; border-radius:20px; font-size:11px; font-weight:800; background:var(--glass-strong); border:1px solid var(--border);}
+footer .copy{margin-top:18px; font-size:11px; color:var(--dim); opacity:.8;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <img src="images/1000043468.png" alt="PK STUDY" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="logo-fallback" style="display:none;">PK</div>
+    <div class="brand-text"><div class="name">PK STUDY</div><div class="tag">Class 8-9 (Combined) • English • Part 2</div></div>
+  </div>
+  <nav>
+    <a href="#notes">नोट्स</a><a href="#formulas">नियम</a><a href="#examples">उदाहरण</a>
+    <a href="#questions">प्रश्न</a><a href="#homework">होमवर्क</a>
+  </nav>
+  <button class="theme-btn" id="themeToggle" onclick="toggleTheme()" title="Dark/Light Mode">🌙</button>
+</header>
+
+<!-- ============ HERO ============ -->
+<div class="hero">
+  <span class="eyebrow">कक्षा 8-9 (संयुक्त) · Spoken &amp; Written English · Part 2</span>
+  <h1>Tenses और Paragraph Writing</h1>
+  <div class="en">Past &amp; Future Tense, Paragraph Writing — Part 2</div>
+  <p>Part 1 में हमने <b class="hi">Sentence Building</b> — यानी सही वाक्य बनाना, Simple Present और Present Continuous Tense, Wh-questions, Yes/No questions, connecting words और opinion sentences सीखे थे। अब Part 2 में हम उसी नींव पर आगे बढ़ते हुए <b class="hi2">Simple Past Tense</b> (बीती हुई बातें बताना) और <b class="hi2">Simple Future Tense</b> (आने वाली बातें बताना) सीखेंगे, ताकि पूरा tense system समझ में आ जाए। इसके साथ ही हम यह भी सीखेंगे कि सिर्फ अलग-अलग वाक्य बोलने की जगह, एक <b class="hi3">छोटा और सही Paragraph</b> कैसे लिखा जाता है — Topic Sentence, Supporting Sentences और Concluding Sentence के साथ, ताकि जुड़े हुए विचारों में लिखना और बोलना आ सके।</p>
+  <div class="pulse-line"></div>
+
+  <div class="optics-scene">
+    <svg viewBox="0 0 640 210">
+      <defs>
+        <radialGradient id="coreGrad" cx="50%" cy="50%" r="60%">
+          <stop offset="0%" stop-color="#7ad6ff"/><stop offset="100%" stop-color="#3ea6ff"/>
+        </radialGradient>
+      </defs>
+      <circle cx="320" cy="105" r="46" fill="url(#coreGrad)" stroke="#fff8" stroke-width="2" class="glow-dot"/>
+      <text x="320" y="113" text-anchor="middle" font-size="22" font-weight="900" fill="#04050f">⏳</text>
+      <text x="320" y="168" text-anchor="middle" font-size="12" font-weight="900" fill="#ffc233">Tenses &amp; Paragraph</text>
+
+      <line class="laser" x1="284" y1="85" x2="120" y2="40" stroke="#33e0ff" stroke-width="2.5"/>
+      <circle cx="110" cy="35" r="18" fill="#33e0ff33" stroke="#33e0ff" stroke-width="2" class="glow-dot float-ic"/>
+      <text x="110" y="41" text-anchor="middle" font-size="16">⏮️</text>
+      <text x="110" y="68" text-anchor="middle" font-size="11" font-weight="800" fill="#33e0ff">Past Tense</text>
+
+      <line class="laser" x1="284" y1="125" x2="120" y2="170" stroke="#2ee6a6" stroke-width="2.5"/>
+      <circle cx="110" cy="175" r="18" fill="#2ee6a633" stroke="#2ee6a6" stroke-width="2" class="glow-dot float-ic"/>
+      <text x="110" y="181" text-anchor="middle" font-size="16">⏭️</text>
+      <text x="110" y="204" text-anchor="middle" font-size="11" font-weight="800" fill="#2ee6a6">Future Tense</text>
+
+      <line class="laser" x1="356" y1="85" x2="520" y2="40" stroke="#ff4d8d" stroke-width="2.5"/>
+      <circle cx="530" cy="35" r="18" fill="#ff4d8d33" stroke="#ff4d8d" stroke-width="2" class="glow-dot float-ic"/>
+      <text x="530" y="41" text-anchor="middle" font-size="16">📄</text>
+      <text x="530" y="68" text-anchor="middle" font-size="11" font-weight="800" fill="#ff4d8d">Paragraph</text>
+
+      <line class="laser" x1="356" y1="125" x2="520" y2="170" stroke="#ffc233" stroke-width="2.5"/>
+      <circle cx="530" cy="175" r="18" fill="#ffc23333" stroke="#ffc233" stroke-width="2" class="glow-dot float-ic"/>
+      <text x="530" y="181" text-anchor="middle" font-size="16">🔗</text>
+      <text x="530" y="204" text-anchor="middle" font-size="11" font-weight="800" fill="#ffc233">Connected Writing</text>
+    </svg>
+  </div>
+</div>
+
+<!-- ============ NOTES ============ -->
+<section id="notes">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--neon-blue),#1f6fc9); --glow:#3ea6ff99;">📝</div>
+    <div><h2>Notes — विस्तार से समझें</h2><div class="sub en-tag">Detailed Concept Notes</div></div></div>
+  <div class="glass card" style="margin-bottom:18px;">
+    <h3 style="color:var(--gold); font-size:16.5px; margin-bottom:10px;">Tense क्या है? — पूरी संरचना (Structure)</h3>
+    <p style="color:var(--dim); font-size:13px; line-height:1.9; font-weight:500; margin-bottom:6px;">
+      <b class="hi">Tense (काल)</b> अंग्रेज़ी वाक्य में यह बताता है कि कोई काम <b class="hi2">कब हुआ, हो रहा है, या होगा</b> — यानी क्रिया (verb) के होने का समय। Tense को मुख्य रूप से <b class="hi3">3 भागों</b> में बाँटा गया है, और हर भाग को आगे <b class="hi3">4-4 उप-भागों</b> में बाँटा जाता है — इस तरह कुल <b class="hi">3 × 4 = 12 Tense</b> बनते हैं। नीचे box diagram में यह संरचना दिखाई गई है:
+    </p>
+
+    <div class="tree-wrap">
+      <ul class="ctree">
+        <li>
+          <span class="tree-box root-box">Tense (काल)<small>समय दर्शाने वाला रूप</small></span>
+          <ul>
+            <li><span class="tree-box" style="background:linear-gradient(120deg,var(--cyan),#0a85b8);">वर्तमान काल<small>Present Tense</small></span></li>
+            <li><span class="tree-box" style="background:linear-gradient(120deg,var(--pink),#b8215f); color:#fff;">भूतकाल<small>Past Tense</small></span></li>
+            <li><span class="tree-box" style="background:linear-gradient(120deg,var(--green),#1a9c70);">भविष्य काल<small>Future Tense</small></span></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <p style="color:var(--dim); font-size:13px; line-height:1.9; font-weight:500; margin:18px 0 6px;">
+      <b class="hi">वर्तमान काल (Present Tense)</b> उन कामों के लिए जो अभी हो रहे हैं या आदतन होते हैं; <b class="hi2">भूतकाल (Past Tense)</b> उन कामों के लिए जो पहले हो चुके हैं; और <b class="hi3">भविष्य काल (Future Tense)</b> उन कामों के लिए जो आने वाले समय में होंगे। इन तीनों में से हर एक भाग को आगे 4 उप-भागों — Simple, Continuous, Perfect और Perfect Continuous — में बाँटा जाता है। उदाहरण के तौर पर नीचे <b class="hi">वर्तमान काल (Present Tense)</b> के इन चारों उप-भागों को box diagram में दिखाया गया है:
+    </p>
+
+    <div class="tree-wrap">
+      <ul class="ctree">
+        <li>
+          <span class="tree-box root-box" style="background:linear-gradient(120deg,var(--cyan),#0a85b8);">वर्तमान काल<small>Present Tense</small></span>
+          <ul>
+            <li><span class="tree-box small">Simple<small>Present</small></span></li>
+            <li><span class="tree-box small">Continuous<small>Present</small></span></li>
+            <li><span class="tree-box small">Perfect<small>Present</small></span></li>
+            <li><span class="tree-box small">Perfect Continuous<small>Present</small></span></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="grid grid-2" style="margin-top:22px;">
+      <div class="def-card glass">
+        <h4 style="color:var(--cyan);">① Simple Present</h4>
+        <p><b class="hi3">सूत्र:</b> Subject + Verb (V1 / V1+s/es) + Object<br>
+        <b class="hi3">कब इस्तेमाल होता है:</b> रोज़ की आदत, नियमित काम या सामान्य सच्चाई बताने के लिए।<br>
+        <b class="hi3">उदाहरण:</b> "She reads a book every day." / "The sun rises in the east."</p>
+      </div>
+      <div class="def-card glass">
+        <h4 style="color:var(--pink);">② Present Continuous</h4>
+        <p><b class="hi3">सूत्र:</b> Subject + is/am/are + Verb (V1+ing) + Object<br>
+        <b class="hi3">कब इस्तेमाल होता है:</b> अभी इसी समय हो रहे काम के लिए।<br>
+        <b class="hi3">उदाहरण:</b> "She is reading a book now." / "They are playing football."</p>
+      </div>
+      <div class="def-card glass">
+        <h4 style="color:var(--green);">③ Present Perfect</h4>
+        <p><b class="hi3">सूत्र:</b> Subject + has/have + Verb (V3) + Object<br>
+        <b class="hi3">कब इस्तेमाल होता है:</b> ऐसा काम जो अभी-अभी पूरा हुआ है और उसका असर वर्तमान में भी है।<br>
+        <b class="hi3">उदाहरण:</b> "She has read the book." / "They have finished their homework."</p>
+      </div>
+      <div class="def-card glass">
+        <h4 style="color:var(--gold);">④ Present Perfect Continuous</h4>
+        <p><b class="hi3">सूत्र:</b> Subject + has/have been + Verb (V1+ing) + since/for...<br>
+        <b class="hi3">कब इस्तेमाल होता है:</b> ऐसा काम जो पहले शुरू हुआ था और अभी तक चल रहा है।<br>
+        <b class="hi3">उदाहरण:</b> "She has been reading the book for an hour." / "They have been playing since morning."</p>
+      </div>
+    </div>
+
+    <h3 style="color:var(--gold); font-size:16.5px; margin:32px 0 10px;">Simple Present Tense — विस्तार से (In Detail)</h3>
+    <p style="color:var(--dim); font-size:13px; line-height:1.9; font-weight:500; margin-bottom:16px;">
+      किसी भी Tense में <b class="hi">4 प्रकार के वाक्य</b> बनाए जाते हैं — <b class="hi2">सकारात्मक (Affirmative)</b>, <b class="hi2">नकारात्मक (Negative)</b>, <b class="hi3">प्रश्नवाचक (Interrogative — Yes/No)</b> और <b class="hi3">WH-प्रश्नवाचक (WH-Questions)</b>। नीचे Simple Present Tense के इन चारों प्रकार के वाक्यों को अलग-अलग रंगों में, नियम व उदाहरण सहित विस्तार से समझाया गया है।
+    </p>
+
+    <div class="table-wrap" style="margin-bottom:20px;">
+      <table>
+        <thead><tr><th>Subject</th><th>Verb रूप (Affirmative)</th><th>Negative</th><th>Interrogative</th></tr></thead>
+        <tbody>
+          <tr><td>I, We, You, They</td><td>V1 (base form)</td><td>do not / don't</td><td>Do</td></tr>
+          <tr><td>He, She, It (कोई भी एकवचन नाम)</td><td>V1 + s/es</td><td>does not / doesn't</td><td>Does</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:16px;">
+      <div class="rule-card" style="border-left-color:var(--cyan);">
+        <h4 style="color:var(--cyan);">🟢 1. सकारात्मक वाक्य (Affirmative Sentence)</h4>
+        <p><b class="hi3">सूत्र:</b> Subject + Verb (V1 / V1+s/es) + Object<br>
+        <b class="hi3">नियम:</b> I/We/You/They के साथ verb अपने साधारण (base) रूप में रहता है। He/She/It या किसी एकवचन नाम के साथ verb में <b class="hi2">-s</b> या <b class="hi2">-es</b> जोड़ा जाता है। जो verb o, ch, sh, ss, x, z से समाप्त होते हैं उनमें -es जोड़ते हैं (go→goes, watch→watches, wash→washes, kiss→kisses, catch→catches, fix→fixes); consonant+y से समाप्त होने वाले verbs में y को i बनाकर -es जोड़ते हैं (study→studies, cry→cries, fly→flies); बाकी सभी में सिर्फ -s (play→plays, read→reads)।<br>
+        <b class="hi3">उदाहरण:</b> "I play cricket every day." / "We go to school." / "He plays cricket every day." / "She goes to the market." / "The train arrives at 6 o'clock."</p>
+      </div>
+      <div class="rule-card" style="border-left-color:var(--red);">
+        <h4 style="color:var(--red);">🔴 2. नकारात्मक वाक्य (Negative Sentence)</h4>
+        <p><b class="hi3">सूत्र:</b> Subject + do not/don't (या does not/doesn't) + Verb (V1, बिना s/es) + Object<br>
+        <b class="hi3">नियम:</b> I/We/You/They → <b class="hi2">do not / don't</b>; He/She/It → <b class="hi2">does not / doesn't</b>। ध्यान रहें — does not/doesn't के बाद verb हमेशा अपने base रूप में ही रहता है, s/es दोबारा नहीं लगता (यह सबसे आम गलती है)।<br>
+        <b class="hi3">उदाहरण:</b> "I do not play cricket." / "We don't go to school on Sunday." / "He does not play cricket." / "She doesn't go to the market."<br>
+        <b class="hi">गलत:</b> <span style="text-decoration:line-through;">"He doesn't plays."</span> ✗ &nbsp; <b class="hi2">सही:</b> "He doesn't play." ✓</p>
+      </div>
+      <div class="rule-card" style="border-left-color:var(--purple);">
+        <h4 style="color:var(--purple);">🟣 3. प्रश्नवाचक वाक्य — Yes/No Question (Interrogative Sentence)</h4>
+        <p><b class="hi3">सूत्र:</b> Do/Does + Subject + Verb (V1, बिना s/es) + Object + ?<br>
+        <b class="hi3">नियम:</b> I/We/You/They के साथ <b class="hi2">Do</b>; He/She/It के साथ <b class="hi2">Does</b> का प्रयोग वाक्य के सबसे आगे होता है, और verb फिर से अपने base रूप में आ जाता है।<br>
+        <b class="hi3">उदाहरण:</b> "Do you play cricket?" — Yes, I do. / No, I don't.<br>"Does she play cricket?" — Yes, she does. / No, she doesn't.</p>
+      </div>
+      <div class="rule-card" style="border-left-color:var(--gold);">
+        <h4 style="color:var(--gold);">🟡 4. WH-प्रश्नवाचक वाक्य (WH-Question Sentence)</h4>
+        <p><b class="hi3">सूत्र:</b> WH-शब्द (What/Where/When/Who/Why/How/Which/Whose) + Do/Does + Subject + Verb (V1) + Object + ?<br>
+        <b class="hi3">उदाहरण:</b> "What do you play?" — I play cricket. &nbsp;|&nbsp; "Where does she live?" — She lives in Patna. &nbsp;|&nbsp; "When do they go to school?" — They go to school in the morning. &nbsp;|&nbsp; "Why does he cry?" — He cries because he is hurt. &nbsp;|&nbsp; "How do you come to school?" — I come to school by bus.<br>
+        <b class="hi3">विशेष नियम:</b> जब <b class="hi2">Who</b> स्वयं वाक्य का subject होता है, तब Do/Does का प्रयोग नहीं होता — जैसे "Who teaches you English?" (सही ✓), न कि "Who does teach you English?" (गलत ✗)।</p>
+      </div>
+    </div>
+
+    <h3 style="color:var(--gold); font-size:15.5px; margin:26px 0 10px;">अनुवाद अभ्यास (Hindi → English Translation Practice)</h3>
+    <div id="presentTranslationWrap"></div>
+
+    <h3 style="color:var(--gold); font-size:15.5px; margin:20px 0 10px;">Simple Present Tense — Objective प्रश्न</h3>
+    <div id="presentObjectiveWrap"></div>
+
+    <p style="color:var(--dim); font-size:13px; line-height:1.9; font-weight:500; margin:20px 0 10px;">
+      ठीक इसी तरह <b class="hi2">भूतकाल (Past Tense)</b> के भी 4 भेद होते हैं — Simple Past, Past Continuous, Past Perfect, Past Perfect Continuous; और <b class="hi3">भविष्य काल (Future Tense)</b> के भी 4 भेद होते हैं — Simple Future, Future Continuous, Future Perfect, Future Perfect Continuous। नीचे तालिका में सभी 12 Tense के नाम, सूत्र (formula) और उदाहरण एक साथ दिए गए हैं:
+    </p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>काल (भाग)</th><th>उप-भाग (Type)</th><th>सूत्र (Formula)</th><th>उदाहरण (Example)</th></tr></thead>
+        <tbody>
+          <tr><td rowspan="4" style="font-weight:800; color:var(--cyan);">वर्तमान काल<br>Present</td><td>Simple Present</td><td>Sub + V1(s/es) + Obj</td><td>She reads a book.</td></tr>
+          <tr><td>Present Continuous</td><td>Sub + is/am/are + V-ing + Obj</td><td>She is reading a book.</td></tr>
+          <tr><td>Present Perfect</td><td>Sub + has/have + V3 + Obj</td><td>She has read a book.</td></tr>
+          <tr><td>Present Perfect Continuous</td><td>Sub + has/have been + V-ing + since/for</td><td>She has been reading for an hour.</td></tr>
+          <tr><td rowspan="4" style="font-weight:800; color:var(--pink);">भूतकाल<br>Past</td><td>Simple Past</td><td>Sub + V2(ed) + Obj</td><td>She read a book.</td></tr>
+          <tr><td>Past Continuous</td><td>Sub + was/were + V-ing + Obj</td><td>She was reading a book.</td></tr>
+          <tr><td>Past Perfect</td><td>Sub + had + V3 + Obj</td><td>She had read a book.</td></tr>
+          <tr><td>Past Perfect Continuous</td><td>Sub + had been + V-ing + since/for</td><td>She had been reading for an hour.</td></tr>
+          <tr><td rowspan="4" style="font-weight:800; color:var(--green);">भविष्य काल<br>Future</td><td>Simple Future</td><td>Sub + will/shall + V1 + Obj</td><td>She will read a book.</td></tr>
+          <tr><td>Future Continuous</td><td>Sub + will be + V-ing + Obj</td><td>She will be reading a book.</td></tr>
+          <tr><td>Future Perfect</td><td>Sub + will have + V3 + Obj</td><td>She will have read a book by evening.</td></tr>
+          <tr><td>Future Perfect Continuous</td><td>Sub + will have been + V-ing + since/for</td><td>She will have been reading for an hour.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="color:var(--dim); font-size:12px; margin-top:10px; font-weight:600;">इस Part 2 में हम मुख्य रूप से <b class="hi">Simple Past Tense</b> और <b class="hi2">Simple Future Tense</b> पर ध्यान देंगे — नीचे विस्तार से देखें।</p>
+  </div>
+
+  <div class="glass card" style="display:flex; flex-direction:column; gap:16px;">
+    <div class="rule-card" style="border-left-color:var(--cyan);">
+      <h4 style="color:var(--cyan);">1. Simple Past Tense</h4>
+      <p>बीती हुई और पूरी हो चुकी घटना या काम बताने के लिए <b class="hi">Simple Past Tense</b> इस्तेमाल होता है। Regular verbs में base verb के साथ <b class="hi2">-ed</b> जोड़ा जाता है, जैसे play → played, walk → walked। Irregular verbs का past रूप बदल जाता है और याद रखना पड़ता है, जैसे go → went, eat → ate। उदाहरण: "I played cricket yesterday." और "He went to Patna last week."</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--pink);">
+      <h4 style="color:var(--pink);">2. Simple Future Tense</h4>
+      <p>आने वाले समय में होने वाले काम बताने के लिए <b class="hi">Simple Future Tense</b> इस्तेमाल होता है। इसका सूत्र है — <b class="hi3">will/shall + Verb (base form)</b>। साधारण बोलचाल में 'will' सभी subjects के साथ इस्तेमाल होता है, जबकि 'shall' औपचारिक भाषा में I/we के साथ आता है। उदाहरण: "I will go to school tomorrow." और "She will play in the match next week."</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--green);">
+      <h4 style="color:var(--green);">3. Regular और Irregular Verbs की पहचान</h4>
+      <p>Regular verbs में past बनाने के लिए सिर्फ <b class="hi2">-ed</b> जोड़ा जाता है, जैसे watch → watched, play → played। Irregular verbs किसी तय नियम को नहीं मानतीं, इनका past रूप पूरी तरह बदल जाता है, जैसे come → came, write → wrote, see → saw — इन्हें बार-बार पढ़कर याद करना ज़रूरी है।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--orange);">
+      <h4 style="color:var(--orange);">4. Paragraph की संरचना</h4>
+      <p>एक अच्छे paragraph में तीन भाग होते हैं — <b class="hi">Topic Sentence</b> (पहला वाक्य, जो मुख्य विचार बताता है), <b class="hi2">Supporting Sentences</b> (बीच के 2-3 वाक्य, जो topic को उदाहरण या detail के साथ समझाते हैं), और <b class="hi3">Concluding Sentence</b> (आख़िरी वाक्य, जो पूरी बात को संक्षेप में समेटता है)।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--purple);">
+      <h4 style="color:var(--purple);">5. एक अच्छा Paragraph लिखने के नियम</h4>
+      <p>सभी वाक्य <b class="hi">एक ही विषय</b> पर होने चाहिए और उन्हें <b class="hi2">क्रमबद्ध (logical order)</b> में लिखना चाहिए। वाक्यों को आपस में जोड़ने के लिए <b class="hi3">connecting words</b> (and, but, because, so) का प्रयोग करें, ताकि paragraph पढ़ने में सहज और जुड़ा हुआ लगे, टूटा-टूटा न लगे।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--gold);">
+      <h4 style="color:var(--gold);">6. सही Tense चुनने का तरीका</h4>
+      <p>बीती हुई घटना के लिए <b class="hi">Simple Past</b> (yesterday, last week, ago जैसे शब्दों के साथ), आने वाली योजना के लिए <b class="hi2">Simple Future</b> (tomorrow, next week, soon जैसे शब्दों के साथ), रोज़ की आदत के लिए Simple Present, और अभी हो रहे काम के लिए Present Continuous (Part 1 में सीखा हुआ) इस्तेमाल होता है।</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RULES SHEET ============ -->
+<section id="formulas">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--purple),#7e4fd1); --glow:#b07dff99;">📋</div>
+    <div><h2>मुख्य नियम (Rules Sheet)</h2><div class="sub en-tag">Key Rules to Remember</div></div></div>
+  <div class="grid grid-3" id="rulesSheetGrid"></div>
+</section>
+
+<!-- ============ SOLVED EXAMPLES ============ -->
+<section id="examples">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--green),#1a9c70); --glow:#2ee6a699;">✍️</div>
+    <div><h2>हल किए गए उदाहरण (Solved Examples)</h2><div class="sub en-tag">Step-by-Step Worked Examples</div></div></div>
+  <div id="examplesWrap"></div>
+</section>
+
+<!-- ============ QUESTION BANK ============ -->
+<section id="questions">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--purple),#7e4fd1); --glow:#b07dff99;">❓</div>
+    <div><h2>महत्वपूर्ण प्रश्न</h2><div class="sub en-tag">Important Questions — All Types</div></div></div>
+  <div id="qBank"></div>
+</section>
+
+<!-- ============ HOMEWORK ============ -->
+<section id="homework">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--red),#a82424); --glow:#ff4f4f99;">🏠</div>
+    <div><h2>घर से करने के लिए Homework</h2><div class="sub en-tag">Notebook Exercise — Part 2A, 2B, 2C</div></div></div>
+  <div class="grid grid-3" id="homeworkGrid"></div>
+  <p style="color:var(--dim); font-size:12px; margin-top:14px; font-weight:600;">यह सभी काम अपनी English की notebook में लिखकर और ज़ोर से बोलकर practice करने हैं।</p>
+</section>
+
+<footer>
+  <div style="font-size:20px;">✨</div>
+  <span class="name">PK STUDY</span> — Part 2 Complete · Revision Ready
+  <div class="badges">
+    <span class="badge">✅ सरल भाषा</span>
+    <span class="badge">✅ Past + Future Tense दोनों कवर</span>
+    <span class="badge">✅ Paragraph Writing अभ्यास</span>
+    <span class="badge">✅ कक्षा 8-9 के लिए उपयुक्त</span>
+  </div>
+  Made for Class 8-9 (Combined) Students · Spoken &amp; Written English · Part 2: Tenses &amp; Paragraph Writing
+  <div class="copy">PK STUDY — All Copyright Reserved</div>
+</footer>
+
+<script>
+/* ================= THEME ================= */
+function toggleTheme(){
+  const html = document.documentElement;
+  const isLight = html.getAttribute('data-theme') === 'light';
+  html.setAttribute('data-theme', isLight ? '' : 'light');
+  document.getElementById('themeToggle').textContent = isLight ? '🌙' : '☀️';
+}
+
+/* ================= DATA ================= */
+const rulesSheetData = [
+  {t:"Simple Past सूत्र", d:"Subject + Verb (V2/ed) + Object — जैसे 'I played football.'", c:"var(--cyan)"},
+  {t:"Simple Future सूत्र", d:"Subject + will/shall + Verb (V1) + Object — जैसे 'I will play football.'", c:"var(--pink)"},
+  {t:"5 Common Irregular Verbs", d:"go→went, eat→ate, see→saw, write→wrote, come→came", c:"var(--green)"},
+  {t:"Past के Time Markers", d:"yesterday, last week, last year, ago — इनके साथ Simple Past इस्तेमाल होता है", c:"var(--orange)"},
+  {t:"Future के Time Markers", d:"tomorrow, next week, next year, soon — इनके साथ Simple Future इस्तेमाल होता है", c:"var(--purple)"},
+  {t:"Paragraph संरचना नियम", d:"Topic Sentence + Supporting Sentences + Concluding Sentence — इसी क्रम में paragraph लिखें", c:"var(--gold)"}
+];
+const examplesData = [
+  {q:"\"I play cricket every day.\" — इस sentence को Simple Past Tense में बदलिए।", s:"\"I played cricket yesterday.\" — यहाँ regular verb 'play' में 'ed' जोड़कर 'played' बनाया गया, और time marker 'every day' की जगह 'yesterday' इस्तेमाल हुआ।"},
+  {q:"\"She writes a letter.\" — इस sentence को Simple Future Tense में बदलिए।", s:"\"She will write a letter tomorrow.\" — यहाँ 'will' + base verb 'write' का इस्तेमाल हुआ, और time marker 'tomorrow' जोड़ा गया।"},
+  {q:"\"My School\" विषय पर Topic, Supporting और Concluding Sentences के साथ एक छोटा paragraph लिखिए।", s:"<b class=\"hi\">Topic Sentence:</b> My school is a wonderful place for learning.<br><b class=\"hi2\">Supporting Sentence 1:</b> It has a big playground where we play every day.<br><b class=\"hi2\">Supporting Sentence 2:</b> Our teachers are kind and they explain every lesson clearly.<br><b class=\"hi3\">Concluding Sentence:</b> I am proud to study in such a good school."}
+];
+const qBankData = [
+  {tag:"Objective", color:"var(--cyan)", q:"Simple Past Tense किस काम के लिए इस्तेमाल होता है?", a:"Simple Past Tense उस काम या घटना के लिए इस्तेमाल होता है जो past में शुरू होकर पूरी हो चुकी है, जैसे 'I played football yesterday.'"},
+  {tag:"Objective", color:"var(--pink)", q:"Simple Future Tense बनाने का सूत्र क्या है?", a:"Subject + will/shall + Verb (base form) + Object — जैसे 'I will go to Patna.'"},
+  {tag:"Very Short", color:"var(--green)", q:"'go' का Simple Past रूप क्या है?", a:"'go' का Simple Past रूप 'went' है।"},
+  {tag:"Very Short", color:"var(--orange)", q:"Paragraph के पहले वाक्य को क्या कहते हैं?", a:"Paragraph के पहले वाक्य को Topic Sentence कहते हैं।"},
+  {tag:"Short", color:"var(--purple)", q:"Regular और Irregular verbs में क्या अंतर है? एक-एक उदाहरण दीजिए।", a:"Regular verbs में past बनाने के लिए 'ed' जोड़ा जाता है, जैसे 'play→played'। Irregular verbs का past रूप बिल्कुल अलग होता है और याद रखना पड़ता है, जैसे 'go→went'।"},
+  {tag:"Short", color:"var(--gold)", q:"Concluding Sentence का क्या काम होता है?", a:"Concluding Sentence paragraph के मुख्य विचार को संक्षेप में दोहराकर या सार रूप में समाप्त करता है, ताकि पाठक को paragraph का निष्कर्ष समझ आए।"},
+  {tag:"Long", color:"var(--cyan)", q:"Paragraph लिखते समय किन-किन बातों का ध्यान रखना चाहिए? विस्तार से समझाइए।", a:"Paragraph लिखते समय सबसे पहले Topic Sentence से मुख्य विचार बताना चाहिए, फिर 2-3 Supporting Sentences में उस विचार को उदाहरण या detail के साथ समझाना चाहिए, और अंत में एक Concluding Sentence से बात को समेटना चाहिए। सभी वाक्य एक ही विषय पर होने चाहिए, उन्हें क्रमबद्ध तरीके से लिखना चाहिए, और and, but, because, so जैसे connecting words का प्रयोग करके वाक्यों को आपस में जोड़ना चाहिए ताकि paragraph पढ़ने में सहज और जुड़ा हुआ लगे।"},
+  {tag:"Long", color:"var(--pink)", q:"Simple Past और Simple Future Tense में क्या अंतर है? उदाहरण सहित समझाइए।", a:"Simple Past Tense उन कामों के लिए इस्तेमाल होता है जो पहले हो चुके हैं, जैसे 'I visited my grandmother last week.' वहीं Simple Future Tense उन कामों के लिए इस्तेमाल होता है जो आने वाले समय में होंगे, जैसे 'I will visit my grandmother next week.' Past में verb या तो 'ed' के साथ या irregular रूप में बदलती है, जबकि Future में verb से पहले 'will' या 'shall' लगाया जाता है और verb अपने base रूप में रहती है।"},
+  {tag:"Counting", color:"var(--green)", q:"अगर एक paragraph में 1 Topic Sentence, 3 Supporting Sentences और 1 Concluding Sentence हैं, तो कुल कितने वाक्य हुए?", a:"1 + 3 + 1 = 5 — कुल 5 वाक्य हुए।"},
+  {tag:"Assertion-Reason", color:"var(--orange)", q:"अभिकथन: 'eat' का Past रूप 'eated' होता है। कारण: सभी verbs regular होती हैं।", a:"अभिकथन गलत है और कारण भी गलत है — 'eat' एक irregular verb है, इसका सही Past रूप 'ate' होता है, 'eated' गलत है।"},
+  {tag:"Case Study", color:"var(--purple)", q:"सोनू को अपने दोस्त को बताना है कि उसने कल क्रिकेट खेला था। उसे कौनसा tense और कैसा sentence बोलना चाहिए?", a:"सोनू को Simple Past Tense इस्तेमाल करना चाहिए और कहना चाहिए — 'I played cricket yesterday.'"},
+  {tag:"Case Study", color:"var(--gold)", q:"प्रिया को बताना है कि वह अगले हफ्ते अपनी दादी से मिलने जाएगी। उसे कौनसा sentence बोलना चाहिए?", a:"प्रिया को Simple Future Tense में कहना चाहिए — 'I will meet my grandmother next week.'"},
+  {tag:"HOTS", color:"var(--cyan)", q:"अगर एक paragraph में सभी वाक्य अलग-अलग विषयों पर हों, तो पढ़ने वाले को क्या दिक्कत होगी?", a:"अगर वाक्य अलग-अलग विषयों पर होंगे तो paragraph असंबद्ध लगेगा और पाठक को मुख्य विचार समझने में कठिनाई होगी, इसलिए सभी वाक्य एक ही topic पर होने चाहिए।"},
+  {tag:"HOTS", color:"var(--pink)", q:"'write' शब्द का Past रूप 'writed' क्यों गलत है? सही रूप बताइए और कारण समझाइए।", a:"'write' एक irregular verb है, इसलिए इसमें सीधे 'ed' नहीं जोड़ा जा सकता। इसका सही Past रूप 'wrote' है, जिसे याद रखना पड़ता है क्योंकि यह किसी तय नियम से नहीं बनता।"}
+];
+const presentTranslationData = [
+  {tag:"Affirmative", color:"var(--cyan)", q:"मैं रोज़ सुबह व्यायाम करता हूँ।", a:"I exercise every morning."},
+  {tag:"Affirmative", color:"var(--cyan)", q:"वह हर रोज़ अख़बार पढ़ता है।", a:"He reads the newspaper every day."},
+  {tag:"Negative", color:"var(--red)", q:"मुझे यह गाना पसंद नहीं है।", a:"I do not like this song. / I don't like this song."},
+  {tag:"Negative", color:"var(--red)", q:"वह चाय नहीं पीती है।", a:"She does not drink tea. / She doesn't drink tea."},
+  {tag:"Interrogative", color:"var(--purple)", q:"क्या तुम हिंदी बोलते हो?", a:"Do you speak Hindi?"},
+  {tag:"Interrogative", color:"var(--purple)", q:"क्या वह स्कूल जाता है?", a:"Does he go to school?"},
+  {tag:"WH-Question", color:"var(--gold)", q:"तुम कहाँ रहते हो?", a:"Where do you live?"},
+  {tag:"WH-Question", color:"var(--gold)", q:"वह क्या खाती है?", a:"What does she eat?"}
+];
+const presentObjectiveData = [
+  {q:"\"He _____ (go) to school every day.\" — सही रूप भरिए।", a:"goes — He/She/It के साथ 'go' का रूप 'goes' होता है।"},
+  {q:"\"Rahul _____ (study) English every evening.\" — सही रूप भरिए।", a:"studies — consonant+y से समाप्त होने वाले verb में y को i बनाकर -es जोड़ा जाता है (study→studies)।"},
+  {q:"\"My father _____ (watch) the news every night.\" — सही रूप भरिए।", a:"watches — ch से समाप्त होने वाले verb में -es जोड़ा जाता है।"},
+  {q:"\"She _____ (not/like) tea.\" — सही negative रूप बनाइए।", a:"does not like / doesn't like"},
+  {q:"\"We _____ (not/have) any pet.\" — सही negative रूप बनाइए।", a:"do not have / don't have"},
+  {q:"\"_____ they play football every evening?\" — सही Do/Does भरिए।", a:"Do — they बहुवचन (plural) है, इसलिए Do का प्रयोग होगा।"},
+  {q:"\"_____ your sister sing well?\" — सही Do/Does भरिए।", a:"Does — sister एकवचन (singular) है, इसलिए Does का प्रयोग होगा।"},
+  {q:"वाक्य सुधारिए: \"He don't like coffee.\"", a:"He doesn't like coffee. — He/She/It के साथ 'don't' नहीं, 'doesn't' आता है।"},
+  {q:"वाक्य सुधारिए: \"She go to market daily.\"", a:"She goes to market daily. — She के साथ verb में -es जोड़ना ज़रूरी है।"},
+  {q:"वाक्य सुधारिए: \"He doesn't plays cricket.\"", a:"He doesn't play cricket. — doesn't के बाद verb हमेशा base रूप (बिना s/es) में रहता है।"},
+  {q:"\"_____ does she live?\" (उत्तर है — Patna) — सही WH-शब्द चुनिए।", a:"Where — जगह पूछने के लिए 'Where' का प्रयोग होता है।"},
+  {q:"I/We/You/They के साथ Simple Present Tense में negative वाक्य बनाने के लिए क्या प्रयोग होता है?", a:"do not / don't"}
+];
+function buildPresentTranslation(){
+  const wrap = document.getElementById('presentTranslationWrap');
+  presentTranslationData.forEach((item,i)=>{
+    const d = el('div','glass q-card', `<div class="qlabel">वाक्य ${i+1} <span class="tag" style="background:${item.color};">${item.tag}</span></div>
+      <div class="qtext">${item.q}</div>
+      <button class="show-ans-btn" onclick="toggleAnswer(this)">उत्तर दिखाएँ (Show Answer)</button>
+      <div class="ans-wrap"><div class="slabel">English Translation</div><div class="stext">${item.a}</div></div>`);
+    wrap.appendChild(d);
+  });
+}
+function buildPresentObjective(){
+  const wrap = document.getElementById('presentObjectiveWrap');
+  presentObjectiveData.forEach((item,i)=>{
+    const d = el('div','glass q-card', `<div class="qlabel">प्रश्न ${i+1} <span class="tag" style="background:var(--cyan);">Objective</span></div>
+      <div class="qtext">${item.q}</div>
+      <button class="show-ans-btn" onclick="toggleAnswer(this)">उत्तर दिखाएँ (Show Answer)</button>
+      <div class="ans-wrap"><div class="slabel">उत्तर (Answer)</div><div class="stext">${item.a}</div></div>`);
+    wrap.appendChild(d);
+  });
+}
+
+const homeworkData = [
+  {part:"Part 2A", color:"var(--cyan)", qs:[
+    "इन sentences को Simple Past Tense में बदलिए: \"I play football.\", \"She reads a book.\", \"They go to the market.\"",
+    "अपने पिछले Sunday के बारे में Simple Past Tense में 3 sentences लिखिए।"
+  ]},
+  {part:"Part 2B", color:"var(--pink)", qs:[
+    "इन sentences को Simple Future Tense में बदलिए: \"He does his homework.\", \"We visit our uncle.\", \"I write a letter.\"",
+    "अपने अगले जन्मदिन (birthday) की योजना के बारे में Simple Future Tense में 3 sentences लिखिए।"
+  ]},
+  {part:"Part 2C", color:"var(--green)", qs:[
+    "\"My Favourite Festival\" विषय पर 1 Topic Sentence, 3 Supporting Sentences और 1 Concluding Sentence के साथ 5 sentences का paragraph लिखिए।",
+    "\"A Rainy Day\" विषय पर 5 sentences का एक connected paragraph लिखिए, जिसमें कम से कम दो connecting words (and, but, because, so) का इस्तेमाल हो।"
+  ]}
+];
+
+/* ================= RENDER FUNCTIONS ================= */
+function el(tag, cls, html){ const d=document.createElement(tag); if(cls)d.className=cls; if(html!==undefined)d.innerHTML=html; return d; }
+
+function buildRulesSheet(){
+  const g = document.getElementById('rulesSheetGrid');
+  rulesSheetData.forEach(r=>{ const d=el('div','glass def-card', `<h4 style="color:${r.c}">📋 ${r.t}</h4><p>${r.d}</p>`); g.appendChild(d); });
+}
+function buildExamples(){
+  const wrap = document.getElementById('examplesWrap');
+  examplesData.forEach((ex,i)=>{
+    const d = el('div','glass card example-card', `<div class="qlabel">प्रश्न ${i+1}</div><div class="qtext">${ex.q}</div><div class="slabel">हल (Solution)</div><div class="stext">${ex.s}</div>`);
+    wrap.appendChild(d);
+  });
+}
+function buildQBank(){
+  const wrap = document.getElementById('qBank');
+  qBankData.forEach((q,i)=>{
+    const card = el('div','glass q-card');
+    card.innerHTML = `<div class="qlabel">प्रश्न ${i+1} <span class="tag" style="background:${q.color}">${q.tag}</span></div>
+      <div class="qtext">${q.q}</div>
+      <button class="show-ans-btn" onclick="toggleAnswer(this)">उत्तर दिखाएँ (Show Answer)</button>
+      <div class="ans-wrap"><div class="slabel">उत्तर (Answer)</div><div class="stext">${q.a}</div></div>`;
+    wrap.appendChild(card);
+  });
+}
+function toggleAnswer(btn){
+  const wrap = btn.nextElementSibling;
+  const isOpen = wrap.classList.toggle('open');
+  btn.classList.toggle('open', isOpen);
+  btn.textContent = isOpen ? 'उत्तर छुपाएँ (Hide Answer)' : 'उत्तर दिखाएँ (Show Answer)';
+}
+function buildHomework(){
+  const g = document.getElementById('homeworkGrid');
+  homeworkData.forEach(hw=>{
+    const items = hw.qs.map(q=>`<li>${q}</li>`).join('');
+    const d = el('div','glass hw-card', `<span class="t-year" style="background:${hw.color};">${hw.part}</span><ol>${items}</ol>`);
+    g.appendChild(d);
+  });
+}
+
+/* INIT */
+buildRulesSheet(); buildExamples(); buildPresentTranslation(); buildPresentObjective(); buildQBank(); buildHomework();
+</script>
+</body>
+</html>

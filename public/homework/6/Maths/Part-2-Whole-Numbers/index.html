@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PK STUDY | पूर्ण संख्याएँ — Whole Numbers</title>
+<style>
+:root{
+  --bg:#04050f; --glass:rgba(255,255,255,.045); --glass-strong:rgba(255,255,255,.08);
+  --border:rgba(255,255,255,.12); --text:#f2f6ff; --dim:#9fb0da; --heading:#ffffff;
+  --neon-blue:#3ea6ff; --cyan:#33e0ff; --purple:#b07dff; --gold:#ffc233;
+  --green:#2ee6a6; --orange:#ff9f43; --pink:#ff4d8d; --red:#ff4f4f;
+  --shadow:0 22px 46px -22px #000d; --hshadow:0 30px 56px -20px #000f;
+}
+[data-theme="light"]{
+  --bg:#f6f8fd; --glass:rgba(20,30,65,.045); --glass-strong:rgba(20,30,65,.08);
+  --border:rgba(20,30,65,.12); --text:#161c33; --dim:#535f82; --heading:#12172b;
+  --neon-blue:#2563eb; --cyan:#0891b2; --purple:#7c3aed; --gold:#b45309;
+  --green:#059669; --orange:#c2410c; --pink:#db2777; --red:#dc2626;
+  --shadow:0 18px 36px -20px rgba(30,40,80,.18); --hshadow:0 24px 44px -18px rgba(30,40,80,.24);
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Segoe UI','Noto Sans Devanagari',Arial,sans-serif; color:var(--text); min-height:100vh; overflow-x:hidden;
+  transition:background .4s, color .4s;
+  background:
+    radial-gradient(ellipse at 10% -10%, #1c3a9955, transparent 55%),
+    radial-gradient(ellipse at 95% 10%, #7a2ab866, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, #0a5a6e44, transparent 55%),
+    linear-gradient(180deg,#04050f,#020208 90%);
+}
+[data-theme="light"] body{
+  background:
+    radial-gradient(ellipse at 10% -10%, #dbe4ff99, transparent 55%),
+    radial-gradient(ellipse at 95% 10%, #ede0ff99, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, #d7f5f099, transparent 55%),
+    linear-gradient(180deg,#f8faff,#eef1f9 90%);
+}
+::-webkit-scrollbar{width:8px;} ::-webkit-scrollbar-thumb{background:var(--neon-blue); border-radius:6px;} ::-webkit-scrollbar-track{background:transparent;}
+
+.glass{background:var(--glass); border:1px solid var(--border); border-radius:18px; backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+  box-shadow:var(--shadow), inset 0 1px 0 #ffffff12; transition:transform .35s, box-shadow .35s, background .4s, border .4s;}
+.glass:hover{transform:translateY(-4px); box-shadow:var(--hshadow), inset 0 1px 0 #ffffff1e;}
+
+header{position:sticky; top:0; z-index:200; display:flex; align-items:center; justify-content:space-between; padding:14px 26px;
+  background:rgba(4,5,15,.75); backdrop-filter:blur(18px); border-bottom:1px solid var(--border); flex-wrap:wrap; gap:10px; transition:background .4s;}
+[data-theme="light"] header{background:rgba(255,255,255,.8);}
+.brand{display:flex; align-items:center; gap:12px;}
+.brand img{width:44px; height:44px; border-radius:10px; object-fit:cover; border:2px solid var(--neon-blue); box-shadow:0 0 18px #3ea6ff88;}
+.logo-fallback{width:44px; height:44px; border-radius:10px; display:flex; align-items:center; justify-content:center;
+  background:linear-gradient(135deg,var(--neon-blue),#1f3d8c); font-weight:900; font-size:12px; border:2px solid var(--cyan); color:#fff;}
+.brand-text .name{font-weight:900; font-size:18px; color:var(--cyan); letter-spacing:.5px;}
+.brand-text .tag{font-size:11px; color:var(--dim); font-weight:600;}
+nav{display:flex; gap:5px; overflow-x:auto; max-width:52vw;}
+nav::-webkit-scrollbar{height:4px;}
+nav a{color:var(--dim); text-decoration:none; font-size:11.5px; padding:6px 11px; border-radius:16px; border:1px solid transparent; transition:.2s; font-weight:700; white-space:nowrap;}
+nav a:hover{color:var(--heading); border-color:var(--neon-blue); background:#3ea6ff1a;}
+.theme-btn{flex-shrink:0; width:40px; height:40px; border-radius:12px; border:1px solid var(--border); background:var(--glass-strong);
+  color:var(--text); font-size:17px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:.25s;}
+.theme-btn:hover{border-color:var(--neon-blue); transform:translateY(-2px);}
+
+/* ===== HERO ===== */
+.hero{position:relative; padding:80px 6vw 60px; text-align:center; overflow:hidden;}
+.hero-bg{position:absolute; inset:0; z-index:0; opacity:.5;}
+.eyebrow{display:inline-block; padding:7px 22px; border-radius:30px; color:#04050f; font-size:12px; font-weight:900;
+  letter-spacing:2.5px; text-transform:uppercase; margin-bottom:20px; position:relative; z-index:2;
+  background:linear-gradient(120deg,var(--gold),var(--orange),var(--pink),var(--purple),var(--cyan)); background-size:400% 100%; animation:shim 8s linear infinite;
+  box-shadow:0 10px 26px -6px #000b;}
+@keyframes shim{0%{background-position:0% 0;}100%{background-position:400% 0;}}
+.hero h1{position:relative; z-index:2; font-size:clamp(28px,6vw,54px); font-weight:900; line-height:1.25;
+  background:linear-gradient(90deg,var(--neon-blue),var(--cyan) 35%,var(--purple) 65%,var(--pink)); -webkit-background-clip:text; background-clip:text; color:transparent;
+  text-shadow:0 0 60px #3ea6ff33; animation:hueGlow 6s ease-in-out infinite;}
+@keyframes hueGlow{0%,100%{filter:brightness(1);} 50%{filter:brightness(1.2);}}
+.hero .en{position:relative; z-index:2; font-size:16px; color:var(--dim); font-weight:700; margin-top:10px; letter-spacing:1px;}
+.hero p{position:relative; z-index:2; color:var(--dim); max-width:760px; margin:20px auto 0; font-size:14.5px; line-height:1.9; font-weight:500;}
+.pulse-line{position:relative; z-index:2; width:150px; height:4px; margin:28px auto 0; border-radius:4px;
+  background:linear-gradient(90deg,var(--neon-blue),var(--cyan),var(--purple),var(--gold)); background-size:300% 100%; animation:shim 4s linear infinite;
+  box-shadow:0 4px 20px -2px #3ea6ff88;}
+
+.optics-scene{position:relative; z-index:2; max-width:680px; margin:36px auto 0; height:210px;}
+.optics-scene svg{width:100%; height:100%;}
+.laser{stroke-dasharray:8 6; animation:dash 1.4s linear infinite;}
+@keyframes dash{to{stroke-dashoffset:-28;}}
+.glow-dot{filter:drop-shadow(0 0 8px currentColor);}
+@keyframes floaty{0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);}}
+.float-ic{animation:floaty 4s ease-in-out infinite;}
+
+section{position:relative; z-index:1; padding:52px 6vw; max-width:1300px; margin:0 auto;}
+.sec-head{display:flex; align-items:center; gap:14px; margin-bottom:28px;}
+.sec-num{width:44px; height:44px; border-radius:14px; flex-shrink:0; display:flex; align-items:center; justify-content:center;
+  font-weight:900; font-size:16px; color:#04050f; box-shadow:0 8px 22px -6px var(--glow,#3ea6ff99); border:2px solid #ffffffaa;}
+.sec-head h2{font-size:clamp(19px,3vw,26px); font-weight:900; color:var(--heading);}
+.sec-head .sub{color:var(--dim); font-size:12.5px; font-weight:600; margin-top:2px;}
+.sec-head .en-tag{font-size:11px; color:var(--gold); font-weight:700; letter-spacing:.5px;}
+
+.card{padding:20px 22px;}
+.grid{display:grid; gap:16px;}
+.grid-2{grid-template-columns:1fr 1fr;} .grid-3{grid-template-columns:repeat(3,1fr);}
+.grid-4{grid-template-columns:repeat(4,1fr);} .grid-5{grid-template-columns:repeat(5,1fr);}
+@media(max-width:900px){.grid-3,.grid-4,.grid-5{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.grid-2,.grid-3,.grid-4,.grid-5{grid-template-columns:1fr;} nav{max-width:100%;}}
+
+b.hi{color:var(--pink); font-weight:900;} b.hi2{color:var(--green); font-weight:900;} b.hi3{color:var(--gold); font-weight:900;}
+.eng-term{color:var(--cyan); font-style:italic; font-weight:700;}
+
+.obj-card{padding:16px 18px; display:flex; align-items:center; gap:12px;}
+.obj-card .ic{font-size:24px; flex-shrink:0;}
+.obj-card .t{font-size:13.5px; font-weight:800; color:var(--text);}
+
+.timeline{position:relative; padding-left:36px;}
+.timeline::before{content:''; position:absolute; left:11px; top:6px; bottom:6px; width:3px;
+  background:linear-gradient(180deg,var(--neon-blue),var(--cyan),var(--purple),var(--gold)); border-radius:3px; box-shadow:0 0 14px #3ea6ff66;}
+.t-item{position:relative; margin-bottom:26px;}
+.t-item::before{content:''; position:absolute; left:-31px; top:6px; width:18px; height:18px; border-radius:50%;
+  background:var(--bg); border:3px solid var(--dotcolor,var(--neon-blue)); box-shadow:0 0 16px var(--dotcolor,var(--neon-blue));}
+.t-item:nth-child(1){--dotcolor:var(--gold);} .t-item:nth-child(2){--dotcolor:var(--cyan);}
+.t-item:nth-child(3){--dotcolor:var(--purple);} .t-item:nth-child(4){--dotcolor:var(--green);} .t-item:nth-child(5){--dotcolor:var(--pink);}
+.t-year{display:inline-block; font-weight:900; font-size:13.5px; color:#04050f; background:var(--dotcolor,var(--neon-blue));
+  padding:5px 16px; border-radius:20px; margin-bottom:8px; box-shadow:0 4px 14px -2px var(--dotcolor,#3ea6ff88);}
+.t-item h3{font-size:16px; color:var(--heading); font-weight:800; margin-bottom:4px;}
+.t-item p{font-size:13px; color:var(--dim); line-height:1.8; font-weight:500;}
+
+.mindmap-wrap{display:flex; justify-content:center;}
+.mindmap-wrap svg{width:100%; max-width:1100px; height:auto;}
+.mm-node{stroke-width:2; rx:14;}
+.mm-text{fill:var(--heading); font-size:12.5px; font-weight:800;}
+.mm-line{stroke-width:2; opacity:.55; stroke-dasharray:5 4;}
+
+.flow-col{display:flex; flex-direction:column; align-items:center; gap:6px;}
+.flow-box{padding:12px 22px; border-radius:12px; font-weight:900; font-size:13px; color:#04050f; text-align:center; min-width:180px; box-shadow:0 8px 20px -6px #0009;}
+.flow-arrow{font-size:20px; color:var(--cyan); font-weight:900;}
+
+.def-card{padding:18px 20px; border-radius:16px;}
+.def-card h4{font-size:14.5px; margin-bottom:8px; display:flex; align-items:center; gap:8px; font-weight:900;}
+.def-card p{font-size:12.5px; color:var(--dim); line-height:1.75; font-weight:500;}
+
+.diagram-card{padding:18px; text-align:center;}
+.diagram-card svg{width:100%; max-width:280px; height:150px;}
+.diagram-card .cap{font-weight:800; font-size:13px; color:var(--heading); margin-top:8px;}
+.diagram-card .cap2{font-size:11px; color:var(--dim); margin-top:2px;}
+
+.rule-card{padding:20px; border-left:5px solid var(--neon-blue);}
+.rule-card h4{font-size:15px; color:var(--cyan); font-weight:900; margin-bottom:8px;}
+.rule-card p{font-size:13px; color:var(--dim); line-height:1.8; font-weight:500;}
+
+.example-card{padding:18px 20px;}
+.example-card .qlabel{font-size:11px; font-weight:900; color:var(--gold); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;}
+.example-card .qtext{font-size:13.5px; font-weight:700; color:var(--heading); margin-bottom:14px; line-height:1.7;}
+.example-card .slabel{font-size:11px; font-weight:900; color:var(--green); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;}
+.example-card .stext{font-size:13px; color:var(--dim); line-height:1.8; font-weight:500; background:var(--glass-strong); padding:12px 14px; border-radius:10px; white-space:pre-line;}
+.example-card{margin-bottom:14px;}
+.show-ans-btn{padding:9px 20px; border-radius:10px; border:1.5px solid var(--green); background:transparent; color:var(--green);
+  font-weight:800; font-size:12px; cursor:pointer; transition:.2s;}
+.show-ans-btn:hover{background:var(--green); color:#04050f;}
+.show-ans-btn.open{background:var(--green); color:#04050f;}
+.ans-wrap{margin-top:14px; display:none;}
+.ans-wrap.open{display:block;}
+
+.hw-card{padding:18px 20px;}
+.hw-card ol{margin:0; padding-left:20px; font-size:13px; color:var(--dim); line-height:2; font-weight:500;}
+.hw-card ol li{margin-bottom:6px;}
+.hw-card ol li::marker{color:var(--heading); font-weight:800;}
+
+.table-wrap{overflow-x:auto;}
+table{width:100%; border-collapse:collapse; min-width:700px;}
+thead th{text-align:center; padding:12px 14px; background:linear-gradient(120deg,var(--neon-blue),var(--purple)); color:#fff;
+  font-size:12px; text-transform:uppercase; letter-spacing:.5px; font-weight:900;}
+thead th:first-child{border-radius:10px 0 0 0;} thead th:last-child{border-radius:0 10px 0 0;}
+tbody td{padding:12px 14px; border-bottom:1px solid var(--border); color:var(--dim); font-size:12.5px; text-align:center; font-weight:600;}
+tbody tr:hover{background:#3ea6ff14;}
+tbody tr.current-row{background:#ffc23322;}
+tbody tr.current-row td{color:var(--heading); font-weight:800;}
+.pill{display:inline-block; padding:4px 12px; border-radius:12px; font-size:10.5px; font-weight:900;}
+.pill-real{background:linear-gradient(120deg,var(--red),#a82424); color:#fff;}
+.pill-virtual{background:linear-gradient(120deg,var(--cyan),#0a85b8); color:#04050f;}
+.pill-erect{background:linear-gradient(120deg,var(--green),#1a9c70); color:#04050f;}
+.pill-inverted{background:linear-gradient(120deg,var(--orange),#c9650c); color:#04050f;}
+.pill-current{background:linear-gradient(120deg,var(--gold),#c9650c); color:#04050f;}
+
+.formula-card{padding:24px; text-align:center; border-radius:18px; position:relative; overflow:hidden;}
+.formula-card .big{font-size:22px; font-weight:900; color:var(--heading); margin:10px 0; font-family:'Segoe UI',sans-serif;}
+.formula-card .name{font-size:12.5px; color:var(--gold); font-weight:800; text-transform:uppercase; letter-spacing:1px;}
+.formula-card .d{font-size:11.5px; color:var(--dim); margin-top:8px; line-height:1.6; font-weight:500;}
+
+.app-card{padding:18px; text-align:center;}
+.app-card .ic{font-size:34px; margin-bottom:8px;}
+.app-card .t{font-weight:800; font-size:13px; color:var(--heading);}
+.app-card .d{font-size:11px; color:var(--dim); margin-top:4px;}
+
+.trick-card{padding:16px 18px; border-left:4px solid var(--gold);}
+.mistake-card{padding:16px 18px; border-left:4px solid var(--red); background:linear-gradient(120deg,#ff4f4f14,transparent);}
+.mistake-card .wrong{color:var(--red); font-weight:800; font-size:12.5px; text-decoration:line-through;}
+.mistake-card .right{color:var(--green); font-weight:800; font-size:12.5px;}
+
+.q-card{margin-bottom:10px; overflow:hidden;}
+.q-head{padding:14px 18px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:10px;}
+.q-head .txt{font-weight:800; font-size:13px; color:var(--heading);}
+.q-head .tag{font-size:10px; padding:3px 10px; border-radius:10px; font-weight:900; color:#04050f; flex-shrink:0;}
+.q-head .arrow{color:var(--cyan); transition:transform .3s;}
+.q-head.open .arrow{transform:rotate(180deg);}
+.q-body{max-height:0; overflow:hidden; transition:max-height .4s; padding:0 18px;}
+.q-body.open{max-height:300px; padding:0 18px 16px;}
+.q-body p{font-size:12.5px; color:var(--dim); line-height:1.8; font-weight:500;}
+
+.quiz-item{padding:16px 18px; margin-bottom:12px;}
+.quiz-item .q{font-weight:800; font-size:13.5px; margin-bottom:10px; color:var(--heading);}
+.quiz-opt{display:block; padding:9px 14px; margin:6px 0; border-radius:10px; border:1.5px solid var(--border); font-size:12.5px;
+  color:var(--dim); font-weight:600; cursor:pointer; transition:.2s;}
+.quiz-opt:hover{border-color:var(--cyan);}
+.quiz-opt.selected{border-color:var(--neon-blue); background:#3ea6ff1a;}
+.quiz-opt.correct-answer{background:linear-gradient(120deg,var(--green),#1a9c70); color:#04050f; border-color:transparent; font-weight:900;}
+.quiz-opt.wrong-answer{background:linear-gradient(120deg,var(--red),#b82828); color:#fff; border-color:transparent; font-weight:900;}
+.score-box{text-align:center; padding:24px;}
+.score-box .num{font-size:44px; font-weight:900; color:var(--gold);}
+.btn-primary{padding:12px 26px; border-radius:14px; border:none; font-weight:900; font-size:13px; cursor:pointer;
+  background:linear-gradient(120deg,var(--neon-blue),var(--purple)); color:#fff; box-shadow:0 10px 24px -6px #0009;}
+
+footer{text-align:center; padding:50px 6vw 70px; color:var(--dim); font-size:12.5px; border-top:1px solid var(--border); margin-top:30px; font-weight:600;}
+footer .name{color:var(--cyan); font-weight:900; font-size:16px;}
+footer .badges{display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin:16px 0;}
+footer .badge{padding:6px 16px; border-radius:20px; font-size:11px; font-weight:800; background:var(--glass-strong); border:1px solid var(--border);}
+footer .copy{margin-top:18px; font-size:11px; color:var(--dim); opacity:.8;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <img src="images/1000043468.png" alt="PK STUDY" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="logo-fallback" style="display:none;">PK</div>
+    <div class="brand-text"><div class="name">PK STUDY</div><div class="tag">Class 6-7 (Combined) • Maths • Part 2</div></div>
+  </div>
+  <nav>
+    <a href="#syllabus">सिलेबस मैप</a><a href="#notes">नोट्स</a><a href="#formulas">सूत्र</a>
+    <a href="#examples">उदाहरण</a><a href="#questions">प्रश्न</a><a href="#homework">होमवर्क</a>
+  </nav>
+  <button class="theme-btn" id="themeToggle" onclick="toggleTheme()" title="Dark/Light Mode">🌙</button>
+</header>
+
+<!-- ============ HERO ============ -->
+<div class="hero">
+  <span class="eyebrow">कक्षा 6-7 (संयुक्त) · Maths · Part 2</span>
+  <h1>पूर्ण संख्याएँ — Whole Numbers</h1>
+  <div class="en">Whole Numbers — Number Line, Successor-Predecessor & Properties</div>
+  <p>यह Class 6 और Class 7 के <b>संयुक्त (combined)</b> Maths syllabus का <b>Part 2</b> है, जो Part 1 (Knowing Our Numbers) के ठीक बाद आता है। इसमें प्राकृत संख्या (Natural Numbers) और पूर्ण संख्या (Whole Numbers) का अंतर, संख्या रेखा पर पूर्ण संख्याओं का निरूपण, उत्तरवर्ती-पूर्ववर्ती संख्या, तथा जोड़, घटाव, गुणा और भाग के गुण (Closure, Commutative, Associative, Distributive, Additive Identity) पढ़ेंगे। इसे 4 दिनों (Part 2A, 2B) में पूरा करेंगे।</p>
+  <div class="pulse-line"></div>
+</div>
+
+<!-- ============ SYLLABUS ROADMAP ============ -->
+<section id="syllabus">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--gold),#c9650c); --glow:#ffc23399;">🗺️</div>
+    <div><h2>पूरा सिलेबस रोडमैप — Class 6-7 संयुक्त Maths</h2><div class="sub en-tag">Kaun sa Part mein kaun sa Chapter — pura naksha</div></div></div>
+  <div class="glass card table-wrap">
+    <table>
+      <thead><tr><th>Part</th><th>Chapter (Class)</th><th>Din (Days)</th><th>Sub-Parts</th></tr></thead>
+      <tbody id="syllabusBody"></tbody>
+    </table>
+  </div>
+  <p style="color:var(--dim); font-size:12px; margin-top:14px; font-weight:600;">नोट: यह फ़ाइल सिर्फ़ Class 6 के फ़ोल्डर में रखी गई है, क्योंकि Class 6 और 7 का Maths एक साथ, एक ही क्रम में पढ़ाया जा रहा है — चैप्टर के नाम अलग-अलग क्लास के हिसाब से नहीं, बल्कि मिलाकर (mixed) दिए गए हैं। जो चैप्टर 2-3 दिन से ज़्यादा चलता है, उसे A/B/C sub-parts में बाँटा गया है।</p>
+</section>
+
+<!-- ============ NOTES ============ -->
+<section id="notes">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--neon-blue),#1f6fc9); --glow:#3ea6ff99;">📝</div>
+    <div><h2>Notes — विस्तार से समझें</h2><div class="sub en-tag">Detailed Concept Notes</div></div></div>
+  <div class="glass card" style="display:flex; flex-direction:column; gap:16px;">
+    <div class="rule-card" style="border-left-color:var(--cyan);">
+      <h4 style="color:var(--cyan);">1. प्राकृत संख्या बनाम पूर्ण संख्या (0 का समावेश)</h4>
+      <p><b class="hi">प्राकृत संख्याएँ (Natural Numbers)</b> गिनती की संख्याएँ हैं — N = {1, 2, 3, 4, ...} — जो 1 से शुरू होती हैं। जब हम इस समूह में <b class="hi2">0</b> को भी जोड़ देते हैं, तो <b class="hi">पूर्ण संख्याएँ (Whole Numbers)</b> बनती हैं — W = {0, 1, 2, 3, 4, ...}। इसलिए W = N ∪ {0}। उदाहरण: हर प्राकृत संख्या पूर्ण संख्या होती है (जैसे 5), लेकिन <b class="hi3">0 पूर्ण संख्या तो है पर प्राकृत संख्या नहीं है</b>।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--pink);">
+      <h4 style="color:var(--pink);">2. संख्या रेखा पर पूर्ण संख्याएँ</h4>
+      <p>पूर्ण संख्याओं को एक सीधी रेखा पर दिखाया जा सकता है जिसे <span class="eng-term">Number Line</span> कहते हैं। यह 0 से शुरू होकर दायीं ओर बराबर-बराबर दूरी पर 1, 2, 3, ... की तरह अनंत तक चलती है — इसमें कोई ऋणात्मक (negative) संख्या नहीं होती। संख्या रेखा पर जो संख्या जितनी दायीं ओर होगी, वह उतनी ही बड़ी होगी। उदाहरण: चूँकि 7, संख्या रेखा पर 4 से दायीं ओर है, इसलिए <b class="hi2">7 &gt; 4</b> है।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--green);">
+      <h4 style="color:var(--green);">3. उत्तरवर्ती एवं पूर्ववर्ती संख्या</h4>
+      <p>किसी पूर्ण संख्या के ठीक बाद आने वाली संख्या <b class="hi">उत्तरवर्ती (Successor)</b> कहलाती है — इसे संख्या में 1 जोड़कर पाया जाता है। किसी संख्या से ठीक पहले आने वाली संख्या <b class="hi">पूर्ववर्ती (Predecessor)</b> कहलाती है — इसे संख्या में से 1 घटाकर पाया जाता है। ध्यान दें: <b class="hi3">0 का कोई पूर्ववर्ती नहीं होता</b>, क्योंकि पूर्ण संख्याओं में ऋणात्मक संख्या नहीं आती। उदाहरण: 99 का उत्तरवर्ती 100 है और 100 का पूर्ववर्ती 99 है।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--orange);">
+      <h4 style="color:var(--orange);">4. जोड़ व गुणा के गुण (Closure, Commutative, Associative, Distributive)</h4>
+      <p><b class="hi">Closure Property:</b> दो पूर्ण संख्याओं को जोड़ने या गुणा करने पर हमेशा एक पूर्ण संख्या ही मिलती है (जैसे 4+5=9, 4×5=20) — लेकिन घटाव व भाग में यह गुण लागू नहीं होता (जैसे 4−5=−1 पूर्ण संख्या नहीं है)। <b class="hi">Commutative Property:</b> क्रम बदलने से जोड़ या गुणा का परिणाम नहीं बदलता — a+b=b+a और a×b=b×a (जैसे 6+9=9+6=15)। <b class="hi">Associative Property:</b> समूहन बदलने से परिणाम नहीं बदलता — (a+b)+c=a+(b+c) और (a×b)×c=a×(b×c) (जैसे (2+3)+4 = 2+(3+4) = 9)। <b class="hi">Distributive Property:</b> गुणा, जोड़ पर वितरित होता है — a×(b+c)=(a×b)+(a×c) (जैसे 5×(3+4)=5×3+5×4=35)।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--purple);">
+      <h4 style="color:var(--purple);">5. योगात्मक तत्समक (Additive Identity = 0)</h4>
+      <p>किसी भी पूर्ण संख्या में 0 जोड़ने पर संख्या वही रहती है, इसलिए 0 को <b class="hi">योगात्मक तत्समक (Additive Identity)</b> कहते हैं — a+0=a=0+a। इसी तरह किसी भी पूर्ण संख्या को 1 से गुणा करने पर संख्या वही रहती है, इसलिए 1 को <b class="hi2">गुणात्मक तत्समक (Multiplicative Identity)</b> कहते हैं — a×1=a। उदाहरण: 258+0=258 और 258×1=258।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--gold);">
+      <h4 style="color:var(--gold);">6. भाग से जुड़ा नियम (0 से भाग अपरिभाषित है)</h4>
+      <p>किसी भी पूर्ण संख्या को <b class="hi3">0 से भाग देना अपरिभाषित (Not Defined)</b> होता है — जैसे 8÷0 का कोई अर्थ नहीं है, क्योंकि ऐसी कोई संख्या नहीं जिसे 0 से गुणा करने पर 8 मिले। दूसरी ओर, <b class="hi2">0 को किसी भी नॉन-ज़ीरो (non-zero) पूर्ण संख्या से भाग देने पर परिणाम हमेशा 0 होता है</b> — जैसे 0÷8=0, क्योंकि 8×0=0।</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FORMULA SHEET ============ -->
+<section id="formulas">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--purple),#7e4fd1); --glow:#b07dff99;">🧮</div>
+    <div><h2>ज़रूरी सूत्र एवं नियम (Formula Sheet)</h2><div class="sub en-tag">Key Rules to Remember</div></div></div>
+  <div class="grid grid-3" id="formulaSheetGrid"></div>
+</section>
+
+<!-- ============ SOLVED EXAMPLES ============ -->
+<section id="examples">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--green),#1a9c70); --glow:#2ee6a699;">✍️</div>
+    <div><h2>हल किए गए उदाहरण (Solved Examples)</h2><div class="sub en-tag">Step-by-Step Worked Examples</div></div></div>
+  <div id="examplesWrap"></div>
+</section>
+
+<!-- ============ IMPORTANT QUESTIONS ============ -->
+<section id="questions">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--pink),#b8285f); --glow:#ff4d8d99;">⭐</div>
+    <div><h2>महत्वपूर्ण प्रश्न (Objective + Subjective)</h2><div class="sub en-tag">Important Questions — All Types</div></div></div>
+  <div id="questionsWrap"></div>
+</section>
+
+<!-- ============ HOMEWORK ============ -->
+<section id="homework">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--red),#a82424); --glow:#ff4f4f99;">🏠</div>
+    <div><h2>घर से करने के लिए Homework</h2><div class="sub en-tag">Notebook Exercise — Part 2A, 2B</div></div></div>
+  <div class="glass card hw-card">
+    <ol id="homeworkList"></ol>
+  </div>
+  <p style="color:var(--dim); font-size:12px; margin-top:14px; font-weight:600;">यह सभी प्रश्न बिना उत्तर देखे, अपनी Maths की notebook में हल करके अगली कक्षा में साथ लाने हैं।</p>
+</section>
+
+<footer>
+  <div style="font-size:20px;">✨</div>
+  <span class="name">PK STUDY</span> — Part 2 Complete · Revision Ready
+  <div class="badges">
+    <span class="badge">✅ सरल भाषा</span>
+    <span class="badge">✅ Class 6-7 संयुक्त Syllabus</span>
+    <span class="badge">✅ हल सहित उदाहरण</span>
+    <span class="badge">✅ Maths Foundation</span>
+  </div>
+  Made for Class 6-7 Students · Maths · Part 2: Whole Numbers
+  <div class="copy">PK STUDY — All Copyright Reserved</div>
+</footer>
+
+<script>
+/* ================= THEME ================= */
+function toggleTheme(){
+  const html = document.documentElement;
+  const isLight = html.getAttribute('data-theme') === 'light';
+  html.setAttribute('data-theme', isLight ? '' : 'light');
+  document.getElementById('themeToggle').textContent = isLight ? '🌙' : '☀️';
+}
+
+/* ================= DATA ================= */
+const syllabusData = [
+  [1,"Knowing Our Numbers (कक्षा 6)","5","1A, 1B, 1C",false],
+  [2,"Whole Numbers (कक्षा 6)","4","2A, 2B",true],
+  [3,"Playing with Numbers (कक्षा 6)","4","3A, 3B",false],
+  [4,"Basic Geometrical Ideas (क.6) + Lines and Angles (क.7)","6","4A, 4B, 4C",false],
+  [5,"Understanding Elementary Shapes (क.6) + The Triangle and its Properties (क.7)","6","5A, 5B, 5C",false],
+  [6,"Integers (क.6) + Integers (क.7)","5","6A, 6B, 6C",false],
+  [7,"Fractions (क.6) + Fractions and Decimals (क.7)","6","7A, 7B, 7C",false],
+  [8,"Decimals (कक्षा 6)","3","—",false],
+  [9,"Rational Numbers (कक्षा 7)","4","9A, 9B",false],
+  [10,"Data Handling (क.6) + Data Handling (क.7)","4","10A, 10B",false],
+  [11,"Mensuration (क.6) + Perimeter and Area (क.7)","5","11A, 11B, 11C",false],
+  [12,"Algebra (क.6) + Simple Equations (क.7)","5","12A, 12B, 12C",false],
+  [13,"Algebraic Expressions (कक्षा 7)","3","—",false],
+  [14,"Ratio and Proportion (क.6) + Comparing Quantities (क.7)","5","14A, 14B, 14C",false],
+  [15,"Congruence of Triangles (कक्षा 7)","3","—",false],
+  [16,"Exponents and Powers (कक्षा 7)","3","—",false],
+  [17,"Symmetry (क.6) + Symmetry (क.7)","3","—",false],
+  [18,"Practical Geometry (क.6) + Practical Geometry (क.7)","4","18A, 18B",false],
+  [19,"Visualising Solid Shapes (कक्षा 7)","3","—",false]
+];
+
+const formulaSheetData = [
+  {t:"Closure — जोड़", d:"a + b सदैव पूर्ण संख्या है, यदि a, b पूर्ण संख्याएँ हैं", c:"var(--cyan)"},
+  {t:"Closure — गुणा", d:"a × b सदैव पूर्ण संख्या है, यदि a, b पूर्ण संख्याएँ हैं", c:"var(--pink)"},
+  {t:"Commutative Law", d:"a + b = b + a  तथा  a × b = b × a", c:"var(--green)"},
+  {t:"Associative Law", d:"(a+b)+c = a+(b+c)  तथा  (a×b)×c = a×(b×c)", c:"var(--orange)"},
+  {t:"Distributive Law", d:"a × (b + c) = (a × b) + (a × c)", c:"var(--purple)"},
+  {t:"Identity व भाग नियम", d:"a + 0 = a (Additive Identity) · a÷0 अपरिभाषित · 0÷a = 0 (a≠0)", c:"var(--gold)"}
+];
+
+const examplesData = [
+  {q:"सिद्ध कीजिए कि पूर्ण संख्याओं का जोड़ Commutative होता है — 47 और 59 का उदाहरण लेकर दिखाइए।",
+   s:"47 + 59 = 106\n59 + 47 = 106\nदोनों ही स्थिति में परिणाम 106 है, यानी 47+59 = 59+47।\n\nउत्तर: इससे सिद्ध होता है कि पूर्ण संख्याओं का जोड़ Commutative (क्रम-विनिमेय) होता है।"},
+  {q:"Distributive Law का प्रयोग करके 25 × (10 + 4) का मान सरल विधि से ज्ञात कीजिए।",
+   s:"a×(b+c) = (a×b)+(a×c) के नियम से:\n25 × (10+4) = (25×10) + (25×4)\n= 250 + 100\n= 350\n\nजाँच: 25×14 = 350 ✔\n\nउत्तर: 25 × (10+4) = 350।"},
+  {q:"क्या 15 ÷ 0 परिभाषित है? कारण सहित बताइए, और साथ ही 0 ÷ 15 का मान भी ज्ञात कीजिए।",
+   s:"15 ÷ 0 अपरिभाषित (Not Defined) है, क्योंकि ऐसी कोई पूर्ण संख्या नहीं है जिसे 0 से गुणा करने पर 15 प्राप्त हो (0 से गुणा करने पर हमेशा 0 ही मिलता है)।\n\nदूसरी ओर, 0 ÷ 15 = 0, क्योंकि 15 × 0 = 0।\n\nउत्तर: 15÷0 अपरिभाषित है, जबकि 0÷15 = 0 है।"}
+];
+
+const questionsData = [
+  {tag:"Objective", color:"var(--cyan)", q:"सबसे छोटी पूर्ण संख्या कौन-सी है?", a:"सबसे छोटी पूर्ण संख्या 0 है।"},
+  {tag:"Objective", color:"var(--pink)", q:"क्या हर प्राकृत संख्या एक पूर्ण संख्या होती है? कारण सहित बताइए।", a:"हाँ, हर प्राकृत संख्या पूर्ण संख्या होती है, क्योंकि W = N ∪ {0} है — यानी प्राकृत संख्याओं के समूह में सिर्फ़ 0 जोड़ने से पूर्ण संख्याएँ बनती हैं।"},
+  {tag:"Objective", color:"var(--green)", q:"0 का पूर्ववर्ती (Predecessor) क्या है?", a:"पूर्ण संख्याओं के समूह में 0 का कोई पूर्ववर्ती नहीं होता, क्योंकि इसमें कोई ऋणात्मक संख्या शामिल नहीं है।"},
+  {tag:"Objective", color:"var(--orange)", q:"रिक्त स्थान भरें: a × (b + c) = ____", a:"a × (b+c) = (a×b) + (a×c) — यही Distributive Law है।"},
+  {tag:"Subjective · Very Short", color:"var(--purple)", q:"999 का उत्तरवर्ती (Successor) और पूर्ववर्ती (Predecessor) ज्ञात कीजिए।", a:"999 का उत्तरवर्ती = 999+1 = 1000\n999 का पूर्ववर्ती = 999−1 = 998"},
+  {tag:"Subjective · Short", color:"var(--gold)", q:"समझाइए कि घटाव और भाग की क्रिया में पूर्ण संख्याओं का Closure Property लागू क्यों नहीं होता, एक-एक उदाहरण दीजिए।", a:"घटाव में: 4−7 = −3, जो पूर्ण संख्या नहीं है (ऋणात्मक है), इसलिए घटाव में Closure Property लागू नहीं होती।\nभाग में: 7÷2 = 3.5, जो पूर्ण संख्या नहीं है (भिन्न है), इसलिए भाग में भी Closure Property लागू नहीं होती।"},
+  {tag:"Subjective · Short", color:"var(--cyan)", q:"सत्यापित कीजिए कि (15+8)+12 = 15+(8+12) है या नहीं।", a:"बायाँ पक्ष: (15+8)+12 = 23+12 = 35\nदायाँ पक्ष: 15+(8+12) = 15+20 = 35\nदोनों पक्ष बराबर हैं, इसलिए (15+8)+12 = 15+(8+12) — यह Associative Property को सिद्ध करता है।"},
+  {tag:"Subjective · Long", color:"var(--pink)", q:"Distributive Property का प्रयोग करते हुए 738 × 103 का मान सरल विधि से ज्ञात कीजिए।", a:"103 = 100+3 लिखकर:\n738 × 103 = 738 × (100+3)\n= (738×100) + (738×3)\n= 73800 + 2214\n= 76014\n\nउत्तर: 738 × 103 = 76014।"},
+  {tag:"Subjective · Long", color:"var(--green)", q:"प्राकृत संख्या और पूर्ण संख्या में अंतर स्पष्ट करते हुए संख्या रेखा के माध्यम से समझाइए।", a:"प्राकृत संख्याएँ (N) 1 से शुरू होती हैं — N={1,2,3,...}, जबकि पूर्ण संख्याएँ (W) 0 से शुरू होती हैं — W={0,1,2,3,...}। संख्या रेखा पर प्राकृत संख्याएँ बिंदु 1 से दायीं ओर शुरू होती हैं, जबकि पूर्ण संख्याओं की रेखा बिंदु 0 से शुरू होकर दायीं ओर बढ़ती है। इस तरह हर प्राकृत संख्या पूर्ण संख्या है, लेकिन 0 सिर्फ़ पूर्ण संख्या है, प्राकृत संख्या नहीं।"},
+  {tag:"Subjective · Short", color:"var(--orange)", q:"निम्नलिखित कथन को सही कीजिए: 'हर पूर्ण संख्या का पूर्ववर्ती होता है।'", a:"यह कथन ग़लत है। सही कथन है — '0 को छोड़कर, हर पूर्ण संख्या का पूर्ववर्ती होता है', क्योंकि 0 का कोई पूर्ववर्ती पूर्ण संख्याओं में मौजूद नहीं है।"},
+  {tag:"Subjective · Long", color:"var(--purple)", q:"सिद्ध कीजिए कि 0, गुणा के लिए अवशोषक तत्व (Absorbing Element) है, अर्थात किसी भी पूर्ण संख्या a के लिए a×0=0 है — दो उदाहरण देकर स्पष्ट कीजिए।", a:"नियम: किसी भी पूर्ण संख्या को 0 से गुणा करने पर परिणाम हमेशा 0 आता है, यानी a×0=0=0×a।\nउदाहरण 1: 156 × 0 = 0\nउदाहरण 2: 0 × 9999 = 0\nइस तरह 0 को गुणा में 'अवशोषक तत्व' कहा जाता है क्योंकि यह हर परिणाम को अपने ही बराबर (0) बना देता है।"},
+  {tag:"Subjective · HOTS", color:"var(--gold)", q:"क्या पूर्ण संख्याओं का समुच्चय भाग की क्रिया के अंतर्गत बंद (Closed) है? उदाहरण सहित स्पष्ट कीजिए।", a:"नहीं, पूर्ण संख्याओं का समुच्चय भाग के अंतर्गत बंद नहीं है। उदाहरण: 9÷2 = 4.5, जो पूर्ण संख्या नहीं है — इसलिए दो पूर्ण संख्याओं का भाग हमेशा पूर्ण संख्या नहीं देता, यानी Closure Property भाग में लागू नहीं होती।"}
+];
+
+const homeworkData = [
+  "निम्नलिखित का उत्तरवर्ती एवं पूर्ववर्ती ज्ञात कीजिए: (a) 10000 (b) 100199 (c) 0",
+  "जाँच कीजिए कि क्या निम्नलिखित सही है: 25 × (7+3) = 25×7 + 25×3 — दोनों तरफ़ का मान निकालकर दिखाइए।",
+  "निम्नलिखित हल कीजिए और बताइए कि कौन-सा गुण प्रयोग हुआ: (a) 237+0 (b) 15×1 (c) 8+12 और 12+8",
+  "क्या 45÷0 और 0÷45 दोनों परिभाषित हैं? कारण सहित समझाइए।",
+  "Distributive Property का प्रयोग करके निम्नलिखित हल कीजिए: (a) 156×102 (b) 47×98",
+  "पूर्ण संख्याओं की संख्या रेखा 0 से 10 तक बनाइए और उस पर 3 और 7 के बीच की दूरी को चिह्नित कीजिए।"
+];
+
+/* ================= RENDER FUNCTIONS ================= */
+function el(tag, cls, html){ const d=document.createElement(tag); if(cls)d.className=cls; if(html!==undefined)d.innerHTML=html; return d; }
+
+function buildSyllabus(){
+  const wrap = document.getElementById('syllabusBody');
+  syllabusData.forEach(row=>{
+    const tr = document.createElement('tr');
+    if(row[4]) tr.className='current-row';
+    const badge = row[4] ? `<span class="pill pill-current">अभी यही</span> Part ${row[0]}` : `Part ${row[0]}`;
+    tr.innerHTML = `<td>${badge}</td><td style="text-align:left;">${row[1]}</td><td>${row[2]}</td><td>${row[3]}</td>`;
+    wrap.appendChild(tr);
+  });
+}
+function buildFormulaSheet(){
+  const g = document.getElementById('formulaSheetGrid');
+  formulaSheetData.forEach(f=>{ const d=el('div','glass def-card', `<h4 style="color:${f.c}">🧮 ${f.t}</h4><p>${f.d}</p>`); g.appendChild(d); });
+}
+function buildExamples(){
+  const wrap = document.getElementById('examplesWrap');
+  examplesData.forEach((ex,i)=>{
+    const d = el('div','glass card example-card', `<div class="qlabel">प्रश्न ${i+1}</div><div class="qtext">${ex.q}</div>
+      <button class="show-ans-btn" onclick="toggleAnswer(this)">उत्तर दिखाएँ (Show Answer)</button>
+      <div class="ans-wrap"><div class="slabel">हल (Solution)</div><div class="stext">${ex.s}</div></div>`);
+    wrap.appendChild(d);
+  });
+}
+function buildQuestions(){
+  const wrap = document.getElementById('questionsWrap');
+  questionsData.forEach((item,i)=>{
+    const d = el('div','glass card example-card', `<div class="qlabel">${item.tag} · प्रश्न ${i+1}</div><div class="qtext">${item.q}</div>
+      <button class="show-ans-btn" onclick="toggleAnswer(this)">उत्तर दिखाएँ (Show Answer)</button>
+      <div class="ans-wrap"><div class="slabel">उत्तर (Answer)</div><div class="stext">${item.a}</div></div>`);
+    wrap.appendChild(d);
+  });
+}
+function toggleAnswer(btn){
+  const wrap = btn.nextElementSibling;
+  const isOpen = wrap.classList.toggle('open');
+  btn.classList.toggle('open', isOpen);
+  btn.textContent = isOpen ? 'उत्तर छुपाएँ (Hide Answer)' : 'उत्तर दिखाएँ (Show Answer)';
+}
+function buildHomework(){
+  const g = document.getElementById('homeworkList');
+  homeworkData.forEach(q=>{ const li = document.createElement('li'); li.textContent = q; g.appendChild(li); });
+}
+
+/* INIT */
+buildSyllabus();
+buildFormulaSheet();
+buildExamples();
+buildQuestions();
+buildHomework();
+</script>
+</body>
+</html>

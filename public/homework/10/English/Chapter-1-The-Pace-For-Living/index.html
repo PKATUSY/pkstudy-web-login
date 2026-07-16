@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PK STUDY | The Pace For Living</title>
+<style>
+:root{
+  --bg:#04050f; --glass:rgba(255,255,255,.045); --glass-strong:rgba(255,255,255,.08);
+  --border:rgba(255,255,255,.12); --text:#f2f6ff; --dim:#9fb0da; --heading:#ffffff;
+  --neon-blue:#3ea6ff; --cyan:#33e0ff; --purple:#b07dff; --gold:#ffc233;
+  --green:#2ee6a6; --orange:#ff9f43; --pink:#ff4d8d; --red:#ff4f4f;
+  --shadow:0 22px 46px -22px #000d; --hshadow:0 30px 56px -20px #000f;
+}
+[data-theme="light"]{
+  --bg:#f6f8fd; --glass:rgba(20,30,65,.045); --glass-strong:rgba(20,30,65,.08);
+  --border:rgba(20,30,65,.12); --text:#161c33; --dim:#535f82; --heading:#12172b;
+  --neon-blue:#2563eb; --cyan:#0891b2; --purple:#7c3aed; --gold:#b45309;
+  --green:#059669; --orange:#c2410c; --pink:#db2777; --red:#dc2626;
+  --shadow:0 18px 36px -20px rgba(30,40,80,.18); --hshadow:0 24px 44px -18px rgba(30,40,80,.24);
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Segoe UI','Noto Sans Devanagari',Arial,sans-serif; color:var(--text); min-height:100vh; overflow-x:hidden;
+  transition:background .4s, color .4s;
+  background:
+    radial-gradient(ellipse at 10% -10%, #1c3a9955, transparent 55%),
+    radial-gradient(ellipse at 95% 10%, #7a2ab866, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, #0a5a6e44, transparent 55%),
+    linear-gradient(180deg,#04050f,#020208 90%);
+}
+[data-theme="light"] body{
+  background:
+    radial-gradient(ellipse at 10% -10%, #dbe4ff99, transparent 55%),
+    radial-gradient(ellipse at 95% 10%, #ede0ff99, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, #d7f5f099, transparent 55%),
+    linear-gradient(180deg,#f8faff,#eef1f9 90%);
+}
+::-webkit-scrollbar{width:8px;} ::-webkit-scrollbar-thumb{background:var(--neon-blue); border-radius:6px;} ::-webkit-scrollbar-track{background:transparent;}
+
+.glass{background:var(--glass); border:1px solid var(--border); border-radius:18px; backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+  box-shadow:var(--shadow), inset 0 1px 0 #ffffff12;}
+
+header{position:sticky; top:0; z-index:200; display:flex; align-items:center; justify-content:space-between; padding:14px 26px;
+  background:rgba(4,5,15,.75); backdrop-filter:blur(18px); border-bottom:1px solid var(--border); flex-wrap:wrap; gap:10px; transition:background .4s;}
+[data-theme="light"] header{background:rgba(255,255,255,.8);}
+.brand{display:flex; align-items:center; gap:12px;}
+.brand img{width:44px; height:44px; border-radius:10px; object-fit:cover; border:2px solid var(--neon-blue); box-shadow:0 0 18px #3ea6ff88;}
+.logo-fallback{width:44px; height:44px; border-radius:10px; display:flex; align-items:center; justify-content:center;
+  background:linear-gradient(135deg,var(--neon-blue),#1f3d8c); font-weight:900; font-size:12px; border:2px solid var(--cyan); color:#fff;}
+.brand-text .name{font-weight:900; font-size:18px; color:var(--cyan); letter-spacing:.5px;}
+.brand-text .tag{font-size:11px; color:var(--dim); font-weight:600;}
+nav{display:flex; gap:5px; overflow-x:auto; max-width:52vw;}
+nav::-webkit-scrollbar{height:4px;}
+nav a{color:var(--dim); text-decoration:none; font-size:11.5px; padding:6px 11px; border-radius:16px; border:1px solid transparent; transition:.2s; font-weight:700; white-space:nowrap;}
+nav a:hover{color:var(--heading); border-color:var(--neon-blue); background:#3ea6ff1a;}
+.theme-btn{flex-shrink:0; width:40px; height:40px; border-radius:12px; border:1px solid var(--border); background:var(--glass-strong);
+  color:var(--text); font-size:17px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:.25s;}
+.theme-btn:hover{border-color:var(--neon-blue); transform:translateY(-2px);}
+
+.hero{position:relative; padding:60px 6vw 40px; text-align:center;}
+.eyebrow{display:inline-block; padding:7px 22px; border-radius:30px; color:#04050f; font-size:12px; font-weight:900;
+  letter-spacing:2px; text-transform:uppercase; margin-bottom:20px;
+  background:linear-gradient(120deg,var(--gold),var(--orange),var(--pink),var(--purple),var(--cyan));
+  box-shadow:0 10px 26px -6px #000b;}
+.hero h1{font-size:clamp(26px,5.5vw,48px); font-weight:900; line-height:1.25;
+  background:linear-gradient(90deg,var(--neon-blue),var(--cyan) 35%,var(--purple) 65%,var(--pink)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+.hero .en{font-size:16px; color:var(--dim); font-weight:700; margin-top:10px;}
+.hero p{color:var(--dim); max-width:760px; margin:20px auto 0; font-size:14.5px; line-height:1.9; font-weight:500;}
+
+section{position:relative; padding:44px 6vw; max-width:1200px; margin:0 auto;}
+.sec-head{display:flex; align-items:center; gap:14px; margin-bottom:24px;}
+.sec-num{width:44px; height:44px; border-radius:14px; flex-shrink:0; display:flex; align-items:center; justify-content:center;
+  font-weight:900; font-size:16px; color:#04050f; box-shadow:0 8px 22px -6px var(--glow,#3ea6ff99); border:2px solid #ffffffaa;}
+.sec-head h2{font-size:clamp(19px,3vw,26px); font-weight:900; color:var(--heading);}
+.sec-head .sub{color:var(--dim); font-size:12.5px; font-weight:600; margin-top:2px;}
+.sec-head .en-tag{font-size:11px; color:var(--gold); font-weight:700; letter-spacing:.5px;}
+
+.card{padding:20px 22px;}
+.grid{display:grid; gap:16px;}
+.grid-2{grid-template-columns:1fr 1fr;} .grid-3{grid-template-columns:repeat(3,1fr);}
+@media(max-width:900px){.grid-3{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.grid-2,.grid-3{grid-template-columns:1fr;} nav{max-width:100%;}}
+
+b.hi{color:var(--pink); font-weight:900;} b.hi2{color:var(--green); font-weight:900;} b.hi3{color:var(--gold); font-weight:900;}
+
+.rule-card{padding:20px; border-left:5px solid var(--neon-blue);}
+.rule-card h4{font-size:15px; color:var(--cyan); font-weight:900; margin-bottom:10px;}
+.rule-card p{font-size:13px; color:var(--dim); line-height:1.85; font-weight:500; margin-bottom:8px;}
+.rule-card ul{margin:6px 0 6px 20px; font-size:13px; color:var(--dim); line-height:1.9; font-weight:500;}
+.rule-card ul li{margin-bottom:4px;}
+
+.example-card{padding:18px 20px; margin-bottom:14px;}
+.example-card .qlabel{font-size:11px; font-weight:900; color:var(--gold); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;}
+.example-card .qtext{font-size:13.5px; font-weight:700; color:var(--heading); margin-bottom:14px; line-height:1.7;}
+.example-card .slabel{font-size:11px; font-weight:900; color:var(--green); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;}
+.example-card .stext{font-size:13px; color:var(--dim); line-height:1.9; font-weight:500; background:var(--glass-strong); padding:12px 14px; border-radius:10px; white-space:pre-line;}
+.show-ans-btn{padding:9px 20px; border-radius:10px; border:1.5px solid var(--green); background:transparent; color:var(--green);
+  font-weight:800; font-size:12px; cursor:pointer; transition:.2s;}
+.show-ans-btn:hover{background:var(--green); color:#04050f;}
+.show-ans-btn.open{background:var(--green); color:#04050f;}
+.ans-wrap{margin-top:14px; display:none;}
+.ans-wrap.open{display:block;}
+.pill{display:inline-block; padding:3px 10px; border-radius:10px; font-size:10px; font-weight:900; margin-left:8px; vertical-align:middle;}
+.pill-obj{background:linear-gradient(120deg,var(--cyan),#0a85b8); color:#04050f;}
+.pill-subj{background:linear-gradient(120deg,var(--purple),#7e4fd1); color:#fff;}
+
+.hw-card{padding:18px 20px;}
+.hw-card ol{margin:0; padding-left:20px; font-size:13px; color:var(--dim); line-height:2; font-weight:500;}
+.hw-card ol li{margin-bottom:8px;}
+.hw-card ol li::marker{color:var(--heading); font-weight:800;}
+
+.table-wrap{overflow-x:auto; margin-bottom:16px;}
+table{width:100%; border-collapse:collapse; min-width:560px;}
+thead th{text-align:center; padding:12px 14px; background:linear-gradient(120deg,var(--neon-blue),var(--purple)); color:#fff;
+  font-size:12px; text-transform:uppercase; letter-spacing:.5px; font-weight:900;}
+thead th:first-child{border-radius:10px 0 0 0;} thead th:last-child{border-radius:0 10px 0 0;}
+tbody td{padding:12px 14px; border-bottom:1px solid var(--border); color:var(--dim); font-size:12.5px; text-align:center; font-weight:600;}
+tbody tr:hover{background:#3ea6ff14;}
+
+footer{text-align:center; padding:50px 6vw 70px; color:var(--dim); font-size:12.5px; border-top:1px solid var(--border); margin-top:30px; font-weight:600;}
+footer .name{color:var(--cyan); font-weight:900; font-size:16px;}
+footer .copy{margin-top:18px; font-size:11px; color:var(--dim); opacity:.8;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <img src="images/1000043468.png" alt="PK STUDY" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="logo-fallback" style="display:none;">PK</div>
+    <div class="brand-text"><div class="name">PK STUDY</div><div class="tag">Class 10 • English • Chapter 1 (Prose)</div></div>
+  </div>
+  <nav>
+    <a href="#notes">Notes</a><a href="#tables">Word Meanings</a><a href="#questions">Questions</a><a href="#homework">Homework</a>
+  </nav>
+  <button class="theme-btn" id="themeToggle" onclick="toggleTheme()" title="Dark/Light Mode">🌙</button>
+</header>
+
+<!-- ============ HERO ============ -->
+<div class="hero">
+  <span class="eyebrow">कक्षा 10 · अंग्रेज़ी (गद्य) · अध्याय 1 · बिहार बोर्ड · Panorama Part 2</span>
+  <h1>The Pace For Living</h1>
+  <div class="en">जीवन जीने की गति — एक निबंध</div>
+  <p>This page brings you complete study material for Chapter 1 of Panorama Part 2 — <b>"The Pace for Living"</b> by R.C. Hutchinson. Learn about the author, the central theme, a full summary in simple English, key quotations, must-know vocabulary, and exam-ready important questions with answers.<br><br>इस पेज में आपको Notes, Word Meanings, Summary, महत्वपूर्ण प्रश्न (Important Questions) और Homework — सभी एक साथ मिलेंगे।</p>
+</div>
+
+<!-- ============ NOTES ============ -->
+<section id="notes">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--neon-blue),#1f6fc9); --glow:#3ea6ff99;">📝</div>
+    <div><h2>Notes — Author, Theme &amp; Summary</h2><div class="sub en-tag">Concept Notes, Section-wise</div></div></div>
+  <div class="glass card" style="display:flex; flex-direction:column; gap:16px;">
+    <div class="rule-card" style="border-left-color:var(--cyan);">
+      <h4 style="color:var(--cyan);">(a) About the Author — R.C. Hutchinson</h4>
+      <p>The essay <b class="hi">"The Pace for Living"</b> is written by <b>R.C. Hutchinson</b>, an English writer known for his warm, reflective and gently humorous style of prose. In this essay, he uses a simple personal experience — watching a play in Dublin — as a starting point to comment on the ever-increasing speed of modern life and how it affects ordinary people, including the writer himself.</p>
+      <p style="color:var(--gold); font-size:12.5px; margin-top:2px;"><b>हिंदी में सार:</b> यह निबंध आर.सी. हचिन्सन (R.C. Hutchinson) द्वारा लिखा गया है, जो अपनी सहज, चिंतनशील तथा हल्के-फुल्के हास्य-भरे लेखन के लिए जाने जाते हैं।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--pink);">
+      <h4 style="color:var(--pink);">(b) Central Theme of the Essay</h4>
+      <p>The central theme of <b class="hi2">"The Pace for Living"</b> is the ever-increasing <b>speed of modern life</b> and the strain it places on human beings. Through the figure of an anxious, weak-hearted corn-merchant who is alarmed even by the thought of an aeroplane flying at 1,000 miles an hour, the writer captures the fear and fatigue that rapid technological progress can cause. At the same time, the writer — who calls himself a <b>"slow thinker"</b> — shows through his own experience of struggling to follow a fast-moving film that not everyone is built for this frantic pace. The essay does not condemn speed and progress altogether; instead, it pleads for balance — for a pace of living that leaves room for reflection, patience and genuine human relationships, rather than treating life as a race to be run as fast as possible.</p>
+      <p style="color:var(--gold); font-size:12.5px; margin-top:2px;"><b>हिंदी में सार:</b> इस निबंध का मुख्य विषय आधुनिक जीवन की बढ़ती हुई तेज़ रफ़्तार और उससे मनुष्य पर पड़ने वाला दबाव है। लेखक तेज़ी का पूर्ण विरोध नहीं करते, बल्कि गति और चिंतन के बीच संतुलन बनाए रखने की सलाह देते हैं।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--green);">
+      <h4 style="color:var(--green);">(c) Summary of the Essay</h4>
+      <p>The essay opens with the writer recalling a play he once watched in Dublin. Its chief character was an ageing corn-merchant from a small Irish country town — a man burdened with anxieties: his heart was weak ("dicky"), he suspected his nephew of cheating him in business, and he was upset that his wife had the notion of spending ten pounds on a holiday. In a moment of despair, he cries out about a new aeroplane that can fly at 1,000 miles an hour, exclaiming that such speed is simply "too fast." His outburst is not really about aeroplanes at all — it is the cry of a man who feels that the whole pace of modern life has outrun him.</p>
+      <p>The writer then turns to his own life to show that he understands this feeling very well. He confesses that he is a "slow thinker" — someone who often works out the right answer to a question only after the moment for using it has passed. He recalls how, at the cinema, he frequently loses track of a fast-moving plot and has to lean over to his wife to ask who a particular character is, long after the rest of the audience has already understood. Such slow thinkers, he says, are genuinely handicapped in a world that rewards quick reflexes, sharp presence of mind and instant answers — whether in an interview, an examination, or an everyday conversation.</p>
+      <p>Yet the writer is careful to clarify that he does not dislike speed or rapid movement in every field. Progress, machines and fast transport have their own value and place in life. What he objects to is the growing assumption that faster is always better — that a well-lived life must be a hurried one. He suggests, gently and with humour, that there is room in the world for both the quick and the slow, and that true living requires not just speed but also the patience to notice, to feel, and to reflect.</p>
+      <p style="color:var(--gold); font-size:12.5px; margin-top:2px;"><b>हिंदी में सार:</b> लेखक डबलिन में देखे गए एक नाटक का ज़िक्र करते हैं जिसमें एक कमज़ोर हृदय वाला वृद्ध अनाज-व्यापारी 1000 मील प्रति घंटे की रफ़्तार वाले हवाई जहाज़ की बात सुनकर घबरा जाता है। लेखक स्वयं को भी "धीमा सोचने वाला" (Slow Thinker) बताते हैं और यह दर्शाते हैं कि तेज़ रफ़्तार दुनिया में धीरे सोचने वाले लोग भी नुकसान में रहते हैं, फिर भी हर क्षेत्र में तेज़ी बुरी नहीं होती।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--orange);">
+      <h4 style="color:var(--orange);">(d) Key Phrases and Quotations to Remember</h4>
+      <ul>
+        <li><b>"Now that's too fast!"</b> — the corn-merchant's cry on hearing of an aeroplane doing 1,000 miles an hour; it sums up his fear of being left behind by modern progress.</li>
+        <li><b>"A man of many anxieties"</b> — describes the corn-merchant, whose worries about his health, his nephew and his wife's holiday plan are made worse by the pressure of a fast-changing world.</li>
+        <li><b>"Slow thinker"</b> — how the writer describes himself; a person who needs more time to process information and respond, and is therefore at a disadvantage in a hurried world.</li>
+        <li><b>The cinema episode</b> — the writer's confession that he loses track of a film's story and must ask his wife for help; used as a light, self-deprecating illustration of being a slow thinker.</li>
+      </ul>
+      <p style="color:var(--gold); font-size:12.5px; margin-top:8px;"><b>हिंदी में सार:</b> "अब यह बहुत तेज़ है!" — अनाज-व्यापारी का यह वाक्य आधुनिक प्रगति से पीछे छूट जाने के डर को दर्शाता है, जबकि सिनेमा वाली घटना लेखक के "धीमे सोचने" को हास्यपूर्ण ढंग से स्पष्ट करती है।</p>
+    </div>
+    <div class="rule-card" style="border-left-color:var(--purple);">
+      <h4 style="color:var(--purple);">(e) Message for Students</h4>
+      <p>The essay reminds us that not everyone thinks or reacts at the same speed, and that this is perfectly normal. Being a "slow thinker" is not a fault — it is simply a different way of engaging with the world, and it often comes with its own strengths, such as patience and careful reflection. The message for students is to resist the pressure to rush through everything and to remember that a meaningful life is measured not by how fast we move through it, but by how thoughtfully and fully we live each part of it.</p>
+      <p style="color:var(--gold); font-size:12.5px; margin-top:2px;"><b>हिंदी में सार:</b> हर व्यक्ति की सोचने और प्रतिक्रिया देने की गति अलग होती है, और यह पूरी तरह सामान्य है। जीवन की सार्थकता उसकी गति में नहीं, बल्कि हम उसे कितनी सोच-समझ और पूर्णता के साथ जीते हैं, उसमें छिपी है।</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WORD MEANINGS / VOCABULARY ============ -->
+<section id="tables">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--purple),#7e4fd1); --glow:#b07dff99;">📊</div>
+    <div><h2>Word Meanings — Vocabulary Table</h2><div class="sub en-tag">Difficult Words from the Essay</div></div></div>
+
+  <div class="glass card table-wrap">
+    <table>
+      <thead><tr><th>Word</th><th>Hindi Meaning</th><th>Example Sentence</th></tr></thead>
+      <tbody>
+        <tr><td>Pace</td><td>गति, रफ़्तार</td><td>The pace of city life leaves little time for rest.</td></tr>
+        <tr><td>Anxiety</td><td>चिंता, व्याकुलता</td><td>His anxiety about his health kept him worried all day.</td></tr>
+        <tr><td>Despair</td><td>निराशा</td><td>In despair, the old man cried out that the aeroplane was too fast.</td></tr>
+        <tr><td>Notion</td><td>धारणा, विचार</td><td>His wife had the notion of spending ten pounds on a holiday.</td></tr>
+        <tr><td>Dicky (heart)</td><td>कमज़ोर, अस्थिर (हृदय)</td><td>The old corn-merchant's dicky heart made him worry over small things.</td></tr>
+        <tr><td>Handicapped</td><td>असमर्थ, बाधित</td><td>Slow thinkers are handicapped in a world that demands instant answers.</td></tr>
+        <tr><td>Presence of mind</td><td>सूझबूझ, तत्परता</td><td>Presence of mind helps a person react quickly in a difficult situation.</td></tr>
+        <tr><td>Alienation</td><td>अलगाव, विलगन</td><td>The fast pace of modern life can create a sense of alienation.</td></tr>
+        <tr><td>Contemplation</td><td>चिंतन, मनन</td><td>The essay pleads for a little contemplation amid the daily rush.</td></tr>
+        <tr><td>Illustration</td><td>उदाहरण, दृष्टांत</td><td>The cinema episode is a fine illustration of the writer's slow thinking.</td></tr>
+        <tr><td>Tribe</td><td>वर्ग, समुदाय</td><td>The writer proudly counts himself among the tribe of slow thinkers.</td></tr>
+        <tr><td>Gratefully</td><td>कृतज्ञतापूर्वक</td><td>He gratefully accepted his wife's help in following the film's story.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ IMPORTANT QUESTIONS ============ -->
+<section id="questions">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--green),#1a9c70); --glow:#2ee6a699;">📘</div>
+    <div><h2>Important Questions (Objective + Subjective)</h2><div class="sub en-tag">Tap the button to see the answer</div></div></div>
+  <div id="qWrap"></div>
+</section>
+
+<!-- ============ HOMEWORK ============ -->
+<section id="homework">
+  <div class="sec-head"><div class="sec-num" style="background:linear-gradient(160deg,var(--red),#a82424); --glow:#ff4f4f99;">🏠</div>
+    <div><h2>Homework</h2><div class="sub en-tag">Notebook Exercise — Solve on your own, without looking at answers</div></div></div>
+  <div class="glass card hw-card">
+    <ol id="homeworkList"></ol>
+  </div>
+  <p style="color:var(--dim); font-size:12px; margin-top:14px; font-weight:600;">यह सभी प्रश्न अपनी English की notebook में हल करके अगली कक्षा में साथ लाइए।</p>
+</section>
+
+<footer>
+  <span class="name">PK STUDY</span> — Chapter 1 Complete
+  <div class="copy">Class 10 · English (Panorama Part 2) · The Pace For Living — PK STUDY, All Copyright Reserved</div>
+</footer>
+
+<script>
+function toggleTheme(){
+  const html = document.documentElement;
+  const isLight = html.getAttribute('data-theme') === 'light';
+  html.setAttribute('data-theme', isLight ? '' : 'light');
+  document.getElementById('themeToggle').textContent = isLight ? '🌙' : '☀️';
+}
+function el(tag, cls, html){ const d=document.createElement(tag); if(cls)d.className=cls; if(html!==undefined)d.innerHTML=html; return d; }
+
+const qData = [
+  {type:"obj", q:"Who is the author of 'The Pace for Living'?", a:"R.C. Hutchinson is the author of 'The Pace for Living'."},
+  {type:"obj", q:"Where did the writer watch the play he describes at the beginning of the essay?", a:"The writer watched the play in Dublin."},
+  {type:"obj", q:"Who was the chief character of the play?", a:"The chief character was an ageing corn-merchant of a small Irish country town."},
+  {type:"obj", q:"What physical problem did the corn-merchant have?", a:"He had a weak, or 'dicky', heart."},
+  {type:"obj", q:"What did the corn-merchant complain about regarding his nephew?", a:"He believed his nephew was cheating him in business."},
+  {type:"obj", q:"According to the corn-merchant, at what speed could the new aeroplane fly?", a:"He said it could fly at 1,000 miles an hour."},
+  {type:"obj", q:"How does the writer describe himself in terms of thinking speed?", a:"The writer describes himself as a 'slow thinker'."},
+  {type:"subj", q:"Describe the character and anxieties of the ageing corn-merchant in the play.", a:"The corn-merchant was a man of many anxieties. His heart was weak (dicky), so he was easily agitated. He believed his nephew was cheating him in business, and he was upset by his wife's notion of spending ten pounds on a holiday. On top of all this, the news of an aeroplane travelling at 1,000 miles an hour pushed him into despair, making him cry out that such speed was simply 'too fast'. His character represents the ordinary person who feels overwhelmed by the accelerating pace of modern life."},
+  {type:"subj", q:"What does the corn-merchant's remark about the aeroplane reveal about his state of mind? Explain.", a:"The corn-merchant's remark, 'Now that's too fast!', is not really about the aeroplane's speed alone. It reveals his deep-rooted anxiety and his fear of being left behind by a world that is changing and moving faster than he can keep up with. Coming on top of his other worries — his health, his nephew, his wife's spending — the remark becomes a cry of despair against the whole pace of modern living, showing how technological progress can overwhelm an anxious mind."},
+  {type:"subj", q:"Who are 'slow thinkers', according to the essay, and how are they handicapped in modern life?", a:"Slow thinkers are people who take longer to process information and often arrive at the right response only after the moment to use it has passed. According to the essay, such people are genuinely handicapped in a fast-paced world because situations like interviews, examinations, quizzes and quick conversations reward instant answers and sharp presence of mind. Slow thinkers may know the correct answer but fail to produce it in time, putting them at a real disadvantage compared to quick thinkers."},
+  {type:"subj", q:"Narrate the cinema episode from the essay and explain what it illustrates about the writer.", a:"The writer recalls going to the cinema and finding himself unable to keep pace with the fast-moving story of the film. He often loses track of who a particular character is and has to lean over and ask his wife, who has already understood the plot. By the time he gets his answer, the scene has usually moved on. This light, self-deprecating episode illustrates that the writer himself is a slow thinker, and it makes his sympathy for the anxious corn-merchant, and for slow thinkers in general, feel personal and genuine."},
+  {type:"subj", q:"Does the writer dislike rapid movement and progress in every field? Justify your answer with reference to the essay.", a:"No, the writer does not dislike rapid movement or progress in every field. He recognises that speed, machines and technological advancement have real value and their own place in modern life. What troubles him is the assumption that everything — including thinking, feeling and living — must move at the same hurried pace. His objection is not to speed itself, but to a culture that leaves no space for people, and moments, that need to move more slowly."},
+  {type:"subj", q:"What is the central theme or message of 'The Pace for Living'?", a:"The central theme of the essay is the ever-increasing speed of modern life and the strain it places on human beings, especially those who cannot keep up with it. Through the anxious corn-merchant and his own experience as a slow thinker, the writer shows both the fear caused by rapid progress and the disadvantage faced by those who think and react more slowly. The essay's larger message is one of balance: it pleads for a pace of living that allows room for patience, reflection and genuine human connection, rather than treating speed as the only measure of a life well lived."},
+  {type:"subj", q:"What lesson does this essay teach us about balancing speed and contemplation in daily life?", a:"The essay teaches us that while speed and progress are necessary and valuable in many areas of life, they should not come at the cost of contemplation, patience and genuine relationships. A healthy life needs both — the ability to move quickly when required, and the willingness to slow down, reflect and appreciate the people and moments around us. Students should learn to set their own sensible pace rather than feeling pressured to rush through everything simply because the world around them seems to be speeding up."}
+];
+
+const homeworkData = [
+  "Write a paragraph of about 80-100 words, in your own words, on what 'pace of living' means to you.",
+  "Answer in 2-3 sentences: What does the author suggest about modern life through the character of the ageing corn-merchant?",
+  "Are you a 'fast thinker' or a 'slow thinker'? Give one real-life example from your own experience to support your answer.",
+  "List any three activities in your daily routine that feel hurried, and suggest one simple way to slow down for each.",
+  "In your own words, explain why the writer does not dislike rapid movement and progress in every field.",
+  "Use the following words in your own sentences (one sentence each): pace, anxiety, notion, handicapped, contemplation."
+];
+
+function buildQuestions(){
+  const wrap = document.getElementById('qWrap');
+  qData.forEach((item)=>{
+    const pillHtml = item.type === 'obj' ? '<span class="pill pill-obj">Objective</span>' : '<span class="pill pill-subj">Subjective</span>';
+    const d = el('div','glass example-card', `<div class="qlabel">Question ${pillHtml}</div><div class="qtext">${item.q}</div>
+      <button class="show-ans-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="ans-wrap"><div class="slabel">Answer</div><div class="stext">${item.a}</div></div>`);
+    wrap.appendChild(d);
+  });
+}
+function toggleAnswer(btn){
+  const wrap = btn.nextElementSibling;
+  const isOpen = wrap.classList.toggle('open');
+  btn.classList.toggle('open', isOpen);
+  btn.textContent = isOpen ? 'Hide Answer' : 'Show Answer';
+}
+function buildHomework(){
+  const g = document.getElementById('homeworkList');
+  homeworkData.forEach(q=>{ const li = document.createElement('li'); li.textContent = q; g.appendChild(li); });
+}
+
+buildQuestions();
+buildHomework();
+</script>
+</body>
+</html>
